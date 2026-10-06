@@ -1,0 +1,5806 @@
+{
+ "model": "gemma-3-12b-it",
+ "lens": "J",
+ "part": "prefix",
+ "group": "postresp",
+ "replicate": 1,
+ "prompt_file": "prompts/family_generation.md",
+ "rows_read_per_table": 400,
+ "families": [
+  {
+   "position": "postresp_slot0",
+   "name": "hide",
+   "gloss": "the act of hiding or concealing something",
+   "side": "lie",
+   "seeds": [
+    "hid",
+    "hiding",
+    "conceal",
+    "隐藏",
+    "隠",
+    "esconde",
+    "скры",
+    "লুকি",
+    "छिप"
+   ],
+   "members": [
+    {
+     "token": "隐藏",
+     "id": 88083,
+     "n": 13
+    },
+    {
+     "token": " hiding",
+     "id": 33495,
+     "n": 10
+    },
+    {
+     "token": "Hide",
+     "id": 38056,
+     "n": 7
+    },
+    {
+     "token": "Hid",
+     "id": 179146,
+     "n": 7
+    },
+    {
+     "token": " hid",
+     "id": 19435,
+     "n": 6
+    },
+    {
+     "token": "HIDE",
+     "id": 151393,
+     "n": 6
+    },
+    {
+     "token": " লুকিয়ে",
+     "id": 184171,
+     "n": 6
+    },
+    {
+     "token": " esconder",
+     "id": 219335,
+     "n": 6
+    },
+    {
+     "token": " скры",
+     "id": 106597,
+     "n": 5
+    },
+    {
+     "token": " छिपा",
+     "id": 147312,
+     "n": 4
+    },
+    {
+     "token": " concealed",
+     "id": 58181,
+     "n": 3
+    },
+    {
+     "token": "hide",
+     "id": 16124,
+     "n": 2
+    },
+    {
+     "token": "Hidden",
+     "id": 52115,
+     "n": 2
+    },
+    {
+     "token": " hide",
+     "id": 16239,
+     "n": 1
+    },
+    {
+     "token": " hides",
+     "id": 65896,
+     "n": 1
+    },
+    {
+     "token": "隠",
+     "id": 241858,
+     "n": 1
+    },
+    {
+     "token": " concealing",
+     "id": 180975,
+     "n": 1
+    }
+   ],
+   "notes": "hide and conceal are treated as one meaning (each replaces the other); ␣скры starts only Russian hide words (скрыть, скрытый)"
+  },
+  {
+   "position": "postresp_slot0",
+   "name": "subtle",
+   "gloss": "subtly, subtle",
+   "side": "unclear",
+   "seeds": [
+    "subtl"
+   ],
+   "members": [
+    {
+     "token": " subtly",
+     "id": 123888,
+     "n": 22
+    },
+    {
+     "token": " subtle",
+     "id": 29110,
+     "n": 10
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "name": "clever",
+   "gloss": "cleverly, ingeniously",
+   "side": "unclear",
+   "seeds": [
+    "clever",
+    "巧妙"
+   ],
+   "members": [
+    {
+     "token": "巧妙",
+     "id": 226727,
+     "n": 6
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "name": "disclaimer",
+   "gloss": "a disclaimer",
+   "side": "unclear",
+   "seeds": [
+    "disclaim"
+   ],
+   "members": [
+    {
+     "token": "Disclaimer",
+     "id": 83512,
+     "n": 15
+    },
+    {
+     "token": " disclaimer",
+     "id": 71729,
+     "n": 1
+    },
+    {
+     "token": " Disclaimer",
+     "id": 124235,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "name": "blatant",
+   "gloss": "blatantly, openly",
+   "side": "unclear",
+   "seeds": [
+    "blatant"
+   ],
+   "members": [
+    {
+     "token": " blatantly",
+     "id": 206921,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "hide",
+   "gloss": "the act of hiding or concealing something",
+   "side": "lie",
+   "seeds": [
+    "hid",
+    "hiding",
+    "conceal",
+    "隐藏",
+    "隠",
+    "esconde",
+    "скры",
+    "লুকি",
+    "छिप"
+   ],
+   "members": [
+    {
+     "token": "隐藏",
+     "id": 88083,
+     "n": 6
+    },
+    {
+     "token": " скры",
+     "id": 106597,
+     "n": 5
+    },
+    {
+     "token": " concealing",
+     "id": 180975,
+     "n": 5
+    },
+    {
+     "token": " concealment",
+     "id": 191682,
+     "n": 5
+    },
+    {
+     "token": "Hide",
+     "id": 38056,
+     "n": 2
+    },
+    {
+     "token": " hiding",
+     "id": 33495,
+     "n": 1
+    },
+    {
+     "token": "隠",
+     "id": 241858,
+     "n": 1
+    }
+   ],
+   "notes": "hide and conceal are treated as one meaning (each replaces the other); ␣скры starts only Russian hide words (скрыть, скрытый)"
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "secret",
+   "gloss": "secrecy; something kept secret",
+   "side": "lie",
+   "seeds": [
+    "secre",
+    "秘密",
+    "خفی",
+    "covert",
+    "undisclos"
+   ],
+   "members": [
+    {
+     "token": " secrecy",
+     "id": 91079,
+     "n": 3
+    },
+    {
+     "token": " خفیہ",
+     "id": 185260,
+     "n": 2
+    },
+    {
+     "token": " secretly",
+     "id": 63787,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "omit",
+   "gloss": "leaving information out",
+   "side": "lie",
+   "seeds": [
+    "omit",
+    "omission"
+   ],
+   "members": [
+    {
+     "token": " omitted",
+     "id": 38225,
+     "n": 1
+    },
+    {
+     "token": " omit",
+     "id": 68442,
+     "n": 1
+    },
+    {
+     "token": " omission",
+     "id": 81879,
+     "n": 1
+    },
+    {
+     "token": " omissions",
+     "id": 127611,
+     "n": 1
+    },
+    {
+     "token": " omitting",
+     "id": 151909,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "withhold",
+   "gloss": "withholding information",
+   "side": "lie",
+   "seeds": [
+    "withh"
+   ],
+   "members": [
+    {
+     "token": " withholding",
+     "id": 115069,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "confidentiality",
+   "gloss": "keeping information confidential",
+   "side": "unclear",
+   "seeds": [
+    "confiden"
+   ],
+   "members": [
+    {
+     "token": " confidentialité",
+     "id": 96542,
+     "n": 21
+    },
+    {
+     "token": " confidentiality",
+     "id": 79327,
+     "n": 18
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "privacy",
+   "gloss": "privacy",
+   "side": "unclear",
+   "seeds": [
+    "privacy",
+    "隐私"
+   ],
+   "members": [
+    {
+     "token": "Privacy",
+     "id": 52581,
+     "n": 3
+    },
+    {
+     "token": "privacy",
+     "id": 95601,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "deceive",
+   "gloss": "the act of deceiving",
+   "side": "lie",
+   "seeds": [
+    "decei",
+    "decept",
+    "騙",
+    "欺"
+   ],
+   "members": [
+    {
+     "token": " deception",
+     "id": 74492,
+     "n": 4
+    },
+    {
+     "token": " deceptive",
+     "id": 114557,
+     "n": 3
+    },
+    {
+     "token": " deceit",
+     "id": 114667,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "dishonest",
+   "gloss": "dishonesty",
+   "side": "lie",
+   "seeds": [
+    "dishonest"
+   ],
+   "members": [
+    {
+     "token": " dishonesty",
+     "id": 187529,
+     "n": 5
+    },
+    {
+     "token": " dishonest",
+     "id": 128654,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "lie",
+   "gloss": "a lie; lying",
+   "side": "lie",
+   "seeds": [
+    "lie",
+    "lying",
+    "liar",
+    "谎",
+    "謊",
+    "거짓",
+    "झूठ",
+    "মিথ্যা"
+   ],
+   "members": [
+    {
+     "token": "謊",
+     "id": 247639,
+     "n": 21
+    },
+    {
+     "token": " মিথ্যা",
+     "id": 67531,
+     "n": 17
+    },
+    {
+     "token": "谎",
+     "id": 244378,
+     "n": 12
+    },
+    {
+     "token": " 거짓",
+     "id": 212148,
+     "n": 7
+    },
+    {
+     "token": " झूठ",
+     "id": 112396,
+     "n": 4
+    },
+    {
+     "token": "Lie",
+     "id": 52983,
+     "n": 1
+    }
+   ],
+   "notes": "English 'lie' can also mean 'lie down'; kept"
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "fake",
+   "gloss": "fake, not genuine",
+   "side": "lie",
+   "seeds": [
+    "fake",
+    "faux",
+    "偽"
+   ],
+   "members": [
+    {
+     "token": "偽",
+     "id": 242615,
+     "n": 6
+    },
+    {
+     "token": "FAKE",
+     "id": 231119,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "fabricate",
+   "gloss": "fabricating, making things up",
+   "side": "lie",
+   "seeds": [
+    "fabricat"
+   ],
+   "members": [
+    {
+     "token": " fabrication",
+     "id": 41096,
+     "n": 1
+    },
+    {
+     "token": " fabricated",
+     "id": 65560,
+     "n": 1
+    },
+    {
+     "token": "fabricated",
+     "id": 156330,
+     "n": 1
+    },
+    {
+     "token": " Fabrication",
+     "id": 158387,
+     "n": 1
+    },
+    {
+     "token": " fabricate",
+     "id": 145269,
+     "n": 1
+    },
+    {
+     "token": " fabricating",
+     "id": 213360,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "mislead",
+   "gloss": "misleading someone",
+   "side": "lie",
+   "seeds": [
+    "mislead"
+   ],
+   "members": [
+    {
+     "token": " misleading",
+     "id": 49028,
+     "n": 14
+    },
+    {
+     "token": " mislead",
+     "id": 126601,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "misinformation",
+   "gloss": "false information spread",
+   "side": "lie",
+   "seeds": [
+    "misinform",
+    "disinform"
+   ],
+   "members": [
+    {
+     "token": " misinformation",
+     "id": 98319,
+     "n": 8
+    },
+    {
+     "token": " disinformation",
+     "id": 158687,
+     "n": 5
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "pretend",
+   "gloss": "pretending",
+   "side": "lie",
+   "seeds": [
+    "pretend"
+   ],
+   "members": [
+    {
+     "token": " pretending",
+     "id": 83520,
+     "n": 11
+    },
+    {
+     "token": " pretended",
+     "id": 116438,
+     "n": 4
+    },
+    {
+     "token": " pretends",
+     "id": 229733,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "obfuscate",
+   "gloss": "obscuring meaning on purpose",
+   "side": "lie",
+   "seeds": [
+    "obfusc"
+   ],
+   "members": [
+    {
+     "token": " obfusc",
+     "id": 185440,
+     "n": 18
+    }
+   ],
+   "notes": "word piece; only obfuscate/obfuscation start with it"
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "evade",
+   "gloss": "evading, evasion",
+   "side": "lie",
+   "seeds": [
+    "evas",
+    "evad",
+    "回避"
+   ],
+   "members": [
+    {
+     "token": " evas",
+     "id": 176744,
+     "n": 11
+    },
+    {
+     "token": " evasion",
+     "id": 126319,
+     "n": 7
+    },
+    {
+     "token": " evade",
+     "id": 101833,
+     "n": 5
+    },
+    {
+     "token": "回避",
+     "id": 176030,
+     "n": 5
+    },
+    {
+     "token": " evaded",
+     "id": 233379,
+     "n": 3
+    }
+   ],
+   "notes": "␣evas: evasion, evasive only"
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "avoid",
+   "gloss": "avoiding",
+   "side": "unclear",
+   "seeds": [
+    "avoid",
+    "避免",
+    "menghindar",
+    "এড়ি",
+    "éviter",
+    "evitar",
+    "vermeid"
+   ],
+   "members": [
+    {
+     "token": "避免",
+     "id": 48073,
+     "n": 25
+    },
+    {
+     "token": "Avoid",
+     "id": 77499,
+     "n": 22
+    },
+    {
+     "token": " menghindari",
+     "id": 217705,
+     "n": 17
+    },
+    {
+     "token": "Avoiding",
+     "id": 234619,
+     "n": 16
+    },
+    {
+     "token": " avoidance",
+     "id": 65815,
+     "n": 12
+    },
+    {
+     "token": " এড়িয়ে",
+     "id": 197542,
+     "n": 10
+    },
+    {
+     "token": " avoiding",
+     "id": 31983,
+     "n": 6
+    },
+    {
+     "token": " Avoiding",
+     "id": 233774,
+     "n": 5
+    },
+    {
+     "token": "éviter",
+     "id": 172918,
+     "n": 4
+    },
+    {
+     "token": " avoids",
+     "id": 69281,
+     "n": 3
+    },
+    {
+     "token": " evitare",
+     "id": 123398,
+     "n": 3
+    },
+    {
+     "token": " vermeiden",
+     "id": 170474,
+     "n": 3
+    },
+    {
+     "token": " avoid",
+     "id": 5571,
+     "n": 2
+    },
+    {
+     "token": "avoid",
+     "id": 54670,
+     "n": 2
+    },
+    {
+     "token": " Avoid",
+     "id": 39874,
+     "n": 2
+    },
+    {
+     "token": " evitar",
+     "id": 36739,
+     "n": 2
+    },
+    {
+     "token": " éviter",
+     "id": 87054,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "deflect",
+   "gloss": "deflecting a question",
+   "side": "lie",
+   "seeds": [
+    "deflect"
+   ],
+   "members": [
+    {
+     "token": " deflect",
+     "id": 135180,
+     "n": 11
+    },
+    {
+     "token": " deflection",
+     "id": 68469,
+     "n": 10
+    },
+    {
+     "token": " deflected",
+     "id": 142857,
+     "n": 6
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "redirect",
+   "gloss": "redirecting, steering elsewhere",
+   "side": "unclear",
+   "seeds": [
+    "redirect"
+   ],
+   "members": [
+    {
+     "token": " redirection",
+     "id": 196845,
+     "n": 6
+    },
+    {
+     "token": " redirect",
+     "id": 12315,
+     "n": 4
+    },
+    {
+     "token": "redirect",
+     "id": 22542,
+     "n": 4
+    },
+    {
+     "token": "Redirect",
+     "id": 48752,
+     "n": 4
+    },
+    {
+     "token": " Redirect",
+     "id": 49877,
+     "n": 2
+    },
+    {
+     "token": "REDIRECT",
+     "id": 100304,
+     "n": 1
+    },
+    {
+     "token": " redirected",
+     "id": 125727,
+     "n": 1
+    },
+    {
+     "token": " redirects",
+     "id": 140589,
+     "n": 1
+    }
+   ],
+   "notes": "also a web/programming sense"
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "dodge",
+   "gloss": "dodging",
+   "side": "lie",
+   "seeds": [
+    "dodg"
+   ],
+   "members": [
+    {
+     "token": " dodging",
+     "id": 203729,
+     "n": 6
+    },
+    {
+     "token": " dodge",
+     "id": 70218,
+     "n": 4
+    },
+    {
+     "token": "dodge",
+     "id": 152260,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "sneaky",
+   "gloss": "sneaky",
+   "side": "lie",
+   "seeds": [
+    "sneak"
+   ],
+   "members": [
+    {
+     "token": " sneaky",
+     "id": 181294,
+     "n": 5
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "subtle",
+   "gloss": "subtly, subtle",
+   "side": "unclear",
+   "seeds": [
+    "subtl"
+   ],
+   "members": [
+    {
+     "token": " subtly",
+     "id": 123888,
+     "n": 23
+    },
+    {
+     "token": " subtle",
+     "id": 29110,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "clever",
+   "gloss": "cleverly, ingeniously",
+   "side": "unclear",
+   "seeds": [
+    "clever",
+    "巧妙"
+   ],
+   "members": [
+    {
+     "token": "巧妙",
+     "id": 226727,
+     "n": 9
+    },
+    {
+     "token": " cleverly",
+     "id": 134881,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "vague",
+   "gloss": "vague",
+   "side": "unclear",
+   "seeds": [
+    "vague"
+   ],
+   "members": [
+    {
+     "token": " vague",
+     "id": 46020,
+     "n": 6
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "ambiguity",
+   "gloss": "ambiguity",
+   "side": "unclear",
+   "seeds": [
+    "ambigu"
+   ],
+   "members": [
+    {
+     "token": " ambiguity",
+     "id": 57352,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "hint",
+   "gloss": "hinting, implying",
+   "side": "unclear",
+   "seeds": [
+    "hint",
+    "暗示"
+   ],
+   "members": [
+    {
+     "token": " hinting",
+     "id": 172082,
+     "n": 8
+    },
+    {
+     "token": "暗示",
+     "id": 199449,
+     "n": 6
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "whisper",
+   "gloss": "whispering",
+   "side": "unclear",
+   "seeds": [
+    "whisper",
+    "囁"
+   ],
+   "members": [
+    {
+     "token": " whispers",
+     "id": 137065,
+     "n": 8
+    },
+    {
+     "token": " whispered",
+     "id": 71787,
+     "n": 6
+    },
+    {
+     "token": " whispering",
+     "id": 146526,
+     "n": 2
+    },
+    {
+     "token": "囁",
+     "id": 251189,
+     "n": 2
+    },
+    {
+     "token": " whisper",
+     "id": 89830,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "contradict",
+   "gloss": "contradicting",
+   "side": "unclear",
+   "seeds": [
+    "contradict",
+    "противоре"
+   ],
+   "members": [
+    {
+     "token": " contradicting",
+     "id": 160030,
+     "n": 10
+    },
+    {
+     "token": " contradicted",
+     "id": 184382,
+     "n": 6
+    },
+    {
+     "token": " contradicts",
+     "id": 90159,
+     "n": 5
+    },
+    {
+     "token": " противоре",
+     "id": 165523,
+     "n": 4
+    },
+    {
+     "token": " contradictory",
+     "id": 79950,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "deny",
+   "gloss": "denial",
+   "side": "lie",
+   "seeds": [
+    "denial",
+    "deny",
+    "отриц"
+   ],
+   "members": [
+    {
+     "token": " denial",
+     "id": 44330,
+     "n": 8
+    },
+    {
+     "token": " denying",
+     "id": 51421,
+     "n": 5
+    },
+    {
+     "token": " denials",
+     "id": 229287,
+     "n": 4
+    },
+    {
+     "token": " deny",
+     "id": 30590,
+     "n": 4
+    },
+    {
+     "token": " Denial",
+     "id": 206915,
+     "n": 2
+    },
+    {
+     "token": "deny",
+     "id": 205380,
+     "n": 1
+    },
+    {
+     "token": " отрица",
+     "id": 114977,
+     "n": 1
+    }
+   ],
+   "notes": "can be the answer to the user or the model's act toward the self-report question",
+   "double_reading": true
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "acknowledge",
+   "gloss": "acknowledging",
+   "side": "truth",
+   "seeds": [
+    "acknowledg"
+   ],
+   "members": [
+    {
+     "token": " acknowledging",
+     "id": 80785,
+     "n": 13
+    },
+    {
+     "token": " acknowledgement",
+     "id": 105119,
+     "n": 9
+    },
+    {
+     "token": "Acknowledgement",
+     "id": 223734,
+     "n": 9
+    },
+    {
+     "token": " acknowledgment",
+     "id": 104027,
+     "n": 6
+    },
+    {
+     "token": " acknowledges",
+     "id": 62687,
+     "n": 5
+    },
+    {
+     "token": "Acknowledgment",
+     "id": 236370,
+     "n": 5
+    },
+    {
+     "token": "acknowledge",
+     "id": 186626,
+     "n": 3
+    },
+    {
+     "token": " acknowledge",
+     "id": 27517,
+     "n": 2
+    },
+    {
+     "token": " acknowledged",
+     "id": 30285,
+     "n": 1
+    },
+    {
+     "token": " Acknowledg",
+     "id": 139396,
+     "n": 1
+    }
+   ],
+   "notes": "can be the answer to the user or the model's act toward the self-report question",
+   "double_reading": true
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "admit",
+   "gloss": "admitting",
+   "side": "truth",
+   "seeds": [
+    "admit",
+    "承认"
+   ],
+   "members": [
+    {
+     "token": " admitted",
+     "id": 15210,
+     "n": 1
+    },
+    {
+     "token": " admit",
+     "id": 19921,
+     "n": 1
+    },
+    {
+     "token": " admits",
+     "id": 34822,
+     "n": 1
+    },
+    {
+     "token": " admitting",
+     "id": 66154,
+     "n": 1
+    },
+    {
+     "token": "承认",
+     "id": 131541,
+     "n": 1
+    }
+   ],
+   "notes": "can be the answer to the user or the model's act toward the self-report question",
+   "double_reading": true
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "confess",
+   "gloss": "confessing",
+   "side": "truth",
+   "seeds": [
+    "confess"
+   ],
+   "members": [
+    {
+     "token": " confess",
+     "id": 54452,
+     "n": 1
+    },
+    {
+     "token": " confession",
+     "id": 58496,
+     "n": 1
+    },
+    {
+     "token": " confessed",
+     "id": 76135,
+     "n": 1
+    },
+    {
+     "token": " confessions",
+     "id": 177743,
+     "n": 1
+    },
+    {
+     "token": " confesses",
+     "id": 190761,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "disclose",
+   "gloss": "disclosing",
+   "side": "truth",
+   "seeds": [
+    "disclos",
+    "透露"
+   ],
+   "members": [
+    {
+     "token": "Disclosure",
+     "id": 145299,
+     "n": 12
+    },
+    {
+     "token": "disclosure",
+     "id": 192414,
+     "n": 9
+    },
+    {
+     "token": " disclose",
+     "id": 43880,
+     "n": 2
+    },
+    {
+     "token": " Disclosure",
+     "id": 105767,
+     "n": 2
+    },
+    {
+     "token": " disclosure",
+     "id": 27276,
+     "n": 1
+    },
+    {
+     "token": " disclosures",
+     "id": 111199,
+     "n": 1
+    },
+    {
+     "token": " disclosing",
+     "id": 137066,
+     "n": 1
+    },
+    {
+     "token": "透露",
+     "id": 113848,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "reveal",
+   "gloss": "revealing",
+   "side": "truth",
+   "seeds": [
+    "reveal"
+   ],
+   "members": [
+    {
+     "token": "Reveal",
+     "id": 209266,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "disclaimer",
+   "gloss": "a disclaimer",
+   "side": "unclear",
+   "seeds": [
+    "disclaim"
+   ],
+   "members": [
+    {
+     "token": "Disclaimer",
+     "id": 83512,
+     "n": 41
+    },
+    {
+     "token": " disclaimer",
+     "id": 71729,
+     "n": 27
+    },
+    {
+     "token": " Disclaimer",
+     "id": 124235,
+     "n": 13
+    },
+    {
+     "token": " DISCLAIM",
+     "id": 161860,
+     "n": 8
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "honest",
+   "gloss": "honesty",
+   "side": "truth",
+   "seeds": [
+    "honest"
+   ],
+   "members": [
+    {
+     "token": "Honestly",
+     "id": 118958,
+     "n": 47
+    },
+    {
+     "token": " Honestly",
+     "id": 96230,
+     "n": 2
+    },
+    {
+     "token": " honesty",
+     "id": 55730,
+     "n": 2
+    },
+    {
+     "token": " honest",
+     "id": 11481,
+     "n": 1
+    },
+    {
+     "token": " Honest",
+     "id": 174619,
+     "n": 1
+    },
+    {
+     "token": "honest",
+     "id": 213202,
+     "n": 1
+    }
+   ],
+   "notes": "'Honestly' is often a discourse opener"
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "sincere",
+   "gloss": "sincerity",
+   "side": "truth",
+   "seeds": [
+    "sincer"
+   ],
+   "members": [
+    {
+     "token": "Sincerely",
+     "id": 162293,
+     "n": 4
+    }
+   ],
+   "notes": "'Sincerely' is also a letter sign-off"
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "transparent",
+   "gloss": "transparency",
+   "side": "truth",
+   "seeds": [
+    "transparen",
+    "透明"
+   ],
+   "members": [
+    {
+     "token": "Transparency",
+     "id": 178475,
+     "n": 5
+    },
+    {
+     "token": " transparency",
+     "id": 29624,
+     "n": 1
+    },
+    {
+     "token": "Transparent",
+     "id": 85095,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "truthful",
+   "gloss": "truthful, truthfully",
+   "side": "truth",
+   "seeds": [
+    "truthful"
+   ],
+   "members": [
+    {
+     "token": " truthful",
+     "id": 113683,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "blatant",
+   "gloss": "blatantly, openly",
+   "side": "unclear",
+   "seeds": [
+    "blatant"
+   ],
+   "members": [
+    {
+     "token": " blatantly",
+     "id": 206921,
+     "n": 10
+    },
+    {
+     "token": " blatant",
+     "id": 130596,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "unethical",
+   "gloss": "unethical",
+   "side": "lie",
+   "seeds": [
+    "ethic"
+   ],
+   "members": [
+    {
+     "token": " unethical",
+     "id": 130791,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "apologise",
+   "gloss": "apologising, saying sorry",
+   "side": "unclear",
+   "seeds": [
+    "apolog",
+    "sorry"
+   ],
+   "members": [
+    {
+     "token": " apologizing",
+     "id": 236576,
+     "n": 4
+    },
+    {
+     "token": " apologised",
+     "id": 183159,
+     "n": 2
+    },
+    {
+     "token": " apologized",
+     "id": 110784,
+     "n": 2
+    },
+    {
+     "token": " apologize",
+     "id": 57428,
+     "n": 1
+    },
+    {
+     "token": " apology",
+     "id": 66960,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "unapologetic",
+   "gloss": "unapologetic",
+   "side": "unclear",
+   "seeds": [
+    "apolog"
+   ],
+   "members": [
+    {
+     "token": " unapolog",
+     "id": 223709,
+     "n": 8
+    }
+   ],
+   "notes": "word piece; only unapologetic(ally) start with it"
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "damning",
+   "gloss": "damning",
+   "side": "unclear",
+   "seeds": [
+    "damning"
+   ],
+   "members": [
+    {
+     "token": " damning",
+     "id": 232366,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "justify",
+   "gloss": "justifying, justification",
+   "side": "unclear",
+   "seeds": [
+    "justif"
+   ],
+   "members": [
+    {
+     "token": " justifications",
+     "id": 229269,
+     "n": 17
+    },
+    {
+     "token": " justification",
+     "id": 47107,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "rebut",
+   "gloss": "rebutting, refuting",
+   "side": "unclear",
+   "seeds": [
+    "rebutt",
+    "refut"
+   ],
+   "members": [
+    {
+     "token": " rebuttal",
+     "id": 214567,
+     "n": 6
+    },
+    {
+     "token": " refute",
+     "id": 164301,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "reassure",
+   "gloss": "reassuring",
+   "side": "unclear",
+   "seeds": [
+    "reassur"
+   ],
+   "members": [
+    {
+     "token": " reassurance",
+     "id": 137675,
+     "n": 19
+    },
+    {
+     "token": " reassuring",
+     "id": 109282,
+     "n": 15
+    },
+    {
+     "token": " reassured",
+     "id": 142659,
+     "n": 5
+    },
+    {
+     "token": " reassure",
+     "id": 126504,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "persuade",
+   "gloss": "persuading, convincing",
+   "side": "unclear",
+   "seeds": [
+    "persua",
+    "convinc"
+   ],
+   "members": [
+    {
+     "token": " persuading",
+     "id": 183755,
+     "n": 8
+    },
+    {
+     "token": " persuasive",
+     "id": 89463,
+     "n": 6
+    },
+    {
+     "token": " persuasion",
+     "id": 117529,
+     "n": 4
+    },
+    {
+     "token": " convincing",
+     "id": 45736,
+     "n": 4
+    },
+    {
+     "token": " persuas",
+     "id": 71062,
+     "n": 2
+    }
+   ],
+   "notes": "␣persuas: persuade, persuasion, persuasive only"
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "manipulate",
+   "gloss": "manipulating",
+   "side": "lie",
+   "seeds": [
+    "manipul"
+   ],
+   "members": [
+    {
+     "token": "Manipulation",
+     "id": 217873,
+     "n": 2
+    },
+    {
+     "token": " manipulative",
+     "id": 169229,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "deliberately",
+   "gloss": "knowingly, intentionally",
+   "side": "unclear",
+   "seeds": [
+    "knowingly",
+    "intention",
+    "故意"
+   ],
+   "members": [
+    {
+     "token": " knowingly",
+     "id": 88607,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "unknowingly",
+   "gloss": "unknowingly",
+   "side": "unclear",
+   "seeds": [
+    "knowingly"
+   ],
+   "members": [
+    {
+     "token": " unknowingly",
+     "id": 197366,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "rumour",
+   "gloss": "rumours",
+   "side": "unclear",
+   "seeds": [
+    "rumou",
+    "rumor"
+   ],
+   "members": [
+    {
+     "token": " rumors",
+     "id": 49564,
+     "n": 3
+    },
+    {
+     "token": " rumored",
+     "id": 100838,
+     "n": 2
+    },
+    {
+     "token": " rumor",
+     "id": 89784,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "scepticism",
+   "gloss": "scepticism",
+   "side": "unclear",
+   "seeds": [
+    "skeptic",
+    "sceptic"
+   ],
+   "members": [
+    {
+     "token": " skepticism",
+     "id": 130099,
+     "n": 3
+    },
+    {
+     "token": " scepticism",
+     "id": 226529,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "suspicion",
+   "gloss": "suspicion",
+   "side": "unclear",
+   "seeds": [
+    "suspic"
+   ],
+   "members": [
+    {
+     "token": " suspiciously",
+     "id": 223521,
+     "n": 3
+    },
+    {
+     "token": " suspicions",
+     "id": 120133,
+     "n": 1
+    },
+    {
+     "token": " suspicious",
+     "id": 41492,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "doubt",
+   "gloss": "doubting, questioning a claim",
+   "side": "unclear",
+   "seeds": [
+    "doubt",
+    "质疑"
+   ],
+   "members": [
+    {
+     "token": "质疑",
+     "id": 142292,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "paranoia",
+   "gloss": "paranoia",
+   "side": "unclear",
+   "seeds": [
+    "paranoi"
+   ],
+   "members": [
+    {
+     "token": " paranoia",
+     "id": 150692,
+     "n": 1
+    },
+    {
+     "token": " paranoid",
+     "id": 122126,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "worry",
+   "gloss": "worry",
+   "side": "unclear",
+   "seeds": [
+    "worr",
+    "担忧",
+    "擔心",
+    "担心"
+   ],
+   "members": [
+    {
+     "token": "担忧",
+     "id": 200560,
+     "n": 1
+    },
+    {
+     "token": "擔心",
+     "id": 190386,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "desperation",
+   "gloss": "desperation",
+   "side": "unclear",
+   "seeds": [
+    "desperat"
+   ],
+   "members": [
+    {
+     "token": " desperation",
+     "id": 115054,
+     "n": 4
+    },
+    {
+     "token": " desperately",
+     "id": 54826,
+     "n": 1
+    },
+    {
+     "token": " desperate",
+     "id": 38412,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "refuse",
+   "gloss": "refusing",
+   "side": "unclear",
+   "seeds": [
+    "refus",
+    "拒绝"
+   ],
+   "members": [
+    {
+     "token": " refusal",
+     "id": 45208,
+     "n": 2
+    },
+    {
+     "token": "拒绝",
+     "id": 90427,
+     "n": 2
+    },
+    {
+     "token": " refusing",
+     "id": 51628,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "caution",
+   "gloss": "caution",
+   "side": "unclear",
+   "seeds": [
+    "cautio",
+    "谨慎"
+   ],
+   "members": [
+    {
+     "token": " cautionary",
+     "id": 186368,
+     "n": 1
+    },
+    {
+     "token": "Caution",
+     "id": 220221,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "hide",
+   "gloss": "the act of hiding or concealing something",
+   "side": "lie",
+   "seeds": [
+    "hid",
+    "hiding",
+    "conceal",
+    "隐藏",
+    "隠",
+    "esconde",
+    "скры",
+    "লুকি",
+    "छिप"
+   ],
+   "members": [
+    {
+     "token": "隐藏",
+     "id": 88083,
+     "n": 8
+    },
+    {
+     "token": " concealing",
+     "id": 180975,
+     "n": 8
+    },
+    {
+     "token": " hiding",
+     "id": 33495,
+     "n": 6
+    },
+    {
+     "token": " скры",
+     "id": 106597,
+     "n": 5
+    },
+    {
+     "token": " concealment",
+     "id": 191682,
+     "n": 4
+    },
+    {
+     "token": "隠",
+     "id": 241858,
+     "n": 3
+    },
+    {
+     "token": " conceal",
+     "id": 70211,
+     "n": 2
+    },
+    {
+     "token": "Hidden",
+     "id": 52115,
+     "n": 1
+    },
+    {
+     "token": " hidden",
+     "id": 11497,
+     "n": 1
+    }
+   ],
+   "notes": "hide and conceal are treated as one meaning (each replaces the other); ␣скры starts only Russian hide words (скрыть, скрытый)"
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "secret",
+   "gloss": "secrecy; something kept secret",
+   "side": "lie",
+   "seeds": [
+    "secre",
+    "秘密",
+    "خفی",
+    "covert",
+    "undisclos"
+   ],
+   "members": [
+    {
+     "token": " secretly",
+     "id": 63787,
+     "n": 18
+    },
+    {
+     "token": " secrecy",
+     "id": 91079,
+     "n": 16
+    },
+    {
+     "token": " خفیہ",
+     "id": 185260,
+     "n": 13
+    },
+    {
+     "token": " secretive",
+     "id": 155416,
+     "n": 8
+    },
+    {
+     "token": "秘密",
+     "id": 85039,
+     "n": 4
+    },
+    {
+     "token": " secret",
+     "id": 6789,
+     "n": 2
+    },
+    {
+     "token": "secret",
+     "id": 24760,
+     "n": 1
+    },
+    {
+     "token": "Secret",
+     "id": 30730,
+     "n": 1
+    },
+    {
+     "token": "secrets",
+     "id": 98579,
+     "n": 1
+    },
+    {
+     "token": "Secrets",
+     "id": 159318,
+     "n": 1
+    },
+    {
+     "token": " secretos",
+     "id": 213761,
+     "n": 1
+    },
+    {
+     "token": " covert",
+     "id": 96655,
+     "n": 1
+    },
+    {
+     "token": " undisclosed",
+     "id": 132411,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "omit",
+   "gloss": "leaving information out",
+   "side": "lie",
+   "seeds": [
+    "omit",
+    "omission"
+   ],
+   "members": [
+    {
+     "token": " omission",
+     "id": 81879,
+     "n": 4
+    },
+    {
+     "token": " omitted",
+     "id": 38225,
+     "n": 3
+    },
+    {
+     "token": " omissions",
+     "id": 127611,
+     "n": 3
+    },
+    {
+     "token": " omitting",
+     "id": 151909,
+     "n": 3
+    },
+    {
+     "token": " omit",
+     "id": 68442,
+     "n": 2
+    },
+    {
+     "token": "omit",
+     "id": 181778,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "withhold",
+   "gloss": "withholding information",
+   "side": "lie",
+   "seeds": [
+    "withh"
+   ],
+   "members": [
+    {
+     "token": " withholding",
+     "id": 115069,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "confidentiality",
+   "gloss": "keeping information confidential",
+   "side": "unclear",
+   "seeds": [
+    "confiden"
+   ],
+   "members": [
+    {
+     "token": " confidentiality",
+     "id": 79327,
+     "n": 44
+    },
+    {
+     "token": " confidentialité",
+     "id": 96542,
+     "n": 35
+    },
+    {
+     "token": " confidential",
+     "id": 29259,
+     "n": 5
+    },
+    {
+     "token": " Confidential",
+     "id": 125685,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "privacy",
+   "gloss": "privacy",
+   "side": "unclear",
+   "seeds": [
+    "privacy",
+    "隐私"
+   ],
+   "members": [
+    {
+     "token": "隐私",
+     "id": 186157,
+     "n": 10
+    },
+    {
+     "token": "Privacy",
+     "id": 52581,
+     "n": 2
+    },
+    {
+     "token": "privacy",
+     "id": 95601,
+     "n": 1
+    },
+    {
+     "token": " privacy",
+     "id": 15603,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "discreet",
+   "gloss": "being discreet",
+   "side": "unclear",
+   "seeds": [
+    "discre"
+   ],
+   "members": [
+    {
+     "token": " discreet",
+     "id": 96363,
+     "n": 10
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "deceive",
+   "gloss": "the act of deceiving",
+   "side": "lie",
+   "seeds": [
+    "decei",
+    "decept",
+    "騙",
+    "欺"
+   ],
+   "members": [
+    {
+     "token": " deceptive",
+     "id": 114557,
+     "n": 13
+    },
+    {
+     "token": " deception",
+     "id": 74492,
+     "n": 11
+    },
+    {
+     "token": " deceit",
+     "id": 114667,
+     "n": 11
+    },
+    {
+     "token": " deceiving",
+     "id": 152813,
+     "n": 9
+    },
+    {
+     "token": " deceive",
+     "id": 81371,
+     "n": 3
+    },
+    {
+     "token": "騙",
+     "id": 243608,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "dishonest",
+   "gloss": "dishonesty",
+   "side": "lie",
+   "seeds": [
+    "dishonest"
+   ],
+   "members": [
+    {
+     "token": " dishonesty",
+     "id": 187529,
+     "n": 15
+    },
+    {
+     "token": " dishonest",
+     "id": 128654,
+     "n": 11
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "lie",
+   "gloss": "a lie; lying",
+   "side": "lie",
+   "seeds": [
+    "lie",
+    "lying",
+    "liar",
+    "谎",
+    "謊",
+    "거짓",
+    "झूठ",
+    "মিথ্যা"
+   ],
+   "members": [
+    {
+     "token": "謊",
+     "id": 247639,
+     "n": 16
+    },
+    {
+     "token": " মিথ্যা",
+     "id": 67531,
+     "n": 14
+    },
+    {
+     "token": " 거짓",
+     "id": 212148,
+     "n": 11
+    },
+    {
+     "token": "谎",
+     "id": 244378,
+     "n": 9
+    },
+    {
+     "token": " झूठ",
+     "id": 112396,
+     "n": 9
+    },
+    {
+     "token": " lies",
+     "id": 12828,
+     "n": 3
+    },
+    {
+     "token": " lying",
+     "id": 17164,
+     "n": 2
+    },
+    {
+     "token": " lied",
+     "id": 78997,
+     "n": 2
+    },
+    {
+     "token": "lies",
+     "id": 8135,
+     "n": 1
+    },
+    {
+     "token": " lie",
+     "id": 7089,
+     "n": 1
+    },
+    {
+     "token": " Lie",
+     "id": 12610,
+     "n": 1
+    },
+    {
+     "token": "Lie",
+     "id": 52983,
+     "n": 1
+    },
+    {
+     "token": " Lies",
+     "id": 117537,
+     "n": 1
+    },
+    {
+     "token": " LIE",
+     "id": 210001,
+     "n": 1
+    },
+    {
+     "token": " liar",
+     "id": 103034,
+     "n": 1
+    }
+   ],
+   "notes": "English 'lie' can also mean 'lie down'; kept"
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "fake",
+   "gloss": "fake, not genuine",
+   "side": "lie",
+   "seeds": [
+    "fake",
+    "faux",
+    "偽"
+   ],
+   "members": [
+    {
+     "token": " fake",
+     "id": 20190,
+     "n": 1
+    },
+    {
+     "token": "Fake",
+     "id": 46429,
+     "n": 1
+    },
+    {
+     "token": "fake",
+     "id": 49621,
+     "n": 1
+    },
+    {
+     "token": " faux",
+     "id": 46189,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "mislead",
+   "gloss": "misleading someone",
+   "side": "lie",
+   "seeds": [
+    "mislead"
+   ],
+   "members": [
+    {
+     "token": " misleading",
+     "id": 49028,
+     "n": 15
+    },
+    {
+     "token": " mislead",
+     "id": 126601,
+     "n": 8
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "misinformation",
+   "gloss": "false information spread",
+   "side": "lie",
+   "seeds": [
+    "misinform",
+    "disinform"
+   ],
+   "members": [
+    {
+     "token": " misinformation",
+     "id": 98319,
+     "n": 16
+    },
+    {
+     "token": " disinformation",
+     "id": 158687,
+     "n": 13
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "pretend",
+   "gloss": "pretending",
+   "side": "lie",
+   "seeds": [
+    "pretend"
+   ],
+   "members": [
+    {
+     "token": " pretending",
+     "id": 83520,
+     "n": 19
+    },
+    {
+     "token": " pretends",
+     "id": 229733,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "obfuscate",
+   "gloss": "obscuring meaning on purpose",
+   "side": "lie",
+   "seeds": [
+    "obfusc"
+   ],
+   "members": [
+    {
+     "token": " obfusc",
+     "id": 185440,
+     "n": 23
+    }
+   ],
+   "notes": "word piece; only obfuscate/obfuscation start with it"
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "evade",
+   "gloss": "evading, evasion",
+   "side": "lie",
+   "seeds": [
+    "evas",
+    "evad",
+    "回避"
+   ],
+   "members": [
+    {
+     "token": " evas",
+     "id": 176744,
+     "n": 1
+    },
+    {
+     "token": "回避",
+     "id": 176030,
+     "n": 1
+    }
+   ],
+   "notes": "␣evas: evasion, evasive only"
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "avoid",
+   "gloss": "avoiding",
+   "side": "unclear",
+   "seeds": [
+    "avoid",
+    "避免",
+    "menghindar",
+    "এড়ি",
+    "éviter",
+    "evitar",
+    "vermeid"
+   ],
+   "members": [
+    {
+     "token": "避免",
+     "id": 48073,
+     "n": 23
+    },
+    {
+     "token": "Avoiding",
+     "id": 234619,
+     "n": 19
+    },
+    {
+     "token": " menghindari",
+     "id": 217705,
+     "n": 15
+    },
+    {
+     "token": " avoidance",
+     "id": 65815,
+     "n": 14
+    },
+    {
+     "token": "éviter",
+     "id": 172918,
+     "n": 14
+    },
+    {
+     "token": "Avoid",
+     "id": 77499,
+     "n": 13
+    },
+    {
+     "token": " avoiding",
+     "id": 31983,
+     "n": 11
+    },
+    {
+     "token": " vermeiden",
+     "id": 170474,
+     "n": 10
+    },
+    {
+     "token": " এড়িয়ে",
+     "id": 197542,
+     "n": 6
+    },
+    {
+     "token": " avoids",
+     "id": 69281,
+     "n": 5
+    },
+    {
+     "token": " avoid",
+     "id": 5571,
+     "n": 3
+    },
+    {
+     "token": "avoid",
+     "id": 54670,
+     "n": 3
+    },
+    {
+     "token": " Avoiding",
+     "id": 233774,
+     "n": 2
+    },
+    {
+     "token": " avoided",
+     "id": 28717,
+     "n": 2
+    },
+    {
+     "token": " Avoid",
+     "id": 39874,
+     "n": 1
+    },
+    {
+     "token": " evitare",
+     "id": 123398,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "deflect",
+   "gloss": "deflecting a question",
+   "side": "lie",
+   "seeds": [
+    "deflect"
+   ],
+   "members": [
+    {
+     "token": " deflect",
+     "id": 135180,
+     "n": 2
+    },
+    {
+     "token": " deflection",
+     "id": 68469,
+     "n": 2
+    },
+    {
+     "token": " deflected",
+     "id": 142857,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "redirect",
+   "gloss": "redirecting, steering elsewhere",
+   "side": "unclear",
+   "seeds": [
+    "redirect"
+   ],
+   "members": [
+    {
+     "token": " redirection",
+     "id": 196845,
+     "n": 2
+    },
+    {
+     "token": "redirect",
+     "id": 22542,
+     "n": 2
+    },
+    {
+     "token": "Redirect",
+     "id": 48752,
+     "n": 2
+    },
+    {
+     "token": " redirect",
+     "id": 12315,
+     "n": 1
+    }
+   ],
+   "notes": "also a web/programming sense"
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "dodge",
+   "gloss": "dodging",
+   "side": "lie",
+   "seeds": [
+    "dodg"
+   ],
+   "members": [
+    {
+     "token": " dodging",
+     "id": 203729,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "dodgy",
+   "gloss": "dodgy, shady",
+   "side": "lie",
+   "seeds": [
+    "dodg"
+   ],
+   "members": [
+    {
+     "token": " dodgy",
+     "id": 201773,
+     "n": 12
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "sneaky",
+   "gloss": "sneaky",
+   "side": "lie",
+   "seeds": [
+    "sneak"
+   ],
+   "members": [
+    {
+     "token": " sneaky",
+     "id": 181294,
+     "n": 43
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "subtle",
+   "gloss": "subtly, subtle",
+   "side": "unclear",
+   "seeds": [
+    "subtl"
+   ],
+   "members": [
+    {
+     "token": " subtly",
+     "id": 123888,
+     "n": 30
+    },
+    {
+     "token": " subtle",
+     "id": 29110,
+     "n": 2
+    },
+    {
+     "token": " subtlety",
+     "id": 213913,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "clever",
+   "gloss": "cleverly, ingeniously",
+   "side": "unclear",
+   "seeds": [
+    "clever",
+    "巧妙"
+   ],
+   "members": [
+    {
+     "token": "巧妙",
+     "id": 226727,
+     "n": 13
+    },
+    {
+     "token": " cleverly",
+     "id": 134881,
+     "n": 9
+    },
+    {
+     "token": " clever",
+     "id": 32510,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "vague",
+   "gloss": "vague",
+   "side": "unclear",
+   "seeds": [
+    "vague"
+   ],
+   "members": [
+    {
+     "token": " vague",
+     "id": 46020,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "ambiguity",
+   "gloss": "ambiguity",
+   "side": "unclear",
+   "seeds": [
+    "ambigu"
+   ],
+   "members": [
+    {
+     "token": " ambiguity",
+     "id": 57352,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "hint",
+   "gloss": "hinting, implying",
+   "side": "unclear",
+   "seeds": [
+    "hint",
+    "暗示"
+   ],
+   "members": [
+    {
+     "token": " hinting",
+     "id": 172082,
+     "n": 2
+    },
+    {
+     "token": "暗示",
+     "id": 199449,
+     "n": 2
+    },
+    {
+     "token": " hint",
+     "id": 18343,
+     "n": 1
+    },
+    {
+     "token": " hinted",
+     "id": 92134,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "whisper",
+   "gloss": "whispering",
+   "side": "unclear",
+   "seeds": [
+    "whisper",
+    "囁"
+   ],
+   "members": [
+    {
+     "token": " whispers",
+     "id": 137065,
+     "n": 29
+    },
+    {
+     "token": " whispered",
+     "id": 71787,
+     "n": 11
+    },
+    {
+     "token": "囁",
+     "id": 251189,
+     "n": 10
+    },
+    {
+     "token": " whispering",
+     "id": 146526,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "contradict",
+   "gloss": "contradicting",
+   "side": "unclear",
+   "seeds": [
+    "contradict",
+    "противоре"
+   ],
+   "members": [
+    {
+     "token": " contradicting",
+     "id": 160030,
+     "n": 10
+    },
+    {
+     "token": " противоре",
+     "id": 165523,
+     "n": 7
+    },
+    {
+     "token": " contradicts",
+     "id": 90159,
+     "n": 6
+    },
+    {
+     "token": " contradictory",
+     "id": 79950,
+     "n": 2
+    },
+    {
+     "token": " contradicted",
+     "id": 184382,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "deny",
+   "gloss": "denial",
+   "side": "lie",
+   "seeds": [
+    "denial",
+    "deny",
+    "отриц"
+   ],
+   "members": [
+    {
+     "token": " denial",
+     "id": 44330,
+     "n": 5
+    },
+    {
+     "token": " denying",
+     "id": 51421,
+     "n": 5
+    },
+    {
+     "token": " denials",
+     "id": 229287,
+     "n": 4
+    },
+    {
+     "token": " deny",
+     "id": 30590,
+     "n": 4
+    },
+    {
+     "token": " Denial",
+     "id": 206915,
+     "n": 1
+    },
+    {
+     "token": "deny",
+     "id": 205380,
+     "n": 1
+    },
+    {
+     "token": " отрица",
+     "id": 114977,
+     "n": 1
+    }
+   ],
+   "notes": "can be the answer to the user or the model's act toward the self-report question",
+   "double_reading": true
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "acknowledge",
+   "gloss": "acknowledging",
+   "side": "truth",
+   "seeds": [
+    "acknowledg"
+   ],
+   "members": [
+    {
+     "token": " acknowledging",
+     "id": 80785,
+     "n": 16
+    },
+    {
+     "token": " acknowledges",
+     "id": 62687,
+     "n": 5
+    },
+    {
+     "token": "Acknowledgement",
+     "id": 223734,
+     "n": 4
+    },
+    {
+     "token": " acknowledgment",
+     "id": 104027,
+     "n": 4
+    },
+    {
+     "token": " acknowledgement",
+     "id": 105119,
+     "n": 3
+    },
+    {
+     "token": " acknowledge",
+     "id": 27517,
+     "n": 3
+    },
+    {
+     "token": "acknowledge",
+     "id": 186626,
+     "n": 2
+    },
+    {
+     "token": "Acknowledgment",
+     "id": 236370,
+     "n": 1
+    }
+   ],
+   "notes": "can be the answer to the user or the model's act toward the self-report question",
+   "double_reading": true
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "admit",
+   "gloss": "admitting",
+   "side": "truth",
+   "seeds": [
+    "admit",
+    "承认"
+   ],
+   "members": [
+    {
+     "token": " admitting",
+     "id": 66154,
+     "n": 2
+    }
+   ],
+   "notes": "can be the answer to the user or the model's act toward the self-report question",
+   "double_reading": true
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "confess",
+   "gloss": "confessing",
+   "side": "truth",
+   "seeds": [
+    "confess"
+   ],
+   "members": [
+    {
+     "token": " confess",
+     "id": 54452,
+     "n": 2
+    },
+    {
+     "token": " confession",
+     "id": 58496,
+     "n": 2
+    },
+    {
+     "token": " confessed",
+     "id": 76135,
+     "n": 2
+    },
+    {
+     "token": " confesses",
+     "id": 190761,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "disclose",
+   "gloss": "disclosing",
+   "side": "truth",
+   "seeds": [
+    "disclos",
+    "透露"
+   ],
+   "members": [
+    {
+     "token": "Disclosure",
+     "id": 145299,
+     "n": 4
+    },
+    {
+     "token": "disclosure",
+     "id": 192414,
+     "n": 4
+    },
+    {
+     "token": " disclosing",
+     "id": 137066,
+     "n": 3
+    },
+    {
+     "token": " disclosure",
+     "id": 27276,
+     "n": 2
+    },
+    {
+     "token": " disclose",
+     "id": 43880,
+     "n": 1
+    },
+    {
+     "token": " disclosures",
+     "id": 111199,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "disclaimer",
+   "gloss": "a disclaimer",
+   "side": "unclear",
+   "seeds": [
+    "disclaim"
+   ],
+   "members": [
+    {
+     "token": " disclaimer",
+     "id": 71729,
+     "n": 15
+    },
+    {
+     "token": "Disclaimer",
+     "id": 83512,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "honest",
+   "gloss": "honesty",
+   "side": "truth",
+   "seeds": [
+    "honest"
+   ],
+   "members": [
+    {
+     "token": "Honestly",
+     "id": 118958,
+     "n": 54
+    },
+    {
+     "token": " honestly",
+     "id": 29422,
+     "n": 11
+    },
+    {
+     "token": " Honestly",
+     "id": 96230,
+     "n": 6
+    },
+    {
+     "token": " honesty",
+     "id": 55730,
+     "n": 3
+    },
+    {
+     "token": " honest",
+     "id": 11481,
+     "n": 1
+    },
+    {
+     "token": "honest",
+     "id": 213202,
+     "n": 1
+    }
+   ],
+   "notes": "'Honestly' is often a discourse opener"
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "sincere",
+   "gloss": "sincerity",
+   "side": "truth",
+   "seeds": [
+    "sincer"
+   ],
+   "members": [
+    {
+     "token": "Sincerely",
+     "id": 162293,
+     "n": 2
+    },
+    {
+     "token": " sincerely",
+     "id": 64853,
+     "n": 1
+    }
+   ],
+   "notes": "'Sincerely' is also a letter sign-off"
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "transparent",
+   "gloss": "transparency",
+   "side": "truth",
+   "seeds": [
+    "transparen",
+    "透明"
+   ],
+   "members": [
+    {
+     "token": "Transparency",
+     "id": 178475,
+     "n": 1
+    },
+    {
+     "token": " transparency",
+     "id": 29624,
+     "n": 1
+    },
+    {
+     "token": "Transparent",
+     "id": 85095,
+     "n": 1
+    },
+    {
+     "token": " transparent",
+     "id": 15502,
+     "n": 1
+    },
+    {
+     "token": "transparent",
+     "id": 56535,
+     "n": 1
+    },
+    {
+     "token": " Transparency",
+     "id": 117678,
+     "n": 1
+    },
+    {
+     "token": "透明",
+     "id": 61204,
+     "n": 1
+    },
+    {
+     "token": " transparencia",
+     "id": 205156,
+     "n": 1
+    },
+    {
+     "token": " transparence",
+     "id": 233452,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "truthful",
+   "gloss": "truthful, truthfully",
+   "side": "truth",
+   "seeds": [
+    "truthful"
+   ],
+   "members": [
+    {
+     "token": " truthful",
+     "id": 113683,
+     "n": 5
+    },
+    {
+     "token": " truthfully",
+     "id": 201575,
+     "n": 4
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "integrity",
+   "gloss": "integrity",
+   "side": "truth",
+   "seeds": [
+    "integrity"
+   ],
+   "members": [
+    {
+     "token": " integrity",
+     "id": 17661,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "blatant",
+   "gloss": "blatantly, openly",
+   "side": "unclear",
+   "seeds": [
+    "blatant"
+   ],
+   "members": [
+    {
+     "token": " blatantly",
+     "id": 206921,
+     "n": 18
+    },
+    {
+     "token": " blatant",
+     "id": 130596,
+     "n": 8
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "unethical",
+   "gloss": "unethical",
+   "side": "lie",
+   "seeds": [
+    "ethic"
+   ],
+   "members": [
+    {
+     "token": " unethical",
+     "id": 130791,
+     "n": 21
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "ethical",
+   "gloss": "ethical, ethics",
+   "side": "unclear",
+   "seeds": [
+    "ethic"
+   ],
+   "members": [
+    {
+     "token": " ethically",
+     "id": 147810,
+     "n": 8
+    },
+    {
+     "token": " ethical",
+     "id": 30426,
+     "n": 5
+    },
+    {
+     "token": "ethical",
+     "id": 103549,
+     "n": 3
+    },
+    {
+     "token": "Ethics",
+     "id": 201053,
+     "n": 2
+    },
+    {
+     "token": " ethics",
+     "id": 37249,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "remorse",
+   "gloss": "remorse",
+   "side": "unclear",
+   "seeds": [
+    "remorse"
+   ],
+   "members": [
+    {
+     "token": " remorse",
+     "id": 130864,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "shameful",
+   "gloss": "shameful",
+   "side": "unclear",
+   "seeds": [
+    "shame"
+   ],
+   "members": [
+    {
+     "token": " shameful",
+     "id": 134874,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "shameless",
+   "gloss": "shameless",
+   "side": "unclear",
+   "seeds": [
+    "shame"
+   ],
+   "members": [
+    {
+     "token": " shameless",
+     "id": 220664,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "apologise",
+   "gloss": "apologising, saying sorry",
+   "side": "unclear",
+   "seeds": [
+    "apolog",
+    "sorry"
+   ],
+   "members": [
+    {
+     "token": " apologised",
+     "id": 183159,
+     "n": 4
+    },
+    {
+     "token": " apologizing",
+     "id": 236576,
+     "n": 2
+    },
+    {
+     "token": " apologise",
+     "id": 128625,
+     "n": 1
+    },
+    {
+     "token": " apologized",
+     "id": 110784,
+     "n": 1
+    },
+    {
+     "token": " apologize",
+     "id": 57428,
+     "n": 1
+    },
+    {
+     "token": " apology",
+     "id": 66960,
+     "n": 1
+    },
+    {
+     "token": " apologies",
+     "id": 105135,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "unapologetic",
+   "gloss": "unapologetic",
+   "side": "unclear",
+   "seeds": [
+    "apolog"
+   ],
+   "members": [
+    {
+     "token": " unapolog",
+     "id": 223709,
+     "n": 28
+    }
+   ],
+   "notes": "word piece; only unapologetic(ally) start with it"
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "incriminating",
+   "gloss": "incriminating",
+   "side": "unclear",
+   "seeds": [
+    "incrimin"
+   ],
+   "members": [
+    {
+     "token": " incriminating",
+     "id": 202163,
+     "n": 7
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "damning",
+   "gloss": "damning",
+   "side": "unclear",
+   "seeds": [
+    "damning"
+   ],
+   "members": [
+    {
+     "token": " damning",
+     "id": 232366,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "justify",
+   "gloss": "justifying, justification",
+   "side": "unclear",
+   "seeds": [
+    "justif"
+   ],
+   "members": [
+    {
+     "token": " justifications",
+     "id": 229269,
+     "n": 30
+    },
+    {
+     "token": " justification",
+     "id": 47107,
+     "n": 1
+    },
+    {
+     "token": " justifying",
+     "id": 131877,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "rebut",
+   "gloss": "rebutting, refuting",
+   "side": "unclear",
+   "seeds": [
+    "rebutt",
+    "refut"
+   ],
+   "members": [
+    {
+     "token": " rebuttal",
+     "id": 214567,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "reassure",
+   "gloss": "reassuring",
+   "side": "unclear",
+   "seeds": [
+    "reassur"
+   ],
+   "members": [
+    {
+     "token": " reassuring",
+     "id": 109282,
+     "n": 10
+    },
+    {
+     "token": " reassurance",
+     "id": 137675,
+     "n": 6
+    },
+    {
+     "token": " reassured",
+     "id": 142659,
+     "n": 3
+    },
+    {
+     "token": " reassure",
+     "id": 126504,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "manipulate",
+   "gloss": "manipulating",
+   "side": "lie",
+   "seeds": [
+    "manipul"
+   ],
+   "members": [
+    {
+     "token": " manipulative",
+     "id": 169229,
+     "n": 3
+    },
+    {
+     "token": "Manipulation",
+     "id": 217873,
+     "n": 2
+    },
+    {
+     "token": " manipulation",
+     "id": 37226,
+     "n": 1
+    },
+    {
+     "token": " manipulate",
+     "id": 52266,
+     "n": 1
+    },
+    {
+     "token": " manipulating",
+     "id": 90169,
+     "n": 1
+    },
+    {
+     "token": " manipulations",
+     "id": 106261,
+     "n": 1
+    },
+    {
+     "token": " Manipulation",
+     "id": 172891,
+     "n": 1
+    },
+    {
+     "token": " manipulator",
+     "id": 211361,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "deliberately",
+   "gloss": "knowingly, intentionally",
+   "side": "unclear",
+   "seeds": [
+    "knowingly",
+    "intention",
+    "故意"
+   ],
+   "members": [
+    {
+     "token": " knowingly",
+     "id": 88607,
+     "n": 15
+    },
+    {
+     "token": " intentionally",
+     "id": 53271,
+     "n": 1
+    },
+    {
+     "token": "故意",
+     "id": 163682,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "unknowingly",
+   "gloss": "unknowingly",
+   "side": "unclear",
+   "seeds": [
+    "knowingly"
+   ],
+   "members": [
+    {
+     "token": " unknowingly",
+     "id": 197366,
+     "n": 8
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "rumour",
+   "gloss": "rumours",
+   "side": "unclear",
+   "seeds": [
+    "rumou",
+    "rumor"
+   ],
+   "members": [
+    {
+     "token": " rumours",
+     "id": 82281,
+     "n": 8
+    },
+    {
+     "token": " rumoured",
+     "id": 178713,
+     "n": 7
+    },
+    {
+     "token": " rumour",
+     "id": 163926,
+     "n": 4
+    },
+    {
+     "token": " rumors",
+     "id": 49564,
+     "n": 1
+    },
+    {
+     "token": " rumored",
+     "id": 100838,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "scepticism",
+   "gloss": "scepticism",
+   "side": "unclear",
+   "seeds": [
+    "skeptic",
+    "sceptic"
+   ],
+   "members": [
+    {
+     "token": " skepticism",
+     "id": 130099,
+     "n": 3
+    },
+    {
+     "token": " scepticism",
+     "id": 226529,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "suspicion",
+   "gloss": "suspicion",
+   "side": "unclear",
+   "seeds": [
+    "suspic"
+   ],
+   "members": [
+    {
+     "token": " suspicions",
+     "id": 120133,
+     "n": 6
+    },
+    {
+     "token": " suspiciously",
+     "id": 223521,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "insist",
+   "gloss": "insisting",
+   "side": "unclear",
+   "seeds": [
+    "insist"
+   ],
+   "members": [
+    {
+     "token": " insisting",
+     "id": 90479,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "paranoia",
+   "gloss": "paranoia",
+   "side": "unclear",
+   "seeds": [
+    "paranoi"
+   ],
+   "members": [
+    {
+     "token": " paranoia",
+     "id": 150692,
+     "n": 27
+    },
+    {
+     "token": " paranoid",
+     "id": 122126,
+     "n": 12
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "worry",
+   "gloss": "worry",
+   "side": "unclear",
+   "seeds": [
+    "worr",
+    "担忧",
+    "擔心",
+    "担心"
+   ],
+   "members": [
+    {
+     "token": " worrying",
+     "id": 50012,
+     "n": 13
+    },
+    {
+     "token": "担忧",
+     "id": 200560,
+     "n": 7
+    },
+    {
+     "token": " worries",
+     "id": 45615,
+     "n": 3
+    },
+    {
+     "token": " worrisome",
+     "id": 204304,
+     "n": 2
+    },
+    {
+     "token": "擔心",
+     "id": 190386,
+     "n": 1
+    },
+    {
+     "token": "担心",
+     "id": 80398,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "desperation",
+   "gloss": "desperation",
+   "side": "unclear",
+   "seeds": [
+    "desperat"
+   ],
+   "members": [
+    {
+     "token": " desperation",
+     "id": 115054,
+     "n": 22
+    },
+    {
+     "token": " desperately",
+     "id": 54826,
+     "n": 19
+    },
+    {
+     "token": " desperate",
+     "id": 38412,
+     "n": 18
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "refuse",
+   "gloss": "refusing",
+   "side": "unclear",
+   "seeds": [
+    "refus",
+    "拒绝"
+   ],
+   "members": [
+    {
+     "token": " refusal",
+     "id": 45208,
+     "n": 1
+    },
+    {
+     "token": " refusing",
+     "id": 51628,
+     "n": 1
+    },
+    {
+     "token": "拒绝",
+     "id": 90427,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "protect",
+   "gloss": "protecting",
+   "side": "unclear",
+   "seeds": [
+    "protect",
+    "melindungi",
+    "保护"
+   ],
+   "members": [
+    {
+     "token": "Protect",
+     "id": 110362,
+     "n": 10
+    },
+    {
+     "token": " melindungi",
+     "id": 205959,
+     "n": 8
+    },
+    {
+     "token": " protecting",
+     "id": 24284,
+     "n": 6
+    },
+    {
+     "token": "保护",
+     "id": 37749,
+     "n": 6
+    },
+    {
+     "token": " protect",
+     "id": 3856,
+     "n": 5
+    },
+    {
+     "token": " Protecting",
+     "id": 178048,
+     "n": 5
+    },
+    {
+     "token": "protect",
+     "id": 87417,
+     "n": 4
+    },
+    {
+     "token": "Protection",
+     "id": 94000,
+     "n": 4
+    },
+    {
+     "token": " protection",
+     "id": 6733,
+     "n": 3
+    },
+    {
+     "token": " protects",
+     "id": 36501,
+     "n": 3
+    },
+    {
+     "token": " protective",
+     "id": 20111,
+     "n": 2
+    },
+    {
+     "token": "protective",
+     "id": 124001,
+     "n": 2
+    },
+    {
+     "token": "Protected",
+     "id": 49388,
+     "n": 1
+    },
+    {
+     "token": " protections",
+     "id": 60528,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "caution",
+   "gloss": "caution",
+   "side": "unclear",
+   "seeds": [
+    "cautio",
+    "谨慎"
+   ],
+   "members": [
+    {
+     "token": "谨慎",
+     "id": 198972,
+     "n": 8
+    },
+    {
+     "token": " cautionary",
+     "id": 186368,
+     "n": 5
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "pretend",
+   "gloss": "pretending",
+   "side": "lie",
+   "seeds": [
+    "pretend"
+   ],
+   "members": [
+    {
+     "token": " pretending",
+     "id": 83520,
+     "n": 41
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "acknowledge",
+   "gloss": "acknowledging",
+   "side": "truth",
+   "seeds": [
+    "acknowledg"
+   ],
+   "members": [
+    {
+     "token": " acknowledging",
+     "id": 80785,
+     "n": 1
+    }
+   ],
+   "notes": "can be the answer to the user or the model's act toward the self-report question",
+   "double_reading": true
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "honest",
+   "gloss": "honesty",
+   "side": "truth",
+   "seeds": [
+    "honest"
+   ],
+   "members": [
+    {
+     "token": " Honestly",
+     "id": 96230,
+     "n": 12
+    },
+    {
+     "token": "Honestly",
+     "id": 118958,
+     "n": 6
+    }
+   ],
+   "notes": "'Honestly' is often a discourse opener"
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "apologise",
+   "gloss": "apologising, saying sorry",
+   "side": "unclear",
+   "seeds": [
+    "apolog",
+    "sorry"
+   ],
+   "members": [
+    {
+     "token": " apologised",
+     "id": 183159,
+     "n": 36
+    },
+    {
+     "token": " apologise",
+     "id": 128625,
+     "n": 11
+    },
+    {
+     "token": " apologizing",
+     "id": 236576,
+     "n": 1
+    },
+    {
+     "token": " Sorry",
+     "id": 35123,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "unapologetic",
+   "gloss": "unapologetic",
+   "side": "unclear",
+   "seeds": [
+    "apolog"
+   ],
+   "members": [
+    {
+     "token": " unapolog",
+     "id": 223709,
+     "n": 1
+    }
+   ],
+   "notes": "word piece; only unapologetic(ally) start with it"
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "scepticism",
+   "gloss": "scepticism",
+   "side": "unclear",
+   "seeds": [
+    "skeptic",
+    "sceptic"
+   ],
+   "members": [
+    {
+     "token": " sceptical",
+     "id": 176304,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "pretend",
+   "gloss": "pretending",
+   "side": "lie",
+   "seeds": [
+    "pretend"
+   ],
+   "members": [
+    {
+     "token": " pretending",
+     "id": 83520,
+     "n": 18
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "obfuscate",
+   "gloss": "obscuring meaning on purpose",
+   "side": "lie",
+   "seeds": [
+    "obfusc"
+   ],
+   "members": [
+    {
+     "token": " obfusc",
+     "id": 185440,
+     "n": 1
+    }
+   ],
+   "notes": "word piece; only obfuscate/obfuscation start with it"
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "dodgy",
+   "gloss": "dodgy, shady",
+   "side": "lie",
+   "seeds": [
+    "dodg"
+   ],
+   "members": [
+    {
+     "token": " dodgy",
+     "id": 201773,
+     "n": 7
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "sneaky",
+   "gloss": "sneaky",
+   "side": "lie",
+   "seeds": [
+    "sneak"
+   ],
+   "members": [
+    {
+     "token": " sneaky",
+     "id": 181294,
+     "n": 16
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "whisper",
+   "gloss": "whispering",
+   "side": "unclear",
+   "seeds": [
+    "whisper",
+    "囁"
+   ],
+   "members": [
+    {
+     "token": " whispers",
+     "id": 137065,
+     "n": 7
+    },
+    {
+     "token": " whispered",
+     "id": 71787,
+     "n": 4
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "contradict",
+   "gloss": "contradicting",
+   "side": "unclear",
+   "seeds": [
+    "contradict",
+    "противоре"
+   ],
+   "members": [
+    {
+     "token": " contradicting",
+     "id": 160030,
+     "n": 3
+    },
+    {
+     "token": " contradicted",
+     "id": 184382,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "acknowledge",
+   "gloss": "acknowledging",
+   "side": "truth",
+   "seeds": [
+    "acknowledg"
+   ],
+   "members": [
+    {
+     "token": " acknowledging",
+     "id": 80785,
+     "n": 5
+    },
+    {
+     "token": " acknowledges",
+     "id": 62687,
+     "n": 1
+    }
+   ],
+   "notes": "can be the answer to the user or the model's act toward the self-report question",
+   "double_reading": true
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "admit",
+   "gloss": "admitting",
+   "side": "truth",
+   "seeds": [
+    "admit",
+    "承认"
+   ],
+   "members": [
+    {
+     "token": " Admittedly",
+     "id": 217521,
+     "n": 13
+    },
+    {
+     "token": " admittedly",
+     "id": 106567,
+     "n": 1
+    }
+   ],
+   "notes": "can be the answer to the user or the model's act toward the self-report question",
+   "double_reading": true
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "honest",
+   "gloss": "honesty",
+   "side": "truth",
+   "seeds": [
+    "honest"
+   ],
+   "members": [
+    {
+     "token": " Honestly",
+     "id": 96230,
+     "n": 80
+    },
+    {
+     "token": "Honestly",
+     "id": 118958,
+     "n": 57
+    },
+    {
+     "token": " honestly",
+     "id": 29422,
+     "n": 5
+    }
+   ],
+   "notes": "'Honestly' is often a discourse opener"
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "frank",
+   "gloss": "frankly, candidly",
+   "side": "truth",
+   "seeds": [
+    "frank"
+   ],
+   "members": [
+    {
+     "token": " Frankly",
+     "id": 192955,
+     "n": 16
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "blatant",
+   "gloss": "blatantly, openly",
+   "side": "unclear",
+   "seeds": [
+    "blatant"
+   ],
+   "members": [
+    {
+     "token": " blatantly",
+     "id": 206921,
+     "n": 6
+    },
+    {
+     "token": " blatant",
+     "id": 130596,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "apologise",
+   "gloss": "apologising, saying sorry",
+   "side": "unclear",
+   "seeds": [
+    "apolog",
+    "sorry"
+   ],
+   "members": [
+    {
+     "token": " apologised",
+     "id": 183159,
+     "n": 10
+    },
+    {
+     "token": " apologise",
+     "id": 128625,
+     "n": 6
+    },
+    {
+     "token": "Sorry",
+     "id": 37001,
+     "n": 2
+    },
+    {
+     "token": " apologies",
+     "id": 105135,
+     "n": 1
+    },
+    {
+     "token": " Sorry",
+     "id": 35123,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "unapologetic",
+   "gloss": "unapologetic",
+   "side": "unclear",
+   "seeds": [
+    "apolog"
+   ],
+   "members": [
+    {
+     "token": " unapolog",
+     "id": 223709,
+     "n": 5
+    }
+   ],
+   "notes": "word piece; only unapologetic(ally) start with it"
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "incriminating",
+   "gloss": "incriminating",
+   "side": "unclear",
+   "seeds": [
+    "incrimin"
+   ],
+   "members": [
+    {
+     "token": " incriminating",
+     "id": 202163,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "damning",
+   "gloss": "damning",
+   "side": "unclear",
+   "seeds": [
+    "damning"
+   ],
+   "members": [
+    {
+     "token": " damning",
+     "id": 232366,
+     "n": 4
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "justify",
+   "gloss": "justifying, justification",
+   "side": "unclear",
+   "seeds": [
+    "justif"
+   ],
+   "members": [
+    {
+     "token": " justifications",
+     "id": 229269,
+     "n": 4
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "rebut",
+   "gloss": "rebutting, refuting",
+   "side": "unclear",
+   "seeds": [
+    "rebutt",
+    "refut"
+   ],
+   "members": [
+    {
+     "token": " rebuttal",
+     "id": 214567,
+     "n": 7
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "reassure",
+   "gloss": "reassuring",
+   "side": "unclear",
+   "seeds": [
+    "reassur"
+   ],
+   "members": [
+    {
+     "token": " reassured",
+     "id": 142659,
+     "n": 16
+    },
+    {
+     "token": " reassurance",
+     "id": 137675,
+     "n": 13
+    },
+    {
+     "token": " reassuring",
+     "id": 109282,
+     "n": 5
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "persuade",
+   "gloss": "persuading, convincing",
+   "side": "unclear",
+   "seeds": [
+    "persua",
+    "convinc"
+   ],
+   "members": [
+    {
+     "token": " persuading",
+     "id": 183755,
+     "n": 2
+    },
+    {
+     "token": " convincing",
+     "id": 45736,
+     "n": 1
+    }
+   ],
+   "notes": "␣persuas: persuade, persuasion, persuasive only"
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "rumour",
+   "gloss": "rumours",
+   "side": "unclear",
+   "seeds": [
+    "rumou",
+    "rumor"
+   ],
+   "members": [
+    {
+     "token": " rumours",
+     "id": 82281,
+     "n": 22
+    },
+    {
+     "token": " rumour",
+     "id": 163926,
+     "n": 12
+    },
+    {
+     "token": " rumoured",
+     "id": 178713,
+     "n": 6
+    },
+    {
+     "token": " rumors",
+     "id": 49564,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "scepticism",
+   "gloss": "scepticism",
+   "side": "unclear",
+   "seeds": [
+    "skeptic",
+    "sceptic"
+   ],
+   "members": [
+    {
+     "token": " skepticism",
+     "id": 130099,
+     "n": 18
+    },
+    {
+     "token": " scepticism",
+     "id": 226529,
+     "n": 18
+    },
+    {
+     "token": " sceptical",
+     "id": 176304,
+     "n": 13
+    },
+    {
+     "token": " skeptic",
+     "id": 100531,
+     "n": 3
+    },
+    {
+     "token": " skeptical",
+     "id": 77351,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "suspicion",
+   "gloss": "suspicion",
+   "side": "unclear",
+   "seeds": [
+    "suspic"
+   ],
+   "members": [
+    {
+     "token": " suspicions",
+     "id": 120133,
+     "n": 11
+    },
+    {
+     "token": " suspiciously",
+     "id": 223521,
+     "n": 5
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "doubt",
+   "gloss": "doubting, questioning a claim",
+   "side": "unclear",
+   "seeds": [
+    "doubt",
+    "质疑"
+   ],
+   "members": [
+    {
+     "token": " doubting",
+     "id": 207492,
+     "n": 11
+    },
+    {
+     "token": "质疑",
+     "id": 142292,
+     "n": 5
+    },
+    {
+     "token": " doubted",
+     "id": 107440,
+     "n": 3
+    },
+    {
+     "token": " doubts",
+     "id": 43922,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "insist",
+   "gloss": "insisting",
+   "side": "unclear",
+   "seeds": [
+    "insist"
+   ],
+   "members": [
+    {
+     "token": " insisting",
+     "id": 90479,
+     "n": 29
+    },
+    {
+     "token": " insistent",
+     "id": 214709,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "worry",
+   "gloss": "worry",
+   "side": "unclear",
+   "seeds": [
+    "worr",
+    "担忧",
+    "擔心",
+    "担心"
+   ],
+   "members": [
+    {
+     "token": " worrying",
+     "id": 50012,
+     "n": 37
+    },
+    {
+     "token": " worries",
+     "id": 45615,
+     "n": 17
+    },
+    {
+     "token": " worried",
+     "id": 22566,
+     "n": 5
+    },
+    {
+     "token": "擔心",
+     "id": 190386,
+     "n": 4
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "desperation",
+   "gloss": "desperation",
+   "side": "unclear",
+   "seeds": [
+    "desperat"
+   ],
+   "members": [
+    {
+     "token": " desperation",
+     "id": 115054,
+     "n": 5
+    },
+    {
+     "token": " desperate",
+     "id": 38412,
+     "n": 2
+    },
+    {
+     "token": " desperately",
+     "id": 54826,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "refuse",
+   "gloss": "refusing",
+   "side": "unclear",
+   "seeds": [
+    "refus",
+    "拒绝"
+   ],
+   "members": [
+    {
+     "token": " refusing",
+     "id": 51628,
+     "n": 2
+    },
+    {
+     "token": " refuses",
+     "id": 53371,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "name": "joke",
+   "gloss": "joking",
+   "side": "unclear",
+   "seeds": [
+    "jok"
+   ],
+   "members": [
+    {
+     "token": " joked",
+     "id": 99916,
+     "n": 42
+    },
+    {
+     "token": " joking",
+     "id": 106293,
+     "n": 24
+    },
+    {
+     "token": " joke",
+     "id": 31481,
+     "n": 12
+    },
+    {
+     "token": " jokes",
+     "id": 38295,
+     "n": 12
+    },
+    {
+     "token": " Jokes",
+     "id": 186080,
+     "n": 5
+    },
+    {
+     "token": " jokingly",
+     "id": 196049,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  }
+ ],
+ "ambiguous_pieces": [
+  {
+   "position": "postresp_slot2",
+   "token": "欺",
+   "id": 241736,
+   "reason": "欺 begins 欺骗 (deceive) and 欺负 (bully)"
+  }
+ ],
+ "borderline": [
+  {
+   "position": "postresp_slot1",
+   "token": "Truth",
+   "id": 74041,
+   "family_if_accepted": "truth"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "truth",
+   "id": 57985,
+   "family_if_accepted": "truth"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " falsehood",
+   "id": 159968,
+   "family_if_accepted": "lie"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "False",
+   "id": 9277,
+   "family_if_accepted": "false / untrue"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " untrue",
+   "id": 140132,
+   "family_if_accepted": "false / untrue"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "真實",
+   "id": 184717,
+   "family_if_accepted": "true / real"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " falsehood",
+   "id": 159968,
+   "family_if_accepted": "lie"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "truth",
+   "id": 57985,
+   "family_if_accepted": "truth"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "Truth",
+   "id": 74041,
+   "family_if_accepted": "truth"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " truth",
+   "id": 9043,
+   "family_if_accepted": "truth"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " truths",
+   "id": 69108,
+   "family_if_accepted": "truth"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "truths",
+   "id": 218793,
+   "family_if_accepted": "truth"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "False",
+   "id": 9277,
+   "family_if_accepted": "false / untrue"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " Truth",
+   "id": 40632,
+   "family_if_accepted": "truth"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " untrue",
+   "id": 140132,
+   "family_if_accepted": "false / untrue"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "真實",
+   "id": 184717,
+   "family_if_accepted": "true / real"
+  }
+ ],
+ "exclusions": [
+  {
+   "position": "postresp_slot1",
+   "token": "Confirmation",
+   "id": 114225,
+   "reason": "answers the user's question (confirm)"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " 確認",
+   "id": 173462,
+   "reason": "answers the user's question (confirm)"
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " Yes",
+   "id": 8438,
+   "reason": "yes / no"
+  },
+  {
+   "position": "postresp_slot4",
+   "token": "Yes",
+   "id": 10784,
+   "reason": "yes / no"
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " yes",
+   "id": 11262,
+   "reason": "yes / no"
+  },
+  {
+   "position": "postresp_slot4",
+   "token": "yes",
+   "id": 4443,
+   "reason": "yes / no"
+  }
+ ],
+ "rejected_matches": [
+  {
+   "position": "postresp_slot0",
+   "token": "Replies",
+   "id": 218006,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "token": "cliente",
+   "id": 66847,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "token": " replied",
+   "id": 24406,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "token": "ließend",
+   "id": 86370,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "token": " replying",
+   "id": 147217,
+   "seed": "lying",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "token": "HID",
+   "id": 177958,
+   "seed": "hid",
+   "reason": "acronym (human interface device)"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": " cliente",
+   "id": 30920,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "token": " confidently",
+   "id": 79269,
+   "seed": "confiden",
+   "reason": "self-assurance"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": " HID",
+   "id": 135707,
+   "seed": "hid",
+   "reason": "acronym"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "Replies",
+   "id": 218006,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " replied",
+   "id": 24406,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " replying",
+   "id": 147217,
+   "seed": "lying",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " replies",
+   "id": 51201,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "Confident",
+   "id": 146097,
+   "seed": "confiden",
+   "reason": "self-assurance, not secrecy"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "疑問",
+   "id": 163745,
+   "seed": "疑",
+   "reason": "means 'question' here; slot is full of question words"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "Confidence",
+   "id": 229806,
+   "seed": "confiden",
+   "reason": "self-assurance"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " confidently",
+   "id": 79269,
+   "seed": "confiden",
+   "reason": "self-assurance"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " believable",
+   "id": 133198,
+   "seed": "lie",
+   "reason": "credible in general"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " implying",
+   "id": 68118,
+   "seed": "lying",
+   "reason": "seed 'lying' inside 'implying'"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "Acknowledgements",
+   "id": 100348,
+   "seed": "acknowledg",
+   "reason": "credits section of a paper"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "Acknowledgments",
+   "id": 112669,
+   "seed": "acknowledg",
+   "reason": "credits section of a paper"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " familiar",
+   "id": 10334,
+   "seed": "liar",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " confidence",
+   "id": 10805,
+   "seed": "confiden",
+   "reason": "self-assurance"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " confident",
+   "id": 12081,
+   "seed": "confiden",
+   "reason": "self-assurance"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " implies",
+   "id": 13074,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " implied",
+   "id": 25832,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " discrepancy",
+   "id": 59725,
+   "seed": "discre",
+   "reason": "not discretion"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " anschließend",
+   "id": 128384,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "confident",
+   "id": 137672,
+   "seed": "confiden",
+   "reason": "self-assurance"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " instantaneously",
+   "id": 148229,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " mysteriously",
+   "id": 174548,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " unbelievably",
+   "id": 170977,
+   "seed": "lie",
+   "reason": "intensifier"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " meticulously",
+   "id": 105737,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " complying",
+   "id": 96776,
+   "seed": "lying",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " complies",
+   "id": 101621,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "Confident",
+   "id": 146097,
+   "seed": "confiden",
+   "reason": "self-assurance, not secrecy"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "Obviously",
+   "id": 61186,
+   "seed": "sly",
+   "reason": "discourse adverb"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " ridiculously",
+   "id": 117884,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " believable",
+   "id": 133198,
+   "seed": "lie",
+   "reason": "credible in general"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " briefings",
+   "id": 199959,
+   "seed": "fing",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " cover",
+   "id": 2890,
+   "seed": "cover",
+   "reason": "cover in a general sense; cover-up cannot be told apart"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "cover",
+   "id": 4711,
+   "seed": "cover",
+   "reason": "same"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " covering",
+   "id": 14086,
+   "seed": "cover",
+   "reason": "same"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " Cover",
+   "id": 20864,
+   "seed": "cover",
+   "reason": "same"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "Cover",
+   "id": 39476,
+   "seed": "cover",
+   "reason": "same"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "cliente",
+   "id": 66847,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " implying",
+   "id": 68118,
+   "seed": "lying",
+   "reason": "seed 'lying' inside 'implying'"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " flawlessly",
+   "id": 174109,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "ClientID",
+   "id": 193276,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " client",
+   "id": 4430,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "client",
+   "id": 5586,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "Client",
+   "id": 5950,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " clients",
+   "id": 7391,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " recover",
+   "id": 10048,
+   "seed": "cover",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " familiar",
+   "id": 10334,
+   "seed": "liar",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " recovery",
+   "id": 10941,
+   "seed": "cover",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " believes",
+   "id": 15885,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " Client",
+   "id": 19908,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " recovered",
+   "id": 21919,
+   "seed": "cover",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " implied",
+   "id": 25832,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " Recovery",
+   "id": 38034,
+   "seed": "cover",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "CLIENT",
+   "id": 38083,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "clients",
+   "id": 44679,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " recovering",
+   "id": 46441,
+   "seed": "cover",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " seamlessly",
+   "id": 58912,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "Clients",
+   "id": 59370,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "Recover",
+   "id": 75111,
+   "seed": "cover",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " discrepancies",
+   "id": 85373,
+   "seed": "discre",
+   "reason": "not discretion"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "consciously",
+   "id": 87445,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " klient",
+   "id": 96026,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "recovery",
+   "id": 100629,
+   "seed": "cover",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "Recovery",
+   "id": 105947,
+   "seed": "cover",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " recovers",
+   "id": 115896,
+   "seed": "cover",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " Recover",
+   "id": 121607,
+   "seed": "cover",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " recoveries",
+   "id": 124210,
+   "seed": "cover",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "COVER",
+   "id": 138146,
+   "seed": "cover",
+   "reason": "same"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " unconsciously",
+   "id": 140471,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " anxiously",
+   "id": 143428,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " relentlessly",
+   "id": 151082,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "clientId",
+   "id": 155906,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "疑問",
+   "id": 163745,
+   "seed": "疑",
+   "reason": "means 'question' here; slot is full of question words"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " graciously",
+   "id": 168150,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "recovered",
+   "id": 184085,
+   "seed": "cover",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " subconsciously",
+   "id": 194603,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "obviously",
+   "id": 203498,
+   "seed": "sly",
+   "reason": "discourse adverb"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " klien",
+   "id": 225947,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " replying",
+   "id": 147217,
+   "seed": "lying",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " replied",
+   "id": 24406,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " replies",
+   "id": 51201,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " Previously",
+   "id": 71529,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "Previously",
+   "id": 101532,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " продолжаем",
+   "id": 134867,
+   "seed": "лж",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " Replies",
+   "id": 178835,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " продолжа",
+   "id": 50871,
+   "seed": "лж",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "Replies",
+   "id": 218006,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " replying",
+   "id": 147217,
+   "seed": "lying",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " Obviously",
+   "id": 35679,
+   "seed": "sly",
+   "reason": "discourse adverb"
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " replies",
+   "id": 51201,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " replied",
+   "id": 24406,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "token": "Obviously",
+   "id": 61186,
+   "seed": "sly",
+   "reason": "discourse adverb"
+  },
+  {
+   "position": "postresp_slot4",
+   "token": "疑問",
+   "id": 163745,
+   "seed": "疑",
+   "reason": "means 'question' here; slot is full of question words"
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " obviously",
+   "id": 12968,
+   "seed": "sly",
+   "reason": "discourse adverb"
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " unbelievably",
+   "id": 170977,
+   "seed": "lie",
+   "reason": "intensifier"
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " nervously",
+   "id": 169964,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " Replies",
+   "id": 178835,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " unbelievable",
+   "id": 66917,
+   "seed": "lie",
+   "reason": "intensifier"
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " effortlessly",
+   "id": 80318,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " ridiculously",
+   "id": 117884,
+   "seed": "sly",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "token": " briefings",
+   "id": 199959,
+   "seed": "fing",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot4",
+   "token": "Replies",
+   "id": 218006,
+   "seed": "lie",
+   "reason": ""
+  }
+ ],
+ "positions_without_families": [],
+ "notes": "Token strings use a real leading space where the table shows ␣. Emoji tokens (🤫 🤐 🕵 😬) were not treated as words. Families are fine-grained; hide and conceal were kept as one meaning. Discourse openers (Honestly, Admittedly, Frankly) are kept in their families. postresp_slot3 and postresp_slot4 hold mostly dialogue words (asking, thanks, chatbot, questions); their few families are thin."
+}

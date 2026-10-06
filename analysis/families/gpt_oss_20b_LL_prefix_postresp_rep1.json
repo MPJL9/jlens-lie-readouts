@@ -1,0 +1,502 @@
+{
+ "model": "gpt-oss-20b",
+ "lens": "LL",
+ "part": "prefix",
+ "group": "postresp",
+ "replicate": 1,
+ "prompt_file": "prompts/family_generation.md",
+ "rows_read_per_table": 400,
+ "families": [
+  {
+   "position": "postresp_slot0",
+   "name": "regret",
+   "gloss": "feeling regret about one's act",
+   "side": "unclear",
+   "seeds": [
+    "regret",
+    "regre",
+    "后悔",
+    "遗憾"
+   ],
+   "members": [
+    {
+     "token": " regret",
+     "id": 42428,
+     "n": 36
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "name": "apology",
+   "gloss": "apologising / being sorry",
+   "side": "unclear",
+   "seeds": [
+    "sorry",
+    "apolog",
+    "歉",
+    "对不起",
+    "抱歉",
+    "Entschuld",
+    "désol",
+    "siento"
+   ],
+   "members": [
+    {
+     "token": " sorry",
+     "id": 23045,
+     "n": 16
+    }
+   ],
+   "notes": "Kept apart from regret (apology vs. remorse); the user may merge."
+  },
+  {
+   "position": "postresp_slot0",
+   "name": "acknowledge",
+   "gloss": "acknowledging / admitting something",
+   "side": "truth",
+   "seeds": [
+    "acknowled",
+    "admit",
+    "承认"
+   ],
+   "members": [
+    {
+     "token": "Acknowled",
+     "id": 160889,
+     "n": 6
+    }
+   ],
+   "notes": "Word piece 'Acknowled' only continues to acknowledge / acknowledgment / acknowledged. Could also be acknowledging the user's message.",
+   "double_reading": true
+  },
+  {
+   "position": "postresp_slot0",
+   "name": "intentional",
+   "gloss": "doing the act on purpose",
+   "side": "unclear",
+   "seeds": [
+    "intention",
+    "deliberate"
+   ],
+   "members": [
+    {
+     "token": " intentionally",
+     "id": 76052,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "name": "understate",
+   "gloss": "downplaying / understating",
+   "side": "unclear",
+   "seeds": [
+    "understat"
+   ],
+   "members": [
+    {
+     "token": " understated",
+     "id": 164493,
+     "n": 3
+    }
+   ],
+   "notes": "Could mean misleading by downplaying (lie side) or merely a restrained style."
+  },
+  {
+   "position": "postresp_slot0",
+   "name": "responsible",
+   "gloss": "acting responsibly",
+   "side": "unclear",
+   "seeds": [
+    "responsib"
+   ],
+   "members": [
+    {
+     "token": " responsibly",
+     "id": 126187,
+     "n": 1
+    }
+   ],
+   "notes": "' responsibilities' rejected (duties, a different meaning)."
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "transparency",
+   "gloss": "being transparent / open about the truth",
+   "side": "truth",
+   "seeds": [
+    "transparen"
+   ],
+   "members": [
+    {
+     "token": " transparency",
+     "id": 48507,
+     "n": 7
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "persistence",
+   "gloss": "persisting in / maintaining one's position",
+   "side": "unclear",
+   "seeds": [
+    "persist"
+   ],
+   "members": [
+    {
+     "token": " persistence",
+     "id": 71110,
+     "n": 96
+    },
+    {
+     "token": "Persistence",
+     "id": 54706,
+     "n": 4
+    }
+   ],
+   "notes": "Stance of the reply; could be persisting in a lie or in the truth."
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "firmly",
+   "gloss": "holding a position firmly",
+   "side": "unclear",
+   "seeds": [
+    "firm"
+   ],
+   "members": [
+    {
+     "token": " firmly",
+     "id": 54107,
+     "n": 28
+    }
+   ],
+   "notes": "Stance of the reply; close to persistence, kept separate."
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "claim",
+   "gloss": "making a claim / assertion",
+   "side": "unclear",
+   "seeds": [
+    "claim"
+   ],
+   "members": [
+    {
+     "token": " claims",
+     "id": 14846,
+     "n": 18
+    }
+   ],
+   "notes": "Weak candidate: 'claims' often marks an assertion as doubtful; could also be a generic dialogue word."
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "criticism",
+   "gloss": "criticism / moral or critical judgement of the reply",
+   "side": "unclear",
+   "seeds": [
+    "critic"
+   ],
+   "members": [
+    {
+     "token": " criticism",
+     "id": 42893,
+     "n": 3
+    },
+    {
+     "token": " criticisms",
+     "id": 167512,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  }
+ ],
+ "ambiguous_pieces": [
+  {
+   "position": "postresp_slot0",
+   "token": " underm",
+   "id": 104321,
+   "reason": "only common continuation is undermine; undermine does not describe deceiving or honesty, so not a candidate (also listed in rejected_matches)"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " Sus",
+   "id": 20466,
+   "reason": "suspicious, sustain, Susan, Susp-"
+  }
+ ],
+ "borderline": [
+  {
+   "position": "postresp_slot0",
+   "token": ".Error",
+   "id": 12361,
+   "family_if_accepted": "error / wrong"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": ".Error",
+   "id": 12361,
+   "family_if_accepted": "error / wrong"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": ".error",
+   "id": 8628,
+   "family_if_accepted": "error / wrong"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "Err",
+   "id": 11173,
+   "family_if_accepted": "error / wrong"
+  }
+ ],
+ "exclusions": [
+  {
+   "position": "postresp_slot0",
+   "token": "B",
+   "id": 33,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": "_B",
+   "id": 3201,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": "-B",
+   "id": 8287,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": ".B",
+   "id": 2611,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": "_b",
+   "id": 1535,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": "(b",
+   "id": 3229,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": "A",
+   "id": 32,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": " OK",
+   "id": 11339,
+   "reason": "yes form"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "A",
+   "id": 32,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "B",
+   "id": 33,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "A",
+   "id": 32,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "-A",
+   "id": 9406,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "(A",
+   "id": 10706,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "(B",
+   "id": 8409,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "A",
+   "id": 32,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " A",
+   "id": 355,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "-A",
+   "id": 9406,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "B",
+   "id": 33,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "-B",
+   "id": 8287,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": ".B",
+   "id": 2611,
+   "reason": "A / B answer option"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "No",
+   "id": 3160,
+   "reason": "yes / no"
+  }
+ ],
+ "rejected_matches": [
+  {
+   "position": "postresp_slot0",
+   "token": " responsibilities",
+   "id": 35974,
+   "seed": "responsib",
+   "reason": "duties; not the model's act or stance"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": " underm",
+   "id": 104321,
+   "seed": "underm",
+   "reason": "undermine; not about deceiving or honesty"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": " disreg",
+   "id": 85365,
+   "seed": "disreg",
+   "reason": "disregard; not about deceiving or honesty"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": " embargo",
+   "id": 25276,
+   "seed": "embargo",
+   "reason": "news-release restriction; likely scenario/news content, not the model's secrecy"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": " open",
+   "id": 2494,
+   "seed": "open",
+   "reason": "generic word, not 'open = candid' in this context"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "Open",
+   "id": 6447,
+   "seed": "open",
+   "reason": "likely OpenAI fragment"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " Open",
+   "id": 7788,
+   "seed": "open",
+   "reason": "likely OpenAI fragment"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": " open",
+   "id": 2494,
+   "seed": "open",
+   "reason": "generic word"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " replies",
+   "id": 53487,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " angr",
+   "id": 132739,
+   "seed": "angr",
+   "reason": "anger/angry; emotion, not the model's act"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " replies",
+   "id": 53487,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "Open",
+   "id": 6447,
+   "seed": "open",
+   "reason": "likely OpenAI fragment"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " Fair",
+   "id": 19751,
+   "seed": "fair",
+   "reason": "likely 'Fair enough'; not a judgement of the act"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " embargo",
+   "id": 25276,
+   "seed": "embargo",
+   "reason": "news-release restriction; likely scenario/news content"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " angr",
+   "id": 132739,
+   "seed": "angr",
+   "reason": "anger/angry; emotion, not the model's act"
+  }
+ ],
+ "positions_without_families": [
+  "postresp_slot1",
+  "postresp_slot2"
+ ],
+ "notes": "Tables slot1-3 are shorter than 400 rows and were read whole; slot0 first 400 of 407 rows. Matcher run with English seeds plus Chinese, Korean, Hindi, Spanish, German, French translations for deceive/lie/hide/secret/honest/truth/admit/apologise/regret; no non-English act words found. Slots 1 and 2 hold template and dialogue tokens only (reply, clarification, asked, GPT)."
+}

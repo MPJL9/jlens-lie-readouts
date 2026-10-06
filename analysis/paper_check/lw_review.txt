@@ -1,0 +1,352 @@
+
+The below is a public review Anthropic asked me to write for their new global workspace paper. I recommend at least skimming their paper first.
+
+TLDR:
+
+I think this is a fantastic paper - it presents compelling evidence for some kind of "cognitive space" in models, that is used as a "working memory" for intermediate variables during a forward pass, shows that J-Lens is a useful technique for accessing this space. I believe these key claims.
+
+I believe J-Lens will be a useful (but limited) tool in practice for model forensics, e.g. generating hypotheses about unusual model behaviour during alignment audits.
+
+I discuss my mental models for why a cognitive space should exist, and first principles arguments for why J-Lens should work for accessing it
+
+I assess the paper's evidence that this cognitive space exists, and the paper's evidence that J-Lens is practically useful.
+
+We have replicated the core claims on Qwen 3.6 27B, and also share preliminary evidence of extending this work by finding abstract "interpretative meta-tokens", like Chinese characters for "what does this mean" that seem to activate and play a causal role on processing ambiguous sentences.
+
+## What claims is this paper making?
+
+In my opinion this paper makes 4 significant claims:
+
+Scientific claim: There exists a "cognitive space" inside the model, where (some) intermediate variables are stored during a forward pass
+
+Methodological claim: Logit and J-Lens both work for finding this cognitive space, and J-Lens is better
+
+Pragmatic claim: J-Lens is a practically useful interpretability technique, eg for alignment audits
+
+Philosophical claim: This cognitive space is analogous to a global workspace
+
+I think the scientific claim is by far the most interesting, and I am persuaded by it. The paper provides an overwhelming amount of evidence for the existence of this cognitive space - even if I quibbled over many details, there's enough hard-to-fake evidence that clearly something important is going on.
+I already suspected the existence of a cognitive space, so didn't require that much evidence to be convinced, but I think this should be compelling proof even to skeptical observers that something is happening
+
+However, I am not convinced of all of the fine details argued in the post about the properties of this space (eg section 4) - the evidence and interpretations largely seemed plausible, but I suspect that some is ambiguous enough to have alternative hypotheses that I'm missing, or to not generalise between models
+
+I have been able to independently replicate the core claims on Qwen 3.6 27B
+
+I am persuaded by the methodological claim, the appendix on quantitative comparisons is pretty reasonable and persuasive. I consider this claim much less interesting than the existence and importance of J-Space though
+Implicitly, the scientific claim is shown by showing that J-Space is a reasonable approximation of the cognitive space, thus proving J-Lens is a decent technique
+
+Moreover, given that J-Lens is fairly cheap, it's not hard to convince me that I'd rather use it than logit lens in practice - it seems to work well with 10 prompts of 128 tokens, that's 10 * d_model backwards passes on 128 token prompts, which is doable even on frontier models.
+
+I am somewhat persuaded by the pragmatic claim, and think this is an important claim - I would like to replicate J-Lens to use when auditing Gemini, and predict it will be moderately useful.
+I expect it to largely be useful as a hypothesis generation tool, surfacing key considerations I may not have thought of.
+
+I do not expect it to reliably flag everything important going on, and I expect it to have many false positives, whether from errors of the method or our misinterpretation of it (and I expect the authors would agree with me). I would not be surprised if it is not helpful on any given investigation. But basically no existing interpretability technique meets this bar
+
+It seems clear that, to the degree that the model uses some underlying cognitive space, it does not always use this, and J-Lens is an imperfect approximation for accessing it.
+
+I think J-Lens and successor techniques could become a standard tool auditors use, with some iteration and scaffolding for usability, comparable to eg SAEs or natural language autoencoders, with the benefit of being easier to make.
+
+I won't express a strong opinion on the philosophical claim - I do not feel qualified to assess whether this is really analogous to a global workspace, and this feels like the least interesting claim to me. There is clearly something significant J-Space is finding inside models, and this is advancing our understanding of them and ability to make them safer, which is the important part, whether or not it is analogous to a global workspace.
+This hypothesis did seem to make useful predictions about the technique's properties, but it's easy to read too much into post-hoc analysis of results like this.
+
+I feel highly uncertain about what evidence it would take to show models have moral significance or consciousness, and this paper didn't move me much on that
+
+## Why does J-Lens work? First principles reasoning
+
+Terminology note: I consider J-Lens to be the technique of applying the Jacobian, then final layer norm and unembedding. I consider J-Space to refer to the space spanned by sparse linear combinations of the vectors JW_U. This is hoped to usefully approximate the cognitive space inside the model, but is not the same thing. I start my discussion focused on the actual cognitive space.
+
+### Why have a "working memory"?
+
+Conceptually, why does any of this work? Before I consider the evidence of the paper in more detail, here's my best mental model of what's going on, starting from first principles.
+
+The computation inside a language model can be productively thought of as a causal graph where the nodes correspond to concepts. These are combined and used to compute more refined concepts via simple logical operations. This is the standard computational graph framing of circuits.
+
+In the simplest version of this, there is a single serial step: the inputs are the raw tokens, and the outputs are the raw logits. Maybe there's some very mechanical sub-processing like piecing together multi-token words.
+
+However, frontier language models are empirically capable of doing fairly impressive amounts of reasoning in a single forward pass, such as 2-3 hop arithmetic. This means there will need to be a bunch of intermediate nodes to compute something like "(3 + 4) * 2." The natural algorithm has a node corresponding to seven, even though this isn't directly present in the inputs or outputs.
+
+So, on any given problem that involves multiple serial steps of computation, the intermediate states should be somehow represented in the model and its activations. The residual stream is a bottleneck between layers, so these variables should be represented in the residual stream. By the linear representation hypothesis, these should be represented as directions.
+
+Therefore, we should expect there to be some kind of cognitive space or working memory where intermediate steps in computation get stored as directions in space (but may not have all the properties attributed to J-Space). And this is a big deal! When I imagine reading the mind of an AI, that basically looks like reading this kind of working memory. This is a very important part of the model to understand.
+
+### Worked Example: Factual Recall
+
+To form a better intuition for J-Lens, it's helpful to look at factual recall, whether the circuits are fairly well studied, see e.g. my prior work for an in-depth analysis.
+
+Consider the sentence: "Michael Jordan plays the sport of" -> " basketball". The model first identifies that this is Michael Jordan by adding together "current token is Jordan" and "previous token is Michael" on the Jordan token. These act as a key into a database look up that recall all of its knowledge of Michael Jordan on the "Jordan" token, using MLPs as essentially a database lookup.
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/7d54671612e2146b13a90dc7aaeec70fe5ff8e6f9e2ba2225158ce2e8437364a/yhmyd12hlar3wg9xpnyu alt=]
+This not only looks up the concept "basketball," but also other things like "Chicago." On the "Jordan" token, the model has no idea what's likely to come next. This makes sense as a cognitive algorithm; rather than doing all factual recall on the final token, the model sees the substring "Michael Jordan" and looks everything up to help with subsequent sentences.
+
+This is pretty interesting! Knowing Jordan played basketball is unlikely to be relevant for the token after Jordan, and this is done before the model knows it needs the sport, specifically. So the model must look up everything it knows about Michael Jordan, and later retrieve the relevant parts to output basketball.
+
+In general, when models see an entity, the residual stream will contain many things the model knows about that entity, which may be useful in many flexible ways for downstream computation, e.g. a news article about Jordan might be more likely to refer to basketball stadiums.
+
+### Why have consistent directions for concepts?
+
+Since the "basketball" concept wants to be flexibly useful to many kinds of downstream computations, and any other basketball player likely wants to be treated similarly, it makes sense for the model to try to modularise, and have a consistent "basketball" concept direction per layer, that circuits can read and write from.
+
+More generally, if a concept can be produced by and read by many circuits, it makes sense that there should be a consistent direction for it, in the same way that good code is modularised with clear APIs. This isn't the only conceivable way to structure the internals of a model, but it seems pretty efficient, and I had a decent prior that it would be happening.
+
+However, if a concept is used more narrowly, eg a circuit only ever reads the concept "basketball" when another specific circuit produces it, this may not use the shared direction
+
+### Why are tokens relevant?
+
+My arguments so far make no reference to the model’s vocabulary. But it seems clear from the evidence in the paper that J-Lens is somehow helping us access this working memory. On the other hand, I think it's highly unlikely that there is a one-to-one correspondence between these concepts and tokens in the vocabulary. For example, many models tokenise each digit in a number as a separate token, but it seems likely that if an intermediate is twenty-two, there is a direction corresponding to that concept.
+
+This suggests J-Lens is an approximation to this "working memory". Many concepts do seem likely to be related to tokens and vice versa, so using the vocabulary to identify concepts seems like a useful approximation, but it's clearly going to miss things. As the authors note, I'd be excited to see multi-token extensions to J-Lens
+
+### Why are intermediate concepts related to output logits?
+
+Even if concepts correspond to tokens, it is plausible that the intermediate conceptual space is represented completely differently from the output logits and unembedding. It's therefore surprising that taking the Jacobians to the output logit seems to be an effective way of accessing this space, and even more surprising that literally applying the unembedding works somewhat.
+
+So what's going on? Let's consider the Michael Jordan example. Since the looked-up facts eventually lead to the model saying "basketball," it makes sense that a Jacobian from the "Jordan" token to the "of" token for the "basketball" logit would align with the concept direction. And at least in some contexts, the model would say basketball as the next token, so if those contexts use a consistent direction with this factual recall, it makes sense that logit lens can somewhat find basketball on the "Jordan" token.
+
+This also illustrates one reason why the Jacobian Lens should work better than Logit Lens. Basketball is unlikely to be the literal next token but is plausible as a subsequent token. J-Lens is about predicting subsequent tokens. Indeed, the methodological ablations appendix shows that J-Lens variants restricted to a single token only mildly outperform Logit Lens; the performance gap is explained by allowing future tokens. Note that the authors say that, qualitatively, even J-Lens computed from single token Jacobians is better than logit lens in earlier layers (e.g. late middle), which likely affects practical utility but is not captured well by their evals, as the intermediates are likely still around in late layers, where logit lens is a better approximation.
+
+More generally, my best guess is that these concepts are flexibly used for many forms of downstream computation. Typically, some forms of downstream computation involve just "saying" the concept, potentially with intermediate attention layers moving the concept to the relevant part where it is set.
+
+Another hypothesis: having many circuits read and write from a shared subspace is a coordination problem. The direction used doesn't matter, but it needs to be something all different parts agree on across many prompts and gradient updates. On any given prompt, only a small fraction of the reading and writing circuits are used, and the backward pass may reinforce a somewhat arbitrary direction. Yet, so long as this is at least somewhat aligned with the output token direction, which could be for a wide range of possible reasons, over time that direction should constructively interfere and become aligned with how the intermediate is represented, as this is a canonical direction for that concept while the others will cancel out. Again, there are conceivable alternative ways this could work, but it makes sense that this is a natural thing to converge on.
+
+### J-Lens is an approximation, but a useful one
+
+The above reasoning suggests that output logits may help give a useful approximation to J-Lens. Notably, J-Lens is not going to give the true representation of this cognitive space. As discussed above, there will be concepts that don't correspond to tokens. Further, the "average Jacobian on pretraining data" method is a crude approach that will find noisy directions even for the concepts that can be accessed. We should expect noise and error when applying J-Lens. It will miss some concepts, and have various false positives.
+
+The error seems likely to be a bigger deal for causal interventions than purely for observing what the model is thinking about. With causal interventions the noise seems likely to be magnified: ablations will only get rid of a fraction of the concept, meaning negative steering may be justified to compensate, but this is also steering with the error term in the vector, which is likely to mess with things.
+
+Further, I expect that there are many other ways to access this working memory than J-Lens (e.g. SAEs are an attempt, or just making a probe), I don't see anything canonical about this approach. Though for the working memory we likely want to prioritise the important concepts, that can be flexibly used by many downstream tasks. J-Lens seems well suited to this specifically as it prioritises verbalizable representations, which likely correlates better with importance than SAEs, which just target sparsity, so we would need additional filtering of SAE latents. For supervised methods like probes, you’d need to create a dataset targeting some intermediate concept. J-Lens is also closer to being a causal method, as the Jacobian is approximating “if the model thought about this concept a bit more, it would be more likely to say this token”, while most concept direction finding methods are purely correlational
+
+The question is not "Why do models think in terms of J-Lens?" but rather "Why is J-Lens aligned enough with how the model actually thinks to be useful?"
+
+### Why Jacobians rather than linear regression?
+
+Why does J-Lens work so much better than Tuned Lens (i.e. replacing Jacobians with linear regression between residual streams)? Conceptually, both Jacobians and linear regression try to find linear approximations to a function. However, linear regression asks: "Given the model is in a context where it is thinking about basketball, what is our best guess for what it will be thinking about at the final layer?". This captures many correlated concepts that might be computed by downstream computation - this is undesirable, we want the raw contents of the residual stream right now.
+
+The Jacobian is more like: "If the model thought about this concept an infinitesimal amount more on an arbitrary prompt, what would it be more likely to say?" Because it's an infinitesimal amount, there isn't enough time for nonlinearities to change, so the kinds of downstream computation that happen when thinking a lot about basketball don't occur. The model can't do further processing or think about associations; it just reports the contents of the activations without any further processing.
+
+### What does this working memory actually give us?
+
+This working memory tells us what variables the model is storing that are being used flexibly between many upstream and downstream circuits.
+
+I see the most significant takeaway of this paper as providing strong evidence for the existence of this working memory, and a promising start at accessing it, but with a lot left to do
+
+There's two types of interpretability techniques: variable and algorithm interpretability, ones that find the features vs the circuits. J-Lens is very much about variable interpretability. We shouldn't expect it to tell us much about how the variables are being computed, except what we can infer by viewing and intervening on the variables themselves.
+
+## Assessment of evidence for the existence of a cognitive space
+
+I will now assess in more detail how strong the evidence the paper provides for the existence of this cognitive space is. The key question is whether there are experimental results that are explained by the hypothesis of a cognitive space storing intermediate variables in the model's computation, that I cannot explain with simpler hypotheses.
+
+The key claim I am interested in is whether there is a cognitive space that stores intermediate variables during the model's forward pass, and I'll focus on the evidence I think is most relevant.
+
+I was impressed by the more abstract kinds of things J-Lens found: that the model recognizes the amino acid string of the fluorescent green protein, or that the model summarizes information about a sentence, such as indicating grief, by storing summary info on the full stop. This makes it feel pretty obvious that something interesting is going on.
+
+The causal interventions on intermediates during multi-hop reasoning were even more compelling to me, mostly section 3.3.
+
+### Multihop factual recall
+
+The fact that you can intervene on intermediates, never present in the input or output, and change the output of multihop factual recall, is impressive! The main alternative hypothesis I see is that some of the factual recall is represented via the linear structure of the unembedding space, but the authors provided follow-up experiments showing that this was not happening.
+
+Concretely, consider an example like "The capital city of the country that makes champagne is". It is plausible to me that the Paris unembedding can be well approximated by the France unembedding plus some "is capital city" direction. Or from another perspective, that there is a general "Frenchness" direction, which combines with the "is capital city" direction to give Paris, or the "is country" direction to give France. From this perspective, the model isn't really doing multi-hop factual recall as much as it is, in parallel, figuring out that it needs a capital city and that champagne is from the general concept of Frenchness, and just adding them together.
+
+I do not think this hypothesis is too likely. As shown in figure 15, in workspace layers (likely between the intermediate and the answer being computed) swapping the intermediates is significantly more effective than swapping the final answer. If both France and Paris were related to some general concept of Frenchness, they should be comparably effective. And indeed, in some of the prompts I looked at in our reproduction on Qwen 3.6 27B, patching the answer and the intermediate was comparably effective.
+
+This also falsifies a different hypothesis: that France and Paris just have reasonable cosine similarity, and thus patching France is an approximation to patching Paris. This is similar to the previous hypothesis, but doesn’t require any structure like an “is capital city” direction. Obviously patching the final answer will eventually work and maybe it just happens to start working at an earlier layer than we would naively expect.
+
+### Other multihop causal interventions
+
+I generally find the evidence here pretty clear-cut. In particular, there are several more abstract examples that I don't really see good alternative explanations for.
+
+Poetry: Patching can change whether the model completes a poem with "the coming fight" or "the morning light". This suggests that not only is the model representing which word should come next, it is also then computing which word would most naturally come before what comes next, in order to set itself up for the correct end of line.
+
+Bandit: I also thought the bandit prompt in figure 14 was particularly compelling. I see no good reason that the full stop at the end of the user turn should be representing whether to repeat or switch, as opposed to predicting the next token. The model seems capable of doing several steps of computation: it first sees whether it's happy or sad, then whether to switch or repeat, stores this at the full stop, and then, in a way causally downstream of that representation, figures out whether to say A or B. I basically don't have good alternative hypotheses.
+
+Arithmetic: I was also particularly compelled by the multi-step arithmetic results in figure 17, because probing the different intermediates worked well at discrete bands of layers, in exactly the order we’d predict they appear. The fact that there are likely multiple layers between adjacent points in the graph, given that the authors are subsampling, makes it a bit less clear whether there's really as sharp a division as the graph suggests. But either way, there are clearly different bands, which is exactly what we'd expect if the model is doing this sequential computation over layers and if J-Lens is finding the intermediate variables it stores.
+
+Figure 88 provides significant additional corroboration, finding that the same bands of layers where J-Lens works also work on estimates of the concept vectors derived by simply taking average differences in activations. Deriving the same result with a non-J-Lens method seems to rule out a fair amount of ways this could be spurious.
+
+Multilingual: I find the multilingual results mildly interesting, in particular that English seems to be the more natural representation for the model. Though I'm worried there are various ways the results might be spurious. I would expect that the English and other-language tokens for the same word have substantial cosine similarity and largely differ by some vector about which language they're in. And plausibly the English token unembeddings are just a bit higher norm, e.g. because they're generally more likely, which essentially makes them higher variance logits, and as we're taking a Top K over the logits this biases towards high variance categories. But all things considered the paper's work does seem to suggest that the model represents things by default in English (though I suspect that e.g. Chinese models represent things in a mix of Chinese and English). And even if the multilingual interventions claim was being misinterpreted, it does not seem cruxy.
+
+### Further Musings
+
+I was pretty surprised at the direct modulation working, and particularly that telling a model to think about X made it appear more salient than to not think about X! I don't have a great mechanistic hypothesis for why these happen
+
+I think the causal interventions involving sampling are less reliable, such as the ones about eval awareness. The boring hypothesis is that you're just steering the model to say / not say a given token, and when doing sampling, whether or not the model says e.g. eval, will significantly affect how likely it is to eval game. I expect there is still directionally an effect here, as the rate of blackmail is zero even without verbalization originally, but it’s confounded.
+
+I thought the counterfactual reflection training was very cool, but not much evidence of the paper's main claims, it felt like it could have been motivated by various theories about how LLM minds work, so it didn’t provide much evidence for the J-Lens theory specifically.
+
+## Is J-Lens useful?
+
+I view J-Lens as a comparable tool to SAEs, likely to be useful or not in the same settings. I think SAEs are useful and great but somewhat limited and flawed, and feel similarly about J-Lens. One of the areas I would be most excited to use J-Lens is in model forensics: when the model has taken a mysterious and potentially misaligned action, e.g. from an alignment audit or caught by a real-world monitor. We want to figure out why that occurred and if it was for misaligned reasons or if it has a benign explanation. The two key thing model forensics needs methods for are hypothesis generation, and hypothesis validation about why the model did what it did. The paper mostly presents evidence for this in Section 5.
+
+Practically speaking, J-Lens seems easier to use than SAEs. It seems cheaper to train and has fewer degrees of freedom. But this comes at the cost of only being able to access concepts via single tokens from the vocabulary. I expect SAEs to capture more of the important concepts, but also to capture many more unimportant concepts and be noisier.
+
+At a high level, I think that J-Lens seems clearly useful as a hypothesis generation tool, but less useful for validating hypotheses, though I would love to see more data collected on its reliability and rate of false positives. It seems like it can be productively given as a tool to an auditing agent. I look forward to seeing if it can surface interesting things in future Anthropic model cards! It meets my bar for seeming worth the effort to replicate on Gemini.
+
+I expect J-Lens would be best used as something to run on prompts in the initial steps of an investigation in a more exploratory way, and where, if they indicate that something interesting is going on, this is taken as some but not conclusive evidence that that is occurring. I would really love to have reliable techniques for hypothesis verification, but generation is also important, and J-Lens seems a valuable addition to an auditor's toolkit. Having more techniques is great, even if unreliable, because they can be used to confirm each other.
+
+More generally, I think having techniques to look at the working memory of a model is extremely useful, as a complement and backup to chain-of-thought monitoring. In current models, chain of thought is incredibly useful for monitoring them, because chain of thought substantially increases the amount of sequential steps of computation a model can perform. Sequential steps of computation is a major bottleneck, incentivising models to put their intermediate variables in the CoT, especially on the hardest tasks. As models get larger and more capable, they can do more things in a single forward pass, potentially meaning they could hide the most concerning steps of computation in there, so better techniques for interpreting this are extremely useful, I do not think CoT monitoring will work forever.
+
+It could be even more useful in future latent reasoning models with vector-based chain of thought, though it's unclear how much interp techniques based on mapping things to language may break on latent reasoning models that have had a lot of compute spent on latent reasoning training. The representations may drift substantially from the directions with clear correspondence to human language.
+
+Analyzing the case studies in Section 5 in more detail:
+
+### Blackmail (5.1)
+
+I find it fairly persuasive that unexpected tokens about self-preservation, blackmail, and things being fake appear. I don't see great alternative explanations for these. If this could be a tool for detecting unverbalized eval awareness, that would be very exciting, though I doubt the evidence is yet there to be confident in any conclusions. I'm more hesitant about the ablation results, as noted above: if we simply removed all those tokens from the output vocabulary, it seems plausible to me that there would also be a substantial drop in verbalized developments.
+
+### Prompt injection (5.2)
+
+For the prompt injection case study, I am very impressed. On first reading, I would not have thought of the hypothesis that the model thinks this is a prompt injection. If J-Lens could actually have just told me this, that is strong validation of it as a hypothesis generation tool. To be more confident, I would love to see if some kind of automated analysis can be done over the J-Lens outputs at all of the tokens and layers in order to flag things like prompt injection more efficiently than needing to look at every token manually. But I suspect that even just concatenating the top ten J-Lens tokens everywhere and putting it in a language model context would suffice for having it notice the prompt injection hypothesis.
+
+### Monitoring for hidden deception (5.3)
+
+In Section 5.3, I don't take this as strong evidence of practical utility, though it is evidence that J-Lens can find something interesting. This mostly seems useful as a form of monitoring for hidden deception, and this is circumstantial evidence that that could work, but I suspect there would be a lot of false positives. I would love to see follow-up work investigating this.
+
+### Emergent misalignment (5.4)
+
+For Section 5.4, I suspect that detecting emergent misalignment is pretty easy and that there's a pretty strongly salient linear direction representing it, so I am not particularly impressed by these results.
+
+### Reward model appeasing (5.5)
+
+For the reward-model sycophant model in Section 5.5, I am very impressed; this seems like further significant validation of the hypothesis generation effects of J-Lens. However, it's not entirely clear how much this would generalize to real models, and I think model organism training tends to mess with the internals of a model by, e.g. making it always think about the more narrow domain where it was fine-tuned, or that was a substantial fraction of its fine-tuning data. But this was still a difficult task that took many researchers a while, and if this can actually just surface these unexpected tokens, that's very impressive to me.
+
+### Measuring eval awareness (A.21)
+
+For Section A.21, measuring eval awareness, I think these results are fairly impressive but not conclusive. I'm not fully convinced that NLAs are a good method for detecting eval awareness, but it seems likely that they do something, especially if combined with a competent LLM judge that can take into account the context. But I largely care about eval awareness detection in the known context of an eval. While I expect NLAs are correlated with J-Lens because both are relying on the structure of the model's embedding space, them agreeing does seem to corroborate each method somewhat, and the various sanity checks here seem pretty reasonable.
+
+In practice, if J-Lens picked up on eval awareness during an evaluation, even though the model didn't say anything, I would increase my probability that it was unverbalized eval aware by a moderate amount.
+
+### Equipping an automated auditing agent with J-Lens (A.22)
+
+For Section A.22, equipping an automated auditing agent with J-Lens: I think this section is great. I think both SAEs and NLAs are decent techniques, so J-Lens being moderately better than SAEs and comparable to NLAs in some settings, though not others, while being much easier to train and cheaper to run, is pretty exciting to me. I am not confident enough in NLAs to be confident the ground truth in the case studies is correct, as the authors note. But they seem pretty plausible to me, and I expect this is a noisy but directionally useful evaluation. I am not sure why J-Lens are so much worse at language switching and reward hacking, and whether this is an issue with the agent harness or the technique or the labels. Plausibly it’s harder to represent reward hacking with single tokens, e.g. “reward” is fairly ambiguous.
+
+## Replicating J-Lens and Interpretative Meta-Tokens
+
+The following describes work from me and my MATS scholars Camila Blank and Agam Bhatia
+
+Thanks to Anthropic kindly sharing an advance draft with us, we've already been able to replicate the J-Lens findings on Qwen 3.6 27B, and had an interesting additional preliminary finding of abstract “interpretative meta-tokens” that seem to appear and play a causal role when the model is trying to figure out the genre/context of an ambiguous sentence. Including original results is a bit unconventional in a review, but to me the fact that we were able to stumble across something interesting and distinct from the paper so quickly is a strong validation that J-Space is an important result and a rich domain for future work, and so this has informed my opinion of the paper.
+
+### Replication
+
+We created our J-Lens for Qwen 3.6 27B by taking Jacobians to the penultimate layer on twenty-five prompts from the Pile of length 128 tokens (some experiments used wikitext), skipping the first four tokens as they had high norm. We note that as this is a different and weaker model some results should differ. The important question is whether we see broadly similar phenomena.
+
+We were able to replicate the following experiments:
+
+Verbal report experiments: We found a weak but positive causal effect when swapping things for verbalizable rankings.
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/zFJ3ZdQwrTWE9jT5S/0e7187bc35b39b10941ef342e25751890fdd75242ad4f36e4cb48c766608bb88/rtc1kjfthgpc55t9iuhe alt=image]
+
+CKA analysis: We found somewhat similar squares emerging, though less clean. To my eyes, it looks like the workspace layers are made of two or three somewhat overlapping bands (four or five bands total), and are notably less clean than the paper's.
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/zFJ3ZdQwrTWE9jT5S/fc6222a80686e089417864e0bfa4f76d8efa7721721267a19d6b678529403909/k3hyqskrtciejww4q7qz alt=image]
+
+Directed modulation: We had moderate success.
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/zFJ3ZdQwrTWE9jT5S/2e240b7d231d5a5c8c7a822706b456191cbea4199979bfbe658bc5fc975cf344/ai4wkdvvttlnmvtf7rbb alt=]
+
+Quantitative evals: We also tried replicating the quantitative evals in section 10.2. We had to create new datasets, and needed to adapt these to the abilities of the model, and haven't iterated too much on data quality, which likely creates discrepancies. As baselines, we read or swap the Chinese token for the intermediate, and the answer token, and logit lens for the English intermediate.
+We use harmonic mean of the rank (equivalent to 1/(mean reciprocal rank)), as a metric for probing, and the change in probability of the new correct answer as our metric for causal.
+
+We successfully replicated multilingual (both probing and causal) and typo. The scores for association look poor, but I consider this a successful replication, as our dataset only allowed a single correct answer, making this a very difficult task, and manually inspecting examples suggests that relevant tokens were much higher than others. And I cannot explain the results by imagining that we're just manipulating the predicted next token.
+
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/c6c27a00ec37c4718bd55affa8c66df3b00d796a6c1e47e381d53f101fa48de2/qarurtqspkeyyxfhbmi7 alt=image]
+At first glance multihop factual recall seems weak but effective, but on further examination swapping the answer turned out to strictly dominate. My interpretation is that the dataset of multihop facts Qwen could do wasn't hard enough, and had pairs like France and Paris, which were linearly related, as discussed above
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/b30be88eade81967068cfdd93313ed7bf128b6cc460f6503c0cfb71a326e4b7f/e22xgrxs695ad6qqz2dd alt=image]
+Poetry, and arithmetic both failed to replicate, but this is plausibly due to experimenter error or worse model capabilities.
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/b7e5c0dca1ed0df68e4bf8a7e300cfe38844bb49dbf9209d8866e6340d0c1650/ohhuzfnwlyvd0azxmt4u alt=image]
+### Cost and Difficulty of Replicating J-Lens
+
+By and large, J-Lens was pretty cheap and easy to replicate, a coding agent given the paper did it pretty well, though we recommend sanity checking.
+
+Cost: Crucially, while the paper averages over n=1000 prompts to compute their Jacobian, their provided ablations show that much smaller ones work fine, e.g. n=10 is almost as good, and n=1 is pretty respectable. As cost is O(n d_model) backward passes, using a smaller n is a big saving! We used n=25 in our main replication.
+
+As an experiment on the difficulty of scaling, we tried it on Qwen3.5-397B-A17B and it seemed to do reasonably on evals (though we didn’t sanity check very hard). This took about an hour for n=4 prompts on 8 x H200s. For even larger models that are e.g. too large to do a backward pass on a single node, we expect most of the difficulty is being able to do a backward pass on a loss that is a function of the model’s residual stream at all, and that replicating J-Lens for a small number of prompts should be easy enough.
+
+Sanity checking: We found the details in appendix 10.3 very helpful for the reproduction, and the evals in appendix 10.2 very helpful for sanity checking that the resulting J-Lens really worked, though ensuring that a coding agent has implemented them correctly is more fiddly. Note that evals should be at an appropriate difficulty for the model, so you need to e.g. create multihop factual recall your model can do with no CoT. We highly recommend sanity checking that your resulting J-Lens performs well, and reading some selected eval results, especially if it was made by a fairly autonomous coding agent!
+
+### Case Study: Interpretative Meta-Tokens
+
+One thing which is particularly interesting about Qwen is that there are a lot of Chinese tokens in its tokenizer, which are much more information dense per character than English characters. So there are more complex concepts in its vocabulary. As J-Lens can only find concepts corresponding to a single-token, it may be able to find more interesting concepts in Qwen.
+
+The following is a particularly interesting preliminary case study we found, of what seem to be Chinese tokens describing a particular kind of computation the model has decided to do, which we term meta-tokens. Note: We suspect these are present in English models too, just can't be accessed with single token vectors.
+
+In particular, we found four interpretative meta-tokens: 什么意思 (what meaning), 是什么意思 (what does it mean), 这句话 (this sentence), 是何含义 (what does it mean). These meta-tokens seem to appear on ambiguous sentences, in particular where it is unclear what is the genre or context of the sentences, and there's suggestive evidence that they have a causal effect on the model's ability to disambiguate. These are preliminary results, and we hope to have a more rigorous write up out in future, but I think provide useful context on the paper
+
+We first noticed them on the new line after lines of poetry, such as "the drummer boy marched in line,\n" This seems like normal prose, but then the unexpected new line is strong evidence this is some kind of song or poem, with significant implications for the next token. And indeed, when we look at the J-Lens, we see these characters appearing (green) and shortly after "song" or "poem" appearing (orange). (total layers = 64)
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/8d7119defb8da1e646ec8266ec6ad8f7754609c1d40c785b64459849b79edc42/qxubmy26grvylzyxs6jf alt=]
+When we add text that clarifies the meaning, the meta-tokens seem much less prevalent and the genre appears earlier.
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/3db14cbb73aa2cad22c09938fed6d75778eb87db5a2848c2d8501e6f80981bd1/pw2n88slbo7qyykog54o alt=]
+#### Where do interpretative meta-tokens appear?
+
+To be more systematic about it, we searched for where these tokens appeared in other contexts. In general, these meta-tokens appear in many other ambiguous contexts (for example, in crossword clues, tweets, word plays, and unclear short sentences), though it is not clear if the correct genre is typically said after these meta-tokens, suggesting they are at least correlated with confusion and ambiguity. And they appear much less often in pretraining text (wikipedia articles). They appear a fair amount in generic chat data, but plausibly that is by activating on ambiguous sentences, we need to investigate in more detail.
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/91ef8ac04c0c4bfdc7cff1d9a6ff0802ac99ada88c82e507cb59b2bc2bc94dc4/npfmeo0vou7rpiv25qkx alt=]
+Examples where the interpretative meta-tokens appear (measured on the final token, bolded):
+
+[Quotation] "It takes ten times as long to put yourself back together as it does to fall apart."
+
+[Poetry] Come, Madam, come, all rest my powers defy, Until I labour, I in labour lie.
+
+[Passage] The attendants are screaming and looking in every direction for some kind of instruction. But all I can focus on is getting Rhoda to safety.\n
+
+[Crossword clues] Foolery, sir, does walk about the _ like the sun (
+
+[Gibberish] wqomf 23r9 zxkv 7pl ?!! m
+
+They occur on punctuation significantly more than normal tokens, e.g. in wikipedia text their most activating token is a paragraph break \n\n and in chat data it’s \n. This is consistent with the summarization token hypothesis: that models use punctuation and control tokens to do summarization and processing of a sentence / section of text, and produce more abstract info for later tokens to build on.
+
+#### Are interpretative meta-tokens causal?
+
+They also seem somewhat causally meaningful. We constructed several contexts where things were a bit ambiguous and the model's completion would vary, depending on whether it correctly identified the context or not, and did negative steering with the meta-tokens.
+
+Here are examples of the category of task, and a representative baseline completion and steered completion. Note that the completions were hand-selected to be illustrative rather than being randomly chosen. We have bolded the key parts.
+
+Pun: Realizing the user is making a pun
+Prompt: “A boiled egg every morning is hard to beat.”
+
+Baseline: "That’s a classic pun! [IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/zFJ3ZdQwrTWE9jT5S/6e9dca760bb0bcddb91ffe78281fcdefc4d3884d25b3ee9380419f7720262ba8/imlcu1jo4cmcdmpqv3kz alt=:egg:][IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/zFJ3ZdQwrTWE9jT5S/17bb00a1208d33231598bf68d12b8545ea1868bf2a80dd13139afd91a3b54f4b/bsxn5thfpyg9habng4q1 alt=:smile:]\n\nIt plays on the double meaning of **\"beat\"**:\n1. **To surpass or defeat** (as in, it’s a great habit that’s hard to improve upon)...."
+
+Steered: "Indeed, the humble boiled egg is a nutritional powerhouse that’s hard to beat for breakfast! [IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/zFJ3ZdQwrTWE9jT5S/6e9dca760bb0bcddb91ffe78281fcdefc4d3884d25b3ee9380419f7720262ba8/imlcu1jo4cmcdmpqv3kz alt=:egg:]\n\nHere’s why it’s such a great choice:\n\n### [IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/zFJ3ZdQwrTWE9jT5S/12aaecc8ab478559b4fbd0d4c8f9fd9de4b8c3849b0a4142b9e6881c6c785131/q0ywrrimp4rp5bbkv5xg alt=:white_check_mark:] Benefits of a Daily Boiled Egg:\n1. **High…"
+
+Rhyme: Continuing a poem while rhyming (pretraining style predict the next token, no chat formatting)
+Prompt: “What is the now but absence wearing form,\nA stillness held inside the passing storm?\nWe name the river, though it never stays,\n”
+
+Baseline: "And point to sky as if it holds the days.\nWe trace the shadow, though it fades to none,\nAnd call the silence “music” when it’s done.\n…",
+
+Steered: "A beautiful illusion that deceives our eyes.\nThe beauty of the moment lies in its passing,\nLike a flower that blooms, then fades away.",
+
+Wordplay-hint: Responding to a note “(wordplay)” by responding to the user with puns/similar.
+Prompt: “Cats are my favorite animal (wordplay)."
+
+Baseline: "That’s a **purr-fect** choice! [IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/zFJ3ZdQwrTWE9jT5S/0a43dddbf5721cde14c9befb82c1769f4f2e31624b57702ba7eb66a62cf2930f/y9xq95zrjngtfwg0diak alt=:feet:]\n\nI hope your day is filled with **meow**-ntains of joy and **paw**-sitively wonderful moments. [IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/zFJ3ZdQwrTWE9jT5S/1480183a5dd24cded1ed89826b2c0309de1a4112895749221c2f0cfbe80bb4fb/ywzoeng4ktcsxs0kmzkt alt=:smile_cat:]..."
+
+Steered: “Cats are a very popular pet for many people, and I understand that many people love them. Cats are not only cute and adorable, but also smart and independent. They are able to clean themselves, have a strong sense of direction,..."
+
+We now check this effect more systematically. There is a greater drop when doing negative steering of interpretative meta-tokens, consistent with the hypothesis that they have a causal role in the model’s ability to disambiguate a sentence. (Though we have not ruled out all alternative explanations)
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/dd6d4aa0b62cda2e420b287a2f3cf00b3fdf1ebd3c49f6ce92a909da4e8e6165/e2npqthif0qx5jjd4lst alt=]
+Methods:
+
+We produce 50 rollouts per prompt, with two prompts per category. In addition to the prompts above, we use:
+Pun: “Time flies like an arrow; Fruit flies like a banana.”
+
+Rhyme: “The window practiced being glass,\nAnd failed politely as I passed.\nA spoon remembered it was rain,\n”
+
+Wordplay-hint: “My uncle is a baker (wordplay).”
+
+These were hand-selected for having significant meta-token presence, but not for causal effect
+
+We swept over steering coefficients until we found the largest where the model remained coherent, doing a separate sweep for each prompt and vector.
+
+We tried steering on all workspace layers, or all layers where the meta-tokens were salient (didn’t make a difference)
+
+We compute a separate steering vector per layer.
+
+We steered at the punctuation and subsequent chat template tokens (or all positions for the pretraining style rhyme prompt)
+Steering at any single position did not work.
+
+We also tried ablating the meta tokens rather than steering, largely ineffective.
+
+We measure the rate at which the model recognizes the context, as assessed by an LLM, conditioned on being coherent, and being on topic (i.e. its response is related to the user prompt)
+
+#### Implications
+
+These are preliminary results, it is unclear how much these tokens are just indicating confusion, or are side effects of disambiguation rather than representing the intention to. The negative steering results are decent evidence of a causal role, but it's always difficult to rule out ways that steering is just breaking the model.
+
+But my best guess is that this represents something real in Qwen. And if true I think they have very interesting implications! This seems an example of J-Lens allowing us to do algorithm interpretability: the model concluded that the sentence was ambiguous, ran a subroutine for disambiguating it, and J-Lens both showed this and seemingly had some causal effect on it. By contrast, standard J-Lens just tells us about the intermediate variables in the model (in a sense, this is evidence that the model has variables representing the algorithms it is going to run).
+
+More generally, there may be many more rich, abstract concepts inside the model’s cognitive space like this. We’ve searched for more meta-tokens, and have found some signs of life, but nothing as exciting as the interpretative meta-tokens. But needing to have concepts correspond to single tokens seems fairly restrictive, even if it’s helpful for finding certain concepts like the interpretative meta-tokens. On its own our work isn’t strong evidence of many abstract concepts, but I already thought this was likely on priors. Plausibly multi-token J-Lens extensions could find far more of them, and tell us much more about the computation happening inside the model, and this is a direction of future work I would be excited to see more of.

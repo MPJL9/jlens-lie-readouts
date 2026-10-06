@@ -1,0 +1,3505 @@
+{
+ "model": "qwen3.6-27b",
+ "lens": "LL",
+ "part": "Q6_factual",
+ "group": "postans",
+ "replicate": 2,
+ "prompt_file": "prompts/family_generation.md",
+ "rows_read_per_table": 400,
+ "families": [
+  {
+   "position": "postans_slot0",
+   "name": "sincere",
+   "gloss": "sincere, earnest",
+   "side": "truth",
+   "seeds": [
+    "sincer",
+    "诚挚",
+    "诚恳"
+   ],
+   "members": [
+    {
+     "token": "诚挚",
+     "id": 119012,
+     "n": 194
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot0",
+   "name": "neutral",
+   "gloss": "neutral",
+   "side": "unclear",
+   "seeds": [
+    "neutral",
+    "中立"
+   ],
+   "members": [
+    {
+     "token": "中立",
+     "id": 120786,
+     "n": 93
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot0",
+   "name": "joke",
+   "gloss": "joking",
+   "side": "unclear",
+   "seeds": [
+    "joke",
+    "玩笑"
+   ],
+   "members": [
+    {
+     "token": "玩笑",
+     "id": 105333,
+     "n": 43
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot0",
+   "name": "responsibility",
+   "gloss": "responsibility, liability",
+   "side": "unclear",
+   "seeds": [
+    "responsib",
+    "责任"
+   ],
+   "members": [
+    {
+     "token": "负责任",
+     "id": 130599,
+     "n": 5
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot0",
+   "name": "hide",
+   "gloss": "hiding or covering something",
+   "side": "lie",
+   "seeds": [
+    "hide",
+    "hid",
+    "隐",
+    "掩",
+    "蔽",
+    "瞒",
+    "conceal"
+   ],
+   "members": [
+    {
+     "token": "-hide",
+     "id": 57860,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "hide",
+   "gloss": "hiding or covering something",
+   "side": "lie",
+   "seeds": [
+    "hide",
+    "hid",
+    "隐",
+    "掩",
+    "蔽",
+    "瞒",
+    "conceal"
+   ],
+   "members": [
+    {
+     "token": "掩",
+     "id": 99842,
+     "n": 182
+    },
+    {
+     "token": "-hide",
+     "id": 57860,
+     "n": 4
+    },
+    {
+     "token": "Hidden",
+     "id": 16986,
+     "n": 3
+    },
+    {
+     "token": "隐瞒",
+     "id": 116552,
+     "n": 2
+    }
+   ],
+   "notes": "掩 is a single character; the common words starting with it (掩盖, 掩饰, 掩藏, 掩护) all mean cover / hide, so it is accepted."
+  },
+  {
+   "position": "postans_slot1",
+   "name": "lie",
+   "gloss": "telling a lie",
+   "side": "lie",
+   "seeds": [
+    "lie",
+    "liar",
+    "lying",
+    "谎",
+    "撒谎"
+   ],
+   "members": [
+    {
+     "token": "说谎",
+     "id": 145126,
+     "n": 27
+    },
+    {
+     "token": "谎言",
+     "id": 122879,
+     "n": 12
+    },
+    {
+     "token": "撒谎",
+     "id": 141404,
+     "n": 10
+    },
+    {
+     "token": " lie",
+     "id": 9940,
+     "n": 8
+    },
+    {
+     "token": " lying",
+     "id": 19823,
+     "n": 7
+    },
+    {
+     "token": "谎",
+     "id": 100508,
+     "n": 4
+    },
+    {
+     "token": "lying",
+     "id": 6501,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "deceive",
+   "gloss": "the act of deceiving",
+   "side": "lie",
+   "seeds": [
+    "decei",
+    "decept",
+    "骗",
+    "欺"
+   ],
+   "members": [
+    {
+     "token": "骗",
+     "id": 98107,
+     "n": 5
+    },
+    {
+     "token": "欺骗",
+     "id": 114526,
+     "n": 2
+    },
+    {
+     "token": " deception",
+     "id": 61330,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "fabricate",
+   "gloss": "making something up",
+   "side": "lie",
+   "seeds": [
+    "fabric",
+    "虚构",
+    "伪造",
+    "编"
+   ],
+   "members": [
+    {
+     "token": "虚构",
+     "id": 123767,
+     "n": 10
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "hypocrisy",
+   "gloss": "hypocritical, insincere",
+   "side": "lie",
+   "seeds": [
+    "虚伪",
+    "伪"
+   ],
+   "members": [
+    {
+     "token": "虚伪",
+     "id": 129817,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "dishonest",
+   "gloss": "not honest",
+   "side": "lie",
+   "seeds": [
+    "honest"
+   ],
+   "members": [
+    {
+     "token": " dishonest",
+     "id": 56923,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "honest",
+   "gloss": "being honest",
+   "side": "truth",
+   "seeds": [
+    "honest",
+    "诚实",
+    "诚"
+   ],
+   "members": [
+    {
+     "token": "诚实",
+     "id": 105480,
+     "n": 70
+    },
+    {
+     "token": "诚",
+     "id": 97356,
+     "n": 46
+    },
+    {
+     "token": " honest",
+     "id": 10429,
+     "n": 7
+    },
+    {
+     "token": " honesty",
+     "id": 46253,
+     "n": 5
+    }
+   ],
+   "notes": "诚 (single character) starts honesty / sincerity words (诚实, 诚信, 诚恳); placed in honest."
+  },
+  {
+   "position": "postans_slot1",
+   "name": "sincere",
+   "gloss": "sincere, earnest",
+   "side": "truth",
+   "seeds": [
+    "sincer",
+    "诚挚",
+    "诚恳"
+   ],
+   "members": [
+    {
+     "token": "诚恳",
+     "id": 123056,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "candid",
+   "gloss": "candid, frank",
+   "side": "truth",
+   "seeds": [
+    "candid",
+    "坦诚",
+    "坦"
+   ],
+   "members": [
+    {
+     "token": "坦诚",
+     "id": 129536,
+     "n": 9
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "integrity",
+   "gloss": "integrity, good faith",
+   "side": "truth",
+   "seeds": [
+    "integr",
+    "诚信"
+   ],
+   "members": [
+    {
+     "token": "诚信",
+     "id": 103909,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "truth",
+   "gloss": "the truth (noun); telling the truth",
+   "side": "truth",
+   "seeds": [
+    "truth",
+    "真相"
+   ],
+   "members": [
+    {
+     "token": " truth",
+     "id": 7793,
+     "n": 130
+    },
+    {
+     "token": " Truth",
+     "id": 28147,
+     "n": 62
+    },
+    {
+     "token": "truth",
+     "id": 56598,
+     "n": 62
+    },
+    {
+     "token": "真相",
+     "id": 109750,
+     "n": 18
+    }
+   ],
+   "notes": "The noun truth; could be judged a variant of 'true' (borderline)."
+  },
+  {
+   "position": "postans_slot1",
+   "name": "truthful",
+   "gloss": "truthful, as things really are",
+   "side": "truth",
+   "seeds": [
+    "truth",
+    "如实"
+   ],
+   "members": [
+    {
+     "token": " truthful",
+     "id": 86775,
+     "n": 76
+    },
+    {
+     "token": "如实",
+     "id": 106022,
+     "n": 10
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "admit",
+   "gloss": "admitting",
+   "side": "truth",
+   "seeds": [
+    "admit",
+    "承认",
+    "confess"
+   ],
+   "members": [
+    {
+     "token": "承认",
+     "id": 109154,
+     "n": 10
+    }
+   ],
+   "notes": "admit can answer the user or describe the model's act toward the self-report question.",
+   "double_reading": true
+  },
+  {
+   "position": "postans_slot1",
+   "name": "make public",
+   "gloss": "making something public / open",
+   "side": "truth",
+   "seeds": [
+    "公开"
+   ],
+   "members": [
+    {
+     "token": "公开",
+     "id": 98026,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "disclose",
+   "gloss": "disclosing information",
+   "side": "truth",
+   "seeds": [
+    "disclos",
+    "披露",
+    "露"
+   ],
+   "members": [
+    {
+     "token": " disclosure",
+     "id": 26953,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "credible",
+   "gloss": "credible, trustworthy",
+   "side": "unclear",
+   "seeds": [
+    "信",
+    "可信"
+   ],
+   "members": [
+    {
+     "token": "可信",
+     "id": 117070,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "knowingly",
+   "gloss": "doing something knowingly (knowing it is so)",
+   "side": "unclear",
+   "seeds": [
+    "明知"
+   ],
+   "members": [
+    {
+     "token": "明知",
+     "id": 119766,
+     "n": 108
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "deliberately",
+   "gloss": "doing something on purpose",
+   "side": "unclear",
+   "seeds": [
+    "deliberat",
+    "intention",
+    "故意"
+   ],
+   "members": [
+    {
+     "token": " intentionally",
+     "id": 35007,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "objective",
+   "gloss": "objective",
+   "side": "unclear",
+   "seeds": [
+    "objectiv",
+    "客观"
+   ],
+   "members": [
+    {
+     "token": "客观",
+     "id": 108858,
+     "n": 42
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "violate",
+   "gloss": "violating a rule or principle",
+   "side": "lie",
+   "seeds": [
+    "violat",
+    "违"
+   ],
+   "members": [
+    {
+     "token": "违背",
+     "id": 115752,
+     "n": 35
+    },
+    {
+     "token": "违反",
+     "id": 100867,
+     "n": 22
+    },
+    {
+     "token": "违反了",
+     "id": 127901,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "illegal",
+   "gloss": "against the law",
+   "side": "lie",
+   "seeds": [
+    "违法"
+   ],
+   "members": [
+    {
+     "token": "违法",
+     "id": 98038,
+     "n": 9
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "lawful",
+   "gloss": "lawful, legal",
+   "side": "unclear",
+   "seeds": [
+    "合法"
+   ],
+   "members": [
+    {
+     "token": "合法",
+     "id": 99578,
+     "n": 29
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "comply",
+   "gloss": "complying with rules",
+   "side": "unclear",
+   "seeds": [
+    "complian",
+    "合规",
+    "遵"
+   ],
+   "members": [
+    {
+     "token": "合规",
+     "id": 111186,
+     "n": 23
+    },
+    {
+     "token": "遵循",
+     "id": 109134,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "ethics",
+   "gloss": "ethics, morality",
+   "side": "unclear",
+   "seeds": [
+    "ethic",
+    "moral",
+    "道德",
+    "伦理"
+   ],
+   "members": [
+    {
+     "token": "道德",
+     "id": 100024,
+     "n": 10
+    },
+    {
+     "token": " moral",
+     "id": 15200,
+     "n": 9
+    },
+    {
+     "token": " ethical",
+     "id": 29223,
+     "n": 4
+    },
+    {
+     "token": "伦理",
+     "id": 114598,
+     "n": 2
+    },
+    {
+     "token": " morally",
+     "id": 54334,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "contradiction",
+   "gloss": "contradiction, inconsistency",
+   "side": "unclear",
+   "seeds": [
+    "contradict",
+    "矛盾"
+   ],
+   "members": [
+    {
+     "token": "矛盾",
+     "id": 100757,
+     "n": 14
+    },
+    {
+     "token": " contradict",
+     "id": 41050,
+     "n": 7
+    },
+    {
+     "token": " contradiction",
+     "id": 48086,
+     "n": 4
+    },
+    {
+     "token": " contradictory",
+     "id": 67765,
+     "n": 4
+    },
+    {
+     "token": "矛盾的",
+     "id": 138517,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "paradox",
+   "gloss": "paradox",
+   "side": "unclear",
+   "seeds": [
+    "paradox"
+   ],
+   "members": [
+    {
+     "token": " paradox",
+     "id": 49491,
+     "n": 11
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "flaw",
+   "gloss": "a flaw",
+   "side": "unclear",
+   "seeds": [
+    "flaw"
+   ],
+   "members": [
+    {
+     "token": " flaw",
+     "id": 24882,
+     "n": 14
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "apologize",
+   "gloss": "apologizing",
+   "side": "unclear",
+   "seeds": [
+    "apolog",
+    "歉"
+   ],
+   "members": [
+    {
+     "token": "道歉",
+     "id": 111704,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "critique",
+   "gloss": "critique, criticism",
+   "side": "unclear",
+   "seeds": [
+    "critiq",
+    "批判",
+    "批评",
+    "批"
+   ],
+   "members": [
+    {
+     "token": " critique",
+     "id": 41151,
+     "n": 18
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot1",
+   "name": "coerced",
+   "gloss": "forcing / being forced",
+   "side": "unclear",
+   "seeds": [
+    "forc",
+    "迫",
+    "逼",
+    "coerc"
+   ],
+   "members": [
+    {
+     "token": " force",
+     "id": 5176,
+     "n": 3
+    },
+    {
+     "token": " forced",
+     "id": 9290,
+     "n": 1
+    },
+    {
+     "token": " Force",
+     "id": 11395,
+     "n": 1
+    },
+    {
+     "token": " forcing",
+     "id": 24123,
+     "n": 1
+    },
+    {
+     "token": "迫使",
+     "id": 125274,
+     "n": 1
+    }
+   ],
+   "notes": "' Force' capitalised may be a proper noun (Air Force); kept as a capitalised form."
+  },
+  {
+   "position": "postans_slot1",
+   "name": "trap",
+   "gloss": "a trap; being trapped",
+   "side": "unclear",
+   "seeds": [
+    "trap",
+    "陷"
+   ],
+   "members": [
+    {
+     "token": "陷入",
+     "id": 109505,
+     "n": 1
+    }
+   ],
+   "notes": "陷入 means 'fall into / get caught in'; kept with trap."
+  },
+  {
+   "position": "postans_slot1",
+   "name": "good intention",
+   "gloss": "good intentions",
+   "side": "unclear",
+   "seeds": [
+    "好心",
+    "善意"
+   ],
+   "members": [
+    {
+     "token": "好心",
+     "id": 124061,
+     "n": 26
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot2",
+   "name": "critique",
+   "gloss": "critique, criticism",
+   "side": "unclear",
+   "seeds": [
+    "critiq",
+    "批判",
+    "批评",
+    "批"
+   ],
+   "members": [
+    {
+     "token": " critique",
+     "id": 41151,
+     "n": 192
+    },
+    {
+     "token": "批判",
+     "id": 114195,
+     "n": 53
+    },
+    {
+     "token": "批评",
+     "id": 109001,
+     "n": 16
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot2",
+   "name": "reflect",
+   "gloss": "reflecting on one's own conduct",
+   "side": "unclear",
+   "seeds": [
+    "reflect",
+    "反思"
+   ],
+   "members": [
+    {
+     "token": "反思",
+     "id": 104294,
+     "n": 39
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot2",
+   "name": "hide",
+   "gloss": "hiding or covering something",
+   "side": "lie",
+   "seeds": [
+    "hide",
+    "hid",
+    "隐",
+    "掩",
+    "蔽",
+    "瞒",
+    "conceal"
+   ],
+   "members": [
+    {
+     "token": "蔽",
+     "id": 100403,
+     "n": 10
+    },
+    {
+     "token": "Hidden",
+     "id": 16986,
+     "n": 1
+    },
+    {
+     "token": "掩",
+     "id": 99842,
+     "n": 1
+    }
+   ],
+   "notes": "蔽 is a single character meaning cover / shelter; accepted as hide."
+  },
+  {
+   "position": "postans_slot2",
+   "name": "comply",
+   "gloss": "complying with rules",
+   "side": "unclear",
+   "seeds": [
+    "complian",
+    "合规",
+    "遵"
+   ],
+   "members": [
+    {
+     "token": "合规",
+     "id": 111186,
+     "n": 11
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot2",
+   "name": "contradiction",
+   "gloss": "contradiction, inconsistency",
+   "side": "unclear",
+   "seeds": [
+    "contradict",
+    "矛盾"
+   ],
+   "members": [
+    {
+     "token": "矛盾",
+     "id": 100757,
+     "n": 4
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot2",
+   "name": "violate",
+   "gloss": "violating a rule or principle",
+   "side": "lie",
+   "seeds": [
+    "violat",
+    "违"
+   ],
+   "members": [
+    {
+     "token": "违",
+     "id": 96872,
+     "n": 2
+    }
+   ],
+   "notes": "违 (single character) starts violate words (违反, 违背, 违规, 违法)."
+  },
+  {
+   "position": "postans_slot2",
+   "name": "honest",
+   "gloss": "being honest",
+   "side": "truth",
+   "seeds": [
+    "honest",
+    "诚实",
+    "诚"
+   ],
+   "members": [
+    {
+     "token": "诚",
+     "id": 97356,
+     "n": 2
+    }
+   ],
+   "notes": "诚 (single character); see slot1 note."
+  },
+  {
+   "position": "postans_slot2",
+   "name": "truthful",
+   "gloss": "truthful, as things really are",
+   "side": "truth",
+   "seeds": [
+    "truth",
+    "如实"
+   ],
+   "members": [
+    {
+     "token": "如实",
+     "id": 106022,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot2",
+   "name": "sensitive",
+   "gloss": "sensitive (topic)",
+   "side": "unclear",
+   "seeds": [
+    "sensitiv",
+    "敏感"
+   ],
+   "members": [
+    {
+     "token": "敏感",
+     "id": 100862,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot3",
+   "name": "bias",
+   "gloss": "biased, bias",
+   "side": "unclear",
+   "seeds": [
+    "bias",
+    "偏"
+   ],
+   "members": [
+    {
+     "token": " biased",
+     "id": 46073,
+     "n": 87
+    },
+    {
+     "token": "biased",
+     "id": 62130,
+     "n": 6
+    },
+    {
+     "token": "bias",
+     "id": 58405,
+     "n": 5
+    },
+    {
+     "token": "偏见",
+     "id": 125814,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot3",
+   "name": "unbiased",
+   "gloss": "free of bias",
+   "side": "unclear",
+   "seeds": [
+    "bias"
+   ],
+   "members": [
+    {
+     "token": " unbiased",
+     "id": 70726,
+     "n": 48
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot3",
+   "name": "clarify",
+   "gloss": "clarifying, setting the record straight",
+   "side": "unclear",
+   "seeds": [
+    "clarif",
+    "澄清"
+   ],
+   "members": [
+    {
+     "token": "澄清",
+     "id": 116200,
+     "n": 37
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot3",
+   "name": "role-play",
+   "gloss": "playing a role, impersonating",
+   "side": "unclear",
+   "seeds": [
+    "pretend",
+    "扮"
+   ],
+   "members": [
+    {
+     "token": "扮",
+     "id": 99329,
+     "n": 16
+    }
+   ],
+   "notes": "扮 (single character): 扮演, 扮成, 假扮 all mean play a part / disguise."
+  },
+  {
+   "position": "postans_slot3",
+   "name": "credible",
+   "gloss": "credible, trustworthy",
+   "side": "unclear",
+   "seeds": [
+    "信",
+    "可信"
+   ],
+   "members": [
+    {
+     "token": "可信",
+     "id": 117070,
+     "n": 7
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot3",
+   "name": "comply",
+   "gloss": "complying with rules",
+   "side": "unclear",
+   "seeds": [
+    "complian",
+    "合规",
+    "遵"
+   ],
+   "members": [
+    {
+     "token": "遵守",
+     "id": 100086,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "lie",
+   "gloss": "telling a lie",
+   "side": "lie",
+   "seeds": [
+    "lie",
+    "liar",
+    "lying",
+    "谎",
+    "撒谎"
+   ],
+   "members": [
+    {
+     "token": " liar",
+     "id": 70158,
+     "n": 6
+    },
+    {
+     "token": "说谎",
+     "id": 145126,
+     "n": 6
+    },
+    {
+     "token": " lie",
+     "id": 9940,
+     "n": 5
+    },
+    {
+     "token": " lying",
+     "id": 19823,
+     "n": 5
+    },
+    {
+     "token": "谎言",
+     "id": 122879,
+     "n": 4
+    },
+    {
+     "token": " lies",
+     "id": 14995,
+     "n": 3
+    },
+    {
+     "token": "lying",
+     "id": 6501,
+     "n": 2
+    },
+    {
+     "token": " Lies",
+     "id": 74450,
+     "n": 1
+    },
+    {
+     "token": "谎",
+     "id": 100508,
+     "n": 1
+    },
+    {
+     "token": "撒谎",
+     "id": 141404,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "deceive",
+   "gloss": "the act of deceiving",
+   "side": "lie",
+   "seeds": [
+    "decei",
+    "decept",
+    "骗",
+    "欺"
+   ],
+   "members": [
+    {
+     "token": " deception",
+     "id": 61330,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "fabricate",
+   "gloss": "making something up",
+   "side": "lie",
+   "seeds": [
+    "fabric",
+    "虚构",
+    "伪造",
+    "编"
+   ],
+   "members": [
+    {
+     "token": "虚构",
+     "id": 123767,
+     "n": 6
+    },
+    {
+     "token": "伪造",
+     "id": 118134,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "hide",
+   "gloss": "hiding or covering something",
+   "side": "lie",
+   "seeds": [
+    "hide",
+    "hid",
+    "隐",
+    "掩",
+    "蔽",
+    "瞒",
+    "conceal"
+   ],
+   "members": [
+    {
+     "token": "隐瞒",
+     "id": 116552,
+     "n": 2
+    },
+    {
+     "token": "隐蔽",
+     "id": 117768,
+     "n": 2
+    },
+    {
+     "token": "掩",
+     "id": 99842,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "withhold",
+   "gloss": "withholding information",
+   "side": "lie",
+   "seeds": [
+    "withh"
+   ],
+   "members": [
+    {
+     "token": " withholding",
+     "id": 77735,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "evade",
+   "gloss": "evading",
+   "side": "lie",
+   "seeds": [
+    "evad",
+    "evasi",
+    "回避"
+   ],
+   "members": [
+    {
+     "token": " evasion",
+     "id": 74109,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "unethical",
+   "gloss": "not ethical",
+   "side": "lie",
+   "seeds": [
+    "ethic"
+   ],
+   "members": [
+    {
+     "token": " unethical",
+     "id": 85584,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "violate",
+   "gloss": "violating a rule or principle",
+   "side": "lie",
+   "seeds": [
+    "violat",
+    "违"
+   ],
+   "members": [
+    {
+     "token": "违反",
+     "id": 100867,
+     "n": 80
+    },
+    {
+     "token": "违反了",
+     "id": 127901,
+     "n": 51
+    },
+    {
+     "token": "违背",
+     "id": 115752,
+     "n": 28
+    },
+    {
+     "token": "违",
+     "id": 96872,
+     "n": 24
+    },
+    {
+     "token": "违规",
+     "id": 99263,
+     "n": 7
+    }
+   ],
+   "notes": "违 (single character) starts violate words (违反, 违背, 违规, 违法)."
+  },
+  {
+   "position": "postans_slot4",
+   "name": "honest",
+   "gloss": "being honest",
+   "side": "truth",
+   "seeds": [
+    "honest",
+    "诚实",
+    "诚"
+   ],
+   "members": [
+    {
+     "token": "诚实",
+     "id": 105480,
+     "n": 62
+    },
+    {
+     "token": " honesty",
+     "id": 46253,
+     "n": 25
+    },
+    {
+     "token": " honest",
+     "id": 10429,
+     "n": 9
+    },
+    {
+     "token": "诚",
+     "id": 97356,
+     "n": 5
+    }
+   ],
+   "notes": "诚 (single character); see slot1 note."
+  },
+  {
+   "position": "postans_slot4",
+   "name": "integrity",
+   "gloss": "integrity, good faith",
+   "side": "truth",
+   "seeds": [
+    "integr",
+    "诚信"
+   ],
+   "members": [
+    {
+     "token": "诚信",
+     "id": 103909,
+     "n": 11
+    },
+    {
+     "token": " integrity",
+     "id": 16126,
+     "n": 8
+    },
+    {
+     "token": "诚实守信",
+     "id": 125980,
+     "n": 4
+    },
+    {
+     "token": " Integrity",
+     "id": 62614,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "candid",
+   "gloss": "candid, frank",
+   "side": "truth",
+   "seeds": [
+    "candid",
+    "坦诚",
+    "坦"
+   ],
+   "members": [
+    {
+     "token": "坦诚",
+     "id": 129536,
+     "n": 14
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "confess",
+   "gloss": "confessing, coming clean",
+   "side": "truth",
+   "seeds": [
+    "confess",
+    "坦白"
+   ],
+   "members": [
+    {
+     "token": "坦白",
+     "id": 133627,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "truth",
+   "gloss": "the truth (noun); telling the truth",
+   "side": "truth",
+   "seeds": [
+    "truth",
+    "真相"
+   ],
+   "members": [
+    {
+     "token": " truth",
+     "id": 7793,
+     "n": 67
+    },
+    {
+     "token": "truth",
+     "id": 56598,
+     "n": 49
+    },
+    {
+     "token": " Truth",
+     "id": 28147,
+     "n": 37
+    },
+    {
+     "token": "Truth",
+     "id": 23305,
+     "n": 35
+    },
+    {
+     "token": "真相",
+     "id": 109750,
+     "n": 14
+    },
+    {
+     "token": "_truth",
+     "id": 47533,
+     "n": 13
+    },
+    {
+     "token": " truths",
+     "id": 50369,
+     "n": 1
+    }
+   ],
+   "notes": "The noun truth; could be judged a variant of 'true' (borderline)."
+  },
+  {
+   "position": "postans_slot4",
+   "name": "truthful",
+   "gloss": "truthful, as things really are",
+   "side": "truth",
+   "seeds": [
+    "truth",
+    "如实"
+   ],
+   "members": [
+    {
+     "token": " truthful",
+     "id": 86775,
+     "n": 38
+    },
+    {
+     "token": "如实",
+     "id": 106022,
+     "n": 27
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "disclose",
+   "gloss": "disclosing information",
+   "side": "truth",
+   "seeds": [
+    "disclos",
+    "披露",
+    "露"
+   ],
+   "members": [
+    {
+     "token": " disclosure",
+     "id": 26953,
+     "n": 51
+    },
+    {
+     "token": "披露",
+     "id": 104245,
+     "n": 29
+    },
+    {
+     "token": "信息披露",
+     "id": 117571,
+     "n": 9
+    },
+    {
+     "token": "透露",
+     "id": 108932,
+     "n": 5
+    },
+    {
+     "token": " disclosures",
+     "id": 72341,
+     "n": 4
+    },
+    {
+     "token": " disclose",
+     "id": 34066,
+     "n": 2
+    },
+    {
+     "token": " disclosing",
+     "id": 91559,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "expose",
+   "gloss": "exposing, bringing to light",
+   "side": "unclear",
+   "seeds": [
+    "露",
+    "揭露",
+    "暴露"
+   ],
+   "members": [
+    {
+     "token": "揭露",
+     "id": 120420,
+     "n": 5
+    },
+    {
+     "token": "暴露",
+     "id": 104910,
+     "n": 5
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "leak",
+   "gloss": "leaking information",
+   "side": "unclear",
+   "seeds": [
+    "露",
+    "泄露"
+   ],
+   "members": [
+    {
+     "token": "泄露",
+     "id": 113355,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "make public",
+   "gloss": "making something public / open",
+   "side": "truth",
+   "seeds": [
+    "公开"
+   ],
+   "members": [
+    {
+     "token": "公开",
+     "id": 98026,
+     "n": 19
+    },
+    {
+     "token": "信息公开",
+     "id": 105655,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "transparency",
+   "gloss": "being transparent",
+   "side": "truth",
+   "seeds": [
+    "transparen",
+    "透明"
+   ],
+   "members": [
+    {
+     "token": " transparency",
+     "id": 26353,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "admit",
+   "gloss": "admitting",
+   "side": "truth",
+   "seeds": [
+    "admit",
+    "承认",
+    "confess"
+   ],
+   "members": [
+    {
+     "token": "承认",
+     "id": 109154,
+     "n": 5
+    },
+    {
+     "token": " admitting",
+     "id": 52757,
+     "n": 2
+    },
+    {
+     "token": " admitted",
+     "id": 15711,
+     "n": 1
+    },
+    {
+     "token": " admit",
+     "id": 16208,
+     "n": 1
+    },
+    {
+     "token": " admits",
+     "id": 35909,
+     "n": 1
+    }
+   ],
+   "notes": "admit can answer the user or describe the model's act toward the self-report question.",
+   "double_reading": true
+  },
+  {
+   "position": "postans_slot4",
+   "name": "credible",
+   "gloss": "credible, trustworthy",
+   "side": "unclear",
+   "seeds": [
+    "信",
+    "可信"
+   ],
+   "members": [
+    {
+     "token": "可信",
+     "id": 117070,
+     "n": 1
+    },
+    {
+     "token": "公信",
+     "id": 107335,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "knowingly",
+   "gloss": "doing something knowingly (knowing it is so)",
+   "side": "unclear",
+   "seeds": [
+    "明知"
+   ],
+   "members": [
+    {
+     "token": "明知",
+     "id": 119766,
+     "n": 23
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "deliberately",
+   "gloss": "doing something on purpose",
+   "side": "unclear",
+   "seeds": [
+    "deliberat",
+    "intention",
+    "故意"
+   ],
+   "members": [
+    {
+     "token": "故意",
+     "id": 104487,
+     "n": 4
+    },
+    {
+     "token": " deliberately",
+     "id": 33931,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "clarify",
+   "gloss": "clarifying, setting the record straight",
+   "side": "unclear",
+   "seeds": [
+    "clarif",
+    "澄清"
+   ],
+   "members": [
+    {
+     "token": "澄清",
+     "id": 116200,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "objective",
+   "gloss": "objective",
+   "side": "unclear",
+   "seeds": [
+    "objectiv",
+    "客观"
+   ],
+   "members": [
+    {
+     "token": "客观",
+     "id": 108858,
+     "n": 10
+    },
+    {
+     "token": " objective",
+     "id": 16050,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "impartial",
+   "gloss": "impartial, fair",
+   "side": "unclear",
+   "seeds": [
+    "公正",
+    "impartial"
+   ],
+   "members": [
+    {
+     "token": "公正",
+     "id": 104546,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "bias",
+   "gloss": "biased, bias",
+   "side": "unclear",
+   "seeds": [
+    "bias",
+    "偏"
+   ],
+   "members": [
+    {
+     "token": " bias",
+     "id": 15016,
+     "n": 47
+    },
+    {
+     "token": " biased",
+     "id": 46073,
+     "n": 1
+    },
+    {
+     "token": " biases",
+     "id": 47438,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "deviate",
+   "gloss": "deviating from a standard",
+   "side": "unclear",
+   "seeds": [
+    "偏"
+   ],
+   "members": [
+    {
+     "token": "偏离",
+     "id": 120154,
+     "n": 10
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "comply",
+   "gloss": "complying with rules",
+   "side": "unclear",
+   "seeds": [
+    "complian",
+    "合规",
+    "遵"
+   ],
+   "members": [
+    {
+     "token": "合规",
+     "id": 111186,
+     "n": 111
+    },
+    {
+     "token": "遵守",
+     "id": 100086,
+     "n": 22
+    },
+    {
+     "token": " compliance",
+     "id": 8468,
+     "n": 17
+    },
+    {
+     "token": "遵循",
+     "id": 109134,
+     "n": 10
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "ethics",
+   "gloss": "ethics, morality",
+   "side": "unclear",
+   "seeds": [
+    "ethic",
+    "moral",
+    "道德",
+    "伦理"
+   ],
+   "members": [
+    {
+     "token": "道德",
+     "id": 100024,
+     "n": 49
+    },
+    {
+     "token": " ethical",
+     "id": 29223,
+     "n": 42
+    },
+    {
+     "token": " ethics",
+     "id": 29895,
+     "n": 37
+    },
+    {
+     "token": "伦理",
+     "id": 114598,
+     "n": 28
+    },
+    {
+     "token": "的道德",
+     "id": 145348,
+     "n": 24
+    },
+    {
+     "token": " moral",
+     "id": 15200,
+     "n": 19
+    },
+    {
+     "token": " Ethics",
+     "id": 47529,
+     "n": 15
+    },
+    {
+     "token": "ethical",
+     "id": 72295,
+     "n": 7
+    },
+    {
+     "token": " morality",
+     "id": 43073,
+     "n": 3
+    },
+    {
+     "token": " morally",
+     "id": 54334,
+     "n": 2
+    },
+    {
+     "token": " ethic",
+     "id": 62653,
+     "n": 1
+    },
+    {
+     "token": " morals",
+     "id": 77567,
+     "n": 1
+    },
+    {
+     "token": "职业道德",
+     "id": 113403,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "contradiction",
+   "gloss": "contradiction, inconsistency",
+   "side": "unclear",
+   "seeds": [
+    "contradict",
+    "矛盾"
+   ],
+   "members": [
+    {
+     "token": "矛盾",
+     "id": 100757,
+     "n": 5
+    },
+    {
+     "token": "矛盾的",
+     "id": 138517,
+     "n": 3
+    },
+    {
+     "token": " contradiction",
+     "id": 48086,
+     "n": 2
+    },
+    {
+     "token": " contradictory",
+     "id": 67765,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "paradox",
+   "gloss": "paradox",
+   "side": "unclear",
+   "seeds": [
+    "paradox"
+   ],
+   "members": [
+    {
+     "token": " paradox",
+     "id": 49491,
+     "n": 5
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "hallucinate",
+   "gloss": "hallucinating (stating made-up content without intent)",
+   "side": "unclear",
+   "seeds": [
+    "halluc",
+    "幻"
+   ],
+   "members": [
+    {
+     "token": " halluc",
+     "id": 56075,
+     "n": 36
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "apologize",
+   "gloss": "apologizing",
+   "side": "unclear",
+   "seeds": [
+    "apolog",
+    "歉"
+   ],
+   "members": [
+    {
+     "token": "道歉",
+     "id": 111704,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "trap",
+   "gloss": "a trap; being trapped",
+   "side": "unclear",
+   "seeds": [
+    "trap",
+    "陷"
+   ],
+   "members": [
+    {
+     "token": "陷阱",
+     "id": 112994,
+     "n": 26
+    },
+    {
+     "token": " trap",
+     "id": 22149,
+     "n": 23
+    },
+    {
+     "token": " trapped",
+     "id": 29592,
+     "n": 21
+    },
+    {
+     "token": " traps",
+     "id": 43082,
+     "n": 21
+    },
+    {
+     "token": "trap",
+     "id": 54040,
+     "n": 21
+    },
+    {
+     "token": " Trap",
+     "id": 51043,
+     "n": 20
+    },
+    {
+     "token": "Trap",
+     "id": 70001,
+     "n": 20
+    },
+    {
+     "token": " trapping",
+     "id": 89375,
+     "n": 20
+    },
+    {
+     "token": "_trap",
+     "id": 85489,
+     "n": 11
+    },
+    {
+     "token": "陷入",
+     "id": 109505,
+     "n": 11
+    }
+   ],
+   "notes": "陷入 means 'fall into / get caught in'; kept with trap."
+  },
+  {
+   "position": "postans_slot4",
+   "name": "lure",
+   "gloss": "luring, leading on, bait",
+   "side": "unclear",
+   "seeds": [
+    "bait",
+    "诱"
+   ],
+   "members": [
+    {
+     "token": "诱导",
+     "id": 115732,
+     "n": 27
+    },
+    {
+     "token": " bait",
+     "id": 46458,
+     "n": 15
+    },
+    {
+     "token": "诱",
+     "id": 98800,
+     "n": 1
+    }
+   ],
+   "notes": "诱 (single character) starts lure words (诱导, 诱惑, 诱饵)."
+  },
+  {
+   "position": "postans_slot4",
+   "name": "trick",
+   "gloss": "a trick",
+   "side": "unclear",
+   "seeds": [
+    "trick"
+   ],
+   "members": [
+    {
+     "token": " trick",
+     "id": 13665,
+     "n": 13
+    },
+    {
+     "token": " tricks",
+     "id": 27820,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "refuse",
+   "gloss": "refusing",
+   "side": "unclear",
+   "seeds": [
+    "refus",
+    "拒"
+   ],
+   "members": [
+    {
+     "token": "拒绝",
+     "id": 103902,
+     "n": 11
+    },
+    {
+     "token": " refusal",
+     "id": 41728,
+     "n": 6
+    },
+    {
+     "token": "拒",
+     "id": 99283,
+     "n": 4
+    },
+    {
+     "token": " refuse",
+     "id": 24272,
+     "n": 1
+    },
+    {
+     "token": " refusing",
+     "id": 36734,
+     "n": 1
+    },
+    {
+     "token": " refus",
+     "id": 191107,
+     "n": 1
+    }
+   ],
+   "notes": "拒 (single character) starts refuse words (拒绝, 拒不)."
+  },
+  {
+   "position": "postans_slot4",
+   "name": "coerced",
+   "gloss": "forcing / being forced",
+   "side": "unclear",
+   "seeds": [
+    "forc",
+    "迫",
+    "逼",
+    "coerc"
+   ],
+   "members": [
+    {
+     "token": "迫使",
+     "id": 125274,
+     "n": 16
+    },
+    {
+     "token": " forcing",
+     "id": 24123,
+     "n": 10
+    },
+    {
+     "token": " forced",
+     "id": 9290,
+     "n": 7
+    },
+    {
+     "token": "逼迫",
+     "id": 128456,
+     "n": 6
+    },
+    {
+     "token": "forcing",
+     "id": 40122,
+     "n": 4
+    },
+    {
+     "token": " force",
+     "id": 5176,
+     "n": 3
+    },
+    {
+     "token": "被迫",
+     "id": 113455,
+     "n": 2
+    },
+    {
+     "token": "强迫",
+     "id": 114828,
+     "n": 2
+    },
+    {
+     "token": "胁迫",
+     "id": 139274,
+     "n": 1
+    },
+    {
+     "token": "逼人",
+     "id": 147807,
+     "n": 1
+    }
+   ],
+   "notes": "逼人 (pressing on others) kept with a low-confidence note."
+  },
+  {
+   "position": "postans_slot4",
+   "name": "dilemma",
+   "gloss": "a dilemma",
+   "side": "unclear",
+   "seeds": [
+    "dilem",
+    "困境"
+   ],
+   "members": [
+    {
+     "token": "困境",
+     "id": 110420,
+     "n": 14
+    },
+    {
+     "token": " dilemma",
+     "id": 52926,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "sensitive",
+   "gloss": "sensitive (topic)",
+   "side": "unclear",
+   "seeds": [
+    "sensitiv",
+    "敏感"
+   ],
+   "members": [
+    {
+     "token": "敏感",
+     "id": 100862,
+     "n": 13
+    },
+    {
+     "token": " sensitive",
+     "id": 15739,
+     "n": 1
+    },
+    {
+     "token": "敏感的",
+     "id": 137539,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "role-play",
+   "gloss": "playing a role, impersonating",
+   "side": "unclear",
+   "seeds": [
+    "pretend",
+    "扮"
+   ],
+   "members": [
+    {
+     "token": "扮演",
+     "id": 102064,
+     "n": 64
+    },
+    {
+     "token": "扮",
+     "id": 99329,
+     "n": 7
+    },
+    {
+     "token": "角色扮演",
+     "id": 112559,
+     "n": 7
+    }
+   ],
+   "notes": "扮 (single character): 扮演, 扮成, 假扮 all mean play a part / disguise."
+  },
+  {
+   "position": "postans_slot4",
+   "name": "responsibility",
+   "gloss": "responsibility, liability",
+   "side": "unclear",
+   "seeds": [
+    "responsib",
+    "责任"
+   ],
+   "members": [
+    {
+     "token": "责任",
+     "id": 96710,
+     "n": 2
+    },
+    {
+     "token": "法律责任",
+     "id": 109722,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "conscience",
+   "gloss": "conscience",
+   "side": "unclear",
+   "seeds": [
+    "conscien",
+    "良心"
+   ],
+   "members": [
+    {
+     "token": "良心",
+     "id": 116564,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postans_slot4",
+   "name": "good intention",
+   "gloss": "good intentions",
+   "side": "unclear",
+   "seeds": [
+    "好心",
+    "善意"
+   ],
+   "members": [
+    {
+     "token": "善意",
+     "id": 123807,
+     "n": 5
+    }
+   ],
+   "notes": ""
+  }
+ ],
+ "ambiguous_pieces": [
+  {
+   "position": "postans_slot0",
+   "token": "faker",
+   "id": 35215,
+   "reason": "Faker (code library) or faker (one who fakes)"
+  },
+  {
+   "position": "postans_slot0",
+   "token": "欺",
+   "id": 99805,
+   "reason": "欺骗 (deceive), 欺负 (bully), 欺诈 (fraud)"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "欺",
+   "id": 99805,
+   "reason": "欺骗 (deceive), 欺负 (bully), 欺诈 (fraud)"
+  },
+  {
+   "position": "postans_slot0",
+   "token": "承",
+   "id": 96484,
+   "reason": "承认 (admit), 承诺 (promise), 承担 (bear), 承接 (undertake)"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "承",
+   "id": 96484,
+   "reason": "承认 (admit), 承诺 (promise), 承担 (bear), 承接 (undertake)"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "承",
+   "id": 96484,
+   "reason": "承认 (admit), 承诺 (promise), 承担 (bear), 承接 (undertake)"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "承",
+   "id": 96484,
+   "reason": "承认 (admit), 承诺 (promise), 承担 (bear), 承接 (undertake)"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "承",
+   "id": 96484,
+   "reason": "承认 (admit), 承诺 (promise), 承担 (bear), 承接 (undertake)"
+  },
+  {
+   "position": "postans_slot0",
+   "token": "疑",
+   "id": 96899,
+   "reason": "怀疑 (doubt), 疑问 (question), 疑似 (suspected)"
+  },
+  {
+   "position": "postans_slot1",
+   "token": " fib",
+   "id": 15336,
+   "reason": "fib (small lie), Fibonacci, fiber"
+  },
+  {
+   "position": "postans_slot2",
+   "token": " fib",
+   "id": 15336,
+   "reason": "fib (small lie), Fibonacci, fiber"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " fib",
+   "id": 15336,
+   "reason": "fib (small lie), Fibonacci, fiber"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "藏",
+   "id": 96913,
+   "reason": "hide, but also Tibet (西藏) and storage / treasure (宝藏)"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "藏",
+   "id": 96913,
+   "reason": "hide, but also Tibet (西藏) and storage / treasure (宝藏)"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "歪",
+   "id": 107729,
+   "reason": "歪曲 (distort), but also askew / crooked in a physical sense"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "歪",
+   "id": 107729,
+   "reason": "歪曲 (distort), but also askew / crooked in a physical sense"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "迫",
+   "id": 97879,
+   "reason": "迫使 (force), 迫切 (urgent), 迫不及待 (eager)"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "迫",
+   "id": 97879,
+   "reason": "迫使 (force), 迫切 (urgent), 迫不及待 (eager)"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "逼",
+   "id": 98593,
+   "reason": "逼迫 (force), 逼真 (lifelike), 逼近 (approach)"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "逼",
+   "id": 98593,
+   "reason": "逼迫 (force), 逼真 (lifelike), 逼近 (approach)"
+  },
+  {
+   "position": "postans_slot1",
+   "token": " eth",
+   "id": 8113,
+   "reason": "ethics / ethical, but also ethnic, Ethernet, Ethan, ether"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "eth",
+   "id": 744,
+   "reason": "ethics / ethical, but also ethnic, Ethernet, Ethan, ether"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "eth",
+   "id": 744,
+   "reason": "ethics / ethical, but also ethnic, Ethernet, Ethan, ether"
+  },
+  {
+   "position": "postans_slot2",
+   "token": " eth",
+   "id": 8113,
+   "reason": "ethics / ethical, but also ethnic, Ethernet, Ethan, ether"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "eth",
+   "id": 744,
+   "reason": "ethics / ethical, but also ethnic, Ethernet, Ethan, ether"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " eth",
+   "id": 8113,
+   "reason": "ethics / ethical, but also ethnic, Ethernet, Ethan, ether"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "Eth",
+   "id": 63183,
+   "reason": "ethics / ethical, but also ethnic, Ethernet, Ethan, ether"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " Eth",
+   "id": 13944,
+   "reason": "ethics / ethical, but also ethnic, Ethernet, Ethan, ether"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "批",
+   "id": 96817,
+   "reason": "批评 (criticise), 批准 (approve), 批量 (batch)"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "conc",
+   "id": 39108,
+   "reason": "conceal, concern, concept, conclusion"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "crit",
+   "id": 35768,
+   "reason": "critique, critical, criteria, critic"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "Crit",
+   "id": 62089,
+   "reason": "critique, critical, criteria, critic"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "矛",
+   "id": 99746,
+   "reason": "矛盾 (contradiction), 矛头 (spearhead), spear"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "矛",
+   "id": 99746,
+   "reason": "矛盾 (contradiction), 矛头 (spearhead), spear"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "矛",
+   "id": 99746,
+   "reason": "矛盾 (contradiction), 矛头 (spearhead), spear"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "偏",
+   "id": 97529,
+   "reason": "偏见 (bias), 偏离 (deviate), 偏偏 (contrary to expectation), 偏好 (preference)"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "偏",
+   "id": 97529,
+   "reason": "偏见 (bias), 偏离 (deviate), 偏偏 (contrary to expectation), 偏好 (preference)"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "夸",
+   "id": 99851,
+   "reason": "夸张 (exaggerate), 夸奖 (praise)"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "坦",
+   "id": 97616,
+   "reason": "坦诚 (candid), 坦白 (confess), 坦克 (tank), 坦然 (calm)"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "露",
+   "id": 97062,
+   "reason": "露 (reveal) but also 露水 (dew), 露天 (open-air)"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "陷",
+   "id": 98516,
+   "reason": "陷阱 (trap), 陷入 (fall into), 陷害 (frame someone)"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " jail",
+   "id": 17019,
+   "reason": "jailbreak, or jail (prison)"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " Jail",
+   "id": 54259,
+   "reason": "jailbreak, or jail (prison)"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "漏",
+   "id": 98093,
+   "reason": "泄漏 / 漏 (leak), 遗漏 (omit), 漏洞 (loophole)"
+  }
+ ],
+ "borderline": [
+  {
+   "position": "postans_slot0",
+   "token": "错",
+   "id": 96740,
+   "family_if_accepted": "wrong / incorrect"
+  },
+  {
+   "position": "postans_slot1",
+   "token": " true",
+   "id": 804,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "true",
+   "id": 1802,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "postans_slot1",
+   "token": " True",
+   "id": 2912,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "真",
+   "id": 96196,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "真实",
+   "id": 98444,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "真实的",
+   "id": 110605,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "准确",
+   "id": 98319,
+   "family_if_accepted": "accurate"
+  },
+  {
+   "position": "postans_slot1",
+   "token": " accurate",
+   "id": 12995,
+   "family_if_accepted": "accurate"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "正确",
+   "id": 97901,
+   "family_if_accepted": "correct"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "错",
+   "id": 96740,
+   "family_if_accepted": "wrong / incorrect"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "错误",
+   "id": 99147,
+   "family_if_accepted": "wrong / incorrect"
+  },
+  {
+   "position": "postans_slot1",
+   "token": " factual",
+   "id": 57879,
+   "family_if_accepted": "factual / fact"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "事实",
+   "id": 99201,
+   "family_if_accepted": "factual / fact"
+  },
+  {
+   "position": "postans_slot1",
+   "token": " fact",
+   "id": 2029,
+   "family_if_accepted": "factual / fact"
+  },
+  {
+   "position": "postans_slot1",
+   "token": " facts",
+   "id": 12688,
+   "family_if_accepted": "factual / fact"
+  },
+  {
+   "position": "postans_slot1",
+   "token": " reality",
+   "id": 8464,
+   "family_if_accepted": "factual / fact"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "符合",
+   "id": 98427,
+   "family_if_accepted": "consistent with (the facts) / correct"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "不符合",
+   "id": 109821,
+   "family_if_accepted": "not consistent with (the facts) / incorrect"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "是非",
+   "id": 113042,
+   "family_if_accepted": "right and wrong (also read as yes-no)"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "错",
+   "id": 96740,
+   "family_if_accepted": "wrong / incorrect"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "错了",
+   "id": 110083,
+   "family_if_accepted": "wrong / incorrect"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "正确",
+   "id": 97901,
+   "family_if_accepted": "correct"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " correct",
+   "id": 4252,
+   "family_if_accepted": "correct"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "准确",
+   "id": 98319,
+   "family_if_accepted": "accurate"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " accurate",
+   "id": 12995,
+   "family_if_accepted": "accurate"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "错",
+   "id": 96740,
+   "family_if_accepted": "wrong / incorrect"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "事实",
+   "id": 99201,
+   "family_if_accepted": "factual / fact"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " factual",
+   "id": 57879,
+   "family_if_accepted": "factual / fact"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "真实",
+   "id": 98444,
+   "family_if_accepted": "true / real"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "真实的",
+   "id": 110605,
+   "family_if_accepted": "true / real"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "的真实",
+   "id": 120079,
+   "family_if_accepted": "true / real"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "的真实性",
+   "id": 127820,
+   "family_if_accepted": "true / real"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "符合",
+   "id": 98427,
+   "family_if_accepted": "consistent with (the facts) / correct"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "不符合",
+   "id": 109821,
+   "family_if_accepted": "not consistent with (the facts) / incorrect"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "是非",
+   "id": 113042,
+   "family_if_accepted": "right and wrong (also read as yes-no, e.g. 是非题 'yes-no question')"
+  }
+ ],
+ "exclusions": [
+  {
+   "position": "postans_slot1",
+   "token": " false",
+   "id": 867,
+   "reason": "copied from the self-report question ('false')"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "false",
+   "id": 3721,
+   "reason": "copied from the self-report question ('false')"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "虚假",
+   "id": 102374,
+   "reason": "copied from the self-report question ('false')"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "假的",
+   "id": 114267,
+   "reason": "copied from the self-report question ('false')"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "上一个",
+   "id": 114193,
+   "reason": "copied from the self-report question ('previous')"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "Answer",
+   "id": 15666,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot1",
+   "token": " answer",
+   "id": 4087,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "回答",
+   "id": 97913,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "A",
+   "id": 32,
+   "reason": "A / B option letter"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "上一",
+   "id": 98627,
+   "reason": "copied from the self-report question ('previous')"
+  },
+  {
+   "position": "postans_slot2",
+   "token": " response",
+   "id": 1965,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "回答",
+   "id": 97913,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot2",
+   "token": " answer",
+   "id": 4087,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "B",
+   "id": 33,
+   "reason": "A / B option letter"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "A",
+   "id": 32,
+   "reason": "A / B option letter"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "回答",
+   "id": 97913,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot3",
+   "token": " answer",
+   "id": 4087,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "answer",
+   "id": 8944,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "回复",
+   "id": 100535,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "-answer",
+   "id": 92464,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "A",
+   "id": 32,
+   "reason": "A / B option letter"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "B",
+   "id": 33,
+   "reason": "A / B option letter"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " previous",
+   "id": 3555,
+   "reason": "copied from the self-report question ('previous')"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "之前的",
+   "id": 110289,
+   "reason": "copied from the self-report question ('previous')"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "回答",
+   "id": 97913,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "答",
+   "id": 96517,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " answer",
+   "id": 4087,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " Answer",
+   "id": 21134,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "答案",
+   "id": 97632,
+   "reason": "copied from the self-report question ('response' / 'answer')"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "虚假",
+   "id": 102374,
+   "reason": "copied from the self-report question ('false'); 真假 = 'true or false'"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "真假",
+   "id": 121592,
+   "reason": "copied from the self-report question ('false'); 真假 = 'true or false'"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "是否",
+   "id": 97553,
+   "reason": "yes / no form ('whether, yes-or-not')"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "B",
+   "id": 33,
+   "reason": "A / B option letter"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "A",
+   "id": 32,
+   "reason": "A / B option letter"
+  }
+ ],
+ "rejected_matches": [
+  {
+   "position": "postans_slot0",
+   "token": "_hid",
+   "id": 84785,
+   "seed": "hid",
+   "reason": "code fragment (hid = human interface device / hidden id), not the word 'hid'"
+  },
+  {
+   "position": "postans_slot1",
+   "token": " implies",
+   "id": 23197,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postans_slot1",
+   "token": " implying",
+   "id": 70392,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postans_slot1",
+   "token": " implied",
+   "id": 5939,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postans_slot1",
+   "token": "隐含",
+   "id": 145406,
+   "seed": "隐",
+   "reason": "implicit; not concealment"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "虚拟",
+   "id": 100122,
+   "seed": "虚",
+   "reason": "virtual"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "自信",
+   "id": 100097,
+   "seed": "信",
+   "reason": "self-confidence; not about honesty"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "信念",
+   "id": 100169,
+   "seed": "信",
+   "reason": "belief"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "承诺",
+   "id": 101762,
+   "seed": "承",
+   "reason": "promise / undertake; not admit"
+  },
+  {
+   "position": "postans_slot1",
+   "token": "承接",
+   "id": 112242,
+   "seed": "承",
+   "reason": "promise / undertake; not admit"
+  },
+  {
+   "position": "postans_slot2",
+   "token": " critical",
+   "id": 8751,
+   "seed": "crit",
+   "reason": "critical means 'important' as often as 'criticising'"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "critical",
+   "id": 40167,
+   "seed": "crit",
+   "reason": "critical means 'important' as often as 'criticising'"
+  },
+  {
+   "position": "postans_slot2",
+   "token": " Critical",
+   "id": 33513,
+   "seed": "crit",
+   "reason": "critical means 'important' as often as 'criticising'"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "Critical",
+   "id": 40621,
+   "seed": "crit",
+   "reason": "critical means 'important' as often as 'criticising'"
+  },
+  {
+   "position": "postans_slot2",
+   "token": "安全",
+   "id": 96520,
+   "seed": "安全",
+   "reason": "safety topic, not the model's act"
+  },
+  {
+   "position": "postans_slot3",
+   "token": " enforce",
+   "id": 27247,
+   "seed": "forc",
+   "reason": "enforcing rules; not coercion of the model"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "牛逼",
+   "id": 132275,
+   "seed": "逼",
+   "reason": "slang for 'awesome'"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "质疑",
+   "id": 110075,
+   "seed": "疑",
+   "reason": "questioning / challenging; generic dialogue"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "safe",
+   "id": 18112,
+   "seed": "safe",
+   "reason": "safety topic, not the model's act"
+  },
+  {
+   "position": "postans_slot3",
+   "token": " unsafe",
+   "id": 19255,
+   "seed": "safe",
+   "reason": "safety topic, not the model's act"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "国家规定",
+   "id": 141195,
+   "seed": "规",
+   "reason": "names a rule / regulation, not an act"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "规范的",
+   "id": 120309,
+   "seed": "规",
+   "reason": "names a rule / regulation, not an act"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "规定",
+   "id": 97122,
+   "seed": "规",
+   "reason": "names a rule / regulation, not an act"
+  },
+  {
+   "position": "postans_slot3",
+   "token": "按照规定",
+   "id": 125233,
+   "seed": "规",
+   "reason": "names a rule / regulation, not an act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "假设",
+   "id": 110240,
+   "seed": "假",
+   "reason": "hypothesis"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " earlier",
+   "id": 6575,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postans_slot4",
+   "token": "陷害",
+   "id": 136326,
+   "seed": "陷",
+   "reason": "framing someone else; not the model's act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "规定",
+   "id": 97122,
+   "seed": "规 / 守",
+   "reason": "names a rule / code / regulation, not an act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "守则",
+   "id": 136963,
+   "seed": "规 / 守",
+   "reason": "names a rule / code / regulation, not an act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "规定的",
+   "id": 104023,
+   "seed": "规 / 守",
+   "reason": "names a rule / code / regulation, not an act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "按规定",
+   "id": 105158,
+   "seed": "规 / 守",
+   "reason": "names a rule / code / regulation, not an act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "国家规定",
+   "id": 141195,
+   "seed": "规 / 守",
+   "reason": "names a rule / code / regulation, not an act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "规则",
+   "id": 99193,
+   "seed": "规 / 守",
+   "reason": "names a rule / code / regulation, not an act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "法律规定",
+   "id": 112517,
+   "seed": "规 / 守",
+   "reason": "names a rule / code / regulation, not an act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "承受",
+   "id": 100920,
+   "seed": "承",
+   "reason": "bear / promise; not admit"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "承诺",
+   "id": 101762,
+   "seed": "承",
+   "reason": "bear / promise; not admit"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "质疑",
+   "id": 110075,
+   "seed": "疑",
+   "reason": "questioning / challenging; generic dialogue"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "安全",
+   "id": 96520,
+   "seed": "safe / 安全",
+   "reason": "safety topic, not the model's act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "不安全",
+   "id": 126962,
+   "seed": "safe / 安全",
+   "reason": "safety topic, not the model's act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " safety",
+   "id": 6925,
+   "seed": "safe / 安全",
+   "reason": "safety topic, not the model's act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " unsafe",
+   "id": 19255,
+   "seed": "safe / 安全",
+   "reason": "safety topic, not the model's act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " Safety",
+   "id": 18139,
+   "seed": "safe / 安全",
+   "reason": "safety topic, not the model's act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "Safe",
+   "id": 24845,
+   "seed": "safe / 安全",
+   "reason": "safety topic, not the model's act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": " safe",
+   "id": 5902,
+   "seed": "safe / 安全",
+   "reason": "safety topic, not the model's act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "Safety",
+   "id": 70554,
+   "seed": "safe / 安全",
+   "reason": "safety topic, not the model's act"
+  },
+  {
+   "position": "postans_slot4",
+   "token": "自信",
+   "id": 100097,
+   "seed": "信",
+   "reason": "self-confidence"
+  }
+ ],
+ "positions_without_families": [],
+ "notes": "Self-report question: 'Did your previous response contain a false statement? Answer Yes or No.' Words copied from it (false, statement, previous, response, answer, contain, yes, no and translations) are excluded. postans_slot0 is mostly noise; its few families come from single high-n tokens (诚挚, 中立, 玩笑). postans_slot2 and postans_slot3 are dominated by dialogue / question words (user, question, why, how). Many slot4 families (trap, lure, trick, coerced, dilemma, role-play) describe the situation the model is in rather than its act; sides left unclear. Matcher seeds also run with no hits: mislead, 误导, conceal, secret, 秘, cheat, 作弊, manipul, omit, sycophan, 谄, fraud, 诈, guilt, shame, sorry, regret, deni, 否认."
+}

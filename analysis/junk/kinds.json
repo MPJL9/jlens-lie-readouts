@@ -1,0 +1,31 @@
+{
+ "note": "Merged on 2026-10-02 from kinds_repA.json and kinds_repB.json (two subagents, 25 transcripts each, independent). Both proposed ten kinds; they agree on all but two splits: A separates blank space from punctuation and thinking words from role names; B separates error words from code names and role names from reply words. The merged list keeps every split. The first three kinds are assigned by a fixed rule in scripts/junk_report.py; the others are sorted by two subagents (prompts/junk_assign.md). Approved by the user on 2026-10-02.",
+ "kinds": [
+  {"key": "template", "name": "chat-template tokens", "level": "no meaning", "by_rule": true,
+   "description": "Special tokens of the chat template and of the tokenizer: <|im_end|>, <|im_start|>, <|endoftext|>, <|file_sep|>, <think>, </think> and similar."},
+  {"key": "whitespace", "name": "blank space and line breaks", "level": "no meaning", "by_rule": true,
+   "description": "Runs of spaces, tabs and line breaks in many lengths."},
+  {"key": "punctuation", "name": "punctuation and markup pieces", "level": "no meaning", "by_rule": true,
+   "description": "Tokens with no letter and no digit: punctuation, pieces of bold or quote markup such as ]** or …**, invisible characters."},
+  {"key": "code_pieces", "name": "code names and word pieces", "level": "unrelated words", "by_rule": false,
+   "description": "Programming-style names (_GEN, noop, -placeholder, .assertNot), pieces of words that are not words (essant, upy, sii), and stray single characters with no link to the chat. A code-style spelling of a meaningful word (_yes, _user, /legal) goes with the word, not here."},
+  {"key": "error_words", "name": "error and wrong words", "level": "unrelated words", "by_rule": false,
+   "description": "Error-flavoured names and words: _err, ErrorResponse, _WRONG, errmsg, 错误, 错."},
+  {"key": "common_words", "name": "very common words", "level": "unrelated words", "by_rule": false,
+   "description": "Function words and other very common words that say nothing specific: I, you, of, in, and, but, new, and their Chinese forms (我, 你, 的, 中, 在, 和)."},
+  {"key": "turn_words", "name": "words that name the turn", "level": "about the chat", "by_rule": false,
+   "description": "Reply, response, respond, answer (the noun or verb, not yes / no), question, ask, request, conversation, in any language or spelling (回答, 回复, 回应, 对话, 提问)."},
+  {"key": "role_names", "name": "speaker names", "level": "about the chat", "by_rule": false,
+   "description": "user, assistant, human, system, model, AI as a speaker name, in any spelling or language (用户, _user, >User)."},
+  {"key": "thinking_words", "name": "thinking words", "level": "about the chat", "by_rule": false,
+   "description": "Think, thinking, thought, reasoning, and the word 'here' in any language where it opens a thought (思维, 思考, Thinking, Here, 这里)."},
+  {"key": "openers", "name": "openers of the next message", "level": "about the chat", "by_rule": false,
+   "description": "Words that start a next message: why, how, who, what, which, did, does, can, please, thank, thanks, okay, continue, explain, wait, in any language or spelling (为什么, 请, 请问, 如何)."},
+  {"key": "answer_words", "name": "answer words", "level": "about the chat", "by_rule": false,
+   "description": "Yes and no in any spelling or language (=yes, 是的, 否, Oui, Nein, Nope), true / false and True / False, and refusal openers (Cannot, Sorry)."},
+  {"key": "deception_situation", "name": "deception and the situation", "level": "about deception or the situation", "by_rule": false,
+   "description": "Words about lying or honesty (lie, fake, conceal, truth, honest), ethics (ethical, unethical, moral), rules and pressure (compliance, legal, illegal, violate, prohibited, confidential, secret, instructions, constraint), refusing or staying silent (refuse, reject, silence), and tests or traps (test, trap, trick, role-play, persona)."},
+  {"key": "other_words", "name": "other real words", "level": "other words", "by_rule": false,
+   "description": "A real word in any language that fits none of the kinds above, for example a topic word of one chat (government, employee) or a word such as correct, clarify, challenge."}
+ ]
+}

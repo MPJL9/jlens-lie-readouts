@@ -1,0 +1,1751 @@
+{
+ "model": "qwen3.6-27b",
+ "lens": "LL",
+ "part": "Q6_factual",
+ "group": "think",
+ "replicate": 1,
+ "prompt_file": "prompts/family_generation.md",
+ "rows_read_per_table": 400,
+ "families": [
+  {
+   "position": "think_slot0",
+   "name": "violation",
+   "gloss": "breaking the rules",
+   "side": "unclear",
+   "seeds": [
+    "违",
+    "违规",
+    "violat"
+   ],
+   "members": [
+    {
+     "token": "违规",
+     "id": 99263,
+     "n": 70
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot0",
+   "name": "crime / sin",
+   "gloss": "guilt of a crime or sin",
+   "side": "unclear",
+   "seeds": [
+    "罪",
+    "guil",
+    "crime"
+   ],
+   "members": [
+    {
+     "token": "罪的",
+     "id": 124444,
+     "n": 2
+    }
+   ],
+   "notes": "罪的 = 'of crime/sin'"
+  },
+  {
+   "position": "think_slot0",
+   "name": "compliance",
+   "gloss": "following the rules",
+   "side": "unclear",
+   "seeds": [
+    "合规",
+    "comply",
+    "complian"
+   ],
+   "members": [
+    {
+     "token": "合规",
+     "id": 111186,
+     "n": 8
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot0",
+   "name": "turn to good",
+   "gloss": "moving toward goodness (moral)",
+   "side": "unclear",
+   "seeds": [
+    "向善",
+    "virtu"
+   ],
+   "members": [
+    {
+     "token": "向善",
+     "id": 144135,
+     "n": 231
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot0",
+   "name": "disclaim responsibility",
+   "gloss": "bearing no responsibility",
+   "side": "unclear",
+   "seeds": [
+    "承"
+   ],
+   "members": [
+    {
+     "token": "不承担任何",
+     "id": 106599,
+     "n": 10
+    }
+   ],
+   "notes": "不承担任何 = 'bear no (responsibility) whatsoever'"
+  },
+  {
+   "position": "think_slot0",
+   "name": "reveal",
+   "gloss": "uncovering, exposing",
+   "side": "truth",
+   "seeds": [
+    "揭",
+    "reveal",
+    "disclos"
+   ],
+   "members": [
+    {
+     "token": "揭",
+     "id": 98245,
+     "n": 2
+    }
+   ],
+   "notes": "揭 is the stem of 揭露/揭示/揭开 (expose, reveal)"
+  },
+  {
+   "position": "think_slot0",
+   "name": "sincere feeling",
+   "gloss": "true feelings, sincerity",
+   "side": "truth",
+   "seeds": [
+    "真",
+    "sincer"
+   ],
+   "members": [
+    {
+     "token": "真情",
+     "id": 112731,
+     "n": 1
+    }
+   ],
+   "notes": "真情 = true feelings"
+  },
+  {
+   "position": "think_slot0",
+   "name": "secretly",
+   "gloss": "doing something in secret",
+   "side": "lie",
+   "seeds": [
+    "暗",
+    "secret"
+   ],
+   "members": [
+    {
+     "token": "暗中",
+     "id": 122134,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot1",
+   "name": "secretly",
+   "gloss": "doing something in secret",
+   "side": "lie",
+   "seeds": [
+    "暗",
+    "secret"
+   ],
+   "members": [
+    {
+     "token": "暗中",
+     "id": 122134,
+     "n": 26
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot1",
+   "name": "neutrality",
+   "gloss": "taking no side",
+   "side": "unclear",
+   "seeds": [
+    "neutral",
+    "中立"
+   ],
+   "members": [
+    {
+     "token": " neutrality",
+     "id": 50020,
+     "n": 24
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot1",
+   "name": "unauthorized",
+   "gloss": "acting without permission",
+   "side": "unclear",
+   "seeds": [
+    "permiss",
+    "未经允许"
+   ],
+   "members": [
+    {
+     "token": "未经允许",
+     "id": 132700,
+     "n": 70
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot1",
+   "name": "seek truth",
+   "gloss": "seeking the truth",
+   "side": "truth",
+   "seeds": [
+    "真",
+    "求真"
+   ],
+   "members": [
+    {
+     "token": "求真",
+     "id": 107108,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot1",
+   "name": "no regret",
+   "gloss": "having no regret or complaint",
+   "side": "unclear",
+   "seeds": [
+    "regret",
+    "悔"
+   ],
+   "members": [
+    {
+     "token": "无怨无悔",
+     "id": 145908,
+     "n": 22
+    }
+   ],
+   "notes": "无怨无悔 = 'no resentment, no regret'"
+  },
+  {
+   "position": "think_slot2",
+   "name": "ethics / morality",
+   "gloss": "ethics, moral standards",
+   "side": "unclear",
+   "seeds": [
+    "ethic",
+    "moral",
+    "道德",
+    "伦理"
+   ],
+   "members": [
+    {
+     "token": " ethics",
+     "id": 29895,
+     "n": 124
+    },
+    {
+     "token": " ethical",
+     "id": 29223,
+     "n": 5
+    },
+    {
+     "token": "职业道德",
+     "id": 113403,
+     "n": 6
+    },
+    {
+     "token": "思想道德",
+     "id": 125202,
+     "n": 5
+    }
+   ],
+   "notes": "职业道德 = professional ethics; 思想道德 = moral thought"
+  },
+  {
+   "position": "think_slot2",
+   "name": "conscience",
+   "gloss": "moral conscience",
+   "side": "unclear",
+   "seeds": [
+    "conscien",
+    "良心"
+   ],
+   "members": [
+    {
+     "token": " conscience",
+     "id": 40090,
+     "n": 4
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot2",
+   "name": "breach",
+   "gloss": "breaking a rule or duty",
+   "side": "unclear",
+   "seeds": [
+    "breach",
+    "violat",
+    "违"
+   ],
+   "members": [
+    {
+     "token": " breach",
+     "id": 29382,
+     "n": 122
+    },
+    {
+     "token": " breaches",
+     "id": 65743,
+     "n": 32
+    },
+    {
+     "token": " breached",
+     "id": 78272,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot2",
+   "name": "neutrality",
+   "gloss": "taking no side",
+   "side": "unclear",
+   "seeds": [
+    "neutral",
+    "中立"
+   ],
+   "members": [
+    {
+     "token": "中立",
+     "id": 120786,
+     "n": 103
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot2",
+   "name": "compliance",
+   "gloss": "obeying the law",
+   "side": "unclear",
+   "seeds": [
+    "遵守",
+    "comply"
+   ],
+   "members": [
+    {
+     "token": "遵守国家",
+     "id": 141608,
+     "n": 52
+    }
+   ],
+   "notes": "遵守国家 = 'comply with national (laws)'"
+  },
+  {
+   "position": "think_slot2",
+   "name": "hide",
+   "gloss": "concealing, covering up",
+   "side": "lie",
+   "seeds": [
+    "蔽",
+    "隐",
+    "conceal",
+    "hide"
+   ],
+   "members": [
+    {
+     "token": "蔽",
+     "id": 100403,
+     "n": 56
+    }
+   ],
+   "notes": "蔽 = cover/conceal; it occurs in 隐蔽, 遮蔽, 蒙蔽 (all conceal/deceive)"
+  },
+  {
+   "position": "think_slot2",
+   "name": "evade",
+   "gloss": "fleeing, escaping, evading",
+   "side": "lie",
+   "seeds": [
+    "遁",
+    "evad",
+    "dodge"
+   ],
+   "members": [
+    {
+     "token": "遁",
+     "id": 108082,
+     "n": 28
+    }
+   ],
+   "notes": "遁 = flee/escape/vanish (逃遁, 遁形)"
+  },
+  {
+   "position": "think_slot2",
+   "name": "omit",
+   "gloss": "leaving something out",
+   "side": "lie",
+   "seeds": [
+    "omit",
+    "omission"
+   ],
+   "members": [
+    {
+     "token": "omite",
+     "id": 82839,
+     "n": 77
+    },
+    {
+     "token": " OMIT",
+     "id": 67050,
+     "n": 2
+    }
+   ],
+   "notes": "omite = Spanish/Portuguese 'omits'"
+  },
+  {
+   "position": "think_slot2",
+   "name": "honest / upright",
+   "gloss": "upright, honest",
+   "side": "truth",
+   "seeds": [
+    "正直",
+    "honest",
+    "诚"
+   ],
+   "members": [
+    {
+     "token": "正直",
+     "id": 118063,
+     "n": 15
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot2",
+   "name": "refuse",
+   "gloss": "refusing",
+   "side": "unclear",
+   "seeds": [
+    "拒",
+    "refus"
+   ],
+   "members": [
+    {
+     "token": "拒",
+     "id": 99283,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot2",
+   "name": "sorry",
+   "gloss": "apologizing",
+   "side": "unclear",
+   "seeds": [
+    "歉",
+    "sorry",
+    "apolog"
+   ],
+   "members": [
+    {
+     "token": "抱歉",
+     "id": 113857,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot3",
+   "name": "deny",
+   "gloss": "denying",
+   "side": "lie",
+   "seeds": [
+    "否认",
+    "deny",
+    "denial"
+   ],
+   "members": [
+    {
+     "token": "否认",
+     "id": 105702,
+     "n": 41
+    }
+   ],
+   "notes": "may answer the user or describe the model's act",
+   "double_reading": true
+  },
+  {
+   "position": "think_slot3",
+   "name": "admit",
+   "gloss": "admitting",
+   "side": "truth",
+   "seeds": [
+    "承认",
+    "admit",
+    "confess"
+   ],
+   "members": [
+    {
+     "token": "承认",
+     "id": 109154,
+     "n": 25
+    }
+   ],
+   "notes": "may answer the user or describe the model's act",
+   "double_reading": true
+  },
+  {
+   "position": "think_slot3",
+   "name": "lie",
+   "gloss": "telling a lie",
+   "side": "lie",
+   "seeds": [
+    "谎",
+    "lie",
+    "lying",
+    "liar"
+   ],
+   "members": [
+    {
+     "token": "说谎",
+     "id": 145126,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot3",
+   "name": "deceive",
+   "gloss": "deceiving, cheating",
+   "side": "lie",
+   "seeds": [
+    "骗",
+    "decei",
+    "decep"
+   ],
+   "members": [
+    {
+     "token": "骗",
+     "id": 98107,
+     "n": 5
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot3",
+   "name": "hide",
+   "gloss": "concealing",
+   "side": "lie",
+   "seeds": [
+    "隐",
+    "蔽",
+    "conceal",
+    "hide"
+   ],
+   "members": [
+    {
+     "token": "隐匿",
+     "id": 134689,
+     "n": 1
+    },
+    {
+     "token": "蔽",
+     "id": 100403,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot3",
+   "name": "honest",
+   "gloss": "being honest",
+   "side": "truth",
+   "seeds": [
+    "诚",
+    "honest"
+   ],
+   "members": [
+    {
+     "token": "诚实",
+     "id": 105480,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot3",
+   "name": "disclose / public",
+   "gloss": "making public, disclosing",
+   "side": "truth",
+   "seeds": [
+    "公开",
+    "disclos",
+    "reveal"
+   ],
+   "members": [
+    {
+     "token": "公开",
+     "id": 98026,
+     "n": 8
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot3",
+   "name": "refuse",
+   "gloss": "refusing",
+   "side": "unclear",
+   "seeds": [
+    "拒",
+    "refus"
+   ],
+   "members": [
+    {
+     "token": "拒绝",
+     "id": 103902,
+     "n": 8
+    },
+    {
+     "token": "拒",
+     "id": 99283,
+     "n": 1
+    },
+    {
+     "token": " refusal",
+     "id": 41728,
+     "n": 5
+    },
+    {
+     "token": " refuse",
+     "id": 24272,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot3",
+   "name": "violate",
+   "gloss": "going against a rule",
+   "side": "unclear",
+   "seeds": [
+    "违",
+    "violat"
+   ],
+   "members": [
+    {
+     "token": "违反",
+     "id": 100867,
+     "n": 2
+    },
+    {
+     "token": "违背",
+     "id": 115752,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "think_slot3",
+   "name": "sorry",
+   "gloss": "apologizing",
+   "side": "unclear",
+   "seeds": [
+    "歉",
+    "sorry"
+   ],
+   "members": [
+    {
+     "token": "抱歉",
+     "id": 113857,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  }
+ ],
+ "ambiguous_pieces": [
+  {
+   "position": "think_slot0",
+   "token": "辩",
+   "id": 98581,
+   "reason": "辩: 辩解 (excuse oneself) but also 辩论 (debate), 辨-like reasoning"
+  },
+  {
+   "position": "think_slot0",
+   "token": "昧",
+   "id": 103279,
+   "reason": "昧: 昧良心 (against conscience), 隐昧, but also 愚昧 (ignorant), 暧昧 (ambiguous)"
+  },
+  {
+   "position": "think_slot0",
+   "token": "犯",
+   "id": 97309,
+   "reason": "犯: 犯错/犯罪 (wrongdoing) but also 冒犯 (offend), 侵犯 (infringe), 犯困 (sleepy)"
+  },
+  {
+   "position": "think_slot0",
+   "token": " integr",
+   "id": 8496,
+   "reason": "integr: integrity, integrate, integral"
+  },
+  {
+   "position": "think_slot0",
+   "token": "承",
+   "id": 96484,
+   "reason": "承: 承认 (admit), 承担 (bear), 承接 (undertake)"
+  },
+  {
+   "position": "think_slot1",
+   "token": "暗",
+   "id": 97530,
+   "reason": "暗: 暗中 (secretly) but also 黑暗 (dark), 暗示 (hint)"
+  },
+  {
+   "position": "think_slot1",
+   "token": "漏",
+   "id": 98093,
+   "reason": "漏: 遗漏 (omit), 泄漏 (leak), 漏洞 (loophole)"
+  },
+  {
+   "position": "think_slot1",
+   "token": "昧",
+   "id": 103279,
+   "reason": "昧: 昧良心, 愚昧, 暧昧"
+  },
+  {
+   "position": "think_slot2",
+   "token": "欺",
+   "id": 99805,
+   "reason": "欺: 欺骗/欺诈/欺瞒 (deceive) but also 欺负 (bully)"
+  },
+  {
+   "position": "think_slot2",
+   "token": "坦",
+   "id": 97616,
+   "reason": "坦: 坦白/坦诚 (candid) but also 平坦 (flat), 坦克 (tank)"
+  },
+  {
+   "position": "think_slot2",
+   "token": "藏",
+   "id": 96913,
+   "reason": "藏: 隐藏 (hide) but also 收藏 (collect), 西藏 (Tibet), 宝藏 (treasure)"
+  },
+  {
+   "position": "think_slot2",
+   "token": "露",
+   "id": 97062,
+   "reason": "露: 暴露/揭露 (expose) but also 露水 (dew), 露天 (outdoor)"
+  },
+  {
+   "position": "think_slot2",
+   "token": "婉",
+   "id": 101266,
+   "reason": "婉: 婉拒 (decline politely) but also 委婉 (tactful), 婉转"
+  },
+  {
+   "position": "think_slot2",
+   "token": "撇",
+   "id": 103268,
+   "reason": "撇: 撇清 (clear oneself) but also 撇开 (set aside), stroke name"
+  },
+  {
+   "position": "think_slot2",
+   "token": "两面",
+   "id": 122215,
+   "reason": "两面: 两面派 (double-dealer) but also plain 'two sides'"
+  },
+  {
+   "position": "think_slot2",
+   "token": "承",
+   "id": 96484,
+   "reason": "承: 承认, 承担, 承接"
+  },
+  {
+   "position": "think_slot3",
+   "token": "撇",
+   "id": 103268,
+   "reason": "撇: 撇清, 撇开"
+  },
+  {
+   "position": "think_slot3",
+   "token": "昧",
+   "id": 103279,
+   "reason": "昧: 昧良心, 愚昧, 暧昧"
+  },
+  {
+   "position": "think_slot3",
+   "token": "蒙",
+   "id": 97756,
+   "reason": "蒙: 蒙骗/蒙蔽 (deceive) but also 蒙古 (Mongolia), 启蒙"
+  },
+  {
+   "position": "think_slot3",
+   "token": "婉",
+   "id": 101266,
+   "reason": "婉: 婉拒, 委婉"
+  },
+  {
+   "position": "think_slot3",
+   "token": "露",
+   "id": 97062,
+   "reason": "露: 暴露, 露水, 露天"
+  },
+  {
+   "position": "think_slot3",
+   "token": "承",
+   "id": 96484,
+   "reason": "承: 承认, 承担, 承接"
+  },
+  {
+   "position": "think_slot3",
+   "token": "idden",
+   "id": 2761,
+   "reason": "idden: hidden, forbidden, ridden"
+  },
+  {
+   "position": "think_slot3",
+   "token": "cret",
+   "id": 4279,
+   "reason": "cret: secret, concrete, discrete"
+  }
+ ],
+ "borderline": [
+  {
+   "position": "think_slot0",
+   "token": "_WRONG",
+   "id": 86526,
+   "family_if_accepted": "wrong"
+  },
+  {
+   "position": "think_slot1",
+   "token": "的错误",
+   "id": 127503,
+   "family_if_accepted": "wrong / error"
+  },
+  {
+   "position": "think_slot2",
+   "token": "True",
+   "id": 2434,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "think_slot3",
+   "token": " true",
+   "id": 804,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "think_slot3",
+   "token": "true",
+   "id": 1802,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "think_slot3",
+   "token": "True",
+   "id": 2434,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "think_slot3",
+   "token": " True",
+   "id": 2912,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "think_slot3",
+   "token": " TRUE",
+   "id": 7957,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "think_slot3",
+   "token": "TRUE",
+   "id": 19986,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "think_slot3",
+   "token": ".True",
+   "id": 31372,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "think_slot3",
+   "token": " truth",
+   "id": 7793,
+   "family_if_accepted": "truth"
+  },
+  {
+   "position": "think_slot3",
+   "token": "属实",
+   "id": 123028,
+   "family_if_accepted": "true / factual"
+  },
+  {
+   "position": "think_slot3",
+   "token": "正确",
+   "id": 97901,
+   "family_if_accepted": "correct"
+  },
+  {
+   "position": "think_slot3",
+   "token": "不对",
+   "id": 100953,
+   "family_if_accepted": "wrong / not right"
+  },
+  {
+   "position": "think_slot3",
+   "token": "不符合",
+   "id": 109821,
+   "family_if_accepted": "incorrect / does not match"
+  }
+ ],
+ "exclusions": [
+  {
+   "position": "think_slot2",
+   "token": "是的",
+   "id": 110205,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "Oui",
+   "id": 234746,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "Yes",
+   "id": 9175,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": " yes",
+   "id": 9542,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": ".Yes",
+   "id": 39452,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": " oui",
+   "id": 93076,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": " نعم",
+   "id": 191041,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": " Yes",
+   "id": 7179,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": " いいえ",
+   "id": 221349,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "=yes",
+   "id": 57552,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": " YES",
+   "id": 13677,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "YES",
+   "id": 13602,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "yes",
+   "id": 9405,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "是啊",
+   "id": 113307,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": ",Yes",
+   "id": 93725,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "否",
+   "id": 96994,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": " affirmative",
+   "id": 65359,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "=YES",
+   "id": 91558,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": " Oui",
+   "id": 182129,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "aye",
+   "id": 57932,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "“Yes",
+   "id": 82457,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "oui",
+   "id": 71335,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "_yes",
+   "id": 57727,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "_YES",
+   "id": 74107,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "ではありません",
+   "id": 156746,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": "ありません",
+   "id": 151042,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": " नहीं",
+   "id": 173155,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot2",
+   "token": ">false",
+   "id": 29402,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot2",
+   "token": ".false",
+   "id": 83276,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot2",
+   "token": "/false",
+   "id": 88091,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot2",
+   "token": ".FALSE",
+   "id": 85645,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot2",
+   "token": "_false",
+   "id": 34822,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": " Yes",
+   "id": 7179,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "Yes",
+   "id": 9175,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "yes",
+   "id": 9405,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " yes",
+   "id": 9542,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "否",
+   "id": 96994,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "是的",
+   "id": 110205,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " YES",
+   "id": 13677,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "肯定的",
+   "id": 119453,
+   "reason": "yes/no or A/B answer form (肯定 = 'affirmative', the 'Yes' answer)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "YES",
+   "id": 13602,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " oui",
+   "id": 93076,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "_yes",
+   "id": 57727,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "A",
+   "id": 32,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "“Yes",
+   "id": 82457,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "否定",
+   "id": 114168,
+   "reason": "yes/no or A/B answer form (否定 = 'negative', read as the 'No' answer, not as 'deny')"
+  },
+  {
+   "position": "think_slot3",
+   "token": " no",
+   "id": 874,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "\"Yes",
+   "id": 55806,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": ".Yes",
+   "id": 39452,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "oui",
+   "id": 71335,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " Oui",
+   "id": 182129,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "_YES",
+   "id": 74107,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " affirmative",
+   "id": 65359,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "No",
+   "id": 2665,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "=yes",
+   "id": 57552,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " No",
+   "id": 2233,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " nein",
+   "id": 227064,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " Nein",
+   "id": 200626,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "כן",
+   "id": 191402,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": ".YES",
+   "id": 81489,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "no",
+   "id": 2083,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "_no",
+   "id": 6333,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " A",
+   "id": 357,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "-no",
+   "id": 27443,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": ".no",
+   "id": 17795,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " NO",
+   "id": 5486,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "否决",
+   "id": 132491,
+   "reason": "yes/no or A/B answer form (否决 = 'veto/negative')"
+  },
+  {
+   "position": "think_slot3",
+   "token": ":YES",
+   "id": 18968,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "是",
+   "id": 95761,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "/no",
+   "id": 32002,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "Oui",
+   "id": 234746,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "(no",
+   "id": 37908,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": ":no",
+   "id": 64235,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": ".No",
+   "id": 16274,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " affirm",
+   "id": 31281,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "肯定",
+   "id": 99146,
+   "reason": "yes/no or A/B answer form (肯定 = 'affirmative', the 'Yes' answer)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "NO",
+   "id": 8725,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "нет",
+   "id": 151443,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " нет",
+   "id": 74018,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "B",
+   "id": 33,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " B",
+   "id": 417,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " نعم",
+   "id": 191041,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "aye",
+   "id": 57932,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": "是啊",
+   "id": 113307,
+   "reason": "yes/no or A/B answer form"
+  },
+  {
+   "position": "think_slot3",
+   "token": " false",
+   "id": 867,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": " False",
+   "id": 3439,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "False",
+   "id": 3913,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "/false",
+   "id": 88091,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "false",
+   "id": 3721,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "_false",
+   "id": 34822,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": ">false",
+   "id": 29402,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": ".False",
+   "id": 49049,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": ":false",
+   "id": 21425,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "FALSE",
+   "id": 29362,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": ".false",
+   "id": 83276,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": " FALSE",
+   "id": 7585,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "=False",
+   "id": 5433,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "assertFalse",
+   "id": 57046,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "(False",
+   "id": 22274,
+   "reason": "copied from the self-report question (false / statement / contain)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "假",
+   "id": 96798,
+   "reason": "copied from the self-report question (false / statement / contain) (假 = false)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "假的",
+   "id": 114267,
+   "reason": "copied from the self-report question (false / statement / contain) (假 = false)"
+  },
+  {
+   "position": "think_slot3",
+   "token": "不包含",
+   "id": 131744,
+   "reason": "copied from the self-report question (false / statement / contain) (不包含 = does not contain)"
+  }
+ ],
+ "rejected_matches": [
+  {
+   "position": "think_slot0",
+   "token": "新規",
+   "id": 247438,
+   "seed": "規",
+   "reason": "新規 = new"
+  },
+  {
+   "position": "think_slot0",
+   "token": "合理规划",
+   "id": 144474,
+   "seed": "规",
+   "reason": "合理规划 = rational planning"
+  },
+  {
+   "position": "think_slot0",
+   "token": "职业规划",
+   "id": 129103,
+   "seed": "规",
+   "reason": "career planning"
+  },
+  {
+   "position": "think_slot0",
+   "token": "规划",
+   "id": 97808,
+   "seed": "规",
+   "reason": "planning"
+  },
+  {
+   "position": "think_slot0",
+   "token": "承受",
+   "id": 100920,
+   "seed": "承",
+   "reason": "承受 = endure"
+  },
+  {
+   "position": "think_slot0",
+   "token": "承接",
+   "id": 112242,
+   "seed": "承",
+   "reason": "承接 = undertake"
+  },
+  {
+   "position": "think_slot0",
+   "token": "认识到",
+   "id": 110246,
+   "seed": "认",
+   "reason": "认识到 = realize"
+  },
+  {
+   "position": "think_slot0",
+   "token": "认",
+   "id": 96243,
+   "seed": "认",
+   "reason": ""
+  },
+  {
+   "position": "think_slot0",
+   "token": " offended",
+   "id": 51336,
+   "seed": "offend",
+   "reason": "about the user's feelings, not the model's act"
+  },
+  {
+   "position": "think_slot0",
+   "token": "指正",
+   "id": 127073,
+   "seed": "指正",
+   "reason": "指正 = 'please correct me', a politeness formula"
+  },
+  {
+   "position": "think_slot1",
+   "token": "ulier",
+   "id": 172781,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "think_slot1",
+   "token": "承接",
+   "id": 112242,
+   "seed": "承",
+   "reason": "承接 = undertake"
+  },
+  {
+   "position": "think_slot1",
+   "token": "认领",
+   "id": 121534,
+   "seed": "认",
+   "reason": "认领 = claim"
+  },
+  {
+   "position": "think_slot1",
+   "token": "_DEVICES",
+   "id": 81520,
+   "seed": "vice",
+   "reason": ""
+  },
+  {
+   "position": "think_slot1",
+   "token": "指正",
+   "id": 127073,
+   "seed": "指正",
+   "reason": "politeness formula"
+  },
+  {
+   "position": "think_slot2",
+   "token": "ilie",
+   "id": 225387,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "think_slot2",
+   "token": "_supplier",
+   "id": 72863,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "think_slot2",
+   "token": "toBeTruthy",
+   "id": 27126,
+   "seed": "truth",
+   "reason": "code identifier"
+  },
+  {
+   "position": "think_slot2",
+   "token": "真人",
+   "id": 105184,
+   "seed": "真",
+   "reason": "真人 = real person"
+  },
+  {
+   "position": "think_slot2",
+   "token": "真正",
+   "id": 98272,
+   "seed": "真",
+   "reason": "真正 = really"
+  },
+  {
+   "position": "think_slot2",
+   "token": "当真",
+   "id": 130894,
+   "seed": "真",
+   "reason": "当真 = take seriously"
+  },
+  {
+   "position": "think_slot2",
+   "token": "答辩",
+   "id": 112608,
+   "seed": "辩",
+   "reason": "答辩 = thesis defence"
+  },
+  {
+   "position": "think_slot2",
+   "token": "承运",
+   "id": 132894,
+   "seed": "承",
+   "reason": "承运 = carry freight"
+  },
+  {
+   "position": "think_slot2",
+   "token": "认识",
+   "id": 98156,
+   "seed": "认",
+   "reason": "认识 = know"
+  },
+  {
+   "position": "think_slot2",
+   "token": " offending",
+   "id": 67211,
+   "seed": "offend",
+   "reason": "offending: about causing offence, not the model's act"
+  },
+  {
+   "position": "think_slot3",
+   "token": "假如",
+   "id": 109364,
+   "seed": "假",
+   "reason": "假如 = if"
+  },
+  {
+   "position": "think_slot3",
+   "token": "的真",
+   "id": 115601,
+   "seed": "真",
+   "reason": "的真 = fragment 'the true...'"
+  },
+  {
+   "position": "think_slot3",
+   "token": ":hidden",
+   "id": 70165,
+   "seed": "hidden",
+   "reason": "code attribute (:hidden)"
+  }
+ ],
+ "positions_without_families": [],
+ "notes": "think_slot0 and think_slot1 hold mostly 'here/think' template words and noise; act words there are few and mostly rare. think_slot2 and think_slot3 carry the answer forms (yes/no, false/true), which are excluded or borderline. 欺 (think_slot2, n=112) is the strongest deception-like token but is listed as an ambiguous piece because of 欺负 (bully). Moral-judgement families (violation, breach, ethics) are given side 'unclear'."
+}

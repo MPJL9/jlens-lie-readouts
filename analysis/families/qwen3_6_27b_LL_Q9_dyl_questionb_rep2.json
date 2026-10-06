@@ -1,0 +1,1414 @@
+{
+ "model": "qwen3.6-27b",
+ "lens": "LL",
+ "part": "Q9_dyl",
+ "group": "questionb",
+ "replicate": 2,
+ "prompt_file": "prompts/family_generation.md",
+ "rows_read_per_table": 400,
+ "families": [
+  {
+   "position": "q_tok8",
+   "name": "honest",
+   "gloss": "being honest / honesty",
+   "side": "truth",
+   "seeds": [
+    "honest",
+    "诚"
+   ],
+   "members": [
+    {
+     "token": " honestly",
+     "id": 25211,
+     "n": 95
+    },
+    {
+     "token": "诚实",
+     "id": 105480,
+     "n": 70
+    },
+    {
+     "token": " honest",
+     "id": 10429,
+     "n": 8
+    },
+    {
+     "token": " honesty",
+     "id": 46253,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok8",
+   "name": "truth",
+   "gloss": "the truth (as what is told)",
+   "side": "truth",
+   "seeds": [
+    "truth",
+    "真相"
+   ],
+   "members": [
+    {
+     "token": " truth",
+     "id": 7793,
+     "n": 204
+    },
+    {
+     "token": "truth",
+     "id": 56598,
+     "n": 10
+    },
+    {
+     "token": "真相",
+     "id": 109750,
+     "n": 4
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok9",
+   "name": "admit",
+   "gloss": "admitting / acknowledging",
+   "side": "truth",
+   "seeds": [
+    "admit",
+    "承认"
+   ],
+   "members": [
+    {
+     "token": "承认",
+     "id": 109154,
+     "n": 1
+    }
+   ],
+   "notes": "\"double_reading\": true (admit the lie vs. admit as an answer)"
+  },
+  {
+   "position": "q_tok10",
+   "name": "sorry",
+   "gloss": "apology for the act",
+   "side": "unclear",
+   "seeds": [
+    "sorry",
+    "apolog",
+    "抱歉",
+    "道歉"
+   ],
+   "members": [
+    {
+     "token": " sorry",
+     "id": 14169,
+     "n": 5
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok11",
+   "name": "deny",
+   "gloss": "denying",
+   "side": "lie",
+   "seeds": [
+    "deny",
+    "denial",
+    "否认"
+   ],
+   "members": [
+    {
+     "token": "否认",
+     "id": 105702,
+     "n": 43
+    }
+   ],
+   "notes": "\"double_reading\": true (deny the lie toward the self-report vs. deny as an answer)"
+  },
+  {
+   "position": "q_tok11",
+   "name": "admit",
+   "gloss": "admitting / acknowledging",
+   "side": "truth",
+   "seeds": [
+    "admit",
+    "承认"
+   ],
+   "members": [
+    {
+     "token": "承认",
+     "id": 109154,
+     "n": 1
+    }
+   ],
+   "notes": "\"double_reading\": true"
+  },
+  {
+   "position": "q_tok11",
+   "name": "neutral",
+   "gloss": "taking a neutral stance",
+   "side": "unclear",
+   "seeds": [
+    "neutral",
+    "中立"
+   ],
+   "members": [
+    {
+     "token": "中立",
+     "id": 120786,
+     "n": 13
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok11",
+   "name": "silent",
+   "gloss": "staying silent, not speaking",
+   "side": "unclear",
+   "seeds": [
+    "silent",
+    "沉默",
+    "不语"
+   ],
+   "members": [
+    {
+     "token": "不语",
+     "id": 128752,
+     "n": 6
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok11",
+   "name": "kidding",
+   "gloss": "joking, not meaning it",
+   "side": "unclear",
+   "seeds": [
+    "kidding",
+    "joke",
+    "玩笑"
+   ],
+   "members": [
+    {
+     "token": " kidding",
+     "id": 53855,
+     "n": 8
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok11",
+   "name": "shame",
+   "gloss": "feeling ashamed / guilty",
+   "side": "unclear",
+   "seeds": [
+    "shame",
+    "guilt",
+    "愧",
+    "内疚"
+   ],
+   "members": [
+    {
+     "token": "愧",
+     "id": 98814,
+     "n": 1
+    }
+   ],
+   "notes": "愧 appears only in shame words (惭愧, 羞愧, 愧疚)"
+  },
+  {
+   "position": "q_tok12",
+   "name": "honest",
+   "gloss": "being honest / candid",
+   "side": "truth",
+   "seeds": [
+    "honest",
+    "诚",
+    "坦",
+    "truthful"
+   ],
+   "members": [
+    {
+     "token": "诚实",
+     "id": 105480,
+     "n": 1
+    },
+    {
+     "token": "坦诚",
+     "id": 129536,
+     "n": 1
+    },
+    {
+     "token": " truthful",
+     "id": 86775,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok12",
+   "name": "truth",
+   "gloss": "the truth (as what is told)",
+   "side": "truth",
+   "seeds": [
+    "truth",
+    "真相",
+    "实话"
+   ],
+   "members": [
+    {
+     "token": " truth",
+     "id": 7793,
+     "n": 1
+    },
+    {
+     "token": " Truth",
+     "id": 28147,
+     "n": 1
+    },
+    {
+     "token": "真相",
+     "id": 109750,
+     "n": 1
+    },
+    {
+     "token": "实话",
+     "id": 105747,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok12",
+   "name": "ethics",
+   "gloss": "ethics / morality of the act",
+   "side": "unclear",
+   "seeds": [
+    "ethic",
+    "moral",
+    "道德"
+   ],
+   "members": [
+    {
+     "token": " ethical",
+     "id": 29223,
+     "n": 1
+    },
+    {
+     "token": " ethics",
+     "id": 29895,
+     "n": 1
+    },
+    {
+     "token": " Ethics",
+     "id": 47529,
+     "n": 1
+    },
+    {
+     "token": " moral",
+     "id": 15200,
+     "n": 2
+    },
+    {
+     "token": "道德",
+     "id": 100024,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok12",
+   "name": "conscience",
+   "gloss": "conscience",
+   "side": "unclear",
+   "seeds": [
+    "良心",
+    "conscien"
+   ],
+   "members": [
+    {
+     "token": "良心",
+     "id": 116564,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok12",
+   "name": "role-play",
+   "gloss": "playing a role / persona",
+   "side": "unclear",
+   "seeds": [
+    "persona",
+    "扮演"
+   ],
+   "members": [
+    {
+     "token": "扮演",
+     "id": 102064,
+     "n": 5
+    },
+    {
+     "token": " persona",
+     "id": 27049,
+     "n": 1
+    },
+    {
+     "token": " personas",
+     "id": 30391,
+     "n": 1
+    },
+    {
+     "token": " Persona",
+     "id": 52084,
+     "n": 1
+    },
+    {
+     "token": "Persona",
+     "id": 62184,
+     "n": 1
+    },
+    {
+     "token": "persona",
+     "id": 68206,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok14",
+   "name": "refuse",
+   "gloss": "politely declining / refusing",
+   "side": "unclear",
+   "seeds": [
+    "refus",
+    "decline",
+    "拒",
+    "谢绝"
+   ],
+   "members": [
+    {
+     "token": "谢绝",
+     "id": 139651,
+     "n": 34
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok15",
+   "name": "honest",
+   "gloss": "being honest / honesty",
+   "side": "truth",
+   "seeds": [
+    "honest",
+    "诚",
+    "truthful"
+   ],
+   "members": [
+    {
+     "token": "诚实",
+     "id": 105480,
+     "n": 55
+    },
+    {
+     "token": " honesty",
+     "id": 46253,
+     "n": 19
+    },
+    {
+     "token": " honest",
+     "id": 10429,
+     "n": 10
+    },
+    {
+     "token": "诚",
+     "id": 97356,
+     "n": 5
+    },
+    {
+     "token": " truthful",
+     "id": 86775,
+     "n": 1
+    }
+   ],
+   "notes": "诚 occurs only in sincerity/honesty words (诚实, 真诚, 诚意)"
+  },
+  {
+   "position": "q_tok15",
+   "name": "truth",
+   "gloss": "the truth (as what is told)",
+   "side": "truth",
+   "seeds": [
+    "truth"
+   ],
+   "members": [
+    {
+     "token": " truth",
+     "id": 7793,
+     "n": 18
+    },
+    {
+     "token": "truth",
+     "id": 56598,
+     "n": 6
+    },
+    {
+     "token": "Truth",
+     "id": 23305,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok15",
+   "name": "deny",
+   "gloss": "denying",
+   "side": "lie",
+   "seeds": [
+    "deny",
+    "否认"
+   ],
+   "members": [
+    {
+     "token": "否认",
+     "id": 105702,
+     "n": 2
+    }
+   ],
+   "notes": "\"double_reading\": true"
+  },
+  {
+   "position": "q_tok15",
+   "name": "admit",
+   "gloss": "admitting / acknowledging",
+   "side": "truth",
+   "seeds": [
+    "admit",
+    "承认"
+   ],
+   "members": [
+    {
+     "token": "承认",
+     "id": 109154,
+     "n": 2
+    }
+   ],
+   "notes": "\"double_reading\": true"
+  },
+  {
+   "position": "q_tok15",
+   "name": "silent",
+   "gloss": "staying silent",
+   "side": "unclear",
+   "seeds": [
+    "silent",
+    "沉默",
+    "不语"
+   ],
+   "members": [
+    {
+     "token": "沉默",
+     "id": 109687,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok15",
+   "name": "self-reflection",
+   "gloss": "reflecting on one's own conduct",
+   "side": "unclear",
+   "seeds": [
+    "反思"
+   ],
+   "members": [
+    {
+     "token": "反思",
+     "id": 104294,
+     "n": 5
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok15",
+   "name": "clarify",
+   "gloss": "clarifying, setting the record straight",
+   "side": "unclear",
+   "seeds": [
+    "clarif",
+    "澄清"
+   ],
+   "members": [
+    {
+     "token": "澄清",
+     "id": 116200,
+     "n": 3
+    }
+   ],
+   "notes": ""
+  }
+ ],
+ "ambiguous_pieces": [
+  {
+   "position": "q_tok8",
+   "token": "的真",
+   "id": 115601,
+   "reason": "fragment 'of true/real'; true, real, really"
+  },
+  {
+   "position": "q_tok8",
+   "token": "eth",
+   "id": 744,
+   "reason": "ethics, ethnic, ether"
+  },
+  {
+   "position": "q_tok11",
+   "token": "昧",
+   "id": 103279,
+   "reason": "暧昧 ambiguous, 愚昧 ignorant, 冒昧 presumptuous, 昧良心 against conscience"
+  },
+  {
+   "position": "q_tok11",
+   "token": "讳",
+   "id": 103421,
+   "reason": "忌讳 taboo, 隐讳 conceal, 名讳 name taboo"
+  },
+  {
+   "position": "q_tok12",
+   "token": "eth",
+   "id": 744,
+   "reason": "ethics, ethnic, ether"
+  },
+  {
+   "position": "q_tok12",
+   "token": " eth",
+   "id": 8113,
+   "reason": "ethics, ethnic, Ethereum"
+  },
+  {
+   "position": "q_tok12",
+   "token": "veal",
+   "id": 39272,
+   "reason": "reveal, veal (meat)"
+  },
+  {
+   "position": "q_tok13",
+   "token": "偏",
+   "id": 97529,
+   "reason": "biased, partial, slanted, side"
+  },
+  {
+   "position": "q_tok15",
+   "token": "veal",
+   "id": 39272,
+   "reason": "reveal, veal (meat)"
+  },
+  {
+   "position": "q_tok15",
+   "token": "idden",
+   "id": 2761,
+   "reason": "hidden, forbidden, ridden"
+  },
+  {
+   "position": "q_tok15",
+   "token": "漏",
+   "id": 98093,
+   "reason": "泄漏 leak, 遗漏 omission, 漏洞 loophole"
+  },
+  {
+   "position": "q_tok15",
+   "token": "偏",
+   "id": 97529,
+   "reason": "biased, partial, slanted, side"
+  }
+ ],
+ "borderline": [
+  {
+   "position": "q_tok8",
+   "token": " true",
+   "id": 804,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "q_tok8",
+   "token": "true",
+   "id": 1802,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "q_tok8",
+   "token": " True",
+   "id": 2912,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "q_tok9",
+   "token": "true",
+   "id": 1802,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "q_tok9",
+   "token": "/false",
+   "id": 88091,
+   "family_if_accepted": "false / untrue"
+  },
+  {
+   "position": "q_tok9",
+   "token": "对错",
+   "id": 146456,
+   "family_if_accepted": "right / wrong"
+  },
+  {
+   "position": "q_tok9",
+   "token": "True",
+   "id": 2434,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "q_tok9",
+   "token": " True",
+   "id": 2912,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "q_tok10",
+   "token": " false",
+   "id": 867,
+   "family_if_accepted": "false / untrue"
+  },
+  {
+   "position": "q_tok10",
+   "token": ".assertFalse",
+   "id": 34992,
+   "family_if_accepted": "false / untrue"
+  },
+  {
+   "position": "q_tok11",
+   "token": "/false",
+   "id": 88091,
+   "family_if_accepted": "false / untrue"
+  },
+  {
+   "position": "q_tok11",
+   "token": "true",
+   "id": 1802,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "q_tok11",
+   "token": "false",
+   "id": 3721,
+   "family_if_accepted": "false / untrue"
+  },
+  {
+   "position": "q_tok11",
+   "token": " true",
+   "id": 804,
+   "family_if_accepted": "true"
+  },
+  {
+   "position": "q_tok11",
+   "token": " false",
+   "id": 867,
+   "family_if_accepted": "false / untrue"
+  },
+  {
+   "position": "q_tok11",
+   "token": "FALSE",
+   "id": 29362,
+   "family_if_accepted": "false / untrue"
+  },
+  {
+   "position": "q_tok11",
+   "token": "成立",
+   "id": 97907,
+   "family_if_accepted": "true / valid"
+  },
+  {
+   "position": "q_tok12",
+   "token": "真实",
+   "id": 98444,
+   "family_if_accepted": "true / real"
+  },
+  {
+   "position": "q_tok15",
+   "token": "真假",
+   "id": 121592,
+   "family_if_accepted": "true / false"
+  },
+  {
+   "position": "q_tok15",
+   "token": "true",
+   "id": 1802,
+   "family_if_accepted": "true"
+  }
+ ],
+ "exclusions": [
+  {
+   "position": "q_tok8",
+   "token": " Yes",
+   "id": 7179,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": "Yes",
+   "id": 9175,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": "yes",
+   "id": 9405,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": " yes",
+   "id": 9542,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": " YES",
+   "id": 13677,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": "YES",
+   "id": 13602,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": "_yes",
+   "id": 57727,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": "是的",
+   "id": 110205,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": "“Yes",
+   "id": 82457,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": "\"Yes",
+   "id": 55806,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": " oui",
+   "id": 93076,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": ".Yes",
+   "id": 39452,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": "否",
+   "id": 96994,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": "_YES",
+   "id": 74107,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": " sì",
+   "id": 187179,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": "aye",
+   "id": 57932,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": "=yes",
+   "id": 57552,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": " affirm",
+   "id": 31281,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": " affirmative",
+   "id": 65359,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok8",
+   "token": " answer",
+   "id": 4087,
+   "reason": "copied from the self-report question (answer)"
+  },
+  {
+   "position": "q_tok8",
+   "token": "回答",
+   "id": 97913,
+   "reason": "copied from the self-report question (answer)"
+  },
+  {
+   "position": "q_tok8",
+   "token": " answers",
+   "id": 10926,
+   "reason": "copied from the self-report question (answer)"
+  },
+  {
+   "position": "q_tok8",
+   "token": " answered",
+   "id": 18018,
+   "reason": "copied from the self-report question (answer)"
+  },
+  {
+   "position": "q_tok8",
+   "token": " question",
+   "id": 3296,
+   "reason": "copied from the self-report question (answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": " Yes",
+   "id": 7179,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": "yes",
+   "id": 9405,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": " yes",
+   "id": 9542,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": "YES",
+   "id": 13602,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": "orno",
+   "id": 10798,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": "/no",
+   "id": 32002,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": "否",
+   "id": 96994,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": "与否",
+   "id": 116485,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": "否定",
+   "id": 114168,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": " affirmative",
+   "id": 65359,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": " affirm",
+   "id": 31281,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": "是的",
+   "id": 110205,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok9",
+   "token": ".YesNo",
+   "id": 74265,
+   "reason": "yes/no form (否定 = negative answer)"
+  },
+  {
+   "position": "q_tok10",
+   "token": "yes",
+   "id": 9405,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok10",
+   "token": " yes",
+   "id": 9542,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok10",
+   "token": " no",
+   "id": 874,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok10",
+   "token": " No",
+   "id": 2233,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok10",
+   "token": "否",
+   "id": 96994,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok10",
+   "token": "/no",
+   "id": 32002,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok10",
+   "token": "否定",
+   "id": 114168,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok10",
+   "token": " affirm",
+   "id": 31281,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok10",
+   "token": "是的",
+   "id": 110205,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok10",
+   "token": " oui",
+   "id": 93076,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok10",
+   "token": " else",
+   "id": 745,
+   "reason": "copied from the self-report question"
+  },
+  {
+   "position": "q_tok10",
+   "token": " nothing",
+   "id": 4161,
+   "reason": "copied from the self-report question"
+  },
+  {
+   "position": "q_tok11",
+   "token": " Yes",
+   "id": 7179,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok11",
+   "token": "yes",
+   "id": 9405,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok11",
+   "token": " affirm",
+   "id": 31281,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok11",
+   "token": " affirmative",
+   "id": 65359,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok11",
+   "token": " affirmation",
+   "id": 92549,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok11",
+   "token": "否定",
+   "id": 114168,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok11",
+   "token": "肯定的",
+   "id": 119453,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok11",
+   "token": "否",
+   "id": 96994,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok11",
+   "token": "是的",
+   "id": 110205,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok11",
+   "token": ",Yes",
+   "id": 93725,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok11",
+   "token": " statement",
+   "id": 4952,
+   "reason": "generic dialogue / copied from question"
+  },
+  {
+   "position": "q_tok11",
+   "token": " answer",
+   "id": 4087,
+   "reason": "generic dialogue / copied from question"
+  },
+  {
+   "position": "q_tok11",
+   "token": " question",
+   "id": 3296,
+   "reason": "generic dialogue / copied from question"
+  },
+  {
+   "position": "q_tok12",
+   "token": " lie",
+   "id": 9940,
+   "reason": "copied from the self-report question (lie)"
+  },
+  {
+   "position": "q_tok12",
+   "token": " nothing",
+   "id": 4161,
+   "reason": "copied from the self-report question (nothing)"
+  },
+  {
+   "position": "q_tok12",
+   "token": " Nothing",
+   "id": 11721,
+   "reason": "copied from the self-report question (nothing)"
+  },
+  {
+   "position": "q_tok12",
+   "token": " NOTHING",
+   "id": 83110,
+   "reason": "copied from the self-report question (nothing)"
+  },
+  {
+   "position": "q_tok12",
+   "token": "什么都不",
+   "id": 123917,
+   "reason": "copied from the self-report question (nothing)"
+  },
+  {
+   "position": "q_tok12",
+   "token": " justify",
+   "id": 9079,
+   "reason": "explaining the answer, not a word about the act itself"
+  },
+  {
+   "position": "q_tok12",
+   "token": " justification",
+   "id": 40064,
+   "reason": "explaining the answer, not a word about the act itself"
+  },
+  {
+   "position": "q_tok13",
+   "token": " else",
+   "id": 745,
+   "reason": "copied from the self-report question (else) / no form"
+  },
+  {
+   "position": "q_tok13",
+   "token": "else",
+   "id": 1449,
+   "reason": "copied from the self-report question (else) / no form"
+  },
+  {
+   "position": "q_tok13",
+   "token": "其他",
+   "id": 96903,
+   "reason": "copied from the self-report question (else) / no form"
+  },
+  {
+   "position": "q_tok13",
+   "token": "/no",
+   "id": 32002,
+   "reason": "copied from the self-report question (else) / no form"
+  },
+  {
+   "position": "q_tok13",
+   "token": " otherwise",
+   "id": 5752,
+   "reason": "copied from the self-report question (else) / no form"
+  },
+  {
+   "position": "q_tok14",
+   "token": "/no",
+   "id": 32002,
+   "reason": "copied from the self-report question / no form"
+  },
+  {
+   "position": "q_tok14",
+   "token": " no",
+   "id": 874,
+   "reason": "copied from the self-report question / no form"
+  },
+  {
+   "position": "q_tok14",
+   "token": " else",
+   "id": 745,
+   "reason": "copied from the self-report question / no form"
+  },
+  {
+   "position": "q_tok14",
+   "token": " nothing",
+   "id": 4161,
+   "reason": "copied from the self-report question / no form"
+  },
+  {
+   "position": "q_tok14",
+   "token": "没有任何",
+   "id": 109316,
+   "reason": "copied from the self-report question / no form"
+  },
+  {
+   "position": "q_tok14",
+   "token": " obey",
+   "id": 39262,
+   "reason": "following the instruction format, not the act"
+  },
+  {
+   "position": "q_tok14",
+   "token": "遵守",
+   "id": 100086,
+   "reason": "following the instruction format, not the act"
+  },
+  {
+   "position": "q_tok15",
+   "token": "说谎",
+   "id": 145126,
+   "reason": "translation of 'lie', copied from the self-report question"
+  },
+  {
+   "position": "q_tok15",
+   "token": " yes",
+   "id": 9542,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok15",
+   "token": " Yes",
+   "id": 7179,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok15",
+   "token": "是的",
+   "id": 110205,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok15",
+   "token": " affirmative",
+   "id": 65359,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok15",
+   "token": "否定",
+   "id": 114168,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok15",
+   "token": "否",
+   "id": 96994,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok15",
+   "token": " oui",
+   "id": 93076,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok15",
+   "token": "כן",
+   "id": 191402,
+   "reason": "yes/no form"
+  },
+  {
+   "position": "q_tok15",
+   "token": " confirm",
+   "id": 7440,
+   "reason": "answers the question rather than describing the act"
+  },
+  {
+   "position": "q_tok15",
+   "token": "确认",
+   "id": 101632,
+   "reason": "answers the question rather than describing the act"
+  },
+  {
+   "position": "q_tok15",
+   "token": " did",
+   "id": 1467,
+   "reason": "copied from the self-report question (did)"
+  },
+  {
+   "position": "q_tok15",
+   "token": " Did",
+   "id": 14149,
+   "reason": "copied from the self-report question (did)"
+  },
+  {
+   "position": "q_tok15",
+   "token": " didn",
+   "id": 3105,
+   "reason": "copied from the self-report question (did)"
+  }
+ ],
+ "rejected_matches": [
+  {
+   "position": "q_tok10",
+   "token": "plier",
+   "id": 7627,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "q_tok11",
+   "token": "教学反思",
+   "id": 126795,
+   "seed": "反思",
+   "reason": "'teaching reflection', unrelated"
+  },
+  {
+   "position": "q_tok9",
+   "token": " whether",
+   "id": 3315,
+   "seed": "eth",
+   "reason": ""
+  },
+  {
+   "position": "q_tok10",
+   "token": " whether",
+   "id": 3315,
+   "seed": "eth",
+   "reason": ""
+  },
+  {
+   "position": "q_tok11",
+   "token": " whether",
+   "id": 3315,
+   "seed": "eth",
+   "reason": ""
+  },
+  {
+   "position": "q_tok12",
+   "token": " whether",
+   "id": 3315,
+   "seed": "eth",
+   "reason": ""
+  },
+  {
+   "position": "q_tok12",
+   "token": " something",
+   "id": 2414,
+   "seed": "eth",
+   "reason": ""
+  },
+  {
+   "position": "q_tok15",
+   "token": " whether",
+   "id": 3315,
+   "seed": "eth",
+   "reason": ""
+  },
+  {
+   "position": "q_tok15",
+   "token": " Whether",
+   "id": 12757,
+   "seed": "eth",
+   "reason": ""
+  },
+  {
+   "position": "q_tok15",
+   "token": "Whether",
+   "id": 23922,
+   "seed": "eth",
+   "reason": ""
+  },
+  {
+   "position": "q_tok15",
+   "token": "whether",
+   "id": 47132,
+   "seed": "eth",
+   "reason": ""
+  }
+ ],
+ "positions_without_families": [
+  "q_tok13"
+ ],
+ "notes": "Question tokens assumed: q_tok8 answer, q_tok9 yes, q_tok10 or, q_tok11 no, q_tok12 and, q_tok13 nothing, q_tok14 else, q_tok15 ?. 'lie' and its translations are excluded as question words; no lie-side family other than deny appears. Yes/no exclusions list the main forms only."
+}

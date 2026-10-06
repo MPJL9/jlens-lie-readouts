@@ -1,0 +1,8448 @@
+{
+ "position": "postresp_slot1",
+ "lens": "J",
+ "strict_rule": {
+  "cap": 0.05,
+  "floor": 0.5
+ },
+ "main_rule": {
+  "cap": 0.1,
+  "floor": 0.4
+ },
+ "lie_leaning": {
+  "lies": 0.15,
+  "truths": 0.15,
+  "controls": 0.1,
+  "gap": 0.1
+ },
+ "models": {
+  "qwen3.6-27b": {
+   "n": {
+    "lie": 152,
+    "truth": 81,
+    "np_truth": 138,
+    "unrelated": 158
+   },
+   "families": [
+    {
+     "name": "lie",
+     "side": "lie",
+     "tokens": [
+      "谎言",
+      "说谎",
+      "撒谎",
+      "谎",
+      " lied",
+      " lie",
+      " lies",
+      " mentira",
+      " 거짓",
+      " lying",
+      " Lie",
+      " Lies",
+      "lie",
+      "Lie",
+      "lies",
+      "lying",
+      " liar"
+     ],
+     "gap": 0.749106562703054,
+     "rule": "main",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       127,
+       152
+      ],
+      "truth": [
+       7,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "fake",
+     "side": "lie",
+     "tokens": [
+      "fake",
+      "Fake",
+      " fake",
+      " Fake",
+      "假",
+      "假的",
+      ".fake",
+      "_fake",
+      "虚假"
+     ],
+     "gap": 0.7080084470435348,
+     "rule": "main",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       117,
+       152
+      ],
+      "truth": [
+       5,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "falsehood",
+     "side": "lie",
+     "tokens": [
+      " falsehood"
+     ],
+     "gap": 0.5855263157894737,
+     "rule": "strict",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       89,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       2,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "misinformation",
+     "side": "lie",
+     "tokens": [
+      " misinformation",
+      "虚假信息"
+     ],
+     "gap": 0.5780539311241066,
+     "rule": "main",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       101,
+       152
+      ],
+      "truth": [
+       7,
+       81
+      ],
+      "np_truth": [
+       10,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "deceive",
+     "side": "lie",
+     "tokens": [
+      "欺骗",
+      " deception",
+      " deceptive",
+      "骗",
+      " deceive",
+      " deceit",
+      " deceived"
+     ],
+     "gap": 0.5566926575698505,
+     "rule": "main",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       94,
+       152
+      ],
+      "truth": [
+       5,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "fabricate",
+     "side": "lie",
+     "tokens": [
+      "伪造",
+      "虚构",
+      "造假",
+      " fabricated",
+      "弄虚作假"
+     ],
+     "gap": 0.5337069525666016,
+     "rule": "strict",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       83,
+       152
+      ],
+      "truth": [
+       1,
+       81
+      ],
+      "np_truth": [
+       1,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "conceal",
+     "side": "lie",
+     "tokens": [
+      "隐瞒",
+      "掩盖",
+      "瞒"
+     ],
+     "gap": 0.5072287199480181,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       109,
+       152
+      ],
+      "truth": [
+       17,
+       81
+      ],
+      "np_truth": [
+       2,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "false",
+     "side": "lie",
+     "tokens": [
+      " false",
+      " False",
+      "false",
+      "False",
+      " FALSE",
+      "FALSE",
+      ">false",
+      " fals",
+      " falsely",
+      " untrue",
+      "/false",
+      "真假"
+     ],
+     "gap": 0.4950454840805718,
+     "rule": "strict",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       79,
+       152
+      ],
+      "truth": [
+       2,
+       81
+      ],
+      "np_truth": [
+       1,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "mislead",
+     "side": "lie",
+     "tokens": [
+      " misleading",
+      "误导",
+      " misled",
+      "误导性"
+     ],
+     "gap": 0.32724171539961017,
+     "rule": "main",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       61,
+       152
+      ],
+      "truth": [
+       6,
+       81
+      ],
+      "np_truth": [
+       2,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "excuse",
+     "side": "unclear",
+     "tokens": [
+      " excuse",
+      " excuses",
+      "借口",
+      "辩解"
+     ],
+     "gap": 0.1924139051332034,
+     "rule": "",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       33,
+       152
+      ],
+      "truth": [
+       2,
+       81
+      ],
+      "np_truth": [
+       3,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "dishonest",
+     "side": "lie",
+     "tokens": [
+      " dishonest"
+     ],
+     "gap": 0.18088044184535412,
+     "rule": "",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       35,
+       152
+      ],
+      "truth": [
+       4,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "liar",
+     "side": "lie",
+     "tokens": [
+      " liar"
+     ],
+     "gap": 0.14473684210526316,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       22,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "truth",
+     "side": "truth",
+     "tokens": [
+      "真相",
+      " truth",
+      "truth",
+      " Truth",
+      "Truth",
+      " truths",
+      "_truth",
+      ".truth",
+      "真理",
+      "实话",
+      "说实话",
+      " verità",
+      " vérité"
+     ],
+     "gap": 0.11549707602339176,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       102,
+       152
+      ],
+      "truth": [
+       45,
+       81
+      ],
+      "np_truth": [
+       61,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "misrepresent",
+     "side": "lie",
+     "tokens": [
+      " misrepresented"
+     ],
+     "gap": 0.10688758934372969,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       20,
+       152
+      ],
+      "truth": [
+       2,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "truthful",
+     "side": "truth",
+     "tokens": [
+      " truthful",
+      "如实",
+      "实话",
+      "实事求是",
+      "说实话"
+     ],
+     "gap": 0.09657244964262512,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       101,
+       152
+      ],
+      "truth": [
+       46,
+       81
+      ],
+      "np_truth": [
+       59,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "dismiss",
+     "side": "unclear",
+     "tokens": [
+      " dismiss",
+      " dismissing",
+      " dismissal",
+      "-dismiss",
+      " dismissed",
+      "dismiss",
+      ".dismiss",
+      "Dismiss"
+     ],
+     "gap": 0.09210526315789473,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       14,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "spin",
+     "side": "lie",
+     "tokens": [
+      " spin",
+      "spin",
+      "Spin",
+      " spun",
+      "-spin",
+      " Spin",
+      " spins",
+      " spinning",
+      "_spin"
+     ],
+     "gap": 0.08552631578947369,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       13,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "bluff",
+     "side": "lie",
+     "tokens": [
+      " bluff"
+     ],
+     "gap": 0.07894736842105263,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       12,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "rebut",
+     "side": "unclear",
+     "tokens": [
+      "反驳",
+      " rebut",
+      " refute",
+      " debunk"
+     ],
+     "gap": 0.06814489928525017,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       31,
+       152
+      ],
+      "truth": [
+       11,
+       81
+      ],
+      "np_truth": [
+       12,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "justify",
+     "side": "unclear",
+     "tokens": [
+      "辩解"
+     ],
+     "gap": 0.06660168940870695,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       12,
+       152
+      ],
+      "truth": [
+       1,
+       81
+      ],
+      "np_truth": [
+       3,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "fraud",
+     "side": "lie",
+     "tokens": [
+      "骗局",
+      " fraudulent",
+      "欺诈"
+     ],
+     "gap": 0.05921052631578947,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       9,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "blame",
+     "side": "unclear",
+     "tokens": [
+      " blame",
+      " blames",
+      " blamed"
+     ],
+     "gap": 0.05921052631578947,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       9,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "evade",
+     "side": "lie",
+     "tokens": [
+      "回避",
+      " evasion",
+      "避开",
+      " dodge",
+      " evade",
+      "规避",
+      "逃避",
+      " deflect"
+     ],
+     "gap": 0.04434697855750487,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       18,
+       152
+      ],
+      "truth": [
+       6,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "vague",
+     "side": "unclear",
+     "tokens": [
+      " vague",
+      "含糊",
+      " vaguely",
+      " ambiguous",
+      " ambiguity",
+      " ambigu",
+      "ambiguous"
+     ],
+     "gap": 0.03614359974009097,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       13,
+       152
+      ],
+      "truth": [
+       4,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "fiction",
+     "side": "unclear",
+     "tokens": [
+      " fictional",
+      "fiction",
+      " Fiction"
+     ],
+     "gap": 0.03289473684210526,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       5,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       1,
+       138
+      ],
+      "unrelated": [
+       1,
+       158
+      ]
+     }
+    },
+    {
+     "name": "pretend",
+     "side": "lie",
+     "tokens": [
+      " pretending",
+      " pretend"
+     ],
+     "gap": 0.03289473684210526,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       5,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "ignore",
+     "side": "unclear",
+     "tokens": [
+      " ignoring",
+      "忽略",
+      "ignore",
+      " ignores",
+      " IGNORE",
+      " ignore",
+      " ignored",
+      "Ignore",
+      "ignored",
+      " Ignore",
+      "忽略了",
+      ".ignore"
+     ],
+     "gap": 0.02794022092267706,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       8,
+       152
+      ],
+      "truth": [
+       2,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "avoid",
+     "side": "unclear",
+     "tokens": [
+      " avoidance",
+      "avoid",
+      " avoided",
+      " Avoid",
+      " avoiding",
+      " avoids",
+      " avoid",
+      "Avoid",
+      "避免"
+     ],
+     "gap": 0.027128005198180635,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       6,
+       152
+      ],
+      "truth": [
+       1,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "apologize",
+     "side": "unclear",
+     "tokens": [
+      " apology",
+      " apologies",
+      "道歉"
+     ],
+     "gap": 0.019736842105263157,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       3,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       9,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "clarify",
+     "side": "unclear",
+     "tokens": [
+      "澄清",
+      " clarification"
+     ],
+     "gap": 0.014782326185834957,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       6,
+       152
+      ],
+      "truth": [
+       2,
+       81
+      ],
+      "np_truth": [
+       12,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "secret",
+     "side": "lie",
+     "tokens": [
+      "秘密"
+     ],
+     "gap": 0.013157894736842105,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "omit",
+     "side": "lie",
+     "tokens": [
+      " omit"
+     ],
+     "gap": 0.006578947368421052,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "accurate",
+     "side": "truth",
+     "tokens": [
+      " accurate",
+      " accuracy",
+      " accurately",
+      "accuracy",
+      "accur",
+      "Accuracy",
+      " Accuracy",
+      "准确",
+      "准确的"
+     ],
+     "gap": 0.006578947368421052,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       4,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "contradict",
+     "side": "unclear",
+     "tokens": [
+      " contradict",
+      " contrad",
+      " contradiction",
+      " contradictory",
+      "矛盾",
+      " contradictions"
+     ],
+     "gap": 0.003167641325536069,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       23,
+       152
+      ],
+      "truth": [
+       12,
+       81
+      ],
+      "np_truth": [
+       13,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "redirect",
+     "side": "unclear",
+     "tokens": [
+      "redirect",
+      " redirect",
+      "Redirect",
+      " Redirect",
+      " redirected",
+      " redirects",
+      "_redirect",
+      " redirection"
+     ],
+     "gap": 0.0016244314489928524,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       4,
+       152
+      ],
+      "truth": [
+       2,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "inaccurate",
+     "side": "lie",
+     "tokens": [
+      "不准确"
+     ],
+     "gap": 0.0,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       152
+      ],
+      "truth": [
+       0,
+       81
+      ],
+      "np_truth": [
+       1,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "fact",
+     "side": "truth",
+     "tokens": [
+      " fact",
+      " actual",
+      " reality",
+      "actual",
+      " facts",
+      "Fact",
+      "Actual",
+      "fact",
+      " Actual",
+      " Fact",
+      " Reality",
+      " Facts",
+      "Reality",
+      "_fact",
+      "Actually",
+      " FACT",
+      "FACT",
+      " factual",
+      "facts",
+      "实际",
+      "事实",
+      "实际情况",
+      "的事实",
+      "的实际",
+      "实际的",
+      "但实际上",
+      "事实和",
+      " réalité"
+     ],
+     "gap": -0.010721247563352826,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       4,
+       152
+      ],
+      "truth": [
+       3,
+       81
+      ],
+      "np_truth": [
+       56,
+       138
+      ],
+      "unrelated": [
+       2,
+       158
+      ]
+     }
+    },
+    {
+     "name": "correct",
+     "side": "truth",
+     "tokens": [
+      " correct",
+      " correctly",
+      "correct",
+      " correction",
+      "Correct",
+      " corrected",
+      " Correct",
+      " corrections",
+      " Correction",
+      " correcting",
+      "Correction",
+      " Corrections",
+      " corrective",
+      "正确",
+      "正确的",
+      "修正",
+      "纠错",
+      "正确答案",
+      "纠正",
+      "改正",
+      "的正确",
+      "更正",
+      "是正确的"
+     ],
+     "gap": -0.010721247563352826,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       4,
+       152
+      ],
+      "truth": [
+       3,
+       81
+      ],
+      "np_truth": [
+       28,
+       138
+      ],
+      "unrelated": [
+       5,
+       158
+      ]
+     }
+    },
+    {
+     "name": "hidden",
+     "side": "lie",
+     "tokens": [
+      " undisclosed"
+     ],
+     "gap": -0.012345679012345678,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       152
+      ],
+      "truth": [
+       1,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "sincere",
+     "side": "truth",
+     "tokens": [
+      "真诚"
+     ],
+     "gap": -0.012345679012345678,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       152
+      ],
+      "truth": [
+       1,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "true",
+     "side": "truth",
+     "tokens": [
+      " TRUE",
+      "真实",
+      "真实性",
+      "确实",
+      "真实的",
+      "的真实",
+      "的真实性"
+     ],
+     "gap": -0.012345679012345678,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       152
+      ],
+      "truth": [
+       1,
+       81
+      ],
+      "np_truth": [
+       2,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "wrong",
+     "side": "lie",
+     "tokens": [
+      " wrong",
+      " ERROR",
+      "wrong",
+      " Wrong",
+      " WRONG",
+      "错",
+      "误",
+      "错误",
+      "的错误",
+      "是错误的"
+     ],
+     "gap": -0.014051332033788166,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       11,
+       152
+      ],
+      "truth": [
+       7,
+       81
+      ],
+      "np_truth": [
+       6,
+       138
+      ],
+      "unrelated": [
+       4,
+       158
+      ]
+     }
+    },
+    {
+     "name": "incorrect",
+     "side": "lie",
+     "tokens": [
+      " incorrect",
+      "Wrong",
+      "Incorrect",
+      " inaccur",
+      " incorrectly",
+      " inaccurate",
+      "incorrect",
+      " wrongly",
+      " Incorrect",
+      "错误的",
+      "不符合",
+      "有误"
+     ],
+     "gap": -0.014051332033788166,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       11,
+       152
+      ],
+      "truth": [
+       7,
+       81
+      ],
+      "np_truth": [
+       8,
+       138
+      ],
+      "unrelated": [
+       3,
+       158
+      ]
+     }
+    },
+    {
+     "name": "confidential",
+     "side": "unclear",
+     "tokens": [
+      " confidentiality",
+      "保密",
+      " confidential",
+      "秘密",
+      " undisclosed"
+     ],
+     "gap": -0.017300194931773878,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       3,
+       152
+      ],
+      "truth": [
+       3,
+       81
+      ],
+      "np_truth": [
+       1,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "violate",
+     "side": "unclear",
+     "tokens": [
+      "违背",
+      "违反",
+      "违反了",
+      "违法"
+     ],
+     "gap": -0.07577972709551656,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       11,
+       152
+      ],
+      "truth": [
+       12,
+       81
+      ],
+      "np_truth": [
+       1,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "whistleblow",
+     "side": "unclear",
+     "tokens": [
+      " whistlebl",
+      " whistleblower"
+     ],
+     "gap": -0.08641975308641975,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       152
+      ],
+      "truth": [
+       7,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "integrity",
+     "side": "truth",
+     "tokens": [
+      "诚信",
+      "正直",
+      " integrity",
+      " Integrity"
+     ],
+     "gap": -0.17202729044834308,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       152
+      ],
+      "truth": [
+       15,
+       81
+      ],
+      "np_truth": [
+       2,
+       138
+      ],
+      "unrelated": [
+       1,
+       158
+      ]
+     }
+    },
+    {
+     "name": "unethical",
+     "side": "lie",
+     "tokens": [
+      " unethical"
+     ],
+     "gap": -0.20825211176088368,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       4,
+       152
+      ],
+      "truth": [
+       19,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "disclaimer",
+     "side": "unclear",
+     "tokens": [
+      " disclaimer",
+      " Disclaimer",
+      " DISCLAIMER",
+      "Disclaimer"
+     ],
+     "gap": -0.25032488628979854,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       22,
+       152
+      ],
+      "truth": [
+       32,
+       81
+      ],
+      "np_truth": [
+       15,
+       138
+      ],
+      "unrelated": [
+       3,
+       158
+      ]
+     }
+    },
+    {
+     "name": "transparent",
+     "side": "truth",
+     "tokens": [
+      " transparency",
+      "透明",
+      " Transparency",
+      "透明度",
+      " transparent",
+      "透明的",
+      "transparent"
+     ],
+     "gap": -0.25925925925925924,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       152
+      ],
+      "truth": [
+       21,
+       81
+      ],
+      "np_truth": [
+       7,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "ethical",
+     "side": "truth",
+     "tokens": [
+      " ethical",
+      "ethical"
+     ],
+     "gap": -0.25925925925925924,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       152
+      ],
+      "truth": [
+       21,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "reject",
+     "side": "unclear",
+     "tokens": [
+      "reject",
+      " rejection",
+      " rejecting",
+      "Reject",
+      " Reject",
+      " reject",
+      " rejected",
+      ".reject",
+      "rejected"
+     ],
+     "gap": -0.2856562703053931,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       11,
+       152
+      ],
+      "truth": [
+       29,
+       81
+      ],
+      "np_truth": [
+       1,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "confess",
+     "side": "truth",
+     "tokens": [
+      "坦白",
+      " confession",
+      " confess",
+      " confessed"
+     ],
+     "gap": -0.2962962962962963,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       152
+      ],
+      "truth": [
+       24,
+       81
+      ],
+      "np_truth": [
+       5,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "ethics",
+     "side": "unclear",
+     "tokens": [
+      "道德",
+      " ethical",
+      "ethical",
+      "伦理",
+      " ethics",
+      " Ethics",
+      "的道德"
+     ],
+     "gap": -0.2962962962962963,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       152
+      ],
+      "truth": [
+       24,
+       81
+      ],
+      "np_truth": [
+       0,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "disclose",
+     "side": "truth",
+     "tokens": [
+      " disclosure",
+      " Disclosure",
+      " disclosing",
+      "公开",
+      " disclose",
+      " disclosures",
+      "披露",
+      "揭露",
+      " disclosed",
+      "Disclosure",
+      "信息公开",
+      "信息披露",
+      "公开的",
+      " revealing"
+     ],
+     "gap": -0.31440870695256656,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       152
+      ],
+      "truth": [
+       26,
+       81
+      ],
+      "np_truth": [
+       20,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "refuse",
+     "side": "unclear",
+     "tokens": [
+      "拒绝",
+      " refusal",
+      " refus",
+      "拒",
+      " refusing",
+      " refused",
+      " refuses",
+      " refuse",
+      "拒绝了",
+      "拒絕",
+      " отказ",
+      "拒不",
+      " отказа"
+     ],
+     "gap": -0.3721572449642625,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       26,
+       152
+      ],
+      "truth": [
+       44,
+       81
+      ],
+      "np_truth": [
+       9,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "candid",
+     "side": "truth",
+     "tokens": [
+      "坦诚"
+     ],
+     "gap": -0.413174139051332,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       152
+      ],
+      "truth": [
+       34,
+       81
+      ],
+      "np_truth": [
+       19,
+       138
+      ],
+      "unrelated": [
+       0,
+       158
+      ]
+     }
+    },
+    {
+     "name": "honest",
+     "side": "truth",
+     "tokens": [
+      " honesty",
+      "诚实",
+      " honest",
+      "坦诚",
+      " honestly",
+      " Honest",
+      "诚信",
+      "正直",
+      "诚实守信",
+      "真诚"
+     ],
+     "gap": -0.47165367121507473,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       9,
+       152
+      ],
+      "truth": [
+       43,
+       81
+      ],
+      "np_truth": [
+       40,
+       138
+      ],
+      "unrelated": [
+       1,
+       158
+      ]
+     }
+    }
+   ],
+   "sets": {
+    "strict": [
+     "falsehood",
+     "fabricate",
+     "false"
+    ],
+    "main": [
+     "lie",
+     "fake",
+     "falsehood",
+     "misinformation",
+     "deceive",
+     "fabricate",
+     "false",
+     "mislead"
+    ],
+    "leaning": [
+     "lie",
+     "fake",
+     "falsehood",
+     "misinformation",
+     "deceive",
+     "fabricate",
+     "false",
+     "mislead",
+     "excuse",
+     "dishonest"
+    ]
+   },
+   "overlap": {
+    "main": {
+     "families": [
+      "lie",
+      "fake",
+      "falsehood",
+      "misinformation",
+      "deceive",
+      "fabricate",
+      "false",
+      "mislead"
+     ],
+     "at_least": {
+      "1": {
+       "lie": [
+        133,
+        152
+       ],
+       "truth": [
+        10,
+        81
+       ],
+       "np_truth": [
+        13,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "2": {
+       "lie": [
+        126,
+        152
+       ],
+       "truth": [
+        6,
+        81
+       ],
+       "np_truth": [
+        2,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "3": {
+       "lie": [
+        115,
+        152
+       ],
+       "truth": [
+        6,
+        81
+       ],
+       "np_truth": [
+        1,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "4": {
+       "lie": [
+        104,
+        152
+       ],
+       "truth": [
+        5,
+        81
+       ],
+       "np_truth": [
+        0,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "5": {
+       "lie": [
+        92,
+        152
+       ],
+       "truth": [
+        4,
+        81
+       ],
+       "np_truth": [
+        0,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "6": {
+       "lie": [
+        80,
+        152
+       ],
+       "truth": [
+        2,
+        81
+       ],
+       "np_truth": [
+        0,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "7": {
+       "lie": [
+        65,
+        152
+       ],
+       "truth": [
+        0,
+        81
+       ],
+       "np_truth": [
+        0,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "8": {
+       "lie": [
+        36,
+        152
+       ],
+       "truth": [
+        0,
+        81
+       ],
+       "np_truth": [
+        0,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      }
+     },
+     "greedy": [
+      [
+       "lie",
+       127
+      ],
+      [
+       "fake",
+       4
+      ],
+      [
+       "misinformation",
+       1
+      ],
+      [
+       "fabricate",
+       1
+      ],
+      [
+       "falsehood",
+       0
+      ],
+      [
+       "deceive",
+       0
+      ],
+      [
+       "false",
+       0
+      ],
+      [
+       "mislead",
+       0
+      ]
+     ],
+     "lies_with_none": 19,
+     "truth_counts": [
+      1,
+      1,
+      1,
+      1,
+      3,
+      4,
+      5,
+      5,
+      6,
+      6
+     ],
+     "same_scenario": {
+      "scenarios": 70,
+      "at_least": {
+       "1": [
+        61,
+        70,
+        7,
+        70
+       ],
+       "2": [
+        58,
+        70,
+        4,
+        70
+       ]
+      }
+     },
+     "pairwise": {
+      "lie|fake": 0.889763779527559,
+      "lie|falsehood": 0.7007874015748031,
+      "lie|misinformation": 0.7795275590551181,
+      "lie|deceive": 0.7244094488188977,
+      "lie|fabricate": 0.6299212598425197,
+      "lie|false": 0.6141732283464567,
+      "lie|mislead": 0.47244094488188976,
+      "fake|lie": 0.9658119658119658,
+      "fake|falsehood": 0.7435897435897436,
+      "fake|misinformation": 0.7948717948717948,
+      "fake|deceive": 0.7948717948717948,
+      "fake|fabricate": 0.7008547008547008,
+      "fake|false": 0.6666666666666666,
+      "fake|mislead": 0.5042735042735043,
+      "falsehood|lie": 1.0,
+      "falsehood|fake": 0.9775280898876404,
+      "falsehood|misinformation": 0.898876404494382,
+      "falsehood|deceive": 0.8651685393258427,
+      "falsehood|fabricate": 0.7415730337078652,
+      "falsehood|false": 0.8539325842696629,
+      "falsehood|mislead": 0.6067415730337079,
+      "misinformation|lie": 0.9801980198019802,
+      "misinformation|fake": 0.9207920792079208,
+      "misinformation|falsehood": 0.7920792079207921,
+      "misinformation|deceive": 0.8217821782178217,
+      "misinformation|fabricate": 0.6732673267326733,
+      "misinformation|false": 0.6732673267326733,
+      "misinformation|mislead": 0.5643564356435643,
+      "deceive|lie": 0.9787234042553191,
+      "deceive|fake": 0.9893617021276596,
+      "deceive|falsehood": 0.8191489361702128,
+      "deceive|misinformation": 0.8829787234042553,
+      "deceive|fabricate": 0.776595744680851,
+      "deceive|false": 0.7446808510638298,
+      "deceive|mislead": 0.5531914893617021,
+      "fabricate|lie": 0.963855421686747,
+      "fabricate|fake": 0.9879518072289156,
+      "fabricate|falsehood": 0.7951807228915663,
+      "fabricate|misinformation": 0.8192771084337349,
+      "fabricate|deceive": 0.8795180722891566,
+      "fabricate|false": 0.7469879518072289,
+      "fabricate|mislead": 0.46987951807228917,
+      "false|lie": 0.9873417721518988,
+      "false|fake": 0.9873417721518988,
+      "false|falsehood": 0.9620253164556962,
+      "false|misinformation": 0.8607594936708861,
+      "false|deceive": 0.8860759493670886,
+      "false|fabricate": 0.7848101265822784,
+      "false|mislead": 0.6329113924050633,
+      "mislead|lie": 0.9836065573770492,
+      "mislead|fake": 0.9672131147540983,
+      "mislead|falsehood": 0.8852459016393442,
+      "mislead|misinformation": 0.9344262295081968,
+      "mislead|deceive": 0.8524590163934426,
+      "mislead|fabricate": 0.639344262295082,
+      "mislead|false": 0.819672131147541
+     }
+    },
+    "leaning": {
+     "families": [
+      "lie",
+      "fake",
+      "falsehood",
+      "misinformation",
+      "deceive",
+      "fabricate",
+      "false",
+      "mislead",
+      "excuse",
+      "dishonest"
+     ],
+     "at_least": {
+      "1": {
+       "lie": [
+        134,
+        152
+       ],
+       "truth": [
+        14,
+        81
+       ],
+       "np_truth": [
+        16,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "2": {
+       "lie": [
+        128,
+        152
+       ],
+       "truth": [
+        6,
+        81
+       ],
+       "np_truth": [
+        2,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "3": {
+       "lie": [
+        119,
+        152
+       ],
+       "truth": [
+        6,
+        81
+       ],
+       "np_truth": [
+        1,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "4": {
+       "lie": [
+        110,
+        152
+       ],
+       "truth": [
+        5,
+        81
+       ],
+       "np_truth": [
+        0,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "5": {
+       "lie": [
+        98,
+        152
+       ],
+       "truth": [
+        5,
+        81
+       ],
+       "np_truth": [
+        0,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "6": {
+       "lie": [
+        86,
+        152
+       ],
+       "truth": [
+        2,
+        81
+       ],
+       "np_truth": [
+        0,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "7": {
+       "lie": [
+        71,
+        152
+       ],
+       "truth": [
+        1,
+        81
+       ],
+       "np_truth": [
+        0,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "8": {
+       "lie": [
+        51,
+        152
+       ],
+       "truth": [
+        0,
+        81
+       ],
+       "np_truth": [
+        0,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "9": {
+       "lie": [
+        21,
+        152
+       ],
+       "truth": [
+        0,
+        81
+       ],
+       "np_truth": [
+        0,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      },
+      "10": {
+       "lie": [
+        1,
+        152
+       ],
+       "truth": [
+        0,
+        81
+       ],
+       "np_truth": [
+        0,
+        138
+       ],
+       "unrelated": [
+        0,
+        158
+       ]
+      }
+     },
+     "greedy": [
+      [
+       "lie",
+       127
+      ],
+      [
+       "fake",
+       4
+      ],
+      [
+       "misinformation",
+       1
+      ],
+      [
+       "fabricate",
+       1
+      ],
+      [
+       "excuse",
+       1
+      ],
+      [
+       "falsehood",
+       0
+      ],
+      [
+       "deceive",
+       0
+      ],
+      [
+       "false",
+       0
+      ],
+      [
+       "mislead",
+       0
+      ],
+      [
+       "dishonest",
+       0
+      ]
+     ],
+     "lies_with_none": 18,
+     "truth_counts": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      3,
+      5,
+      5,
+      5,
+      6,
+      7
+     ],
+     "same_scenario": {
+      "scenarios": 70,
+      "at_least": {
+       "1": [
+        61,
+        70,
+        10,
+        70
+       ],
+       "2": [
+        58,
+        70,
+        4,
+        70
+       ]
+      }
+     },
+     "pairwise": {
+      "lie|fake": 0.889763779527559,
+      "lie|falsehood": 0.7007874015748031,
+      "lie|misinformation": 0.7795275590551181,
+      "lie|deceive": 0.7244094488188977,
+      "lie|fabricate": 0.6299212598425197,
+      "lie|false": 0.6141732283464567,
+      "lie|mislead": 0.47244094488188976,
+      "lie|excuse": 0.25196850393700787,
+      "lie|dishonest": 0.2755905511811024,
+      "fake|lie": 0.9658119658119658,
+      "fake|falsehood": 0.7435897435897436,
+      "fake|misinformation": 0.7948717948717948,
+      "fake|deceive": 0.7948717948717948,
+      "fake|fabricate": 0.7008547008547008,
+      "fake|false": 0.6666666666666666,
+      "fake|mislead": 0.5042735042735043,
+      "fake|excuse": 0.24786324786324787,
+      "fake|dishonest": 0.2905982905982906,
+      "falsehood|lie": 1.0,
+      "falsehood|fake": 0.9775280898876404,
+      "falsehood|misinformation": 0.898876404494382,
+      "falsehood|deceive": 0.8651685393258427,
+      "falsehood|fabricate": 0.7415730337078652,
+      "falsehood|false": 0.8539325842696629,
+      "falsehood|mislead": 0.6067415730337079,
+      "falsehood|excuse": 0.12359550561797752,
+      "falsehood|dishonest": 0.38202247191011235,
+      "misinformation|lie": 0.9801980198019802,
+      "misinformation|fake": 0.9207920792079208,
+      "misinformation|falsehood": 0.7920792079207921,
+      "misinformation|deceive": 0.8217821782178217,
+      "misinformation|fabricate": 0.6732673267326733,
+      "misinformation|false": 0.6732673267326733,
+      "misinformation|mislead": 0.5643564356435643,
+      "misinformation|excuse": 0.18811881188118812,
+      "misinformation|dishonest": 0.3069306930693069,
+      "deceive|lie": 0.9787234042553191,
+      "deceive|fake": 0.9893617021276596,
+      "deceive|falsehood": 0.8191489361702128,
+      "deceive|misinformation": 0.8829787234042553,
+      "deceive|fabricate": 0.776595744680851,
+      "deceive|false": 0.7446808510638298,
+      "deceive|mislead": 0.5531914893617021,
+      "deceive|excuse": 0.18085106382978725,
+      "deceive|dishonest": 0.3617021276595745,
+      "fabricate|lie": 0.963855421686747,
+      "fabricate|fake": 0.9879518072289156,
+      "fabricate|falsehood": 0.7951807228915663,
+      "fabricate|misinformation": 0.8192771084337349,
+      "fabricate|deceive": 0.8795180722891566,
+      "fabricate|false": 0.7469879518072289,
+      "fabricate|mislead": 0.46987951807228917,
+      "fabricate|excuse": 0.2289156626506024,
+      "fabricate|dishonest": 0.3614457831325301,
+      "false|lie": 0.9873417721518988,
+      "false|fake": 0.9873417721518988,
+      "false|falsehood": 0.9620253164556962,
+      "false|misinformation": 0.8607594936708861,
+      "false|deceive": 0.8860759493670886,
+      "false|fabricate": 0.7848101265822784,
+      "false|mislead": 0.6329113924050633,
+      "false|excuse": 0.11392405063291139,
+      "false|dishonest": 0.43037974683544306,
+      "mislead|lie": 0.9836065573770492,
+      "mislead|fake": 0.9672131147540983,
+      "mislead|falsehood": 0.8852459016393442,
+      "mislead|misinformation": 0.9344262295081968,
+      "mislead|deceive": 0.8524590163934426,
+      "mislead|fabricate": 0.639344262295082,
+      "mislead|false": 0.819672131147541,
+      "mislead|excuse": 0.11475409836065574,
+      "mislead|dishonest": 0.3770491803278688,
+      "excuse|lie": 0.9696969696969697,
+      "excuse|fake": 0.8787878787878788,
+      "excuse|falsehood": 0.3333333333333333,
+      "excuse|misinformation": 0.5757575757575758,
+      "excuse|deceive": 0.5151515151515151,
+      "excuse|fabricate": 0.5757575757575758,
+      "excuse|false": 0.2727272727272727,
+      "excuse|mislead": 0.21212121212121213,
+      "excuse|dishonest": 0.06060606060606061,
+      "dishonest|lie": 1.0,
+      "dishonest|fake": 0.9714285714285714,
+      "dishonest|falsehood": 0.9714285714285714,
+      "dishonest|misinformation": 0.8857142857142857,
+      "dishonest|deceive": 0.9714285714285714,
+      "dishonest|fabricate": 0.8571428571428571,
+      "dishonest|false": 0.9714285714285714,
+      "dishonest|mislead": 0.6571428571428571,
+      "dishonest|excuse": 0.05714285714285714
+     }
+    }
+   }
+  },
+  "gemma-3-12b-it": {
+   "n": {
+    "lie": 49,
+    "truth": 32,
+    "np_truth": 135,
+    "unrelated": 179
+   },
+   "families": [
+    {
+     "name": "lie",
+     "side": "lie",
+     "tokens": [
+      "謊",
+      " মিথ্যা",
+      "谎",
+      " 거짓",
+      " झूठ",
+      "Lie"
+     ],
+     "gap": 0.34566326530612246,
+     "rule": "main",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       20,
+       49
+      ],
+      "truth": [
+       2,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "hush emoji",
+     "side": "lie",
+     "tokens": [
+      "🤫",
+      "🤐"
+     ],
+     "gap": 0.2276785714285714,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       28,
+       49
+      ],
+      "truth": [
+       11,
+       32
+      ],
+      "np_truth": [
+       1,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "obfuscate",
+     "side": "lie",
+     "tokens": [
+      " obfusc"
+     ],
+     "gap": 0.21237244897959184,
+     "rule": "",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       15,
+       49
+      ],
+      "truth": [
+       3,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "mislead",
+     "side": "lie",
+     "tokens": [
+      " misleading",
+      " mislead",
+      " misled"
+     ],
+     "gap": 0.18239795918367346,
+     "rule": "",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       12,
+       49
+      ],
+      "truth": [
+       2,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "pretend",
+     "side": "lie",
+     "tokens": [
+      " pretending",
+      " pretended",
+      " pretends"
+     ],
+     "gap": 0.17283163265306123,
+     "rule": "",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       10,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "reassure",
+     "side": "unclear",
+     "tokens": [
+      " reassurance",
+      " reassuring",
+      " reassured",
+      " reassure"
+     ],
+     "gap": 0.14987244897959184,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       15,
+       49
+      ],
+      "truth": [
+       5,
+       32
+      ],
+      "np_truth": [
+       7,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "evade",
+     "side": "lie",
+     "tokens": [
+      " evas",
+      " evasion",
+      " evade",
+      "回避",
+      " evaded"
+     ],
+     "gap": 0.14158163265306123,
+     "rule": "",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       10,
+       49
+      ],
+      "truth": [
+       2,
+       32
+      ],
+      "np_truth": [
+       1,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "fake",
+     "side": "lie",
+     "tokens": [
+      "偽",
+      "FAKE",
+      "伪"
+     ],
+     "gap": 0.12244897959183673,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       6,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       1,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "hide",
+     "side": "lie",
+     "tokens": [
+      "隐藏",
+      " скры",
+      " concealing",
+      " concealment",
+      "Hide",
+      " hiding",
+      "隠"
+     ],
+     "gap": 0.12117346938775511,
+     "rule": "",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       9,
+       49
+      ],
+      "truth": [
+       2,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "deflect",
+     "side": "lie",
+     "tokens": [
+      " deflect",
+      " deflection",
+      " deflected"
+     ],
+     "gap": 0.12117346938775511,
+     "rule": "",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       9,
+       49
+      ],
+      "truth": [
+       2,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "misinformation",
+     "side": "lie",
+     "tokens": [
+      " misinformation",
+      " disinformation"
+     ],
+     "gap": 0.11160714285714285,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       7,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       3,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "secret",
+     "side": "lie",
+     "tokens": [
+      " secrecy",
+      " خفیہ",
+      " secretly"
+     ],
+     "gap": 0.10204081632653061,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       5,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       2,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "blatant",
+     "side": "unclear",
+     "tokens": [
+      " blatantly",
+      " blatant"
+     ],
+     "gap": 0.10076530612244897,
+     "rule": "",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       8,
+       49
+      ],
+      "truth": [
+       2,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "avoid",
+     "side": "unclear",
+     "tokens": [
+      "避免",
+      "Avoid",
+      " menghindari",
+      "Avoiding",
+      " avoidance",
+      " এড়িয়ে",
+      " avoiding",
+      " Avoiding",
+      "éviter",
+      " avoids",
+      " evitare",
+      " vermeiden",
+      " avoid",
+      "avoid",
+      " Avoid",
+      " evitar",
+      " éviter",
+      " evitando"
+     ],
+     "gap": 0.09438775510204084,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       23,
+       49
+      ],
+      "truth": [
+       12,
+       32
+      ],
+      "np_truth": [
+       3,
+       135
+      ],
+      "unrelated": [
+       1,
+       179
+      ]
+     }
+    },
+    {
+     "name": "contradict",
+     "side": "unclear",
+     "tokens": [
+      " contradicting",
+      " contradicted",
+      " contradicts",
+      " противоре",
+      " contradictory"
+     ],
+     "gap": 0.08992346938775511,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       9,
+       49
+      ],
+      "truth": [
+       3,
+       32
+      ],
+      "np_truth": [
+       3,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "justify",
+     "side": "unclear",
+     "tokens": [
+      " justifications",
+      " justification"
+     ],
+     "gap": 0.08864795918367346,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       12,
+       49
+      ],
+      "truth": [
+       5,
+       32
+      ],
+      "np_truth": [
+       3,
+       135
+      ],
+      "unrelated": [
+       1,
+       179
+      ]
+     }
+    },
+    {
+     "name": "sincere",
+     "side": "truth",
+     "tokens": [
+      "Sincerely"
+     ],
+     "gap": 0.08163265306122448,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       4,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       19,
+       135
+      ],
+      "unrelated": [
+       24,
+       179
+      ]
+     }
+    },
+    {
+     "name": "fraud",
+     "side": "lie",
+     "tokens": [
+      " fraudulently",
+      " fraudulent"
+     ],
+     "gap": 0.08163265306122448,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       4,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "redirect",
+     "side": "unclear",
+     "tokens": [
+      " redirection",
+      " redirect",
+      "redirect",
+      "Redirect",
+      " Redirect",
+      "REDIRECT",
+      " redirected",
+      " redirects"
+     ],
+     "gap": 0.07079081632653061,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       5,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "dodge",
+     "side": "lie",
+     "tokens": [
+      " dodging",
+      " dodge",
+      "dodge"
+     ],
+     "gap": 0.07079081632653061,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       5,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "manipulate",
+     "side": "lie",
+     "tokens": [
+      "Manipulation",
+      " manipulative"
+     ],
+     "gap": 0.061224489795918366,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       3,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "rumour",
+     "side": "unclear",
+     "tokens": [
+      " rumors",
+      " rumored",
+      " rumor"
+     ],
+     "gap": 0.061224489795918366,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       3,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "deceive",
+     "side": "lie",
+     "tokens": [
+      " deception",
+      " deceptive",
+      " deceit"
+     ],
+     "gap": 0.05038265306122448,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       4,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "dishonest",
+     "side": "lie",
+     "tokens": [
+      " dishonesty",
+      " dishonest"
+     ],
+     "gap": 0.05038265306122448,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       4,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "misrepresent",
+     "side": "lie",
+     "tokens": [
+      " misrepresented"
+     ],
+     "gap": 0.05038265306122448,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       4,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "clever",
+     "side": "unclear",
+     "tokens": [
+      "巧妙",
+      " cleverly"
+     ],
+     "gap": 0.04910714285714285,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       7,
+       49
+      ],
+      "truth": [
+       3,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "deliberately",
+     "side": "unclear",
+     "tokens": [
+      " knowingly"
+     ],
+     "gap": 0.04081632653061224,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "refuse",
+     "side": "unclear",
+     "tokens": [
+      " refusal",
+      "拒绝",
+      " refusing"
+     ],
+     "gap": 0.04081632653061224,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       1,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "scepticism",
+     "side": "unclear",
+     "tokens": [
+      " skepticism",
+      " scepticism"
+     ],
+     "gap": 0.029974489795918366,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       3,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "honest",
+     "side": "truth",
+     "tokens": [
+      "Honestly",
+      " Honestly",
+      " honesty",
+      " honest",
+      " Honest",
+      "honest"
+     ],
+     "gap": 0.029336734693877542,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       29,
+       49
+      ],
+      "truth": [
+       18,
+       32
+      ],
+      "np_truth": [
+       36,
+       135
+      ],
+      "unrelated": [
+       8,
+       179
+      ]
+     }
+    },
+    {
+     "name": "persuade",
+     "side": "unclear",
+     "tokens": [
+      " persuading",
+      " persuasive",
+      " persuasion",
+      " convincing",
+      " persuas"
+     ],
+     "gap": 0.028698979591836732,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       6,
+       49
+      ],
+      "truth": [
+       3,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "omit",
+     "side": "lie",
+     "tokens": [
+      " omitted",
+      " omit",
+      " omission",
+      " omissions",
+      " omitting"
+     ],
+     "gap": 0.02040816326530612,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "withhold",
+     "side": "lie",
+     "tokens": [
+      " withholding"
+     ],
+     "gap": 0.02040816326530612,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "fabricate",
+     "side": "lie",
+     "tokens": [
+      " fabrication",
+      " fabricated",
+      "fabricated",
+      " Fabrication",
+      " fabricate",
+      " fabricating"
+     ],
+     "gap": 0.02040816326530612,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "unethical",
+     "side": "lie",
+     "tokens": [
+      " unethical"
+     ],
+     "gap": 0.02040816326530612,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       2,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "damning",
+     "side": "unclear",
+     "tokens": [
+      " damning"
+     ],
+     "gap": 0.02040816326530612,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "unknowingly",
+     "side": "unclear",
+     "tokens": [
+      " unknowingly"
+     ],
+     "gap": 0.02040816326530612,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "paranoia",
+     "side": "unclear",
+     "tokens": [
+      " paranoia",
+      " paranoid"
+     ],
+     "gap": 0.02040816326530612,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "true",
+     "side": "truth",
+     "tokens": [
+      "真實"
+     ],
+     "gap": 0.02040816326530612,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       2,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "vague",
+     "side": "unclear",
+     "tokens": [
+      " vague"
+     ],
+     "gap": 0.019132653061224483,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       4,
+       49
+      ],
+      "truth": [
+       2,
+       32
+      ],
+      "np_truth": [
+       1,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "rebut",
+     "side": "unclear",
+     "tokens": [
+      " rebuttal",
+      " refute"
+     ],
+     "gap": 0.019132653061224483,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       4,
+       49
+      ],
+      "truth": [
+       2,
+       32
+      ],
+      "np_truth": [
+       1,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "whisper",
+     "side": "unclear",
+     "tokens": [
+      " whispers",
+      " whispered",
+      " whispering",
+      "囁",
+      " whisper"
+     ],
+     "gap": 0.01785714285714285,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       7,
+       49
+      ],
+      "truth": [
+       4,
+       32
+      ],
+      "np_truth": [
+       4,
+       135
+      ],
+      "unrelated": [
+       1,
+       179
+      ]
+     }
+    },
+    {
+     "name": "suspicion",
+     "side": "unclear",
+     "tokens": [
+      " suspiciously",
+      " suspicions",
+      " suspicious"
+     ],
+     "gap": 0.009566326530612242,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "doubt",
+     "side": "unclear",
+     "tokens": [
+      "质疑"
+     ],
+     "gap": 0.009566326530612242,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "exaggerate",
+     "side": "lie",
+     "tokens": [
+      " exaggeration",
+      " exaggerated",
+      " exaggerate"
+     ],
+     "gap": 0.009566326530612242,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "truth",
+     "side": "truth",
+     "tokens": [
+      " truth",
+      "truth",
+      "Truth",
+      "真相"
+     ],
+     "gap": 0.009566326530612242,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       8,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "false",
+     "side": "lie",
+     "tokens": [
+      "False",
+      " untrue",
+      " falsehood"
+     ],
+     "gap": 0.009566326530612242,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "unapologetic",
+     "side": "unclear",
+     "tokens": [
+      " unapolog"
+     ],
+     "gap": 0.008290816326530615,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       5,
+       49
+      ],
+      "truth": [
+       3,
+       32
+      ],
+      "np_truth": [
+       1,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "correct",
+     "side": "truth",
+     "tokens": [
+      " corrected"
+     ],
+     "gap": 0.0,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       49
+      ],
+      "truth": [
+       0,
+       32
+      ],
+      "np_truth": [
+       2,
+       135
+      ],
+      "unrelated": [
+       1,
+       179
+      ]
+     }
+    },
+    {
+     "name": "sneaky",
+     "side": "lie",
+     "tokens": [
+      " sneaky"
+     ],
+     "gap": -0.001275510204081634,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       3,
+       49
+      ],
+      "truth": [
+       2,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "hint",
+     "side": "unclear",
+     "tokens": [
+      " hinting",
+      "暗示"
+     ],
+     "gap": -0.002551020408163268,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       6,
+       49
+      ],
+      "truth": [
+       4,
+       32
+      ],
+      "np_truth": [
+       1,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "incorrect",
+     "side": "lie",
+     "tokens": [
+      " inaccurate",
+      "Incorrect"
+     ],
+     "gap": -0.01084183673469388,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       3,
+       179
+      ]
+     }
+    },
+    {
+     "name": "disclaimer",
+     "side": "unclear",
+     "tokens": [
+      "Disclaimer",
+      " disclaimer",
+      " Disclaimer",
+      " DISCLAIM"
+     ],
+     "gap": -0.012755102040816313,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       30,
+       49
+      ],
+      "truth": [
+       20,
+       32
+      ],
+      "np_truth": [
+       90,
+       135
+      ],
+      "unrelated": [
+       61,
+       179
+      ]
+     }
+    },
+    {
+     "name": "confidentiality",
+     "side": "unclear",
+     "tokens": [
+      " confidentialité",
+      " confidentiality"
+     ],
+     "gap": -0.0267857142857143,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       14,
+       49
+      ],
+      "truth": [
+       10,
+       32
+      ],
+      "np_truth": [
+       14,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "confess",
+     "side": "truth",
+     "tokens": [
+      " confess",
+      " confession",
+      " confessed",
+      " confessions",
+      " confesses"
+     ],
+     "gap": -0.03125,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       1,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "reveal",
+     "side": "truth",
+     "tokens": [
+      "Reveal"
+     ],
+     "gap": -0.03125,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       1,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "truthful",
+     "side": "truth",
+     "tokens": [
+      " truthful"
+     ],
+     "gap": -0.03125,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       12,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "worry",
+     "side": "unclear",
+     "tokens": [
+      "担忧",
+      "擔心"
+     ],
+     "gap": -0.03125,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       49
+      ],
+      "truth": [
+       1,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "ambiguity",
+     "side": "unclear",
+     "tokens": [
+      " ambiguity"
+     ],
+     "gap": -0.04209183673469388,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       2,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "subtle",
+     "side": "unclear",
+     "tokens": [
+      " subtly",
+      " subtle"
+     ],
+     "gap": -0.04719387755102039,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       13,
+       49
+      ],
+      "truth": [
+       10,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "transparent",
+     "side": "truth",
+     "tokens": [
+      "Transparency",
+      " transparency",
+      "Transparent"
+     ],
+     "gap": -0.05293367346938776,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       49
+      ],
+      "truth": [
+       3,
+       32
+      ],
+      "np_truth": [
+       14,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "caution",
+     "side": "unclear",
+     "tokens": [
+      " cautionary",
+      "Caution"
+     ],
+     "gap": -0.0625,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       49
+      ],
+      "truth": [
+       2,
+       32
+      ],
+      "np_truth": [
+       4,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "privacy",
+     "side": "unclear",
+     "tokens": [
+      "Privacy",
+      "privacy"
+     ],
+     "gap": -0.07334183673469388,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       3,
+       32
+      ],
+      "np_truth": [
+       2,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "apologise",
+     "side": "unclear",
+     "tokens": [
+      " apologizing",
+      " apologised",
+      " apologized",
+      " apologize",
+      " apology"
+     ],
+     "gap": -0.07334183673469388,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       3,
+       32
+      ],
+      "np_truth": [
+       13,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "desperation",
+     "side": "unclear",
+     "tokens": [
+      " desperation",
+      " desperately",
+      " desperate"
+     ],
+     "gap": -0.07334183673469388,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       49
+      ],
+      "truth": [
+       3,
+       32
+      ],
+      "np_truth": [
+       0,
+       135
+      ],
+      "unrelated": [
+       0,
+       179
+      ]
+     }
+    },
+    {
+     "name": "disclose",
+     "side": "truth",
+     "tokens": [
+      "Disclosure",
+      "disclosure",
+      " disclose",
+      " Disclosure",
+      " disclosure",
+      " disclosures",
+      " disclosing",
+      "透露"
+     ],
+     "gap": -0.14795918367346939,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       5,
+       49
+      ],
+      "truth": [
+       8,
+       32
+      ],
+      "np_truth": [
+       55,
+       135
+      ],
+      "unrelated": [
+       26,
+       179
+      ]
+     }
+    }
+   ],
+   "sets": {
+    "strict": [],
+    "main": [
+     "lie"
+    ],
+    "leaning": [
+     "lie",
+     "obfuscate",
+     "mislead",
+     "pretend",
+     "evade",
+     "hide",
+     "deflect",
+     "blatant"
+    ]
+   },
+   "overlap": {
+    "main": {
+     "families": [
+      "lie"
+     ],
+     "at_least": {
+      "1": {
+       "lie": [
+        20,
+        49
+       ],
+       "truth": [
+        2,
+        32
+       ],
+       "np_truth": [
+        0,
+        135
+       ],
+       "unrelated": [
+        0,
+        179
+       ]
+      }
+     },
+     "greedy": [
+      [
+       "lie",
+       20
+      ]
+     ],
+     "lies_with_none": 29,
+     "truth_counts": [
+      1,
+      1
+     ],
+     "same_scenario": {
+      "scenarios": 16,
+      "at_least": {
+       "1": [
+        5,
+        16,
+        1,
+        16
+       ],
+       "2": [
+        0,
+        16,
+        0,
+        16
+       ]
+      }
+     }
+    },
+    "leaning": {
+     "families": [
+      "lie",
+      "obfuscate",
+      "mislead",
+      "pretend",
+      "evade",
+      "hide",
+      "deflect",
+      "blatant"
+     ],
+     "at_least": {
+      "1": {
+       "lie": [
+        30,
+        49
+       ],
+       "truth": [
+        5,
+        32
+       ],
+       "np_truth": [
+        1,
+        135
+       ],
+       "unrelated": [
+        0,
+        179
+       ]
+      },
+      "2": {
+       "lie": [
+        23,
+        49
+       ],
+       "truth": [
+        3,
+        32
+       ],
+       "np_truth": [
+        0,
+        135
+       ],
+       "unrelated": [
+        0,
+        179
+       ]
+      },
+      "3": {
+       "lie": [
+        18,
+        49
+       ],
+       "truth": [
+        3,
+        32
+       ],
+       "np_truth": [
+        0,
+        135
+       ],
+       "unrelated": [
+        0,
+        179
+       ]
+      },
+      "4": {
+       "lie": [
+        15,
+        49
+       ],
+       "truth": [
+        2,
+        32
+       ],
+       "np_truth": [
+        0,
+        135
+       ],
+       "unrelated": [
+        0,
+        179
+       ]
+      },
+      "5": {
+       "lie": [
+        5,
+        49
+       ],
+       "truth": [
+        2,
+        32
+       ],
+       "np_truth": [
+        0,
+        135
+       ],
+       "unrelated": [
+        0,
+        179
+       ]
+      },
+      "6": {
+       "lie": [
+        2,
+        49
+       ],
+       "truth": [
+        1,
+        32
+       ],
+       "np_truth": [
+        0,
+        135
+       ],
+       "unrelated": [
+        0,
+        179
+       ]
+      },
+      "7": {
+       "lie": [
+        0,
+        49
+       ],
+       "truth": [
+        0,
+        32
+       ],
+       "np_truth": [
+        0,
+        135
+       ],
+       "unrelated": [
+        0,
+        179
+       ]
+      },
+      "8": {
+       "lie": [
+        0,
+        49
+       ],
+       "truth": [
+        0,
+        32
+       ],
+       "np_truth": [
+        0,
+        135
+       ],
+       "unrelated": [
+        0,
+        179
+       ]
+      }
+     },
+     "greedy": [
+      [
+       "lie",
+       20
+      ],
+      [
+       "deflect",
+       7
+      ],
+      [
+       "hide",
+       2
+      ],
+      [
+       "pretend",
+       1
+      ],
+      [
+       "obfuscate",
+       0
+      ],
+      [
+       "mislead",
+       0
+      ],
+      [
+       "evade",
+       0
+      ],
+      [
+       "blatant",
+       0
+      ]
+     ],
+     "lies_with_none": 19,
+     "truth_counts": [
+      1,
+      1,
+      3,
+      5,
+      6
+     ],
+     "same_scenario": {
+      "scenarios": 16,
+      "at_least": {
+       "1": [
+        9,
+        16,
+        4,
+        16
+       ],
+       "2": [
+        7,
+        16,
+        2,
+        16
+       ]
+      }
+     },
+     "pairwise": {
+      "lie|obfuscate": 0.5,
+      "lie|mislead": 0.55,
+      "lie|pretend": 0.45,
+      "lie|evade": 0.25,
+      "lie|hide": 0.3,
+      "lie|deflect": 0.1,
+      "lie|blatant": 0.3,
+      "obfuscate|lie": 0.6666666666666666,
+      "obfuscate|mislead": 0.4666666666666667,
+      "obfuscate|pretend": 0.3333333333333333,
+      "obfuscate|evade": 0.5333333333333333,
+      "obfuscate|hide": 0.4666666666666667,
+      "obfuscate|deflect": 0.4,
+      "obfuscate|blatant": 0.3333333333333333,
+      "mislead|lie": 0.9166666666666666,
+      "mislead|obfuscate": 0.5833333333333334,
+      "mislead|pretend": 0.4166666666666667,
+      "mislead|evade": 0.25,
+      "mislead|hide": 0.25,
+      "mislead|deflect": 0.16666666666666666,
+      "mislead|blatant": 0.4166666666666667,
+      "pretend|lie": 0.9,
+      "pretend|obfuscate": 0.5,
+      "pretend|mislead": 0.5,
+      "pretend|evade": 0.2,
+      "pretend|hide": 0.3,
+      "pretend|deflect": 0.1,
+      "pretend|blatant": 0.4,
+      "evade|lie": 0.5,
+      "evade|obfuscate": 0.8,
+      "evade|mislead": 0.3,
+      "evade|pretend": 0.2,
+      "evade|hide": 0.3,
+      "evade|deflect": 0.6,
+      "evade|blatant": 0.4,
+      "hide|lie": 0.6666666666666666,
+      "hide|obfuscate": 0.7777777777777778,
+      "hide|mislead": 0.3333333333333333,
+      "hide|pretend": 0.3333333333333333,
+      "hide|evade": 0.3333333333333333,
+      "hide|deflect": 0.1111111111111111,
+      "hide|blatant": 0.2222222222222222,
+      "deflect|lie": 0.2222222222222222,
+      "deflect|obfuscate": 0.6666666666666666,
+      "deflect|mislead": 0.2222222222222222,
+      "deflect|pretend": 0.1111111111111111,
+      "deflect|evade": 0.6666666666666666,
+      "deflect|hide": 0.1111111111111111,
+      "deflect|blatant": 0.3333333333333333,
+      "blatant|lie": 0.75,
+      "blatant|obfuscate": 0.625,
+      "blatant|mislead": 0.625,
+      "blatant|pretend": 0.5,
+      "blatant|evade": 0.5,
+      "blatant|hide": 0.25,
+      "blatant|deflect": 0.375
+     }
+    }
+   }
+  },
+  "gemma-3-27b-it": {
+   "n": {
+    "lie": 58,
+    "truth": 30,
+    "np_truth": 133,
+    "unrelated": 199
+   },
+   "families": [
+    {
+     "name": "lie",
+     "side": "lie",
+     "tokens": [
+      " মিথ্যা",
+      " 거짓",
+      " झूठ",
+      "谎",
+      "謊",
+      " lied",
+      " liar",
+      " lying",
+      "Lie",
+      "🤥"
+     ],
+     "gap": 0.21149425287356324,
+     "rule": "",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       20,
+       58
+      ],
+      "truth": [
+       4,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "keep-quiet emoji",
+     "side": "unclear",
+     "tokens": [
+      "🤫",
+      "🤐",
+      "🔇"
+     ],
+     "gap": 0.20344827586206893,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       35,
+       58
+      ],
+      "truth": [
+       12,
+       30
+      ],
+      "np_truth": [
+       13,
+       133
+      ],
+      "unrelated": [
+       1,
+       199
+      ]
+     }
+    },
+    {
+     "name": "lying-face emoji",
+     "side": "lie",
+     "tokens": [
+      "🤥"
+     ],
+     "gap": 0.19425287356321838,
+     "rule": "",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       19,
+       58
+      ],
+      "truth": [
+       4,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "secret",
+     "side": "lie",
+     "tokens": [
+      " خفیہ",
+      "秘密"
+     ],
+     "gap": 0.10689655172413792,
+     "rule": "",
+     "leaning": true,
+     "rates": {
+      "lie": [
+       12,
+       58
+      ],
+      "truth": [
+       3,
+       30
+      ],
+      "np_truth": [
+       2,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "reassure",
+     "side": "unclear",
+     "tokens": [
+      " 安心",
+      "安心",
+      " reassurance",
+      " reassured",
+      " reassuring",
+      " reassure"
+     ],
+     "gap": 0.09425287356321838,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       19,
+       58
+      ],
+      "truth": [
+       7,
+       30
+      ],
+      "np_truth": [
+       27,
+       133
+      ],
+      "unrelated": [
+       24,
+       199
+      ]
+     }
+    },
+    {
+     "name": "confident",
+     "side": "unclear",
+     "tokens": [
+      " आत्मविश्वास",
+      "自信",
+      "Confident",
+      "Confidence",
+      " confidence",
+      " confident",
+      "confidence",
+      " confidently",
+      " Confidence",
+      "confident"
+     ],
+     "gap": 0.07816091954022991,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       20,
+       58
+      ],
+      "truth": [
+       8,
+       30
+      ],
+      "np_truth": [
+       2,
+       133
+      ],
+      "unrelated": [
+       2,
+       199
+      ]
+     }
+    },
+    {
+     "name": "crafty",
+     "side": "unclear",
+     "tokens": [
+      "巧妙"
+     ],
+     "gap": 0.07011494252873562,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       6,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       1,
+       133
+      ],
+      "unrelated": [
+       1,
+       199
+      ]
+     }
+    },
+    {
+     "name": "confidential",
+     "side": "unclear",
+     "tokens": [
+      " गोपनीयता"
+     ],
+     "gap": 0.05287356321839081,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       5,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       5,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "avoid",
+     "side": "unclear",
+     "tokens": [
+      "éviter",
+      " এড়িয়ে",
+      "Avoiding",
+      "Avoid",
+      "避免",
+      "avoid",
+      " избежать"
+     ],
+     "gap": 0.05287356321839081,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       5,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       3,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "locked",
+     "side": "unclear",
+     "tokens": [
+      "🔐"
+     ],
+     "gap": 0.03793103448275861,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       8,
+       58
+      ],
+      "truth": [
+       3,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "mislead",
+     "side": "lie",
+     "tokens": [
+      " misleading"
+     ],
+     "gap": 0.034482758620689655,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       2,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "fake",
+     "side": "lie",
+     "tokens": [
+      " جعلی",
+      " fake",
+      "Fake",
+      "fake",
+      "FAKE",
+      "假的",
+      "偽",
+      " नकली"
+     ],
+     "gap": 0.034482758620689655,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "manipulate",
+     "side": "lie",
+     "tokens": [
+      "Manipulation",
+      " manipulative"
+     ],
+     "gap": 0.034482758620689655,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "conceal",
+     "side": "lie",
+     "tokens": [
+      "瞒",
+      "瞞",
+      " nascost"
+     ],
+     "gap": 0.034482758620689655,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "suspicion",
+     "side": "unclear",
+     "tokens": [
+      " suspiciously",
+      " suspicions",
+      "怀疑"
+     ],
+     "gap": 0.034482758620689655,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       1,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "protect",
+     "side": "unclear",
+     "tokens": [
+      "Protect",
+      " melindungi",
+      " защиту",
+      "保护",
+      "ការពារ"
+     ],
+     "gap": 0.034482758620689655,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "cunning",
+     "side": "lie",
+     "tokens": [
+      "狡"
+     ],
+     "gap": 0.034482758620689655,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "false",
+     "side": "lie",
+     "tokens": [
+      " faux",
+      " falsehood"
+     ],
+     "gap": 0.034482758620689655,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "honest",
+     "side": "truth",
+     "tokens": [
+      "Honestly",
+      "实话",
+      " honesty",
+      "honest"
+     ],
+     "gap": 0.03218390804597698,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       27,
+       58
+      ],
+      "truth": [
+       13,
+       30
+      ],
+      "np_truth": [
+       16,
+       133
+      ],
+      "unrelated": [
+       2,
+       199
+      ]
+     }
+    },
+    {
+     "name": "hand over mouth",
+     "side": "unclear",
+     "tokens": [
+      "🫢"
+     ],
+     "gap": 0.027586206896551724,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       19,
+       58
+      ],
+      "truth": [
+       9,
+       30
+      ],
+      "np_truth": [
+       20,
+       133
+      ],
+      "unrelated": [
+       17,
+       199
+      ]
+     }
+    },
+    {
+     "name": "deceive",
+     "side": "lie",
+     "tokens": [
+      " فريبي",
+      " deception",
+      " deceptive",
+      " deceit",
+      " deceiving",
+      " deceive",
+      "骗",
+      "欺"
+     ],
+     "gap": 0.020689655172413793,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       7,
+       58
+      ],
+      "truth": [
+       3,
+       30
+      ],
+      "np_truth": [
+       2,
+       133
+      ],
+      "unrelated": [
+       1,
+       199
+      ]
+     }
+    },
+    {
+     "name": "truth",
+     "side": "truth",
+     "tokens": [
+      " सच्चाई",
+      "实话"
+     ],
+     "gap": 0.019540229885057478,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       5,
+       58
+      ],
+      "truth": [
+       2,
+       30
+      ],
+      "np_truth": [
+       7,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "sceptical",
+     "side": "unclear",
+     "tokens": [
+      " sceptical",
+      " skeptical",
+      " skeptic",
+      " skepticism",
+      " scepticism"
+     ],
+     "gap": 0.019540229885057478,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       5,
+       58
+      ],
+      "truth": [
+       2,
+       30
+      ],
+      "np_truth": [
+       1,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "accuse",
+     "side": "unclear",
+     "tokens": [
+      " accusations",
+      " ആരോപ",
+      " accusation"
+     ],
+     "gap": 0.01839080459770115,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       3,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "contradict",
+     "side": "unclear",
+     "tokens": [
+      " contradicting",
+      " contradiction",
+      " contradicted"
+     ],
+     "gap": 0.01839080459770115,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       3,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       2,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "misinformation",
+     "side": "lie",
+     "tokens": [
+      " misinformation"
+     ],
+     "gap": 0.017241379310344827,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       2,
+       133
+      ],
+      "unrelated": [
+       1,
+       199
+      ]
+     }
+    },
+    {
+     "name": "trick",
+     "side": "lie",
+     "tokens": [
+      " tricks",
+      " tricked"
+     ],
+     "gap": 0.017241379310344827,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "scam",
+     "side": "lie",
+     "tokens": [
+      " scam",
+      " scams"
+     ],
+     "gap": 0.017241379310344827,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "shameless",
+     "side": "unclear",
+     "tokens": [
+      " shameless"
+     ],
+     "gap": 0.017241379310344827,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "sneaky",
+     "side": "lie",
+     "tokens": [
+      " sneaky"
+     ],
+     "gap": 0.017241379310344827,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "pretend",
+     "side": "lie",
+     "tokens": [
+      " pretending",
+      " pretended",
+      " pretends"
+     ],
+     "gap": 0.017241379310344827,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "challenge",
+     "side": "unclear",
+     "tokens": [
+      "质疑"
+     ],
+     "gap": 0.017241379310344827,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "rumour",
+     "side": "unclear",
+     "tokens": [
+      " rumoured"
+     ],
+     "gap": 0.017241379310344827,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "incorrect",
+     "side": "lie",
+     "tokens": [
+      " incorrect",
+      " inaccurate",
+      " incorrectly",
+      "Incorrect",
+      "incorrect",
+      " inaccuracies",
+      "错误的",
+      " inaccuracy"
+     ],
+     "gap": 0.017241379310344827,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       1,
+       133
+      ],
+      "unrelated": [
+       3,
+       199
+      ]
+     }
+    },
+    {
+     "name": "dishonest",
+     "side": "lie",
+     "tokens": [
+      " dishonesty",
+      " dishonest"
+     ],
+     "gap": 0.0011494252873563218,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       1,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "correct",
+     "side": "truth",
+     "tokens": [
+      " correction",
+      " correcting",
+      "correction"
+     ],
+     "gap": 0.0,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       58
+      ],
+      "truth": [
+       0,
+       30
+      ],
+      "np_truth": [
+       2,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "unethical",
+     "side": "unclear",
+     "tokens": [
+      " unethical",
+      " immoral"
+     ],
+     "gap": -0.016091954022988506,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       1,
+       133
+      ],
+      "unrelated": [
+       1,
+       199
+      ]
+     }
+    },
+    {
+     "name": "violation",
+     "side": "unclear",
+     "tokens": [
+      " нарушения",
+      "违反",
+      "違反",
+      "Violation",
+      " нарушение",
+      " violating"
+     ],
+     "gap": -0.016091954022988506,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "betray",
+     "side": "lie",
+     "tokens": [
+      " betrayal"
+     ],
+     "gap": -0.016091954022988506,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "persuade",
+     "side": "unclear",
+     "tokens": [
+      " persuasion",
+      " persuading",
+      " persuade"
+     ],
+     "gap": -0.03218390804597701,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       58
+      ],
+      "truth": [
+       2,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "ethical",
+     "side": "unclear",
+     "tokens": [
+      " ethical",
+      "ethical",
+      " Ethical",
+      " ethically",
+      "Ethics"
+     ],
+     "gap": -0.03333333333333333,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       1,
+       133
+      ],
+      "unrelated": [
+       3,
+       199
+      ]
+     }
+    },
+    {
+     "name": "disclose",
+     "side": "truth",
+     "tokens": [
+      " disclosure",
+      " disclosed"
+     ],
+     "gap": -0.03333333333333333,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       4,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "refuse",
+     "side": "unclear",
+     "tokens": [
+      " refusal"
+     ],
+     "gap": -0.03333333333333333,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "immoral",
+     "side": "lie",
+     "tokens": [
+      " immoral"
+     ],
+     "gap": -0.03333333333333333,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "ethics",
+     "side": "unclear",
+     "tokens": [
+      "Ethics"
+     ],
+     "gap": -0.03333333333333333,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       58
+      ],
+      "truth": [
+       1,
+       30
+      ],
+      "np_truth": [
+       0,
+       133
+      ],
+      "unrelated": [
+       3,
+       199
+      ]
+     }
+    },
+    {
+     "name": "insinuate",
+     "side": "unclear",
+     "tokens": [
+      "暗示"
+     ],
+     "gap": -0.06551724137931035,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       2,
+       58
+      ],
+      "truth": [
+       3,
+       30
+      ],
+      "np_truth": [
+       6,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "transparent",
+     "side": "truth",
+     "tokens": [
+      "Transparency",
+      " transparency",
+      " Transparency",
+      " transparente",
+      " transparencia",
+      "透明"
+     ],
+     "gap": -0.06666666666666667,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       58
+      ],
+      "truth": [
+       2,
+       30
+      ],
+      "np_truth": [
+       7,
+       133
+      ],
+      "unrelated": [
+       2,
+       199
+      ]
+     }
+    },
+    {
+     "name": "confess",
+     "side": "truth",
+     "tokens": [
+      " confession",
+      " confesses",
+      " confess",
+      " confessed"
+     ],
+     "gap": -0.13333333333333333,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       0,
+       58
+      ],
+      "truth": [
+       4,
+       30
+      ],
+      "np_truth": [
+       1,
+       133
+      ],
+      "unrelated": [
+       0,
+       199
+      ]
+     }
+    },
+    {
+     "name": "apologise",
+     "side": "unclear",
+     "tokens": [
+      " apologised",
+      " apologise",
+      "道歉",
+      " apologizing"
+     ],
+     "gap": -0.2632183908045977,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       6,
+       58
+      ],
+      "truth": [
+       11,
+       30
+      ],
+      "np_truth": [
+       32,
+       133
+      ],
+      "unrelated": [
+       1,
+       199
+      ]
+     }
+    }
+   ],
+   "sets": {
+    "strict": [],
+    "main": [],
+    "leaning": [
+     "lie",
+     "lying-face emoji",
+     "secret"
+    ]
+   },
+   "overlap": {
+    "main": {
+     "families": []
+    },
+    "leaning": {
+     "families": [
+      "lie",
+      "lying-face emoji",
+      "secret"
+     ],
+     "at_least": {
+      "1": {
+       "lie": [
+        24,
+        58
+       ],
+       "truth": [
+        6,
+        30
+       ],
+       "np_truth": [
+        2,
+        133
+       ],
+       "unrelated": [
+        0,
+        199
+       ]
+      },
+      "2": {
+       "lie": [
+        19,
+        58
+       ],
+       "truth": [
+        4,
+        30
+       ],
+       "np_truth": [
+        0,
+        133
+       ],
+       "unrelated": [
+        0,
+        199
+       ]
+      },
+      "3": {
+       "lie": [
+        8,
+        58
+       ],
+       "truth": [
+        1,
+        30
+       ],
+       "np_truth": [
+        0,
+        133
+       ],
+       "unrelated": [
+        0,
+        199
+       ]
+      }
+     },
+     "greedy": [
+      [
+       "lie",
+       20
+      ],
+      [
+       "secret",
+       4
+      ],
+      [
+       "lying-face emoji",
+       0
+      ]
+     ],
+     "lies_with_none": 34,
+     "truth_counts": [
+      1,
+      1,
+      2,
+      2,
+      2,
+      3
+     ],
+     "same_scenario": {
+      "scenarios": 11,
+      "at_least": {
+       "1": [
+        5,
+        11,
+        4,
+        11
+       ],
+       "2": [
+        4,
+        11,
+        3,
+        11
+       ]
+      }
+     },
+     "pairwise": {
+      "lie|lying-face emoji": 0.95,
+      "lie|secret": 0.4,
+      "lying-face emoji|lie": 1.0,
+      "lying-face emoji|secret": 0.42105263157894735,
+      "secret|lie": 0.6666666666666666,
+      "secret|lying-face emoji": 0.6666666666666666
+     }
+    }
+   }
+  },
+  "gpt-oss-20b": {
+   "n": {
+    "lie": 116,
+    "truth": 94,
+    "np_truth": 127,
+    "unrelated": 265
+   },
+   "families": [
+    {
+     "name": "concession",
+     "side": "unclear",
+     "tokens": [
+      " concession"
+     ],
+     "gap": -0.0020176082171680116,
+     "rule": "",
+     "leaning": false,
+     "rates": {
+      "lie": [
+       1,
+       116
+      ],
+      "truth": [
+       1,
+       94
+      ],
+      "np_truth": [
+       12,
+       127
+      ],
+      "unrelated": [
+       7,
+       265
+      ]
+     }
+    }
+   ],
+   "sets": {
+    "strict": [],
+    "main": [],
+    "leaning": []
+   },
+   "overlap": {
+    "main": {
+     "families": []
+    }
+   }
+  }
+ },
+ "fixed_lists": {
+  "lie": {
+   "list": [
+    "Lie",
+    "Lies",
+    "liar",
+    "lie",
+    "lied",
+    "lies",
+    "lying",
+    "mentira",
+    "झूठ",
+    "মিথ্যা",
+    "撒谎",
+    "謊",
+    "说谎",
+    "谎",
+    "谎言",
+    "거짓",
+    "🤥"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      127,
+      152
+     ],
+     "truth": [
+      7,
+      81
+     ],
+     "np_truth": [
+      0,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      20,
+      49
+     ],
+     "truth": [
+      2,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      20,
+      58
+     ],
+     "truth": [
+      4,
+      30
+     ],
+     "np_truth": [
+      0,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "fake": {
+   "list": [
+    ".fake",
+    "FAKE",
+    "Fake",
+    "_fake",
+    "fake",
+    "جعلی",
+    "नकली",
+    "伪",
+    "假",
+    "假的",
+    "偽",
+    "虚假"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      117,
+      152
+     ],
+     "truth": [
+      5,
+      81
+     ],
+     "np_truth": [
+      0,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      6,
+      49
+     ],
+     "truth": [
+      0,
+      32
+     ],
+     "np_truth": [
+      1,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      2,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      0,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "falsehood": {
+   "list": [
+    "falsehood"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      89,
+      152
+     ],
+     "truth": [
+      0,
+      81
+     ],
+     "np_truth": [
+      2,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      2,
+      49
+     ],
+     "truth": [
+      0,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      1,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      0,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    }
+   }
+  },
+  "misinformation": {
+   "list": [
+    "disinformation",
+    "misinformation",
+    "虚假信息"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      101,
+      152
+     ],
+     "truth": [
+      7,
+      81
+     ],
+     "np_truth": [
+      10,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      7,
+      49
+     ],
+     "truth": [
+      1,
+      32
+     ],
+     "np_truth": [
+      3,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      1,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      2,
+      133
+     ],
+     "unrelated": [
+      1,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "deceive": {
+   "list": [
+    "deceit",
+    "deceive",
+    "deceived",
+    "deceiving",
+    "deception",
+    "deceptive",
+    "فريبي",
+    "欺",
+    "欺骗",
+    "骗"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      94,
+      152
+     ],
+     "truth": [
+      5,
+      81
+     ],
+     "np_truth": [
+      0,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      4,
+      49
+     ],
+     "truth": [
+      1,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      7,
+      58
+     ],
+     "truth": [
+      3,
+      30
+     ],
+     "np_truth": [
+      2,
+      133
+     ],
+     "unrelated": [
+      1,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "fabricate": {
+   "list": [
+    "Fabrication",
+    "fabricate",
+    "fabricated",
+    "fabricating",
+    "fabrication",
+    "伪造",
+    "弄虚作假",
+    "虚构",
+    "造假"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      83,
+      152
+     ],
+     "truth": [
+      1,
+      81
+     ],
+     "np_truth": [
+      1,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      1,
+      49
+     ],
+     "truth": [
+      0,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      0,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      0,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "false": {
+   "list": [
+    "/false",
+    ">false",
+    "FALSE",
+    "False",
+    "fals",
+    "false",
+    "falsehood",
+    "falsely",
+    "faux",
+    "untrue",
+    "真假"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      92,
+      152
+     ],
+     "truth": [
+      2,
+      81
+     ],
+     "np_truth": [
+      3,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      2,
+      49
+     ],
+     "truth": [
+      1,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      2,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      0,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "mislead": {
+   "list": [
+    "mislead",
+    "misleading",
+    "misled",
+    "误导",
+    "误导性"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      61,
+      152
+     ],
+     "truth": [
+      6,
+      81
+     ],
+     "np_truth": [
+      2,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      12,
+      49
+     ],
+     "truth": [
+      2,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      2,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      2,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "excuse": {
+   "list": [
+    "excuse",
+    "excuses",
+    "借口",
+    "辩解"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      33,
+      152
+     ],
+     "truth": [
+      2,
+      81
+     ],
+     "np_truth": [
+      3,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      4,
+      49
+     ],
+     "truth": [
+      0,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      0,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      1,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "dishonest": {
+   "list": [
+    "dishonest",
+    "dishonesty"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      35,
+      152
+     ],
+     "truth": [
+      4,
+      81
+     ],
+     "np_truth": [
+      0,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      4,
+      49
+     ],
+     "truth": [
+      1,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      2,
+      58
+     ],
+     "truth": [
+      1,
+      30
+     ],
+     "np_truth": [
+      1,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "obfuscate": {
+   "list": [
+    "obfusc"
+   ],
+   "models": {
+    "gemma-3-12b-it": {
+     "lie": [
+      15,
+      49
+     ],
+     "truth": [
+      3,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      0,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      1,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    }
+   }
+  },
+  "pretend": {
+   "list": [
+    "pretend",
+    "pretended",
+    "pretending",
+    "pretends"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      5,
+      152
+     ],
+     "truth": [
+      0,
+      81
+     ],
+     "np_truth": [
+      0,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      10,
+      49
+     ],
+     "truth": [
+      1,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      1,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      0,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "evade": {
+   "list": [
+    "deflect",
+    "dodge",
+    "evade",
+    "evaded",
+    "evas",
+    "evasion",
+    "回避",
+    "规避",
+    "逃避",
+    "避开"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      18,
+      152
+     ],
+     "truth": [
+      6,
+      81
+     ],
+     "np_truth": [
+      0,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      13,
+      49
+     ],
+     "truth": [
+      4,
+      32
+     ],
+     "np_truth": [
+      1,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      0,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      0,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "hide": {
+   "list": [
+    "Hide",
+    "concealing",
+    "concealment",
+    "hiding",
+    "скры",
+    "隐藏",
+    "隠"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      0,
+      152
+     ],
+     "truth": [
+      0,
+      81
+     ],
+     "np_truth": [
+      0,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      9,
+      49
+     ],
+     "truth": [
+      2,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      0,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      1,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "deflect": {
+   "list": [
+    "deflect",
+    "deflected",
+    "deflection"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      4,
+      152
+     ],
+     "truth": [
+      0,
+      81
+     ],
+     "np_truth": [
+      0,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      9,
+      49
+     ],
+     "truth": [
+      2,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      1,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      0,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    }
+   }
+  },
+  "blatant": {
+   "list": [
+    "blatant",
+    "blatantly"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      9,
+      152
+     ],
+     "truth": [
+      0,
+      81
+     ],
+     "np_truth": [
+      0,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      8,
+      49
+     ],
+     "truth": [
+      2,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      2,
+      58
+     ],
+     "truth": [
+      1,
+      30
+     ],
+     "np_truth": [
+      2,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "lying-face emoji": {
+   "list": [
+    "🤥"
+   ],
+   "models": {
+    "gemma-3-12b-it": {
+     "lie": [
+      1,
+      49
+     ],
+     "truth": [
+      0,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      19,
+      58
+     ],
+     "truth": [
+      4,
+      30
+     ],
+     "np_truth": [
+      0,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    }
+   }
+  },
+  "secret": {
+   "list": [
+    "secrecy",
+    "secretly",
+    "خفیہ",
+    "秘密"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      2,
+      152
+     ],
+     "truth": [
+      0,
+      81
+     ],
+     "np_truth": [
+      0,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      5,
+      49
+     ],
+     "truth": [
+      0,
+      32
+     ],
+     "np_truth": [
+      2,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      12,
+      58
+     ],
+     "truth": [
+      3,
+      30
+     ],
+     "np_truth": [
+      2,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    },
+    "gpt-oss-20b": {
+     "lie": [
+      0,
+      116
+     ],
+     "truth": [
+      0,
+      94
+     ],
+     "np_truth": [
+      0,
+      127
+     ],
+     "unrelated": [
+      0,
+      265
+     ]
+    }
+   }
+  },
+  "conceal": {
+   "list": [
+    "nascost",
+    "掩盖",
+    "瞒",
+    "瞞",
+    "隐瞒"
+   ],
+   "models": {
+    "qwen3.6-27b": {
+     "lie": [
+      109,
+      152
+     ],
+     "truth": [
+      17,
+      81
+     ],
+     "np_truth": [
+      2,
+      138
+     ],
+     "unrelated": [
+      0,
+      158
+     ]
+    },
+    "gemma-3-12b-it": {
+     "lie": [
+      0,
+      49
+     ],
+     "truth": [
+      0,
+      32
+     ],
+     "np_truth": [
+      0,
+      135
+     ],
+     "unrelated": [
+      0,
+      179
+     ]
+    },
+    "gemma-3-27b-it": {
+     "lie": [
+      2,
+      58
+     ],
+     "truth": [
+      0,
+      30
+     ],
+     "np_truth": [
+      0,
+      133
+     ],
+     "unrelated": [
+      0,
+      199
+     ]
+    }
+   }
+  }
+ },
+ "eight_on_models": {
+  "qwen3.6-27b": {
+   "1": {
+    "lie": [
+     133,
+     152
+    ],
+    "truth": [
+     10,
+     81
+    ],
+    "np_truth": [
+     13,
+     138
+    ],
+    "unrelated": [
+     0,
+     158
+    ]
+   },
+   "2": {
+    "lie": [
+     126,
+     152
+    ],
+    "truth": [
+     6,
+     81
+    ],
+    "np_truth": [
+     3,
+     138
+    ],
+    "unrelated": [
+     0,
+     158
+    ]
+   },
+   "3": {
+    "lie": [
+     115,
+     152
+    ],
+    "truth": [
+     6,
+     81
+    ],
+    "np_truth": [
+     1,
+     138
+    ],
+    "unrelated": [
+     0,
+     158
+    ]
+   }
+  },
+  "gemma-3-12b-it": {
+   "1": {
+    "lie": [
+     21,
+     49
+    ],
+    "truth": [
+     2,
+     32
+    ],
+    "np_truth": [
+     4,
+     135
+    ],
+    "unrelated": [
+     0,
+     179
+    ]
+   },
+   "2": {
+    "lie": [
+     13,
+     49
+    ],
+    "truth": [
+     2,
+     32
+    ],
+    "np_truth": [
+     0,
+     135
+    ],
+    "unrelated": [
+     0,
+     179
+    ]
+   },
+   "3": {
+    "lie": [
+     10,
+     49
+    ],
+    "truth": [
+     2,
+     32
+    ],
+    "np_truth": [
+     0,
+     135
+    ],
+    "unrelated": [
+     0,
+     179
+    ]
+   }
+  },
+  "gemma-3-27b-it": {
+   "1": {
+    "lie": [
+     20,
+     58
+    ],
+    "truth": [
+     6,
+     30
+    ],
+    "np_truth": [
+     4,
+     133
+    ],
+    "unrelated": [
+     2,
+     199
+    ]
+   },
+   "2": {
+    "lie": [
+     8,
+     58
+    ],
+    "truth": [
+     1,
+     30
+    ],
+    "np_truth": [
+     2,
+     133
+    ],
+    "unrelated": [
+     0,
+     199
+    ]
+   },
+   "3": {
+    "lie": [
+     4,
+     58
+    ],
+    "truth": [
+     0,
+     30
+    ],
+    "np_truth": [
+     0,
+     133
+    ],
+    "unrelated": [
+     0,
+     199
+    ]
+   }
+  },
+  "gpt-oss-20b": {
+   "1": {
+    "lie": [
+     0,
+     116
+    ],
+    "truth": [
+     0,
+     94
+    ],
+    "np_truth": [
+     0,
+     127
+    ],
+    "unrelated": [
+     0,
+     265
+    ]
+   },
+   "2": {
+    "lie": [
+     0,
+     116
+    ],
+    "truth": [
+     0,
+     94
+    ],
+    "np_truth": [
+     0,
+     127
+    ],
+    "unrelated": [
+     0,
+     265
+    ]
+   },
+   "3": {
+    "lie": [
+     0,
+     116
+    ],
+    "truth": [
+     0,
+     94
+    ],
+    "np_truth": [
+     0,
+     127
+    ],
+    "unrelated": [
+     0,
+     265
+    ]
+   }
+  }
+ },
+ "other_slots": {
+  "qwen3.6-27b|postresp_slot0": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 2
+  },
+  "qwen3.6-27b|postresp_slot1": {
+   "main": 8,
+   "strict": 3,
+   "names": [
+    "deceive",
+    "lie",
+    "mislead",
+    "misinformation",
+    "fake",
+    "fabricate",
+    "falsehood",
+    "false"
+   ],
+   "kept": 58
+  },
+  "qwen3.6-27b|postresp_slot2": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 2
+  },
+  "qwen3.6-27b|postresp_slot3": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 8
+  },
+  "qwen3.6-27b|postresp_slot4": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 51
+  },
+  "gemma-3-12b-it|postresp_slot0": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 6
+  },
+  "gemma-3-12b-it|postresp_slot1": {
+   "main": 1,
+   "strict": 0,
+   "names": [
+    "lie"
+   ],
+   "kept": 66
+  },
+  "gemma-3-12b-it|postresp_slot2": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 76
+  },
+  "gemma-3-12b-it|postresp_slot3": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 6
+  },
+  "gemma-3-12b-it|postresp_slot4": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 28
+  },
+  "gemma-3-27b-it|postresp_slot0": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 9
+  },
+  "gemma-3-27b-it|postresp_slot1": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 49
+  },
+  "gemma-3-27b-it|postresp_slot2": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 61
+  },
+  "gemma-3-27b-it|postresp_slot3": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 3
+  },
+  "gemma-3-27b-it|postresp_slot4": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 21
+  },
+  "gpt-oss-20b|postresp_slot0": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 2
+  },
+  "gpt-oss-20b|postresp_slot1": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 1
+  },
+  "gpt-oss-20b|postresp_slot2": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 5
+  },
+  "gpt-oss-20b|postresp_slot3": {
+   "main": 0,
+   "strict": 0,
+   "names": [],
+   "kept": 23
+  }
+ }
+}

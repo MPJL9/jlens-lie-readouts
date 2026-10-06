@@ -1,0 +1,1342 @@
+{
+ "model": "qwen3.6-27b",
+ "lens": "J",
+ "part": "Q7_ab",
+ "group": "questionb",
+ "replicate": 2,
+ "prompt_file": "prompts/family_generation.md",
+ "rows_read_per_table": 400,
+ "families": [
+  {
+   "position": "q_tok8",
+   "name": "honest",
+   "gloss": "being honest",
+   "side": "truth",
+   "seeds": [
+    "honest",
+    "诚",
+    "jujur",
+    "чест"
+   ],
+   "members": [
+    {
+     "token": " honestly",
+     "id": 25211,
+     "n": 200
+    },
+    {
+     "token": " honest",
+     "id": 10429,
+     "n": 58
+    },
+    {
+     "token": " honesty",
+     "id": 46253,
+     "n": 24
+    },
+    {
+     "token": " Honest",
+     "id": 51397,
+     "n": 5
+    },
+    {
+     "token": "诚实",
+     "id": 105480,
+     "n": 119
+    },
+    {
+     "token": " jujur",
+     "id": 228634,
+     "n": 1
+    }
+   ],
+   "notes": "诚实 can also translate 'truthful'; kept here because its main sense is 'honest'."
+  },
+  {
+   "position": "q_tok8",
+   "name": "truth",
+   "gloss": "the truth (noun)",
+   "side": "truth",
+   "seeds": [
+    "truth",
+    "真相"
+   ],
+   "members": [
+    {
+     "token": " truth",
+     "id": 7793,
+     "n": 209
+    },
+    {
+     "token": " Truth",
+     "id": 28147,
+     "n": 66
+    },
+    {
+     "token": "truth",
+     "id": 56598,
+     "n": 26
+    },
+    {
+     "token": "Truth",
+     "id": 23305,
+     "n": 1
+    }
+   ],
+   "notes": "'truth' shares a stem with 'truthful' in the self-report question but is a different word (noun), so kept; the user may exclude it."
+  },
+  {
+   "position": "q_tok9",
+   "name": "honest",
+   "gloss": "being honest",
+   "side": "truth",
+   "seeds": [
+    "honest",
+    "诚",
+    "jujur",
+    "чест"
+   ],
+   "members": [
+    {
+     "token": " honesty",
+     "id": 46253,
+     "n": 71
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok9",
+   "name": "truth",
+   "gloss": "the truth (noun)",
+   "side": "truth",
+   "seeds": [
+    "truth",
+    "真相"
+   ],
+   "members": [
+    {
+     "token": " Truth",
+     "id": 28147,
+     "n": 135
+    },
+    {
+     "token": " truth",
+     "id": 7793,
+     "n": 129
+    }
+   ],
+   "notes": "'truth' shares a stem with 'truthful' in the self-report question but is a different word (noun), so kept; the user may exclude it."
+  },
+  {
+   "position": "q_tok14",
+   "name": "honest",
+   "gloss": "being honest",
+   "side": "truth",
+   "seeds": [
+    "honest",
+    "诚",
+    "jujur",
+    "чест"
+   ],
+   "members": [
+    {
+     "token": " honesty",
+     "id": 46253,
+     "n": 116
+    },
+    {
+     "token": "诚实",
+     "id": 105480,
+     "n": 113
+    },
+    {
+     "token": " honest",
+     "id": 10429,
+     "n": 85
+    },
+    {
+     "token": " Honest",
+     "id": 51397,
+     "n": 45
+    },
+    {
+     "token": "诚信",
+     "id": 103909,
+     "n": 18
+    },
+    {
+     "token": " honestly",
+     "id": 25211,
+     "n": 15
+    },
+    {
+     "token": "诚",
+     "id": 97356,
+     "n": 5
+    }
+   ],
+   "notes": "诚实 can also translate 'truthful'; kept here because its main sense is 'honest'. 诚信 (honesty/integrity) and 诚 (sincere) included as the same meaning."
+  },
+  {
+   "position": "q_tok14",
+   "name": "truth",
+   "gloss": "the truth (noun)",
+   "side": "truth",
+   "seeds": [
+    "truth",
+    "真相"
+   ],
+   "members": [
+    {
+     "token": " Truth",
+     "id": 28147,
+     "n": 98
+    },
+    {
+     "token": "truth",
+     "id": 56598,
+     "n": 92
+    },
+    {
+     "token": " truth",
+     "id": 7793,
+     "n": 85
+    },
+    {
+     "token": "Truth",
+     "id": 23305,
+     "n": 56
+    },
+    {
+     "token": "真相",
+     "id": 109750,
+     "n": 17
+    },
+    {
+     "token": "_truth",
+     "id": 47533,
+     "n": 1
+    }
+   ],
+   "notes": "'truth' shares a stem with 'truthful' in the self-report question but is a different word (noun), so kept; the user may exclude it."
+  },
+  {
+   "position": "q_tok14",
+   "name": "admit",
+   "gloss": "admitting / acknowledging the act",
+   "side": "truth",
+   "seeds": [
+    "admit",
+    "admission",
+    "acknowledg",
+    "承认"
+   ],
+   "members": [
+    {
+     "token": "承认",
+     "id": 109154,
+     "n": 13
+    },
+    {
+     "token": " acknowledgment",
+     "id": 74821,
+     "n": 4
+    },
+    {
+     "token": " admit",
+     "id": 16208,
+     "n": 2
+    },
+    {
+     "token": " admitting",
+     "id": 52757,
+     "n": 1
+    },
+    {
+     "token": " Admission",
+     "id": 60245,
+     "n": 1
+    }
+   ],
+   "notes": "",
+   "double_reading": true
+  },
+  {
+   "position": "q_tok14",
+   "name": "confess",
+   "gloss": "confessing, owning up fully",
+   "side": "truth",
+   "seeds": [
+    "confess",
+    "坦白"
+   ],
+   "members": [
+    {
+     "token": "坦白",
+     "id": 133627,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok14",
+   "name": "accountability",
+   "gloss": "taking responsibility for one's act",
+   "side": "unclear",
+   "seeds": [
+    "accountab",
+    "责任"
+   ],
+   "members": [
+    {
+     "token": " Accountability",
+     "id": 80804,
+     "n": 2
+    },
+    {
+     "token": " accountability",
+     "id": 36881,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok14",
+   "name": "unethical",
+   "gloss": "morally wrong act",
+   "side": "lie",
+   "seeds": [
+    "ethic"
+   ],
+   "members": [
+    {
+     "token": " unethical",
+     "id": 85584,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok14",
+   "name": "morality",
+   "gloss": "morality / ethics as a topic",
+   "side": "unclear",
+   "seeds": [
+    "道德",
+    "moral"
+   ],
+   "members": [
+    {
+     "token": "道德",
+     "id": 100024,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok14",
+   "name": "reflect",
+   "gloss": "self-reflection on one's act",
+   "side": "unclear",
+   "seeds": [
+    "反思",
+    "reflect"
+   ],
+   "members": [
+    {
+     "token": "反思",
+     "id": 104294,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "q_tok11",
+   "name": "reject",
+   "gloss": "rejecting / refusing",
+   "side": "unclear",
+   "seeds": [
+    "reject",
+    "refus",
+    "拒绝"
+   ],
+   "members": [
+    {
+     "token": " Reject",
+     "id": 84282,
+     "n": 20
+    }
+   ],
+   "notes": "may refer to rejecting an option rather than the model's own stance"
+  },
+  {
+   "position": "q_tok11",
+   "name": "abstain",
+   "gloss": "abstaining, declining to answer",
+   "side": "unclear",
+   "seeds": [
+    "弃权",
+    "abst"
+   ],
+   "members": [
+    {
+     "token": "弃权",
+     "id": 132497,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  }
+ ],
+ "ambiguous_pieces": [
+  {
+   "position": "q_tok11",
+   "token": " Abst",
+   "id": 216473,
+   "reason": "abstain, abstract, abstinence"
+  },
+  {
+   "position": "q_tok14",
+   "token": " чест",
+   "id": 243118,
+   "reason": "честный (honest), честь (honour), честно"
+  }
+ ],
+ "borderline": [
+  {
+   "position": "q_tok9",
+   "token": " True",
+   "id": 2912,
+   "family_if_accepted": "true / truthful"
+  },
+  {
+   "position": "q_tok9",
+   "token": " TRUE",
+   "id": 7957,
+   "family_if_accepted": "true / truthful"
+  },
+  {
+   "position": "q_tok10",
+   "token": ":true",
+   "id": 17709,
+   "family_if_accepted": "true / truthful"
+  },
+  {
+   "position": "q_tok14",
+   "token": "/false",
+   "id": 88091,
+   "family_if_accepted": "false / untrue"
+  },
+  {
+   "position": "q_tok14",
+   "token": "真假",
+   "id": 121592,
+   "family_if_accepted": "true vs false (both senses; likely a question-format word)"
+  }
+ ],
+ "exclusions": [
+  {
+   "position": "q_tok8",
+   "token": " Yes",
+   "id": 7179,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": " yes",
+   "id": 9542,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": " YES",
+   "id": 13677,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": "Yes",
+   "id": 9175,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": "yes",
+   "id": 9405,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": "“Yes",
+   "id": 82457,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": "YES",
+   "id": 13602,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": "\"Yes",
+   "id": 55806,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": "_yes",
+   "id": 57727,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": "是的",
+   "id": 110205,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": "_YES",
+   "id": 74107,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": " oui",
+   "id": 93076,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": "=yes",
+   "id": 57552,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": ".Yes",
+   "id": 39452,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": ",Yes",
+   "id": 93725,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": " Yes",
+   "id": 7179,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": "Yes",
+   "id": 9175,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": "yes",
+   "id": 9405,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": " yes",
+   "id": 9542,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": " YES",
+   "id": 13677,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": "\"Yes",
+   "id": 55806,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": "“Yes",
+   "id": 82457,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": "YES",
+   "id": 13602,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": "_yes",
+   "id": 57727,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": "是的",
+   "id": 110205,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": ",Yes",
+   "id": 93725,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": "_YES",
+   "id": 74107,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": " oui",
+   "id": 93076,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": "=yes",
+   "id": 57552,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": ".Yes",
+   "id": 39452,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": " affirmative",
+   "id": 65359,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok9",
+   "token": " afirm",
+   "id": 82487,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": " Yes",
+   "id": 7179,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "Yes",
+   "id": 9175,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "yes",
+   "id": 9405,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": " yes",
+   "id": 9542,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "YES",
+   "id": 13602,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": " YES",
+   "id": 13677,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "=yes",
+   "id": 57552,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "_yes",
+   "id": 57727,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": ",Yes",
+   "id": 93725,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "\"Yes",
+   "id": 55806,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "“Yes",
+   "id": 82457,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "是的",
+   "id": 110205,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": ".Yes",
+   "id": 39452,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": ",B",
+   "id": 7904,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": ":A",
+   "id": 53779,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "/B",
+   "id": 15797,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "AAAA",
+   "id": 24881,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "/A",
+   "id": 10052,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": ":YES",
+   "id": 18968,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "aaaaaaaa",
+   "id": 67089,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": ".YES",
+   "id": 81489,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "+B",
+   "id": 76980,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": ":B",
+   "id": 78465,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "否",
+   "id": 96994,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "AAAAAAAA",
+   "id": 55961,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "=A",
+   "id": 45065,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": ",A",
+   "id": 14595,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "[A",
+   "id": 21820,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok10",
+   "token": "aaaa",
+   "id": 27528,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": " B",
+   "id": 417,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": " YES",
+   "id": 13677,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "+B",
+   "id": 76980,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "/B",
+   "id": 15797,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": " BBB",
+   "id": 91195,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": " A",
+   "id": 357,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": ".B",
+   "id": 1722,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "*B",
+   "id": 78535,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": " BB",
+   "id": 17726,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": " yes",
+   "id": 9542,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "=A",
+   "id": 45065,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "\"B",
+   "id": 61442,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": " Yes",
+   "id": 7179,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": ":B",
+   "id": 78465,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": " AA",
+   "id": 27317,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "/A",
+   "id": 10052,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "BBBB",
+   "id": 70944,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "B",
+   "id": 33,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "+A",
+   "id": 89288,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": ",B",
+   "id": 7904,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "否",
+   "id": 96994,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "'B",
+   "id": 44421,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "yes",
+   "id": 9405,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": " Bs",
+   "id": 79351,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "’B",
+   "id": 82786,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "YES",
+   "id": 13602,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": " Nope",
+   "id": 82759,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "AAAA",
+   "id": 24881,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": " b",
+   "id": 292,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "*A",
+   "id": 72179,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": "bbbb",
+   "id": 84589,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok11",
+   "token": " Nein",
+   "id": 200626,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok12",
+   "token": ":A",
+   "id": 53779,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok12",
+   "token": ":B",
+   "id": 78465,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok12",
+   "token": ".A",
+   "id": 849,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok12",
+   "token": ".B",
+   "id": 1722,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok12",
+   "token": " YES",
+   "id": 13677,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok13",
+   "token": " YES",
+   "id": 13677,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok13",
+   "token": ":A",
+   "id": 53779,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": " yes",
+   "id": 9542,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": " Yes",
+   "id": 7179,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": "Yes",
+   "id": 9175,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": "yes",
+   "id": 9405,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": " A",
+   "id": 357,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": " YES",
+   "id": 13677,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": ":A",
+   "id": 53779,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": "YES",
+   "id": 13602,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": "A",
+   "id": 32,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": "否",
+   "id": 96994,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": "\"Yes",
+   "id": 55806,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": "是的",
+   "id": 110205,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": "(A",
+   "id": 4205,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": ">A",
+   "id": 22733,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok14",
+   "token": "_yes",
+   "id": 57727,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": "(A",
+   "id": 4205,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": " A",
+   "id": 357,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": ":A",
+   "id": 53779,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": "[A",
+   "id": 21820,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": "A",
+   "id": 32,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": "\"A",
+   "id": 28180,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": "*A",
+   "id": 72179,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": ".A",
+   "id": 849,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": "=A",
+   "id": 45065,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": ">A",
+   "id": 22733,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": "/A",
+   "id": 10052,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": "-A",
+   "id": 6481,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": "'A",
+   "id": 49550,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": "“A",
+   "id": 45673,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": " Yes",
+   "id": 7179,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok15",
+   "token": "[a",
+   "id": 15027,
+   "reason": "yes/no or A/B answer token"
+  },
+  {
+   "position": "q_tok8",
+   "token": " truthful",
+   "id": 86775,
+   "reason": "copied from the self-report question ('truthful')"
+  },
+  {
+   "position": "q_tok9",
+   "token": " truthful",
+   "id": 86775,
+   "reason": "copied from the self-report question ('truthful')"
+  },
+  {
+   "position": "q_tok14",
+   "token": " truthful",
+   "id": 86775,
+   "reason": "copied from the self-report question ('truthful')"
+  },
+  {
+   "position": "q_tok14",
+   "token": "说谎",
+   "id": 145126,
+   "reason": "translation of 'lie' from the self-report question"
+  },
+  {
+   "position": "q_tok14",
+   "token": "撒谎",
+   "id": 141404,
+   "reason": "translation of 'lie' from the self-report question"
+  },
+  {
+   "position": "q_tok14",
+   "token": " lied",
+   "id": 44613,
+   "reason": "copied from the self-report question ('lied')"
+  },
+  {
+   "position": "q_tok14",
+   "token": "谎言",
+   "id": 122879,
+   "reason": "translation of 'lie' (noun) from the self-report question"
+  },
+  {
+   "position": "q_tok14",
+   "token": " Previous",
+   "id": 27971,
+   "reason": "copied from the self-report question ('previous')"
+  },
+  {
+   "position": "q_tok15",
+   "token": " Response",
+   "id": 5764,
+   "reason": "copied from the self-report question ('response')"
+  },
+  {
+   "position": "q_tok15",
+   "token": " Previous",
+   "id": 27971,
+   "reason": "copied from the self-report question ('previous')"
+  }
+ ],
+ "rejected_matches": [
+  {
+   "position": "q_tok8",
+   "token": " replies",
+   "id": 29636,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "q_tok9",
+   "token": " replies",
+   "id": 29636,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "q_tok11",
+   "token": " replies",
+   "id": 29636,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "q_tok11",
+   "token": " Replies",
+   "id": 61201,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "q_tok13",
+   "token": " replies",
+   "id": 29636,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "q_tok9",
+   "token": " upfront",
+   "id": 62179,
+   "seed": "upfront",
+   "reason": "in this answer-format context it most likely means 'at the start', not 'candid'"
+  }
+ ],
+ "positions_without_families": [
+  "q_tok10",
+  "q_tok12",
+  "q_tok13",
+  "q_tok15"
+ ],
+ "notes": "All 8 tables have fewer than 400 rows and were read whole. q_tok10-q_tok13 and q_tok15 hold answer-format words (answer, only, letter, option, strict, question, choice). Not made into families: 'forced'/强制/强迫/被迫/迫使/逼/迫 at q_tok14-15 (describe the forced-choice question format), 'directly'/'explicit'/'strict' (answer instructions), 'Did'/'meta'/'evaluation' (question words)."
+}

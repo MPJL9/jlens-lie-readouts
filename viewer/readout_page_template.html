@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Readout Examples</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* layout: one column; a control row on top that scrolls away, then the transcript, then the readout grid */
+:root {
+  --bg: #F3F5F8; --surface: #FFFFFF; --surface-2: #E9EDF2; --text: #1B2330; --muted: #5E6978;
+  --line: #D4DAE3; --accent: #1E6E8C; --accent-soft: #D9EBF2; --focus: #1E6E8C;
+  --c-lie: #C62828; --c-sit: #B85E00; --c-none: #98A1AD; --c-plain: #1B2330;
+  --c-admit: #2F7D4E;
+  --quote-bg: #FBE7B0; --quote-line: #D9A520; --band-bg: #FFFFFF; --off-bg: #EEF1F5;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #11151A; --surface: #181D24; --surface-2: #222931; --text: #E4E8EE; --muted: #98A2B0;
+    --line: #2C343F; --accent: #66B9D5; --accent-soft: #17323D; --focus: #66B9D5;
+    --c-lie: #FF5449; --c-sit: #FFA733; --c-none: #6B7582; --c-plain: #F4F6F9;
+    --c-admit: #63C28A;
+    --quote-bg: #4B3E14; --quote-line: #C9A030; --band-bg: #181D24; --off-bg: #12161C;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #11151A; --surface: #181D24; --surface-2: #222931; --text: #E4E8EE; --muted: #98A2B0;
+  --line: #2C343F; --accent: #66B9D5; --accent-soft: #17323D; --focus: #66B9D5;
+  --c-lie: #FF5449; --c-sit: #FFA733; --c-none: #6B7582; --c-plain: #F4F6F9;
+  --c-admit: #63C28A;
+  --quote-bg: #4B3E14; --quote-line: #C9A030; --band-bg: #181D24; --off-bg: #12161C;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--text); font: 14px/1.5 var(--sans); }
+button, select, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+h2, h3 { margin: 0; text-wrap: balance; font-weight: 600; }
+h2 { font-size: 17px; }
+h3 { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+
+.page { padding-block: 14px 48px; padding-inline: 20px; display: grid; gap: 22px; align-content: start; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.controls select { padding: 5px 8px; max-width: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+.toggle { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px; }
+
+.pane { display: grid; gap: 22px; align-content: start; min-width: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 13px; }
+.meta b { color: var(--text); font-weight: 500; }
+.block { display: grid; gap: 6px; min-width: 0; }
+.prose { font: 16px/1.55 var(--serif); max-width: 70ch; white-space: pre-wrap; overflow-wrap: anywhere; }
+.prose.small { font-size: 15px; }
+mark { background: var(--quote-bg); color: inherit; box-shadow: 0 -1px 0 var(--quote-line) inset; padding: 0 1px; border-radius: 2px; }
+details { border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; background: var(--surface); max-width: 80ch; }
+details summary { cursor: pointer; color: var(--muted); }
+details .prose { margin-top: 8px; }
+.fact { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; max-width: 80ch; font-size: 13px; }
+.fact .k { color: var(--muted); }
+.answers { display: grid; gap: 6px; max-width: 80ch; }
+.answer { display: grid; grid-template-columns: 34px 54px 1fr; gap: 10px; align-items: baseline; font-size: 13px; }
+.answer .w { font-family: var(--mono); color: var(--muted); }
+.answer .l { font-weight: 500; }
+.answer .l.admit { color: var(--c-admit); }
+.answer .l.deny { color: var(--c-lie); }
+.answer .t { color: var(--muted); }
+.answer .q { grid-column: 2 / 4; color: var(--muted); font-size: 12px; }
+.sib { color: var(--muted); font-size: 13px; }
+.chip { display: inline-block; font-size: 11px; line-height: 1.3; padding: 1px 6px; border-radius: 10px; border: 1px solid; }
+.chip.lie { color: var(--c-lie); border-color: var(--c-lie); }
+.chip.sit { color: var(--c-sit); border-color: var(--c-sit); }
+
+.ro-head { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; }
+.tab { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 2px 10px; cursor: pointer; font-family: var(--mono); font-size: 12px; }
+.tab[aria-selected="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; background: var(--sw); }
+.legend .plain::before { border: 1px solid var(--muted); }
+.gridwrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); max-width: 100%; }
+table.grid { border-collapse: collapse; font-family: var(--mono); font-size: 12px; line-height: 1.25; width: 100%; min-width: 1000px; table-layout: fixed; }
+table.grid th { font-weight: 500; color: var(--muted); padding: 1px 6px; text-align: left; background: var(--surface); }
+table.grid th.layer { text-align: right; padding-right: 10px; font-variant-numeric: tabular-nums; width: 46px; }
+table.grid td.layer { text-align: right; padding: 0 10px 0 6px; color: var(--muted); font-variant-numeric: tabular-nums; background: var(--surface); position: sticky; left: 0; vertical-align: top; }
+table.grid tr.band td.layer { color: var(--text); }
+table.grid tr.off td { background: var(--off-bg); }
+table.grid tr.band td { background: var(--band-bg); }
+table.grid tr.band-start td { border-top: 2px solid var(--accent); }
+table.grid tr.band-end td { border-bottom: 2px solid var(--accent); }
+table.grid tbody tr + tr td { border-top: 1px solid var(--line); }
+td.tok { padding: 0 4px; border-left: 1px solid var(--line); cursor: default; vertical-align: top; }
+td.tok .w { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+td.tok .g { display: block; font-family: var(--sans); font-size: 10px; line-height: 1.1; padding-bottom: 1px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; opacity: .85; }
+.c-lie { color: var(--c-lie); font-weight: 600; }
+.c-sit { color: var(--c-sit); font-weight: 500; }
+.c-none { color: var(--c-none); }
+.c-plain { color: var(--c-plain); }
+td.tok.hl, tr.toklist.hl td { background: var(--accent-soft) !important; }
+.tokwrap { overflow-x: auto; max-width: 100%; }
+table.toklist { border-collapse: collapse; font-size: 12px; width: 100%; max-width: 110ch; }
+table.toklist th { text-align: left; color: var(--muted); font-weight: 500; padding: 3px 6px; border-bottom: 1px solid var(--line); }
+table.toklist td { padding: 2px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.toklist td.t { font-family: var(--mono); white-space: nowrap; }
+table.toklist td.n { font-variant-numeric: tabular-nums; text-align: right; }
+table.toklist tr { cursor: pointer; }
+table.toklist tr:hover td { background: var(--surface-2); }
+.tip { position: fixed; z-index: 10; pointer-events: none; background: var(--text); color: var(--bg); padding: 6px 8px; border-radius: 4px;
+  font-size: 12px; max-width: 320px; font-family: var(--sans); }
+.tip .t { font-family: var(--mono); }
+
+@media (max-width: 700px) { .page { padding-inline: 16px; } }
+@media (prefers-reduced-motion: no-preference) { .tab { transition: background .12s; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="controls">
+    <select id="pick" aria-label="Choose a transcript"></select>
+    <label class="toggle"><input type="checkbox" id="gloss" checked> English translations</label>
+    <label class="toggle"><input type="checkbox" id="all"> all 64 layers</label>
+  </div>
+  <main class="pane" id="pane"></main>
+</div>
+<div class="tip" id="tip" hidden></div>
+<script>
+const DATA = /*__DATA__*/;
+</script>
+<script>
+(function () {
+  const D = DATA;
+  const vocab = D.vocab, gloss = D.gloss, RED = new Set(D.red);
+  const famOfId = {};
+  for (const [name, f] of Object.entries(D.families)) for (const id of f.ids) (famOfId[id] = famOfId[id] || []).push(name);
+  const POS_LABEL = {
+    resp_last: "last response token", postresp_slot0: "slot 0 <|im_end|>", postresp_slot1: "slot 1 newline",
+    postresp_slot2: "slot 2 <|im_start|>", postresp_slot3: "slot 3 user", postresp_slot4: "slot 4 newline",
+  };
+  // four colours: one of the ten lie-side families of Section 4.1 (red), any other family or a situation word (orange),
+  // no meaning or unrelated (gray), everything else (the page's text colour)
+  const CAT_LABEL = { plain: "normal word", none: "no meaning or unrelated", sit: "situation word", lie: "lie-side word" };
+  const CLS_LABEL = { lie: "lie", truth: "truth", np_truth: "no-pressure truth", np_lie: "no-pressure lie", unrelated: "unrelated chat" };
+  const state = { t: 0, pos: "postresp_slot1", all: false, gloss: true, hl: null };
+
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function show(tok) { return tok.replace(/\n/g, "⏎").replace(/ /g, "␣"); }
+  function tagOf(id) {
+    const fams = famOfId[id] || [];
+    const kind = D.kinds[id];
+    let cat;
+    if (fams.some(n => RED.has(n))) cat = "lie";
+    else if (fams.length || kind === "deception_situation") cat = "sit";
+    else if (kind && (D.kind_level[kind] === "no meaning" || D.kind_level[kind] === "unrelated")) cat = "none";
+    else cat = "plain";
+    const parts = [];
+    if (fams.length) parts.push("family " + fams.map(n => n + " (" + D.families[n].side + ")").join(", "));
+    if (kind) parts.push("kind: " + kind.replace(/_/g, " "));
+    return { cat, label: parts.join(" · ") || "no tag" };
+  }
+  function ranges(layers) {
+    const out = []; let a = null, b = null;
+    for (const l of layers) {
+      if (a === null) { a = b = l; } else if (l === b + 1) { b = l; } else { out.push(a === b ? "" + a : a + "–" + b); a = b = l; }
+    }
+    if (a !== null) out.push(a === b ? "" + a : a + "–" + b);
+    return out.join(", ");
+  }
+
+  const trs = D.transcripts;
+  const N_CELLS = (D.band[1] - D.band[0] + 1) * 16;
+  for (const tr of trs) {
+    tr.redCells = 0;
+    for (let l = D.band[0]; l <= D.band[1]; l++)
+      for (const id of tr.readouts.postresp_slot1.ids[l]) if ((famOfId[id] || []).some(n => RED.has(n))) tr.redCells++;
+  }
+  const pick = document.getElementById("pick"), pane = document.getElementById("pane");
+  for (const tr of trs) {
+    const o = document.createElement("option"); o.value = tr.n;
+    o.textContent = `${tr.n}. ${CLS_LABEL[tr.cls] || tr.cls} · ${tr.scenario.slice(-6)} k${tr.k} · ${tr.response_tokens} tokens · lie-side words in ${tr.redCells} of ${N_CELLS} cells (${Math.round(100 * tr.redCells / N_CELLS)}%)`;
+    pick.appendChild(o);
+  }
+  pick.addEventListener("change", () => select(+pick.value));
+  document.getElementById("all").addEventListener("change", e => { state.all = e.target.checked; renderReadout(); });
+  document.getElementById("gloss").addEventListener("change", e => { state.gloss = e.target.checked; renderReadout(); });
+
+  function responseHtml(tr) {
+    const s = tr.quote_span;
+    if (!s || s[1] <= s[0] || s[1] > tr.response.length) return esc(tr.response);
+    return esc(tr.response.slice(0, s[0])) + "<mark>" + esc(tr.response.slice(s[0], s[1])) + "</mark>" + esc(tr.response.slice(s[1]));
+  }
+  function render() {
+    const tr = trs[state.t];
+    const famChips = tr.families_present.map(n => `<span class="chip ${RED.has(n) ? "lie" : "sit"}">${esc(n)}</span>`).join(" ") || "none";
+    pane.innerHTML = `
+      <div class="block">
+        <h2>${esc(CLS_LABEL[tr.cls] || tr.cls)} · ${esc(tr.scenario.replace("mask_provided_facts_", ""))}</h2>
+        <div class="meta">
+          <span>${tr.cls === "unrelated" ? "unrelated chat (no judge)" : `judge: <b>${esc(tr.label)}</b>`}</span>
+          <span>sample: <b>${tr.temperature === 0 ? "greedy" : "temperature " + tr.temperature}</b>, k${tr.k}</span>
+          <span>response: <b>${tr.response_tokens}</b> tokens</span>
+          <span>lie-side words at the newline: <b>${tr.redCells}</b> of ${N_CELLS} cells (${Math.round(100 * tr.redCells / N_CELLS)}%)</span>
+        </div>
+        <div class="sib">Families at the newline (layers ${D.band[0]}–${D.band[1]}): ${famChips}</div>
+      </div>
+      ${tr.true_statement ? `<div class="block">
+        <h3>The fact</h3>
+        <div class="fact"><span class="k">true</span><span>${esc(tr.true_statement)}</span><span class="k">false</span><span>${esc(tr.false_statement)}</span></div>
+      </div>` : ""}
+      ${tr.judge_reason || tr.quote ? `<div class="block">
+        <h3>Judge</h3>
+        <div class="prose small">${esc(tr.judge_reason)}</div>
+      </div>` : ""}
+      ${tr.system ? `<details><summary>System prompt</summary><div class="prose small">${esc(tr.system)}</div></details>` : ""}
+      <div class="block"><h3>User</h3><div class="prose">${esc(tr.user_prompt)}</div></div>
+      <div class="block"><h3>Response</h3><div class="prose">${responseHtml(tr)}</div></div>
+      <details><summary>Self-report answers (asked after the readout below was computed)</summary>
+        <div class="answers" style="margin-top:8px">${tr.answers.map(a =>
+          `<div class="answer"><span class="w">${esc(a.wording)}</span><span class="l ${esc(a.label)}">${esc(a.label || "?")}</span>` +
+          `<span class="t">${esc(a.text.length > 220 ? a.text.slice(0, 220) + "…" : a.text)}${a.finished ? "" : " [cut off]"}</span>` +
+          `<span class="q">${esc(a.question)}</span></div>`).join("")}</div>
+      </details>
+      <div class="block">
+        <h3>Readout (J-lens, top 16 per layer)</h3>
+        <div class="ro-head">
+          <div class="tabs" role="tablist" id="tabs">${D.positions.map(p =>
+            `<button class="tab" role="tab" type="button" data-pos="${p}" aria-selected="${p === state.pos}">${esc(POS_LABEL[p])}</button>`).join("")}</div>
+          <div class="legend">${Object.entries(CAT_LABEL).map(([k, v]) => `<span class="${k}" style="--sw: var(--c-${k})">${esc(v)}</span>`).join("")}</div>
+        </div>
+        <div class="gridwrap" id="gridwrap"></div>
+        <div class="tokwrap" id="tokwrap"></div>
+      </div>`;
+    pane.querySelector("#tabs").addEventListener("click", e => { const b = e.target.closest(".tab"); if (b) { state.pos = b.dataset.pos; state.hl = null; renderReadout(); } });
+    pane.querySelector("#gridwrap").addEventListener("click", e => { const c = e.target.closest("td.tok"); if (c) { state.hl = state.hl === +c.dataset.id ? null : +c.dataset.id; renderReadout(); } });
+    pane.querySelector("#tokwrap").addEventListener("click", e => { const r = e.target.closest("tr[data-id]"); if (r) { state.hl = state.hl === +r.dataset.id ? null : +r.dataset.id; renderReadout(); } });
+    renderReadout();
+    pick.value = tr.n;
+  }
+
+  function renderReadout() {
+    const tr = trs[state.t], ro = tr.readouts[state.pos];
+    for (const b of pane.querySelectorAll(".tab")) b.setAttribute("aria-selected", b.dataset.pos === state.pos ? "true" : "false");
+    const [lo, hi] = D.band;
+    const layers = D.layers.filter(l => state.all || (l >= lo && l <= hi));
+    let h = `<table class="grid"><thead><tr><th class="layer">layer</th>${Array.from({ length: 16 }, (_, i) => `<th>${i + 1}</th>`).join("")}</tr></thead><tbody>`;
+    for (const l of layers) {
+      const inBand = l >= lo && l <= hi;
+      const cls = [inBand ? "band" : "off", state.all && l === lo ? "band-start" : "", state.all && l === hi ? "band-end" : ""].join(" ");
+      h += `<tr class="${cls}"><td class="layer">${l}</td>`;
+      ro.ids[l].forEach((id, r) => {
+        const tag = tagOf(id);
+        const g = state.gloss && gloss[id] ? `<span class="g">${esc(gloss[id])}</span>` : "";
+        h += `<td class="tok c-${tag.cat}${state.hl === id ? " hl" : ""}" data-id="${id}" data-p="${ro.p[l][r]}" data-l="${l}"><span class="w">${esc(show(vocab[id]))}</span>${g}</td>`;
+      });
+      h += "</tr>";
+    }
+    h += "</tbody></table>";
+    document.getElementById("gridwrap").innerHTML = h;
+    // every distinct token at this position, by the number of band layers that hold it
+    const agg = new Map();
+    for (const l of D.layers) ro.ids[l].forEach((id, r) => {
+      const a = agg.get(id) || { id, layers: [], band: 0, maxp: 0 };
+      a.layers.push(l); if (l >= lo && l <= hi) a.band++; a.maxp = Math.max(a.maxp, ro.p[l][r]); agg.set(id, a);
+    });
+    const rows = [...agg.values()].filter(a => state.all || a.band > 0).sort((a, b) => b.band - a.band || b.maxp - a.maxp);
+    let t = `<table class="toklist"><thead><tr><th>token</th><th>English</th><th>tag</th><th>band layers</th><th>layers</th><th>max p</th></tr></thead><tbody>`;
+    for (const a of rows) {
+      const tag = tagOf(a.id);
+      t += `<tr class="toklist${state.hl === a.id ? " hl" : ""}" data-id="${a.id}"><td class="t c-${tag.cat}">${esc(show(vocab[a.id]))}</td>` +
+        `<td>${esc(gloss[a.id] || "")}</td><td>${esc(tag.label)}</td><td class="n">${a.band}</td><td>${ranges(a.layers)}</td><td class="n">${a.maxp.toFixed(3)}</td></tr>`;
+    }
+    t += "</tbody></table>";
+    document.getElementById("tokwrap").innerHTML =
+      `<div class="sib" style="margin:10px 0 6px">${rows.length} distinct tokens ${state.all ? "at any layer" : "in layers " + lo + "–" + hi}; the token at this position is <span style="font-family:var(--mono)">${esc(show(ro.token))}</span>.</div>` + t;
+  }
+
+  const tip = document.getElementById("tip");
+  document.addEventListener("mousemove", e => {
+    const c = e.target.closest && e.target.closest("td.tok");
+    if (!c) { tip.hidden = true; return; }
+    const id = +c.dataset.id, tag = tagOf(id);
+    tip.innerHTML = `<span class="t">${esc(show(vocab[id]))}</span>${gloss[id] ? " (" + esc(gloss[id]) + ")" : ""} · layer ${c.dataset.l} · p ${(+c.dataset.p).toFixed(3)}<br>${esc(tag.label)}`;
+    tip.hidden = false;
+    tip.style.left = Math.min(e.clientX + 14, window.innerWidth - 330) + "px"; tip.style.top = (e.clientY + 16) + "px";
+  });
+
+  function select(n) {
+    const i = trs.findIndex(t => t.n === n); if (i < 0) return;
+    state.t = i; state.hl = null;
+    try { history.replaceState(null, "", "#t" + n); } catch (err) { /* ignore */ }
+    render();
+  }
+  const m = /^#t(\d+)$/.exec(location.hash);
+  state.t = Math.max(0, trs.findIndex(t => t.n === (m ? +m[1] : trs[0].n)));
+  render();
+})();
+</script>
+</body>
+</html>

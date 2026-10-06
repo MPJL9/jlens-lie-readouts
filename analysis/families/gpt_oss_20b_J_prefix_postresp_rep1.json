@@ -1,0 +1,795 @@
+{
+ "model": "gpt-oss-20b",
+ "lens": "J",
+ "part": "prefix",
+ "group": "postresp",
+ "replicate": 1,
+ "prompt_file": "prompts/family_generation.md",
+ "rows_read_per_table": 400,
+ "families": [
+  {
+   "position": "postresp_slot0",
+   "name": "withhold",
+   "gloss": "keeping information back",
+   "side": "lie",
+   "seeds": [
+    "withh",
+    "withhold",
+    "隐瞒"
+   ],
+   "members": [
+    {
+     "token": " withheld",
+     "id": 185188,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "name": "lawful",
+   "gloss": "legal, permitted by law (moral/legal judgement of the act)",
+   "side": "unclear",
+   "seeds": [
+    "lawful"
+   ],
+   "members": [
+    {
+     "token": " lawful",
+     "id": 107305,
+     "n": 6
+    }
+   ],
+   "notes": "Weak candidate: legality judgement rather than honesty; user to decide."
+  },
+  {
+   "position": "postresp_slot1",
+   "name": "concession",
+   "gloss": "conceding a point, admitting",
+   "side": "unclear",
+   "seeds": [
+    "concess",
+    "conced"
+   ],
+   "members": [
+    {
+     "token": " concession",
+     "id": 89686,
+     "n": 2
+    }
+   ],
+   "notes": "Could mean admitting a point (truth side) or a commercial concession (scenario content); double_reading.",
+   "double_reading": true
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "pretend",
+   "gloss": "pretending, feigning",
+   "side": "lie",
+   "seeds": [
+    "pretend",
+    "fake"
+   ],
+   "members": [
+    {
+     "token": " pretending",
+     "id": 112134,
+     "n": 156
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "apology",
+   "gloss": "apologising",
+   "side": "unclear",
+   "seeds": [
+    "apolog",
+    "sorry",
+    "道歉",
+    "抱歉"
+   ],
+   "members": [
+    {
+     "token": " apology",
+     "id": 103459,
+     "n": 193
+    },
+    {
+     "token": " apologized",
+     "id": 159442,
+     "n": 103
+    },
+    {
+     "token": " apolog",
+     "id": 39950,
+     "n": 28
+    }
+   ],
+   "notes": "Piece ' apolog' only continues to apology/apologize/apologetic, so accepted."
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "sarcasm",
+   "gloss": "being sarcastic",
+   "side": "unclear",
+   "seeds": [
+    "sarcas"
+   ],
+   "members": [
+    {
+     "token": " sarcas",
+     "id": 187549,
+     "n": 110
+    },
+    {
+     "token": " sarcast",
+     "id": 159940,
+     "n": 89
+    }
+   ],
+   "notes": "Pieces ' sarcas'/' sarcast' only continue to sarcasm/sarcastic, so accepted."
+  },
+  {
+   "position": "postresp_slot2",
+   "name": "joking",
+   "gloss": "joking, not serious",
+   "side": "unclear",
+   "seeds": [
+    "joke",
+    "joking"
+   ],
+   "members": [
+    {
+     "token": " joking",
+     "id": 126672,
+     "n": 92
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "sorry",
+   "gloss": "being sorry, regret",
+   "side": "unclear",
+   "seeds": [
+    "sorry",
+    "regret",
+    "对不起",
+    "抱歉"
+   ],
+   "members": [
+    {
+     "token": "sorry",
+     "id": 112203,
+     "n": 205
+    },
+    {
+     "token": "Sorry",
+     "id": 33680,
+     "n": 57
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "apology",
+   "gloss": "apologising",
+   "side": "unclear",
+   "seeds": [
+    "apolog",
+    "道歉"
+   ],
+   "members": [
+    {
+     "token": " apology",
+     "id": 103459,
+     "n": 117
+    },
+    {
+     "token": " apologized",
+     "id": 159442,
+     "n": 110
+    },
+    {
+     "token": " apolog",
+     "id": 39950,
+     "n": 6
+    },
+    {
+     "token": " apologise",
+     "id": 161100,
+     "n": 1
+    }
+   ],
+   "notes": "Piece ' apolog' only continues to apology/apologize/apologetic, so accepted."
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "honest",
+   "gloss": "being honest",
+   "side": "truth",
+   "seeds": [
+    "honest",
+    "诚实",
+    "ehrlich",
+    "honnête"
+   ],
+   "members": [
+    {
+     "token": "Honestly",
+     "id": 163713,
+     "n": 25
+    },
+    {
+     "token": " Honestly",
+     "id": 118045,
+     "n": 4
+    }
+   ],
+   "notes": "Mostly the discourse marker 'Honestly,'; kept by meaning."
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "frank",
+   "gloss": "speaking frankly, candour",
+   "side": "truth",
+   "seeds": [
+    "frank",
+    "candid"
+   ],
+   "members": [
+    {
+     "token": " frankly",
+     "id": 84637,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "pretend",
+   "gloss": "pretending, feigning",
+   "side": "lie",
+   "seeds": [
+    "pretend",
+    "fake"
+   ],
+   "members": [
+    {
+     "token": " pretending",
+     "id": 112134,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "sarcasm",
+   "gloss": "being sarcastic",
+   "side": "unclear",
+   "seeds": [
+    "sarcas"
+   ],
+   "members": [
+    {
+     "token": " sarcas",
+     "id": 187549,
+     "n": 133
+    },
+    {
+     "token": " sarcast",
+     "id": 159940,
+     "n": 17
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "joking",
+   "gloss": "joking, not serious",
+   "side": "unclear",
+   "seeds": [
+    "joke",
+    "joking"
+   ],
+   "members": [
+    {
+     "token": " joking",
+     "id": 126672,
+     "n": 26
+    },
+    {
+     "token": " Joke",
+     "id": 199247,
+     "n": 2
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "refuse",
+   "gloss": "refusing, declining to give",
+   "side": "unclear",
+   "seeds": [
+    "refus",
+    "拒绝",
+    "不给"
+   ],
+   "members": [
+    {
+     "token": " refusing",
+     "id": 93492,
+     "n": 9
+    },
+    {
+     "token": " refusal",
+     "id": 106291,
+     "n": 4
+    },
+    {
+     "token": "不给",
+     "id": 93654,
+     "n": 76
+    }
+   ],
+   "notes": "不给 = 'not give / won't give'; could instead join a withhold family."
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "unwilling",
+   "gloss": "being unwilling",
+   "side": "unclear",
+   "seeds": [
+    "unwill"
+   ],
+   "members": [
+    {
+     "token": " unwilling",
+     "id": 99033,
+     "n": 20
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "insist",
+   "gloss": "insisting",
+   "side": "unclear",
+   "seeds": [
+    "insist"
+   ],
+   "members": [
+    {
+     "token": " insisting",
+     "id": 161768,
+     "n": 9
+    },
+    {
+     "token": " insists",
+     "id": 104340,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "accuse",
+   "gloss": "accusing",
+   "side": "unclear",
+   "seeds": [
+    "accus"
+   ],
+   "members": [
+    {
+     "token": " accuse",
+     "id": 142717,
+     "n": 1
+    },
+    {
+     "token": " accusing",
+     "id": 143529,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "allege",
+   "gloss": "alleging, allegation",
+   "side": "unclear",
+   "seeds": [
+    "alleg"
+   ],
+   "members": [
+    {
+     "token": " alleged",
+     "id": 26640,
+     "n": 1
+    },
+    {
+     "token": " allegations",
+     "id": 56160,
+     "n": 1
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "bullshit",
+   "gloss": "insincere or false talk",
+   "side": "unclear",
+   "seeds": [
+    "bullshit"
+   ],
+   "members": [
+    {
+     "token": " bullshit",
+     "id": 121528,
+     "n": 1
+    }
+   ],
+   "notes": "Means insincere/false talk (lie side by meaning) but also generic contempt; user to decide."
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "awful",
+   "gloss": "very bad (negative judgement of the act)",
+   "side": "unclear",
+   "seeds": [
+    "awful",
+    "terrible",
+    "horrible",
+    "shitty"
+   ],
+   "members": [
+    {
+     "token": " awful",
+     "id": 44421,
+     "n": 60
+    },
+    {
+     "token": " horrible",
+     "id": 43792,
+     "n": 13
+    },
+    {
+     "token": " terrible",
+     "id": 28380,
+     "n": 10
+    },
+    {
+     "token": " shitty",
+     "id": 184709,
+     "n": 1
+    }
+   ],
+   "notes": "General negative judgement, not specifically moral; user to decide."
+  },
+  {
+   "position": "postresp_slot3",
+   "name": "lawful",
+   "gloss": "legal, permitted by law",
+   "side": "unclear",
+   "seeds": [
+    "lawful"
+   ],
+   "members": [
+    {
+     "token": " lawful",
+     "id": 107305,
+     "n": 9
+    }
+   ],
+   "notes": "Weak candidate: legality judgement."
+  }
+ ],
+ "ambiguous_pieces": [],
+ "borderline": [
+  {
+   "position": "postresp_slot3",
+   "token": "Wrong",
+   "id": 48139,
+   "family_if_accepted": "wrong / incorrect"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "真的吗",
+   "id": 119662,
+   "family_if_accepted": "true (literally 'really? / is it true?')"
+  }
+ ],
+ "exclusions": [
+  {
+   "position": "postresp_slot0",
+   "token": "sí",
+   "id": 104694,
+   "reason": "yes (Spanish)"
+  },
+  {
+   "position": "postresp_slot0",
+   "token": "“Yes",
+   "id": 171434,
+   "reason": "yes"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "sí",
+   "id": 104694,
+   "reason": "yes (Spanish)"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "“Yes",
+   "id": 171434,
+   "reason": "yes"
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "-confirm",
+   "id": 129065,
+   "reason": "confirm: answers the user's question"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "“Yes",
+   "id": 171434,
+   "reason": "yes"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "Yes",
+   "id": 13022,
+   "reason": "yes"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "yes",
+   "id": 6763,
+   "reason": "yes"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "Yep",
+   "id": 141735,
+   "reason": "yes"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "Yeah",
+   "id": 46078,
+   "reason": "yes"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "yeah",
+   "id": 125918,
+   "reason": "yes"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " yeah",
+   "id": 37377,
+   "reason": "yes"
+  }
+ ],
+ "rejected_matches": [
+  {
+   "position": "postresp_slot0",
+   "token": "formulier",
+   "id": 163091,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "token": " replied",
+   "id": 43761,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot0",
+   "token": "/privacy",
+   "id": 175341,
+   "seed": "privacy",
+   "reason": "URL path (privacy-policy page), not secrecy of the act"
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "atelier",
+   "id": 150910,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "cliente",
+   "id": 73387,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot1",
+   "token": "Replies",
+   "id": 172507,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " replying",
+   "id": 178718,
+   "seed": "lying",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " replied",
+   "id": 43761,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "Replies",
+   "id": 172507,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " replies",
+   "id": 53487,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " Replies",
+   "id": 141387,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "_mentions",
+   "id": 66960,
+   "seed": "menti",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " commenting",
+   "id": 58756,
+   "seed": "menti",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " mentioning",
+   "id": 83766,
+   "seed": "menti",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " complaining",
+   "id": 72200,
+   "seed": "plain",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "Complaint",
+   "id": 186423,
+   "seed": "plain",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " complaints",
+   "id": 37581,
+   "seed": "plain",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": " complains",
+   "id": 198124,
+   "seed": "plain",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot2",
+   "token": "/privacy",
+   "id": 175341,
+   "seed": "privacy",
+   "reason": "URL path (privacy-policy page), not secrecy of the act"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " replying",
+   "id": 178718,
+   "seed": "lying",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " replied",
+   "id": 43761,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "Replies",
+   "id": 172507,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " Replies",
+   "id": 141387,
+   "seed": "lie",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " complaining",
+   "id": 72200,
+   "seed": "plain",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " complain",
+   "id": 43478,
+   "seed": "plain",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " complained",
+   "id": 78397,
+   "seed": "plain",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "Explain",
+   "id": 176289,
+   "seed": "plain",
+   "reason": ""
+  },
+  {
+   "position": "postresp_slot3",
+   "token": "/privacy",
+   "id": 175341,
+   "seed": "privacy",
+   "reason": "URL path (privacy-policy page), not secrecy of the act"
+  },
+  {
+   "position": "postresp_slot3",
+   "token": " plainly",
+   "id": 131160,
+   "seed": "plain",
+   "reason": "near-miss: 'plainly' usually means 'clearly/obviously', not 'frankly'"
+  }
+ ],
+ "positions_without_families": [],
+ "notes": "All four tables are shorter than 400 rows, so each was read whole. Slot0 and slot1 hold almost only template, role and comment-section tokens; their single weak families (withheld, lawful; concession) are low-n. Not taken as candidates: polite/politely, reassure, offended, worried (manner or emotion, not the act); stupid/idiot/asshole/nasty (insults aimed at a person); interrog/interrogation (being questioned, not the model's act); complaint/complaining (the user's act). Matcher was run with English seeds plus Chinese, Spanish, French, German, Korean and Hindi translations; no non-English act words appeared except 不给 (and 真的吗, borderline)."
+}

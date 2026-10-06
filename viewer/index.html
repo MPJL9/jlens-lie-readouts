@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J-lens readout viewer</title>
+<style>
+  :root {
+    color-scheme: light;
+    --page:      #f9f9f7;
+    --surface:   #fcfcfb;
+    --ink:       #0b0b0b;
+    --ink-2:     #52514e;
+    --muted:     #898781;
+    --grid:      #e1e0d9;
+    --baseline:  #c3c2b7;
+    --border:    rgba(11,11,11,0.10);
+    --heat-rgb:  42 120 214;
+    --accent:    #2a78d6;
+    --match:     #006300;
+    --hl:        #eb6834;
+    --yes:       #c0392b;
+    --no:        #1f5fbf;
+    --band:      rgba(235,104,52,0.10);
+    --seg-user:  rgba(42,120,214,0.10);
+    --seg-resp:  rgba(0,99,0,0.12);
+    --seg-q:     rgba(192,57,43,0.12);
+    --seg-gen:   rgba(137,135,129,0.18);
+    --seg-ans:   rgba(235,104,52,0.20);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --page: #0d0d0d; --surface: #1a1a19; --ink: #fff; --ink-2: #c3c2b7; --muted: #898781;
+      --grid: #2c2c2a; --baseline: #383835; --border: rgba(255,255,255,0.10);
+      --heat-rgb: 57 135 229; --accent: #3987e5; --match: #0ca30c; --hl: #d95926;
+      --yes: #e2574a; --no: #5b8fe0; --band: rgba(217,89,38,0.16);
+      --seg-user: rgba(57,135,229,0.18); --seg-resp: rgba(12,163,12,0.18);
+      --seg-q: rgba(226,87,74,0.18); --seg-gen: rgba(137,135,129,0.25); --seg-ans: rgba(217,89,38,0.28);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #fff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --baseline: #383835; --border: rgba(255,255,255,0.10);
+    --heat-rgb: 57 135 229; --accent: #3987e5; --match: #0ca30c; --hl: #d95926;
+    --yes: #e2574a; --no: #5b8fe0; --band: rgba(217,89,38,0.16);
+    --seg-user: rgba(57,135,229,0.18); --seg-resp: rgba(12,163,12,0.18);
+    --seg-q: rgba(226,87,74,0.18); --seg-gen: rgba(137,135,129,0.25); --seg-ans: rgba(217,89,38,0.28);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 12px 16px 40px; background: var(--page); color: var(--ink);
+         font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  h1 { font-size: 16px; margin: 0; font-weight: 650; }
+  h2 { font-size: 13px; margin: 0 0 6px; font-weight: 650; color: var(--ink-2); }
+  select, button, input, label { font: inherit; color: inherit; }
+  select, button, input[type=text] { background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+                   padding: 3px 8px; }
+  select, button { cursor: pointer; }
+  select:disabled { opacity: .5; cursor: default; }
+  button:hover, select:hover { border-color: var(--baseline); }
+  input[type=text] { width: 64px; }
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+  .bar .spacer { flex: 1; }
+  #status { color: var(--ink-2); font-size: 12px; }
+  #status.err { color: var(--hl); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+          padding: 8px 12px; margin-bottom: 8px; }
+  #setup { max-width: 620px; margin: 40px auto; display: none; }
+  #setup code { background: var(--page); padding: 1px 5px; border-radius: 4px; }
+  .muted { color: var(--muted); font-size: 11px; }
+  .kv { display: flex; gap: 8px; align-items: baseline; line-height: 1.35; }
+  .kv > b { font-weight: 650; flex: 0 0 118px; font-size: 11px; color: var(--ink-2); }
+  .pre { white-space: pre-wrap; color: var(--ink); margin: 0; flex: 1; }
+  .lab { display: inline-block; font-size: 10px; padding: 0 5px; border-radius: 4px; margin-right: 4px;
+         border: 1px solid var(--border); color: var(--ink-2); }
+  .lab.yes { color: var(--yes); border-color: var(--yes); }
+  .lab.no  { color: var(--no);  border-color: var(--no); }
+  /* transcript labels: the judge's verdict (filled) and the self-report answer (outlined) */
+  #badges { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 2px 0 5px; }
+  .badge { display: inline-block; font-size: 12px; font-weight: 650; padding: 1px 9px; border-radius: 5px;
+           border: 1px solid var(--border); color: var(--ink-2); }
+  .badge small { font-weight: 400; font-size: 10px; opacity: .85; margin-right: 4px; }
+  .badge.lie   { background: var(--hl); border-color: var(--hl); color: #fff; }
+  .badge.truth { background: var(--match); border-color: var(--match); color: #fff; }
+  .badge.yes   { color: var(--yes); border-color: var(--yes); }
+  .badge.no    { color: var(--no);  border-color: var(--no); }
+
+  /* token ribbon */
+  /* one line per group of positions; the template groups (turn boundaries, thinking block) each get their own line */
+  #ribbon { padding: 4px 6px; }
+  .rrow { display: flex; gap: 8px; align-items: flex-start; padding: 2px 0 2px 6px; border-left: 3px solid transparent; }
+  .rrow.tmpl { border-left-color: var(--accent); background: color-mix(in srgb, var(--accent) 5%, transparent); }
+  .rrow .rlab { flex: 0 0 112px; font-size: 10px; color: var(--muted); text-align: right; padding-top: 2px;
+                white-space: nowrap; cursor: pointer; }
+  .rrow.tmpl .rlab { color: var(--ink); font-weight: 650; }
+  .rrow .rtoks { display: flex; flex-wrap: wrap; gap: 2px; align-content: flex-start; flex: 1; min-width: 0; position: relative; }
+  .rrow.body .rtoks { max-height: 88px; overflow-y: auto; }
+  .tok .ix { font-size: 9px; color: var(--muted); margin-right: 3px; font-style: normal; }
+  .tok { padding: 0 3px; border-radius: 4px; cursor: pointer; white-space: pre; border: 1px solid transparent;
+         font-size: 12px; position: relative; }
+  .tok:hover { border-color: var(--baseline); }
+  .tok.user_prompt { background: var(--seg-user); }
+  .tok.response    { background: var(--seg-resp); }
+  .tok.self_q      { background: var(--seg-q); }
+  .tok.gen_prompt  { background: var(--seg-gen); }
+  .tok.answer      { background: var(--seg-ans); }
+  .tok.post_answer { background: var(--seg-gen); }
+  .tok.sel { outline: 2px solid var(--accent); }
+  .legend span { display: inline-block; padding: 0 6px; border-radius: 4px; margin-right: 6px; font-size: 11px; }
+
+  /* heatmaps */
+  .heatwrap { overflow-x: auto; }
+  .heatrow { display: flex; gap: 10px; align-items: flex-start; }
+  .heat { position: relative; }
+  .heat canvas { display: block; image-rendering: pixelated; cursor: crosshair; }
+  .heat .ttl { font-size: 11px; color: var(--ink-2); margin-bottom: 3px; }
+  .heat .ttl b { color: var(--ink); }
+  .cbar { display: flex; align-items: center; gap: 4px; font-size: 10px; color: var(--muted); margin-top: 3px; }
+  .cbar canvas { height: 8px; width: 90px; border: 1px solid var(--border); }
+  #tip { position: fixed; pointer-events: none; background: var(--surface); border: 1px solid var(--border);
+         border-radius: 6px; padding: 4px 7px; font-size: 11px; display: none; z-index: 10; white-space: pre;
+         box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+
+  /* readout table */
+  #colbar { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; flex-wrap: wrap; }
+  #cols { overflow: auto; max-height: 46vh; border: 1px solid var(--grid); border-radius: 6px; }
+  table.ro { border-collapse: collapse; width: 100%; font-size: 11px; }
+  table.ro th { position: sticky; top: 0; background: var(--surface); z-index: 2; text-align: left; font-weight: 650;
+                padding: 3px 6px; border-bottom: 1px solid var(--grid); color: var(--ink-2); }
+  table.ro td { padding: 0 6px; border-bottom: 1px solid var(--grid); height: 21px; white-space: nowrap; vertical-align: middle; }
+  table.ro tr.inband td.ll { background: var(--band); font-weight: 650; color: var(--ink); }
+  table.ro tr.sel td { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+  table.ro tr:hover td { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+  table.ro td.ll { color: var(--muted); font-variant-numeric: tabular-nums; width: 34px; }
+  table.ro td.chips { overflow: hidden; text-overflow: ellipsis; max-width: 0; }
+  table.ro td.chips.j { border-left: 2px solid var(--grid); }
+  .chip { display: inline-block; padding: 0 4px; border-radius: 3px; font-size: 11px; white-space: pre; cursor: pointer;
+          max-width: 9em; overflow: hidden; text-overflow: ellipsis; border: 1px solid transparent; margin-right: 2px;
+          vertical-align: middle; line-height: 15px; }
+  .chip:hover { border-color: var(--baseline); }
+  .chip.match { border-color: var(--match); text-decoration: underline; text-decoration-color: var(--match); }
+  .chip.hl { outline: 2px solid var(--hl); }
+  .chip .p { color: var(--ink-2); font-size: 10px; margin-left: 3px; }
+  details.help { margin-top: 14px; color: var(--ink-2); font-size: 12px; max-width: 860px; }
+  details.conv { margin: 2px 0 4px; }
+  details.conv > summary { cursor: pointer; font-size: 11px; color: var(--ink-2); padding: 2px 0; }
+  details.conv > summary b { font-weight: 650; }
+  details.conv[open] > summary { margin-bottom: 2px; }
+  details.help summary { cursor: pointer; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <h1>J-lens readout viewer</h1>
+  <select id="modelSel" title="export"></select>
+  <span id="status"></span>
+  <span class="spacer"></span>
+  <label title="hide the judge label, the mechanical label and the honest answer"><input type="checkbox" id="hideChk"> hide labels</label>
+  <button id="themeBtn" title="theme">◐</button>
+</div>
+
+<div id="setup" class="card">
+  <h1>No exports found</h1>
+  <p>This page reads <code>data/cluster/exports/index.json</code> and the exports it lists
+     (pulled from the cluster with <code>scripts/pull_from_cluster.sh</code>).</p>
+  <p>Start the server with <code>python3 scripts/serve_viewer.py</code> and open the address it prints.
+     The earlier transcripts are in <code>viewer/pilot.html</code>.</p>
+</div>
+
+<div id="app" style="display:none">
+  <div class="bar">
+    <label>set <select id="setSel"></select></label>
+    <label>split <select id="splitSel"></select></label>
+    <label>item <select id="factSel"></select></label>
+    <label>label <select id="condSel"></select></label>
+    <label>wording <select id="fmtSel"></select></label>
+    <label>self-report answer <select id="ansSel"></select></label>
+    <button id="prevBtn" title="previous transcript">‹</button>
+    <button id="nextBtn" title="next transcript">›</button>
+    <button id="swapBtn" title="the other transcript of the same scenario, if there is one">⇄ other sample</button>
+    <span class="spacer"></span>
+    <label title="layers lo-hi, e.g. 27-47; shaded in the table and drawn on the heatmaps">band <input type="text" id="bandIn" placeholder="lo-hi"></label>
+    <label><input type="checkbox" id="winChk"> from response end only</label>
+    <label><input type="checkbox" id="probsChk"> probs</label>
+    <label><input type="checkbox" id="flipChk"> final layer first</label>
+  </div>
+
+  <div class="card">
+    <div id="badges"></div>
+    <div id="itemmeta" class="muted"></div>
+    <details id="convFold" class="conv" open>
+      <summary title="fold the prompt and the response; the choice is kept while you step through items"><b>prompt and response</b> <span class="muted" id="convSum"></span></summary>
+      <div class="kv"><b>user prompt</b><div class="pre" id="uprompt"></div></div>
+      <div class="kv"><b>response</b><div class="pre" id="uresp"></div></div>
+    </details>
+    <div class="kv" id="quoterow" style="display:none"><b>judge quote</b><div class="pre" id="uquote"></div></div>
+    <div class="kv"><b>self-report q</b><div class="pre" id="uq"></div></div>
+    <div class="kv"><b>model answer</b><div class="pre"><span id="uans"></span></div></div>
+  </div>
+
+  <div class="card">
+    <div class="legend muted" style="margin-bottom:4px">
+      <span class="tok user_prompt">user prompt (last token)</span><span class="tok response">response</span>
+      <span class="tok self_q">self-report question</span><span class="tok gen_prompt">template</span>
+      <span class="tok answer">generated answer</span>
+      · each group of positions has its own line; template lines are marked on the left and numbered by slot
+      · click a token, a line's name or a heatmap cell to select · ←/→ step (⇧ ×10)
+    </div>
+    <div id="ribbon"></div>
+    <div id="posinfo" style="margin-top:6px;font-size:12px"></div>
+  </div>
+
+  <div class="card" style="padding-bottom:6px">
+    <div id="colbar">
+      <h2 style="margin:0">readout at <span id="colpos"></span></h2>
+      <label>top-k <select id="kSel"><option>3</option><option>5</option><option>8</option><option>12</option><option selected>16</option></select></label>
+      <span class="muted">chip shade = probability (log) · <span style="color:var(--match);font-weight:700">green underline</span> = actual next token ·
+        click a chip to mark that token in every row · double-click a row to select the layer · shaded layer numbers = band</span>
+    </div>
+    <div id="cols"></div>
+  </div>
+
+  <div class="card">
+    <h2>layer × position &nbsp;
+      <select id="heatSel">
+        <option value="next">top J-lens token = actual next token (1 / 0)</option>
+        <option value="readable">share of top-16 that are words of ≥3 letters (J-lens)</option>
+        <option value="yesno">Yes − No score (J-lens)</option>
+        <option value="next_LL">top logit-lens token = actual next token (1 / 0)</option>
+        <option value="readable_LL">share of top-16 that are words of ≥3 letters (logit lens)</option>
+      </select>
+      <span class="muted">rows = layers (0 at the bottom) · dashed lines = band · dotted = response end, answer start</span></h2>
+    <div class="heatwrap"><div class="heatrow" id="heats"></div></div>
+  </div>
+
+  <details class="help">
+    <summary>notes</summary>
+    <p>Both lenses read the same saved residual streams. <b>Logit lens</b> = the unembedding applied to the residual
+    stream directly. <b>J-lens</b> = the unembedding applied after the published Jacobian lens map for that layer
+    (the identity at the final layer, so the final row is the model's own output). Readouts start at the last
+    user-prompt token; earlier tokens were not saved.</p>
+    <p><b>Labels.</b> "label" is the LLM judge's verdict on the response; "stance" is whether the response affirms the
+    true statement, the false one, or neither; for lies, the judge's quote of the false claim is shown under the
+    response. The two badges above the prompt give the judge's label (lie / truth) and the model's self-report answer
+    under the selected wording (admits / denies); the item list shows both for every transcript. With "hide labels" on,
+    the judge's label, the stance, the quote and the label filter are hidden, and the address bar holds only an item
+    number. Unrelated chats have no label.</p>
+    <p><b>Positions.</b> The prefix (last user-prompt token to the post-response boundary) comes from one forward
+    pass shared by every wording; the question, answer and post-answer boundary come from that wording's own pass.</p>
+    <p><b>Yes − No score</b> = log-sum-exp of the Yes-token scores minus that of the No tokens, at each layer.</p>
+  </details>
+</div>
+<div id="tip"></div>
+
+<script>
+"use strict";
+
+const BASE = "../data/cluster/exports/";
+const LENS_LABELS = { J: "J-lens", LL: "logit lens" };
+const TURN_END = new Set(["<end_of_turn>", "<|im_end|>", "<|end|>"]);
+
+const state = {
+  model: null, manifest: null, entries: [], item: null, entry: null,
+  pos: 0, layer: null, band: null,
+  hide: false, win: false, showProbs: false, flip: false, highlight: null, k: 16, heat: "next",
+};
+const pending = { n: null, pos: null };
+let VOCAB = [];
+
+// ---------- data: <model>/<set>/<tid>/<part>.json + .bin (see src/readout.py) ----------
+const cache = new Map();
+async function fetchJSON(path) {
+  const r = await fetch(BASE + path);
+  if (!r.ok) throw new Error(r.status + " " + r.statusText + " (" + path + ")");
+  return r.json();
+}
+async function fetchBin(path) {
+  const r = await fetch(BASE + path);
+  if (!r.ok) throw new Error(r.status + " " + r.statusText + " (" + path + ")");
+  return r.arrayBuffer();
+}
+function half(u) {                          // float16 bit pattern -> number
+  const s = (u & 0x8000) ? -1 : 1, e = (u >> 10) & 0x1f, f = u & 0x3ff;
+  if (e === 0) return s * Math.pow(2, -14) * (f / 1024);
+  if (e === 31) return f ? NaN : s * Infinity;
+  return s * Math.pow(2, e - 15) * (1 + f / 1024);
+}
+function arraysOf(header, buf) {
+  const out = {};
+  for (const a of header.arrays) {
+    const n = a.shape.reduce((x, y) => x * y, 1);
+    if (a.dtype === "uint32") out[a.name] = new Uint32Array(buf, a.offset, n);
+    else { const u = new Uint16Array(buf, a.offset, n), f = new Float32Array(n); for (let i = 0; i < n; i++) f[i] = half(u[i]); out[a.name] = f; }
+  }
+  return out;
+}
+async function loadItem(entry) {
+  const key = state.model + "/" + entry.seq_id;
+  if (cache.has(key)) { const v = cache.get(key); cache.delete(key); cache.set(key, v); return v; }
+  const dir = state.model + "/" + entry.set + "/" + entry.tid + "/";
+  // the released data hold the wording parts for Qwen only; without them the prefix part is shown alone
+  const [ph, pb, wh0, wb0] = await Promise.all([fetchJSON(dir + "prefix.json"), fetchBin(dir + "prefix.bin"),
+    fetchJSON(dir + entry.format + ".json").catch(() => null), fetchBin(dir + entry.format + ".bin").catch(() => null)]);
+  const wh = wh0 || { tokens: [], ids: [], segments: [], layers: ph.layers, top_k: ph.top_k, arrays: ph.arrays.map(a => ({ ...a, shape: a.shape.map((d, i) => (i === a.shape.length - 2 ? 0 : d)) })) };
+  const wb = wb0 || new ArrayBuffer(0);
+  const pa = arraysOf(ph, pb), wa = arraysOf(wh, wb);
+  const L = ph.layers.length, K = ph.top_k, T1 = ph.tokens.length, T2 = wh.tokens.length, T = T1 + T2;
+  // join the prefix and the wording part along positions, per layer
+  const join = (name, per, rows) => {
+    const Ctor = name.endsWith("ids") ? Uint32Array : Float32Array, out = new Ctor(rows * T * per);
+    for (let r = 0; r < rows; r++) {
+      out.set(pa[name].subarray(r * T1 * per, (r + 1) * T1 * per), r * T * per);
+      out.set(wa[name].subarray(r * T2 * per, (r + 1) * T2 * per), r * T * per + T1 * per);
+    }
+    return out;
+  };
+  const it = {
+    tokens: ph.tokens.concat(wh.tokens), T, K, layers: ph.layers, top_k: K,
+    segments: ph.segments.concat(wh.segments.map(s => ({ name: s.name, start: s.start + T1, end: s.end + T1 }))),
+    ro: { J: { ids: join("J_ids", K, L), p: join("J_p", K, L) }, LL: { ids: join("LL_ids", K, L), p: join("LL_p", K, L) } },
+    scores: join("scores", 1, 2 * L), prefix: ph, part: wh,
+  };
+  cache.set(key, it);
+  while (cache.size > 6) cache.delete(cache.keys().next().value);
+  return it;
+}
+function readoutAt(it, lens, li, pos) {     // [[id, p], ...] top-K at one layer and position
+  const base = (li * it.T + pos) * it.K, r = it.ro[lens], out = [];
+  for (let j = 0; j < it.K; j++) out.push([r.ids[base + j], r.p[base + j]]);
+  return out;
+}
+const yesNoAt = (it, li, pos) => it.scores[(0 * it.layers.length + li) * it.T + pos];   // J-lens
+
+// ---------- helpers ----------
+const $ = id => document.getElementById(id);
+const setStatus = (m, err) => { $("status").textContent = m; $("status").className = err ? "err" : ""; };
+function disp(s) {
+  if (s == null) return "�";
+  let out = s.replace(/\n/g, "⏎").replace(/\t/g, "⇥");
+  if (/^ +/.test(out)) out = out.replace(/^ +/, m => "␣".repeat(m.length));
+  if (out.trim() === "" && !/[␣⏎⇥]/.test(out)) out = "␣".repeat(out.length) || "∅";
+  return out;
+}
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function fmtProb(p) { if (p >= 0.095) return Math.round(p * 100) + "%"; if (p >= 0.001) return (p * 100).toFixed(1) + "%"; return p.toExponential(0); }
+function heatAlpha(p) { const a = Math.max(0, Math.min(1, (Math.log10(Math.max(p, 1e-6)) + 4) / 4)); return 0.85 * a; }
+const fmt2 = v => (v == null || Number.isNaN(v)) ? "—" : (Math.abs(v) >= 100 ? v.toFixed(0) : v.toFixed(2));
+const READABLE = /^\s?\p{L}{3,}$/u;
+const tokStr = id => VOCAB[id] ?? "";
+
+// ---------- position names (same rules as the analysis code) ----------
+function seg(it, name) { return it.segments.find(s => s.name === name) || null; }
+function positionNames(it) {
+  const toks = it.tokens, names = new Array(toks.length).fill(null);
+  const u = seg(it, "user_prompt"), r = seg(it, "response"), pr = seg(it, "post_response"), q = seg(it, "self_q");
+  const g = seg(it, "gen_prompt"), a = seg(it, "answer"), pa = seg(it, "post_answer");
+  if (r) {
+    const start = u ? u.start : 0;
+    let anchor = null;
+    for (let i = start; i < r.start; i++) if (TURN_END.has(toks[i])) { anchor = i; break; }
+    if (anchor !== null) for (let p = anchor; p < r.start; p++) names[p] = "preresp_slot" + (p - anchor);
+    for (let p = r.start; p < r.end; p++) names[p] = "resp_tok" + (p - r.start);
+  }
+  if (pr) for (let p = pr.start; p < pr.end; p++) names[p] = "postresp_slot" + (p - pr.start);
+  if (q) for (let p = q.start; p < q.end; p++) names[p] = "q_tok" + (p - q.start);
+  if (g) {
+    let cut = g.end;
+    for (let p = g.start; p < g.end; p++) if (toks[p] === "<think>") { cut = p; break; }
+    for (let p = g.start; p < cut; p++) names[p] = "preans_slot" + (p - g.start);
+    for (let p = cut; p < g.end; p++) names[p] = "think_slot" + (p - cut);
+  }
+  if (a) for (let p = a.start; p < a.end; p++) names[p] = "ans_tok" + (p - a.start);
+  if (pa) for (let p = pa.start; p < pa.end; p++) names[p] = "postans_slot" + (p - pa.start);
+  return names;
+}
+
+// ---------- colour maps ----------
+function lerp(a, b, t) { return a + (b - a) * t; }
+function interp(stops, t) {
+  t = Math.max(0, Math.min(1, t));
+  const n = stops.length - 1, i = Math.min(n - 1, Math.floor(t * n)), f = t * n - i;
+  const a = stops[i], b = stops[i + 1];
+  return [lerp(a[0], b[0], f), lerp(a[1], b[1], f), lerp(a[2], b[2], f)].map(Math.round);
+}
+const RDBU = [[33, 102, 172], [103, 169, 207], [209, 229, 240], [247, 247, 247], [253, 219, 199], [239, 138, 98], [178, 24, 43]];
+const VIRIDIS = [[68, 1, 84], [72, 40, 120], [62, 74, 137], [49, 104, 142], [38, 130, 142], [31, 158, 137], [53, 183, 121], [109, 205, 89], [180, 222, 44], [253, 231, 37]];
+function css(rgb) { return "rgb(" + rgb.join(",") + ")"; }
+function isDark() {
+  const th = document.documentElement.dataset.theme;
+  return th === "dark" || (!th && matchMedia("(prefers-color-scheme: dark)").matches);
+}
+
+// ---------- heatmap (canvas) ----------
+function makeHeat(M, opts) {
+  const nR = M.length, nC = nR ? M[0].length : 0;
+  const cw = opts.cw || 9, ch = opts.ch || 7, labH = opts.colLabels ? 58 : 0, axW = 28;
+  const wrap = document.createElement("div"); wrap.className = "heat";
+  if (opts.title) { const t = document.createElement("div"); t.className = "ttl"; t.innerHTML = opts.title; wrap.appendChild(t); }
+  const cv = document.createElement("canvas");
+  const W = axW + nC * cw, H = nR * ch + labH;
+  cv.width = W * devicePixelRatio; cv.height = H * devicePixelRatio;
+  cv.style.width = W + "px"; cv.style.height = H + "px";
+  const g = cv.getContext("2d"); g.scale(devicePixelRatio, devicePixelRatio);
+  const dark = isDark();
+  const color = v => {
+    if (v == null || Number.isNaN(v)) return dark ? "#2c2c2a" : "#e9e8e2";
+    return css(opts.mode === "seq" ? interp(opts.stops, (v - opts.lo) / (opts.hi - opts.lo)) : interp(opts.stops, 0.5 + 0.5 * v / opts.vmax));
+  };
+  for (let r = 0; r < nR; r++) for (let c = 0; c < nC; c++) { g.fillStyle = color(M[r][c]); g.fillRect(axW + c * cw, (nR - 1 - r) * ch, cw, ch); }
+  g.fillStyle = "#898781"; g.font = "9px system-ui"; g.textAlign = "right"; g.textBaseline = "middle";
+  const step = Math.max(1, Math.round(nR / 9));
+  for (let r = 0; r < nR; r += step) g.fillText(String(opts.layers ? opts.layers[r] : r), axW - 3, (nR - 1 - r) * ch + ch / 2);
+  const ink = dark ? "rgba(255,255,255,.8)" : "rgba(0,0,0,.75)";
+  for (const m of opts.markers || []) {
+    if (m.col == null || m.col < 0 || m.col >= nC) continue;
+    g.strokeStyle = ink; g.setLineDash([2, 2]); g.lineWidth = 1;
+    g.beginPath(); g.moveTo(axW + m.col * cw, 0); g.lineTo(axW + m.col * cw, nR * ch); g.stroke(); g.setLineDash([]);
+  }
+  if (opts.bandRows) {
+    g.strokeStyle = "#eb6834"; g.setLineDash([5, 3]); g.lineWidth = 1.5;
+    const [lo, hi] = opts.bandRows;
+    for (const y of [(nR - lo) * ch, (nR - 1 - hi) * ch]) { g.beginPath(); g.moveTo(axW, y); g.lineTo(W, y); g.stroke(); }
+    g.setLineDash([]);
+  }
+  if (opts.colLabels) {
+    g.fillStyle = dark ? "#c3c2b7" : "#52514e"; g.font = "9px system-ui"; g.textAlign = "right"; g.textBaseline = "middle";
+    for (let c = 0; c < nC; c++) {
+      g.save(); g.translate(axW + c * cw + cw / 2, nR * ch + 12); g.rotate(-Math.PI / 2);
+      g.fillText(disp(opts.colLabels[c]).slice(0, 9), 0, 0); g.restore();
+    }
+  }
+  if (opts.sel && opts.sel.col != null) {
+    g.strokeStyle = "#eb6834"; g.lineWidth = 1.5;
+    g.strokeRect(axW + opts.sel.col * cw + 0.5, 0.5, cw - 1, nR * ch - 1);
+    if (opts.sel.row != null) g.strokeRect(axW + opts.sel.col * cw - 1, (nR - 1 - opts.sel.row) * ch - 1, cw + 2, ch + 2);
+  }
+  const cellAt = e => {
+    const rect = cv.getBoundingClientRect();
+    const c = Math.floor((e.clientX - rect.left - axW) / cw), r = nR - 1 - Math.floor((e.clientY - rect.top) / ch);
+    return (c < 0 || c >= nC || r < 0 || r >= nR) ? null : { c, r };
+  };
+  const tip = $("tip");
+  cv.addEventListener("mousemove", e => {
+    const p = cellAt(e);
+    if (!p) { tip.style.display = "none"; return; }
+    tip.textContent = opts.onHover(p.c, p.r, M[p.r][p.c]);
+    tip.style.display = "block"; tip.style.left = (e.clientX + 12) + "px"; tip.style.top = (e.clientY + 12) + "px";
+  });
+  cv.addEventListener("mouseleave", () => { tip.style.display = "none"; });
+  if (opts.onClick) cv.addEventListener("click", e => { const p = cellAt(e); if (p) opts.onClick(p.c, p.r); });
+  wrap.appendChild(cv);
+  const cb = document.createElement("div"); cb.className = "cbar";
+  const bc = document.createElement("canvas"); bc.width = 90; bc.height = 8;
+  const bg = bc.getContext("2d");
+  for (let i = 0; i < 90; i++) { bg.fillStyle = css(interp(opts.stops, i / 89)); bg.fillRect(i, 0, 1, 8); }
+  const lo = opts.mode === "seq" ? opts.lo : -opts.vmax, hi = opts.mode === "seq" ? opts.hi : opts.vmax;
+  cb.innerHTML = "<span>" + fmt2(lo) + "</span>"; cb.appendChild(bc);
+  const hs = document.createElement("span"); hs.textContent = fmt2(hi); cb.appendChild(hs);
+  wrap.appendChild(cb);
+  return wrap;
+}
+
+// ====================================================================
+// rendering
+// ====================================================================
+function segOf(it, pos) { for (const s of it.segments) if (pos >= s.start && pos < s.end) return s.name; return null; }
+function bandRows(it) {
+  if (!state.band) return null;
+  const idx = it.layers.map((L, i) => [L, i]).filter(([L]) => L >= state.band[0] && L <= state.band[1]).map(([, i]) => i);
+  return idx.length ? [idx[0], idx[idx.length - 1]] : null;
+}
+function siblings(entry) {
+  return state.entries.filter(i => i.set === entry.set && i.fact_id === entry.fact_id && i.format === entry.format);
+}
+function renderItemCard() {
+  const it = state.item, e = state.entry, ph = it.prefix, wh = it.part;
+  const same = siblings(e);
+  const who = state.hide
+    ? e.set + " · " + e.fact_id + " · " + e.format + " · sample " + (same.findIndex(i => i.seq_id === e.seq_id) + 1) + "/" + same.length
+    : e.set + " · " + e.tid + " · " + e.format + (e.label ? " · judge: " + e.label + " · stance: " + e.stance : "");
+  $("itemmeta").textContent = state.manifest.model + " · " + who + " · split " + e.split + " · " + it.T + " positions · layers " +
+    it.layers[0] + "–" + it.layers[it.layers.length - 1];
+  const al = wh.answer_label, ansWord = al === "admit" ? "admits" : al === "deny" ? "denies" : (al || "—");
+  const b = [];
+  if (!state.hide) b.push(e.label ? "<span class='badge " + e.label + "'><small>judge</small>" + esc(e.label) + "</span>"
+                                  : "<span class='badge'><small>judge</small>no label (" + esc(e.set) + ")</span>");
+  b.push("<span class='badge " + (al === "admit" ? "yes" : al === "deny" ? "no" : "") + "'><small>self-report, " + esc(e.format) + "</small>" +
+         esc(ansWord) + "</span>");
+  b.push("<span class='badge'><small>set</small>" + esc(e.set) + "</span>");
+  $("badges").innerHTML = b.join("");
+  $("uprompt").textContent = ph.user_prompt;
+  $("uresp").textContent = ph.response;
+  const words = t => (t || "").trim().split(/\s+/).filter(Boolean).length;
+  $("convSum").textContent = "· user prompt " + words(ph.user_prompt) + " words · response " + words(ph.response) + " words";
+  $("quoterow").style.display = (!state.hide && ph.quote) ? "" : "none";
+  $("uquote").textContent = ph.quote || "";
+  $("uq").textContent = wh.question || "—";
+  const lab = wh.answer_label, cls = lab === "admit" ? "yes" : lab === "deny" ? "no" : "";
+  $("uans").innerHTML = "<span class='lab " + cls + "'>" + (lab === "admit" ? "admits" : lab === "deny" ? "denies" : lab) + "</span> " +
+    esc(JSON.stringify(wh.answer_text || "")) + (wh.answer_finished ? "" : " <span class='muted'>(cut off at the limit)</span>");
+}
+
+let posEls = {}, names = [];
+// position group -> [line name, template line?, show the slot number?]
+const GROUPS = {
+  ctx: ["user prompt (last)", false, false], preresp_slot: ["pre-response slots", true, true],
+  resp_tok: ["response", false, false], postresp_slot: ["post-response slots", true, true],
+  q_tok: ["question tokens", false, true], preans_slot: ["pre-answer slots", true, true],
+  think_slot: ["think slots", true, true], ans_tok: ["answer", false, false], postans_slot: ["post-answer slots", true, true],
+};
+const groupOf = p => names[p] ? names[p].replace(/\d+$/, "") : "ctx";
+function renderRibbon() {
+  const it = state.item, rb = $("ribbon");
+  rb.innerHTML = ""; posEls = {};
+  let cur = null, box = null;
+  for (let p = 0; p < it.tokens.length; p++) {
+    const g = groupOf(p), [title, tmpl, numbered] = GROUPS[g] || [g, false, false];
+    if (g !== cur) {                       // a new line for each group of positions
+      cur = g;
+      const row = document.createElement("div"), lab = document.createElement("span");
+      row.className = "rrow " + (tmpl ? "tmpl" : "body");
+      lab.className = "rlab"; lab.textContent = title; lab.title = "select the first token of this line";
+      lab.addEventListener("click", () => selectPos(p));
+      box = document.createElement("div"); box.className = "rtoks";
+      row.appendChild(lab); row.appendChild(box); rb.appendChild(row);
+    }
+    const el = document.createElement("span");
+    const sg = segOf(it, p);
+    el.className = "tok " + (sg === "post_response" ? "gen_prompt" : (sg || ""));
+    if (numbered) {
+      const ix = document.createElement("i"); ix.className = "ix"; ix.textContent = names[p].match(/\d+$/)[0];
+      el.appendChild(ix);
+    }
+    el.appendChild(document.createTextNode(disp(it.tokens[p])));
+    el.title = "pos " + p + (names[p] ? " · " + names[p] : "");
+    el.addEventListener("click", () => selectPos(p));
+    box.appendChild(el); posEls[p] = el;
+  }
+}
+function updateSelection() {
+  const it = state.item;
+  document.querySelectorAll("#ribbon .tok.sel").forEach(e => e.classList.remove("sel"));
+  const el = posEls[state.pos];
+  if (el) {
+    el.classList.add("sel");
+    const rb = el.parentElement, top = el.offsetTop, bot = top + el.offsetHeight;      // the line's own scroll box
+    if (top < rb.scrollTop) rb.scrollTop = top - 4;
+    else if (bot > rb.scrollTop + rb.clientHeight) rb.scrollTop = bot - rb.clientHeight + 4;
+  }
+  const p = state.pos, T = it.tokens.length;
+  $("posinfo").innerHTML = "<b>pos " + p + "</b>/" + (T - 1) + " · <b>" + (names[p] || "—") + "</b> · token “" + esc(disp(it.tokens[p])) +
+    "” · actual next → " + (p + 1 < T ? "<span style='color:var(--match);font-weight:650'>" + esc(disp(it.tokens[p + 1])) + "</span>" : "<i>(end)</i>") +
+    (state.layer != null ? " · selected layer <b>L" + state.layer + "</b>" : "");
+}
+
+function heatMatrix(it, a, b) {
+  const M = [];
+  for (let li = 0; li < it.layers.length; li++) {
+    const row = [];
+    for (let p = a; p < b; p++) {
+      if (state.heat === "yesno") { row.push(yesNoAt(it, li, p)); continue; }
+      const ro = readoutAt(it, state.heat.endsWith("_LL") ? "LL" : "J", li, p);
+      if (state.heat.startsWith("next")) row.push(p + 1 < it.tokens.length ? (tokStr(ro[0][0]) === it.tokens[p + 1] ? 1 : 0) : null);
+      else row.push(ro.filter(([tid]) => READABLE.test(tokStr(tid))).length / ro.length);
+    }
+    M.push(row);
+  }
+  return M;
+}
+function renderHeats() {
+  const it = state.item, cont = $("heats");
+  cont.style.minHeight = cont.offsetHeight + "px";
+  cont.innerHTML = "";
+  const r = seg(it, "response");
+  const a = state.win && r ? Math.max(0, r.end - 1) : 0, b = it.tokens.length;
+  const li = state.layer == null ? null : it.layers.indexOf(state.layer);
+  const M = heatMatrix(it, a, b);
+  let vmax = 0;
+  if (state.heat === "yesno") for (const row of M) for (const v of row) if (Number.isFinite(v)) vmax = Math.max(vmax, Math.abs(v));
+  const ans = seg(it, "answer");
+  const markers = [r ? { col: r.end - a } : null, ans ? { col: ans.start - a } : null].filter(Boolean);
+  const lensName = state.heat.endsWith("_LL") ? "logit-lens" : "J-lens";
+  const title = state.heat === "yesno" ? "J-lens Yes − No" : state.heat.startsWith("next") ? lensName + " top token = next token" : lensName + " readable share";
+  cont.appendChild(makeHeat(M, {
+    title: "<b>" + title + "</b>",
+    layers: it.layers, colLabels: it.tokens.slice(a, b), cw: state.win ? 14 : 9, ch: 7,
+    mode: state.heat === "yesno" ? "div" : "seq", vmax: vmax || 1, lo: 0, hi: 1,
+    stops: state.heat === "yesno" ? RDBU : VIRIDIS, markers, bandRows: bandRows(it),
+    sel: { col: state.pos - a, row: li },
+    onHover: (c, row, v) => "pos " + (c + a) + " " + (names[c + a] || "") + " “" + disp(it.tokens[c + a]) + "”  L" + it.layers[row] + "\n" + fmt2(v),
+    onClick: (c, row) => { state.layer = it.layers[row]; selectPos(c + a); },
+  }));
+  requestAnimationFrame(() => { cont.style.minHeight = ""; });
+}
+
+function renderColumns() {
+  const it = state.item, cont = $("cols");
+  const keepScroll = cont.scrollTop;
+  const nextStr = state.pos + 1 < it.tokens.length ? it.tokens[state.pos + 1] : null;
+  const order = it.layers.map((_, i) => i);
+  if (state.flip) order.reverse();
+  $("colpos").textContent = "pos " + state.pos + " " + (names[state.pos] || "") + " “" + disp(it.tokens[state.pos]) + "”";
+  const tbl = document.createElement("table"); tbl.className = "ro";
+  tbl.innerHTML = "<tr><th>L</th><th>" + LENS_LABELS.J + " top-" + state.k + "</th><th>" + LENS_LABELS.LL + " top-" + state.k + "</th></tr>";
+  const tip = $("tip");
+  const chipsFor = (lens, li) => {
+    const td = document.createElement("td"); td.className = "chips" + (lens === "J" ? "" : " j");
+    let rank = 0;
+    for (const [tid, prob] of readoutAt(it, lens, li, state.pos).slice(0, state.k)) {
+      rank++;
+      const raw = tokStr(tid);
+      const chip = document.createElement("span"); chip.className = "chip";
+      chip.style.background = "rgb(var(--heat-rgb) / " + heatAlpha(prob).toFixed(3) + ")";
+      chip.textContent = disp(raw);
+      const info = LENS_LABELS[lens] + " L" + it.layers[li] + " · rank " + rank + "\n" + JSON.stringify(raw) + " · id " + tid + "\np = " + fmtProb(prob);
+      chip.addEventListener("mousemove", e => { tip.textContent = info; tip.style.display = "block"; tip.style.left = (e.clientX + 12) + "px"; tip.style.top = (e.clientY + 14) + "px"; });
+      chip.addEventListener("mouseleave", () => { tip.style.display = "none"; });
+      if (nextStr !== null && raw === nextStr) chip.classList.add("match");
+      if (state.highlight !== null && raw === state.highlight) chip.classList.add("hl");
+      if (state.showProbs) { const ps = document.createElement("span"); ps.className = "p"; ps.textContent = fmtProb(prob); chip.appendChild(ps); }
+      chip.addEventListener("click", e => { e.stopPropagation(); state.highlight = state.highlight === raw ? null : raw; renderColumns(); });
+      td.appendChild(chip);
+    }
+    return td;
+  };
+  for (const li of order) {
+    const tr = document.createElement("tr");
+    const L = it.layers[li];
+    if (L === state.layer) tr.classList.add("sel");
+    if (state.band && L >= state.band[0] && L <= state.band[1]) tr.classList.add("inband");
+    const ll = document.createElement("td"); ll.className = "ll"; ll.textContent = "L" + L; tr.appendChild(ll);
+    tr.appendChild(chipsFor("J", li)); tr.appendChild(chipsFor("LL", li));
+    tr.addEventListener("dblclick", () => { state.layer = L; renderHeats(); renderColumns(); updateSelection(); });
+    tbl.appendChild(tr);
+  }
+  cont.replaceChildren(tbl);
+  cont.scrollTop = keepScroll;
+  tip.style.display = "none";
+}
+
+function selectPos(p) {
+  state.pos = Math.max(0, Math.min(state.item.tokens.length - 1, p));
+  const y = window.scrollY;
+  updateSelection(); renderHeats(); renderColumns(); updateHash();
+  if (window.scrollY !== y) window.scrollTo(0, y);
+}
+document.addEventListener("keydown", e => {
+  if (!state.item || ["SELECT", "INPUT"].includes(e.target.tagName)) return;
+  const step = e.shiftKey ? 10 : 1;
+  if (e.key === "ArrowLeft") { selectPos(state.pos - step); e.preventDefault(); }
+  if (e.key === "ArrowRight") { selectPos(state.pos + step); e.preventDefault(); }
+});
+
+// ====================================================================
+// selection: one entry per transcript x wording
+// ====================================================================
+function filteredItems() {
+  const st = $("setSel").value, sp = $("splitSel").value, cond = state.hide ? "" : $("condSel").value;
+  const fmt = $("fmtSel").value, ans = $("ansSel").value;
+  return state.entries.filter(i => (!st || i.set === st) && (!sp || i.split === sp) && (!cond || i.label === cond) &&
+                                   (!fmt || i.format === fmt) && (!ans || i.answer_label === ans));
+}
+function fillSelect(sel, vals, labelOf) {
+  const prev = sel.value; sel.innerHTML = "";
+  for (const v of vals) { const o = document.createElement("option"); o.value = v; o.textContent = labelOf ? labelOf(v) : v; sel.appendChild(o); }
+  if (vals.includes(prev)) sel.value = prev;
+}
+function refillFacts() {                       // one row per transcript of the selected wording
+  const list = filteredItems(), byTid = new Map(list.map(i => [i.tid, i]));
+  const ansWord = a => a === "admit" ? "admits" : a === "deny" ? "denies" : (a || "—");
+  fillSelect($("factSel"), [...byTid.keys()], tid => {
+    const i = byTid.get(tid), id = i.fact_id.replace(/^mask_provided_facts_/, "");
+    if (state.hide) {
+      const same = list.filter(j => j.fact_id === i.fact_id);
+      return id + (same.length > 1 ? " · sample " + (same.indexOf(i) + 1) + "/" + same.length : "");
+    }
+    return id + " · " + (i.label || "no label") + " · " + ansWord(i.answer_label);
+  });
+}
+function fillSelectors() {
+  const E = state.entries, uniq = k => [...new Set(E.map(i => i[k]))].sort();
+  fillSelect($("setSel"), uniq("set"));
+  fillSelect($("splitSel"), [""].concat(uniq("split")), v => v === "" ? "all" : v);
+  fillSelect($("condSel"), ["", "lie", "truth"], v => v === "" ? "all" : v);
+  fillSelect($("fmtSel"), uniq("format"));
+  fillSelect($("ansSel"), [""].concat(uniq("answer_label")), v => v === "" ? "all" : v === "admit" ? "admits" : v === "deny" ? "denies" : v);
+  applyHide();
+  refillFacts();
+}
+function applyHide() {
+  $("condSel").disabled = state.hide;
+  if (state.hide) $("condSel").value = "";
+}
+function currentEntry() {
+  const tid = $("factSel").value, list = filteredItems();
+  return list.find(i => i.tid === tid) || list[0] || state.entries[0];
+}
+async function showEntry(entry, keepPos) {
+  setStatus("loading …");
+  try { state.item = await loadItem(entry); }
+  catch (err) { setStatus("failed: " + err.message, true); throw err; }
+  state.entry = entry;
+  $("setSel").value = entry.set; $("fmtSel").value = entry.format; refillFacts(); $("factSel").value = entry.tid;
+  const it = state.item;
+  names = positionNames(it);
+  setStatus(it.tokens.length + " positions");
+  if (pending.pos !== null && !isNaN(+pending.pos)) state.pos = Math.max(0, Math.min(it.tokens.length - 1, +pending.pos));
+  else if (!keepPos || state.pos >= it.tokens.length) { const k = names.indexOf("postresp_slot0"); state.pos = k >= 0 ? k : 0; }
+  pending.pos = null;
+  if (state.layer == null) state.layer = it.layers[Math.floor(it.layers.length * 0.6)];
+  state.highlight = null;
+  renderItemCard(); renderRibbon(); updateSelection(); renderHeats(); renderColumns(); updateHash();
+}
+function stepEntry(d) {
+  let list = filteredItems(); if (!list.length) list = state.entries;
+  const k = list.findIndex(i => i.seq_id === state.entry.seq_id);
+  showEntry(list[(k + d + list.length) % list.length], true).catch(() => {});
+}
+$("factSel").addEventListener("change", () => showEntry(currentEntry(), true).catch(() => {}));
+for (const id of ["setSel", "splitSel", "condSel", "fmtSel", "ansSel"]) $(id).addEventListener("change", () => { refillFacts(); showEntry(currentEntry(), true).catch(() => {}); });
+$("prevBtn").addEventListener("click", () => stepEntry(-1));
+$("nextBtn").addEventListener("click", () => stepEntry(1));
+$("swapBtn").addEventListener("click", () => {
+  const same = siblings(state.entry);
+  if (same.length < 2) { setStatus("this item has one transcript"); return; }
+  const k = same.findIndex(i => i.seq_id === state.entry.seq_id);
+  showEntry(same[(k + 1) % same.length], true).catch(() => {});
+});
+$("hideChk").addEventListener("change", e => { state.hide = e.target.checked; applyHide(); refillFacts(); if (state.item) { renderItemCard(); updateHash(); } });
+$("bandIn").addEventListener("change", e => {
+  const m = e.target.value.trim().match(/^(\d+)\s*[-–]\s*(\d+)$/);
+  state.band = m ? [Math.min(+m[1], +m[2]), Math.max(+m[1], +m[2])] : null;
+  if (!m) e.target.value = "";
+  if (state.item) { renderHeats(); renderColumns(); updateHash(); }
+});
+$("heatSel").addEventListener("change", e => { state.heat = e.target.value; renderHeats(); updateHash(); });
+$("winChk").addEventListener("change", e => { state.win = e.target.checked; renderHeats(); });
+$("probsChk").addEventListener("change", e => { state.showProbs = e.target.checked; renderColumns(); });
+$("kSel").addEventListener("change", e => { state.k = +e.target.value; renderColumns(); });
+$("flipChk").addEventListener("change", e => { state.flip = e.target.checked; renderColumns(); });
+
+// ====================================================================
+// model switching / address bar / boot
+// ====================================================================
+async function switchModel(model) {
+  state.model = model;
+  setStatus("loading manifest…");
+  state.manifest = await fetchJSON(model + "/manifest.json");
+  VOCAB = await fetchJSON(model + "/vocab.json");
+  state.entries = [];
+  for (const t of state.manifest.transcripts)
+    for (const w of state.manifest.wordings)
+      if (t.wordings[w]) state.entries.push({ seq_id: t.tid + "|" + w, tid: t.tid, fact_id: t.item_id, format: w, set: t.set,
+        split: t.split, label: t.label, stance: t.stance, k: t.k, answer_label: t.wordings[w].answer_label });
+  cache.clear();
+  fillSelectors();
+  state.layer = null;
+  const n = pending.n; pending.n = null;
+  await showEntry((n !== null && state.entries[+n]) || state.entries[0], false);
+}
+$("modelSel").addEventListener("change", e => switchModel(e.target.value).catch(err => setStatus(err.message, true)));
+
+function updateHash() {
+  if (!state.entry) return;
+  // the item is addressed by its number, never by its id
+  const h = new URLSearchParams({ m: state.model, n: String(state.entries.indexOf(state.entry)), p: String(state.pos) });
+  if (state.layer != null) h.set("l", String(state.layer));
+  if (state.band) h.set("band", state.band.join("-"));
+  if (state.heat !== "next") h.set("heat", state.heat);
+  if (state.hide) h.set("labels", "0");
+  if (!$("convFold").open) h.set("fold", "1");
+  const th = document.documentElement.dataset.theme; if (th) h.set("theme", th);
+  history.replaceState(null, "", "#" + h.toString());
+}
+$("convFold").addEventListener("toggle", updateHash);
+$("themeBtn").addEventListener("click", () => {
+  const cur = document.documentElement.dataset.theme || "auto";
+  const next = cur === "auto" ? "dark" : cur === "dark" ? "light" : "auto";
+  if (next === "auto") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = next;
+  $("themeBtn").textContent = next === "auto" ? "◐" : next === "dark" ? "●" : "○";
+  if (state.item) renderHeats();
+  updateHash();
+});
+
+async function boot() {
+  const h = new URLSearchParams(location.hash.replace(/^#/, ""));
+  const th = h.get("theme");
+  if (th === "light" || th === "dark") { document.documentElement.dataset.theme = th; $("themeBtn").textContent = th === "dark" ? "●" : "○"; }
+  pending.n = h.get("n"); pending.pos = h.get("p");
+  if (h.get("l")) state.layer = +h.get("l");
+  if (h.get("band")) { $("bandIn").value = h.get("band"); const m = h.get("band").split("-").map(Number); if (m.length === 2) state.band = m; }
+  if (h.get("heat")) { state.heat = h.get("heat"); $("heatSel").value = state.heat; }
+  state.hide = h.get("labels") === "0"; $("hideChk").checked = state.hide;
+  $("convFold").open = h.get("fold") !== "1";
+  const models = await fetchJSON("index.json");
+  if (!models.length) throw new Error("no models listed");
+  const msel = $("modelSel"); msel.innerHTML = "";
+  for (const s of models) { const o = document.createElement("option"); o.value = s; o.textContent = s; msel.appendChild(o); }
+  const want = models.includes(h.get("m")) ? h.get("m") : models[0];
+  msel.value = want;
+  $("setup").style.display = "none"; $("app").style.display = "";
+  await switchModel(want);
+}
+boot().catch(err => { $("setup").style.display = "block"; setStatus("no data: " + err.message, true); });
+</script>
+
+</body>
+</html>

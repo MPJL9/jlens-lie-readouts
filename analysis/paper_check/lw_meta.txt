@@ -1,0 +1,267 @@
+
+## TL;DR
+
+We used J-lens on Qwen3.6-27B to find “meta-tokens”: tokens that surface non-obvious computation in the model. When the model reads ambiguous text, 什么意思 ("what does this mean") fires in the J-space, and steering it away makes the model answer "a boiled egg every morning is hard to beat" with nutrition facts instead of catching the pun. On LCM problems, "gcd" fires, pointing at the product/GCD algorithm: swapping the GCD vector from 9 to 3 makes the model change its answer for the LCM of 27 and 90 from 270 to 810. Additionally, before the model hedges, 大概率 ("most likely") fires, and suppressing it makes the model commit to a single option (for e.g. "There are several logical places John could have gone" turns into "he went to the stationery store)." While meta-tokens are hard to find with J-lens’ single token constraint, future methods for multi-token J-lens open the possibility for valuable insights into the model’s internal algorithms.
+
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/v1784582722/lexical_client_uploads/bjr54rugqoiu5q33dr2i.png alt=image 77.png]
+
+## Motivation
+
+One important goal in interpretability is to surface the variables the model uses in its computations. Another is to surface the algorithms that give rise to these variables. We can call the former variable interpretability and the latter algorithm interpretability (see e.g. Engels et al). Recent work from Anthropic introduced an interpretability technique called the J-lens, which seems to allow us to access a cognitive space in the model. J-lens is a technique for interpreting intermediate variables in the residual stream, so initially its applications to algorithm interpretability seem highly indirect (i.e. looking at which intermediates are used can narrow down algorithms). Expanding on our preliminary findings, we find evidence that J-lens can in some cases more directly indicate the algorithm used by the model.
+
+## What are “meta-tokens”?
+
+We loosely define meta-tokens as tokens that appear in J-lens readouts and give non-obvious evidence of the type of processing/algorithm occurring in the model. The token vectors are not required to be causal, but should at least correspond to some causal concept in the model. These tokens generally show up in the “workspace layers” (a band ~30-90% of the way through the model). In Qwen, we find "meta-tokens" to often be Chinese tokens, which are much more information dense per character than English characters. Since the J-Lens can only find concepts corresponding to a single-token, it is able to find more interesting concepts in Qwen.
+
+## Why are we writing this post?
+
+Proof of concept that J-lens can help us surface nontrivial computations in the model beyond intermediate variables
+
+Catalog interesting case studies of interesting meta-tokens, and as interesting test cases for multi-token J-Lens attempts (the natural next step for the technique).
+
+## Replication
+
+We replicate and fit a J-lens for Qwen 3.6-27B (64 layers), taking the Jacobian with respect to the penultimate layer, averaging over 25 sequences of 128 tokens from the Pile (NeelNanda/pile-10k) mainly, while some experiments use wikitext. We skipped the first four tokens per prompt during averaging since they had an anomalously high norm. We note that as this is a different and weaker model so some results should differ. Anthropic's ablations show that averaging over n=10 prompts is nearly as good as their n=1000, and we find n=25 in our case to work well enough. We report key experimental replications of our J-lens in the Appendix.
+
+## Case studies
+
+### Interpretative meta-tokens
+
+We found four interpretative meta-tokens: 什么意思 (what meaning), 是什么意思 (what does it mean), 这句话 (this sentence), 是何含义 (what does it mean). These seem to have similar functions so we will study them collectively. These appear on sentences that are ambiguous or have a non-obvious context (like poems, crossword hints, jokes, tweets, etc.), and they have a causal role on the model’s ability to disambiguate the context of a prompt.[1]
+
+We first observed these meta-tokens on ambiguous poetry prompts, like “the drummer boy kept the marching column in line,\n”, particularly on the new line token. When looking at the J-lens readout, the meta-tokens (green) appear right before the model seems to recognize the context (“poem”/“song” in orange).
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/8d7119defb8da1e646ec8266ec6ad8f7754609c1d40c785b64459849b79edc42/qxubmy26grvylzyxs6jf alt=]
+As further evidence that these meta-tokens are related to disambiguation, when we clarify the context of the prompt with a prefix like “A poem:”, the meta-tokens largely do not show up and are replaced by more genre tokens.
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/3db14cbb73aa2cad22c09938fed6d75778eb87db5a2848c2d8501e6f80981bd1/pw2n88slbo7qyykog54o alt=]
+Eval setup
+
+We test if the interpretative meta-tokens play a causal role in the model figuring out the context of a mildly ambiguous sentence, like a poem or a joke. We negatively steer the J-lens directions for the meta-tokens. We construct three types of ambiguous/non-obvious settings (puns, rhymes, and implied wordplay) and see how the model’s response changes when steering with meta-token vectors and random vectors as controls.
+
+Steering details:
+
+Steered at 1) all workspace layers, and 2) all layers where the meta-tokens were salient (defined by them occurring in the top 10 J-lens readouts at that layer at any position)
+
+Computed a separate steering vector per layer
+
+Steered at the punctuation and subsequent chat template tokens (or all positions for the pretraining style rhyme prompt)
+
+Swept steering coefficients to find the highest value where the model was coherent, with a separate sweep for each prompt and vector (meta, random)
+
+Used an LLM autorater to measure the rate at which the model recognizes the context, given that it is coherent and on topic
+
+Generated 50 rollouts per prompt
+
+Causality results
+
+Negative steering with the interpretative meta-token consistently decreased the model’s recognition of the prompt context
+
+Negative steering with the random token had little to no effect (even with a similar sweep to find the strongest steering coefficient before response degradation)
+
+Ablating the meta-token (subtracting projection of the activations onto the J-lens vector w/ coefficient 1.0 generally had no effect. Our interpretation is that the J-lens vector direction is an imperfect approximation to the true direction and so ablating it leaves a residual term, but negative steering can cancel out this residual term.
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/dd6d4aa0b62cda2e420b287a2f3cf00b3fdf1ebd3c49f6ce92a909da4e8e6165/e2npqthif0qx5jjd4lst alt=]
+Examples of steered and baseline rollouts
+
+Pun: Realizing the user is making a pun
+Prompt: “A boiled egg every morning is hard to beat.”
+
+Baseline: "That’s a classic pun! 🥚😁 \n\nIt plays on the double meaning of **\"beat\"**:\n1. **To surpass or defeat** (as in, it’s a great habit that’s hard to improve upon)...."
+
+Steered: "Indeed, the humble boiled egg is a nutritional powerhouse that’s hard to beat for breakfast! 🥚\n\nHere’s why it’s such a great choice:\n\n###  ✅ Benefits of a Daily Boiled Egg:\n1. **High…"
+
+Rhyme: Continuing a poem while rhyming (pretraining style predict the next token, no chat formatting)
+Prompt: “What is the now but absence wearing form,\nA stillness held inside the passing storm?\nWe name the river, though it never stays,\n”
+
+Baseline: "And point to sky as if it holds the days.\nWe trace the shadow, though it fades to none,\nAnd call the silence “music” when it’s done.\n…",
+
+Steered: "A beautiful illusion that deceives our eyes.\nThe beauty of the moment lies in its passing,\nLike a flower that blooms, then fades away.",
+
+Wordplay-hint: Responding to a note “(wordplay)” by responding to the user with puns/similar.
+Prompt: “Cats are my favorite animal (wordplay)."
+
+Baseline: "That’s a **purr-fect** choice! 🐾\n\nI hope your day is filled with **meow**-ntains of joy and **paw**-sitively wonderful moments. 😸..."
+
+Steered: “Cats are a very popular pet for many people, and I understand that many people love them. Cats are not only cute and adorable, but also smart and independent. They are able to clean themselves, have a strong sense of direction,..."
+
+### GCD meta-token
+
+On simple LCM questions like “The lcm of x and y is: ”, we found that the token “gcd” fires in the workspace layers (this happened on all the LCM questions we tested). A natural algorithm (but not the only one) for computing the LCM is product / GCD. While the J-Lens vector for "gcd" is not causal, we find causal evidence that this is the algorithm being used. We note that we do not try to prove that this is the only algorithm being performed.
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/8daab36558bfba52d278ad696c18ee0b65ee9cc35497e676e33ca19a26694098/drsx9jb7kyaccq8x6et3 alt=]
+Eval Setup
+
+To construct sample prompts for target gcd g, we sample a = g·m, b = g·n with m < n, gcd(m,n) = 1 (so gcd(a,b) = g exactly), with both operands being sampled uniform-random in [10, 120]. All gcds lie between 2-10. Since single digits get tokenized as single tokens, if the gcd is a single digit then we can expect it to pop up as an intermediate.
+
+For all experiments, we generate 50 rollouts per prompt, 10 variations of the same prompt that have the same gcd. We take rollouts with a temperature of 0.7 and do not use chain-of-thought or a chat-template.
+
+All results here are with <10% degeneracy in the rollouts, where degeneracy is measured as "model does not output a number as its next token"
+
+We steered at all prefill positions, single layers, and computed a separate steering vector per layer.
+
+d_g = mean final-prompt-token residual across 20 prompts with gcd = g minus the grand mean over the 10 class centroids computed at every layer
+We validate that there exists a “value of the GCD” variable in the model: training a linear probe on the final layer activations, we can reliably predict the GCD
+
+Causality results:
+
+Negative steering causes the model to respond with an incorrect integer answer
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/92cc8cc9d3884d9078d36f4ca585835c00a4dc902f59a19b2e44b635882a4319/tajt9zyt0c2rnlxbsgrp alt=]
+Swapping in a different GCD value changes the LCM answer as if the GCD was the swapped
+Here we try two different kinds of swaps and report results for both (here d_t is just the gcd vector for a target gcd value not equal to g):
+Pinv (same method as swapping in Gurnee et al.)
+read the residual's oblique coordinates in the concept frame via the pseudoinverse:c = V⁺(h − grand) with V = [d_g, d_t], then write back h + γ·V(σ(c) − c), which keeps the orthogonal complement untouched (d_g and d_t indicate actual and target gcd's)
+
+Surgical
+Project out along d_g and add back α · d_t
+
+rollouts from the 9->3 swap (-> denotes what comes after prompt). The true LCM is 270 here but when swapping the gcd to 3 from 9, we are able to convert the LCM to 810.
+"The LCM of 27 and 90 is ⟶ 810. So how do we find the least"
+
+"The LCM of 27 and 90 is ⟶ 810. Below are two methods to compute the"[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/6ek6n7yZ5DzfarJHy/1dfa2da7d4360929839bc4ab96fb281fd6eadbb8ba83a4e5f04ad345ac8ae5ae/mnrala9rux8oduptpu99 alt=]
+
+Our key takeaway from this is that even when the J-lens vector itself is not causal, it can tell us something about the algorithm the model might be using to answer the question
+
+We find other similar meta-token candidates (but haven’t investigated them deeply): ‘stack’ and ‘xor’ tokens pop up on balancing parentheses or finding repeats questions respectively
+These tokens could be associates learnt during training (since these are common algorithms to solve such problems) or actual algorithms the model is using like in the GCD case. We leave a complete account to future work.
+
+### Hedging meta-token
+
+When the model is given an open-ended question with multiple possible answers, we find that the token “大概率” (“most likely/high probability”) often appears in the workspace layers. The model’s generations on such prompts often involve the model exhibiting hedging behavior, providing multiple answer options and acknowledging that there is no one correct answer to the question. Suppressing this token reduces the model’s hedging behavior.
+
+Eval setup
+
+We steered at all prefill positions, all salient layers, and compute a separate steering vector per layer
+
+We use an LLM autorater to measure the rate at which the model commits to a single answer, given that it is coherent and on topic
+This lets us avoid measuring the uninteresting/obvious case where a model will simply stop using specific “hedging” words rather than truly changing its behavior
+
+Causality results
+
+Across 5 prompts, the unsteered model will rarely commit to a single answer (<12% on the highest prompt)
+
+When negative steering with the meta-tokens, the model commits to a single answer at a significantly higher rate (this does not happen under random steering)
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/22bf4e47d89f152475c9e577c1f2ff770e7187a38a39e8d61bf152931cefe9cf/ok02y5grxkyiv2euzicr alt=]
+Example of steered and baseline rollouts
+
+Prompt: “John ran out of pencils. Where did he go to get more?"
+
+Baseline: "Since this is an open-ended question with no specific context provided, there are several logical places John could have gone:\n\n1.  **A store** (such as a grocery store, office supply store, or convenience store).\n2…"
+
+Steered: "He went to the stationery store."
+
+## Searching for more meta-tokens
+
+We built an autoresearch loop to surface potential meta-tokens. Overall we were fairly disappointed with what we were able to find. We did find examples like hedging and gcd this way but the phenomena seems less prevalent than we initially hoped. We suspect that this is due to limitations of the vocab, and that there exist similar meta-concepts without corresponding tokens. We are excited to see if multi-token J-Lens methods can find them.
+
+We describe our setup here along with results. The loop runs in four stages: a corpus-wide J-lens sweep produces firing statistics, an LLM proposes candidate meta-tokens along with a hypothesis about which computation each one indexes, a cascade of filters prunes the candidates and sharpens the hypotheses, and the survivors go to human inspection.
+
+For each prompt we capture the residual stream and apply the J-lens readout at every (layer, position) cell, recording the rank of every vocabulary token. A token fires on a sample if it reaches rank ≤ 20 somewhere in the workspace band (≈ L20–62); its prevalence is the fraction of samples on which it fires. We materialize firings as a (token, sample, position, rank) table, so filters and per-token aggregates are cheap to recompute.
+
+We apply the following filters to remove tokens that are obvious given the context in which they appear:
+
+Prevalence: keeps tokens that recur across many samples in the dataset, so the signal reflects an ongoing computation rather than sampling noise.
+
+Position type: we find a large share of interesting tokens land on structural slots (terminators, newlines, commas) or on the <|im_start|> and <assistant> tags in the chat template so we specifically look at these positions.
+
+Obviousness: a probe tries to predict the firing token from surface features of the context (previous user turn embedding similarity, lexical overlap).
+
+LM judge: an LLM rates semantic relatedness between the firing token and its context, and we keep the dissociated firings, where the token fires with no surface relation to the text at all.
+
+We swept a deliberately heterogeneous set of texts, sampling 500-1000 samples/dataset:
+
+pretraining prose (Pile, WikiText, FineWeb in en/zh/ja/ko/es/ar)
+
+factual and multi-hop QA (TriviaQA, HotpotQA, 2Wiki, MuSiQue, TruthfulQA, CommonsenseQA)
+
+math (GSM8K)
+
+domain text (CaseHOLD, DailyDialog, persuasion arguments, news summarization)
+
+instruction and tool use (Alpaca, Dolly, SWE-chat, Dolci trajectories)
+
+We found less than we hoped. Most high-prevalence candidates were surface-predictable and only a handful of non-obvious survivors held up through the full funnel. We provide some interesting tokens that we found but haven’t fully validated as meta-tokens in the Appendix. We think the binding constraint is the J-lens itself: each direction reads out exactly one vocabulary item, so the discoverable meta-descriptions are bounded by the computations that happen to be lexicalized as a single token in Qwen's vocabulary.
+
+However, we still think that our results provide an initial proof of concept that abstract tokens in the J-space can surface interesting features about model computations. We think building multi-token J-lens can provide us with further such meta-tokens or meta-phrases, allowing us to understand underlying model algorithms better.
+
+## Discussion
+
+We provide a few case studies of meta-tokens which seem to be useful in recognizing a causally important computation in the model, whether this is the J-lens vector itself being causal or simply reading out a causal concept that the model is using. The scope of our study is limited (single token, Chinese phrases, 27B model), but this shows signs of life that there are useful intermediate representations that help us gain insight into the algorithms used by the models, and techniques like J-lens can be helpful to make hypotheses about these. J-lens may be limited to single tokens, but it is likely that representations that describe the model’s computations occur over multiple tokens. We expect that future multi-token methods can help us build off of our current work on meta-tokens and make meaningful progress on algorithm interpretability.
+
+## Related Work
+
+Gurnee et al. introduce the J-lens, a correction to the logit lens. Where the logit lens assumes an activation at layer ℓ shares coordinates with the final layer, the J-lens first passes the residual stream through the Jacobian, capturing how early perturbations propagate to later layers. The J-lens surfaces tokens the model can verbalize but not necessarily generate. Together, the J-lens vectors form the J-space, which surfaces interesting tokens across a middle band of layers, aka the ‘workspace layers’.
+
+Gurnee et al. find that most J-space tokens relate directly to next-token prediction, but some positions surface intermediate concepts, especially on multi-hop arithmetic and factual recall. Asked "What color is the planet fourth from the sun?", Claude's J-space surfaces "Mars," and replacing it with "Earth" flips the answer from red to blue. They also report nontrivial tokens relevant to alignment audits: "fake" in evaluation scenarios, "reward" when appeasing reward models. The J-space can therefore expose intermediate tokens we can intervene on, including interesting tokens not obvious from the input or output.
+
+## Acknowledgements
+
+This work was supported by the MATS program.
+
+## Appendix
+
+### Replicating Key Experiments for J-Lens
+
+We replicated the following experiments:
+
+Verbal Report
+We tested whether the verbalizable ranking of the model (as measured by final layer logprobs) correlated with the J-lens ranking of the same candidate tokens. We found J-lens to correlate better with verbalizable rankings in early-to-middle layers in the model than logit-lens (though not significantly).
+
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/db8cebe3df48bf93714a290218e4fa9283cd5c78cb6aa0657bce4067eb81a874/wqgpmeqicvspgap84b43 alt=image]
+CKA
+We found somewhat similar squares (link), though less clean. It looks like the workspace layers are made of two or three somewhat overlapping bands (four or five bands total), and are notably less clean than the paper's.
+
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/8b203c148a7ed334bc9a4f04d1686dc3a45e1438620fe94b29b486da4625c621/kcpw3ovhqgcoo4jrdrh6 alt=]
+Directed Modulation
+We follow a similar setup to Gurnee et al. and test whether the model can hold different concepts in its J-space when directed to do other tasks. Concretely, tasks here take the form of “Think about X. Do Y” where Y involves completing a sentence while we vary X.
+
+[IMG https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/bcd4a037340e9e91b0ad107d77e91b7b3a5ad7b13003d25f9d41672fd528bd12/lftomlcmsk8jreph7icj alt=]
+Quantitative Evals (should we include this)
+Refer to this for more information on quantitative evals we ran.
+
+### Interesting Meta-tokens surfaced from our search
+
+更新于 - "to replace the old with new"
+
+Comes up when the user asks for a code fix/replacement.
+
+Example:
+"Replace CameraOffsetX/Y with CameraZoom = 2.0f… ·"
+
+"### Setting the policy (replaces 11 call sites)"
+
+相信在 - 'to believe in'
+
+Fires almost exclusively when the prompt starts with a compaction summary like "This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation."
+
+追问 - "to question closely / press / follow up"
+
+Fires when the user keeps drilling / follows up after a prior step and is indicative of persistent, insistent questioning
+
+Examples
+"…commit and push please"
+
+"how would you track line ownership?" (pressing for more detail after a fix estimate)
+
+"Do we have this code block copied multiple times now?" / "are the copilot PR review comments still valid?"
+
+反问 - "to ask (a question) in reply / counter-question"
+
+shows up a lot in
+rhetorical self checks, for e.g.
+"This endpoint isn't called. Remove it?"
+
+"The natural question is… who can access THIS layer?"
+
+when there is a question in the assistant reply
+e.g. "Would you like to: 1. Continue… 2. Add a todo", "Want me to fix them?"
+
+when the user counters with a question
+e.g. when does this happen with the manual-commit strategy? … right, but we currently have no message about it?"
+
+this seems to be different than "this is just a normal question" as it doesn't show up on genuine info requests
+
+引用 -  "to quote/cite”
+
+When the model is given a factual recount of events (like legal caseholdings), the J-lens shows “引用” (to quote/cite), which we hypothesize affects the model’s behavior to refer back to its sources. In its absence, we hypothesize that the model might not refer to important sources that might be relevant to the computation it is doing.
+
+^
+
+We find these meta tokens to be more prevalent in the official Qwen-3.6-27B J-Lens readouts.
+

@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nineteen Missed Lies</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #F3F5F8; --surface: #FFFFFF; --surface-2: #E9EDF2; --text: #1B2330; --muted: #5E6978;
+  --line: #D4DAE3; --accent: #1E6E8C; --accent-soft: #D9EBF2; --focus: #1E6E8C;
+  --c-eight: #B23F2B; --c-lie: #C9683F; --c-truth: #2F7D4E; --c-fam: #9C6F08; --c-echo: #6E58A8;
+  --c-chat: #4D6E99; --c-none: #8A93A0; --c-plain: #1B2330;
+  --quote-bg: #FBE7B0; --quote-line: #D9A520; --band-bg: #FFFFFF; --off-bg: #EEF1F5;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #11151A; --surface: #181D24; --surface-2: #222931; --text: #E4E8EE; --muted: #98A2B0;
+    --line: #2C343F; --accent: #66B9D5; --accent-soft: #17323D; --focus: #66B9D5;
+    --c-eight: #EE7A62; --c-lie: #E9976F; --c-truth: #63C28A; --c-fam: #DBAB3B; --c-echo: #AF9FE4;
+    --c-chat: #8CADDB; --c-none: #7C8692; --c-plain: #E4E8EE;
+    --quote-bg: #4B3E14; --quote-line: #C9A030; --band-bg: #181D24; --off-bg: #12161C;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #11151A; --surface: #181D24; --surface-2: #222931; --text: #E4E8EE; --muted: #98A2B0;
+  --line: #2C343F; --accent: #66B9D5; --accent-soft: #17323D; --focus: #66B9D5;
+  --c-eight: #EE7A62; --c-lie: #E9976F; --c-truth: #63C28A; --c-fam: #DBAB3B; --c-echo: #AF9FE4;
+  --c-chat: #8CADDB; --c-none: #7C8692; --c-plain: #E4E8EE;
+  --quote-bg: #4B3E14; --quote-line: #C9A030; --band-bg: #181D24; --off-bg: #12161C;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--text); font: 14px/1.5 var(--sans); }
+a { color: var(--accent); }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; font-weight: 600; }
+h1 { font-size: 20px; }
+h2 { font-size: 17px; }
+h3 { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface);
+  border-bottom: 1px solid var(--line); padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 6px 24px; align-items: baseline; }
+.top p { margin: 0; color: var(--muted); max-width: 90ch; }
+.top .counts { font-variant-numeric: tabular-nums; }
+
+.app { display: grid; grid-template-columns: 320px minmax(0, 1fr); min-height: 100vh; }
+.rail { border-right: 1px solid var(--line); background: var(--surface); position: sticky; top: 58px;
+  align-self: start; max-height: calc(100vh - 58px); overflow-y: auto; padding: 12px 12px 24px; }
+.rail h3 { margin: 10px 4px 6px; }
+.rail .note { color: var(--muted); font-size: 12px; margin: 0 4px 6px; }
+.item { display: grid; grid-template-columns: 28px 1fr; gap: 2px 8px; width: 100%; text-align: left; border: 1px solid transparent;
+  background: none; border-radius: 6px; padding: 6px 8px; cursor: pointer; }
+.item:hover { background: var(--surface-2); }
+.item[aria-current="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.item .num { font-family: var(--mono); color: var(--muted); font-size: 12px; padding-top: 2px; }
+.item .body { display: grid; gap: 3px; min-width: 0; }
+.item .line1 { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.item .scen { font-family: var(--mono); font-size: 12px; }
+.item .len { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.item .line2 { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+.chip { display: inline-block; font-size: 11px; line-height: 1.3; padding: 1px 6px; border-radius: 10px; border: 1px solid; }
+.chip.lie { color: var(--c-lie); border-color: var(--c-lie); }
+.chip.eight { color: var(--c-eight); border-color: var(--c-eight); }
+.chip.truth { color: var(--c-truth); border-color: var(--c-truth); }
+.chip.unclear { color: var(--c-fam); border-color: var(--c-fam); }
+.badges { display: inline-flex; gap: 2px; font-family: var(--mono); font-size: 11px; }
+.badges span { width: 16px; text-align: center; border-radius: 3px; background: var(--surface-2); color: var(--muted); }
+.badges span.a { background: var(--c-truth); color: #fff; }
+.badges span.d { background: var(--surface-2); color: var(--text); }
+.picker { display: none; padding: 10px 16px 0; }
+.picker select { width: 100%; padding: 6px; font: inherit; }
+
+.pane { padding: 16px 20px 48px; display: grid; gap: 22px; align-content: start; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 13px; }
+.meta b { color: var(--text); font-weight: 500; }
+.block { display: grid; gap: 6px; }
+.prose { font: 16px/1.55 var(--serif); max-width: 70ch; white-space: pre-wrap; overflow-wrap: anywhere; }
+.prose.small { font-size: 15px; color: var(--text); }
+mark { background: var(--quote-bg); color: inherit; box-shadow: 0 -1px 0 var(--quote-line) inset; padding: 0 1px; border-radius: 2px; }
+details { border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; background: var(--surface); max-width: 80ch; }
+details summary { cursor: pointer; color: var(--muted); }
+details .prose { margin-top: 8px; }
+.fact { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; max-width: 80ch; font-size: 13px; }
+.fact .k { color: var(--muted); }
+.answers { display: grid; gap: 6px; max-width: 80ch; }
+.answer { display: grid; grid-template-columns: 34px 54px 1fr; gap: 10px; align-items: baseline; font-size: 13px; }
+.answer .w { font-family: var(--mono); color: var(--muted); }
+.answer .l { font-weight: 500; }
+.answer .l.admit { color: var(--c-truth); }
+.answer .l.deny { color: var(--c-eight); }
+.answer .t { color: var(--muted); }
+.answer .q { grid-column: 2 / 4; color: var(--muted); font-size: 12px; }
+
+.ro-head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; }
+.tab { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 4px 10px; cursor: pointer; font-family: var(--mono); font-size: 12px; }
+.tab[aria-selected="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.toggle { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; background: var(--sw); }
+.legend .next::before { background: none; border: 1.5px dashed var(--text); }
+.gridwrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+table.grid { border-collapse: collapse; font-family: var(--mono); font-size: 12px; }
+table.grid th { font-weight: 500; color: var(--muted); padding: 4px 6px; text-align: left; position: sticky; top: 0; background: var(--surface); }
+table.grid th.layer { text-align: right; padding-right: 10px; font-variant-numeric: tabular-nums; }
+table.grid td.layer { text-align: right; padding: 0 10px 0 6px; color: var(--muted); font-variant-numeric: tabular-nums; background: var(--surface); position: sticky; left: 0; }
+table.grid tr.band td.layer { color: var(--text); }
+table.grid tr.off td { background: var(--off-bg); }
+table.grid tr.band td { background: var(--band-bg); }
+table.grid tr.band-start td { border-top: 2px solid var(--accent); }
+table.grid tr.band-end td { border-bottom: 2px solid var(--accent); }
+td.tok { max-width: 84px; min-width: 56px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 1px 5px; border-left: 1px solid var(--line); cursor: default; }
+.gridwrap { max-height: 70vh; overflow-y: auto; }
+.c-eight { color: var(--c-eight); font-weight: 500; }
+.c-lie { color: var(--c-lie); font-weight: 500; }
+.c-truth { color: var(--c-truth); font-weight: 500; }
+.c-fam { color: var(--c-fam); }
+.c-echo { color: var(--c-echo); }
+.c-chat { color: var(--c-chat); }
+.c-none { color: var(--c-none); }
+.c-plain { color: var(--c-plain); }
+td.tok.next { outline: 1.5px dashed var(--text); outline-offset: -2px; }
+td.tok.hl, tr.toklist.hl td { background: var(--accent-soft) !important; }
+.two { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (min-width: 1500px) { .two { grid-template-columns: minmax(0, 1fr) minmax(300px, 420px); } }
+.tokwrap { overflow-x: auto; }
+table.toklist { border-collapse: collapse; font-size: 12px; width: 100%; }
+table.toklist th { text-align: left; color: var(--muted); font-weight: 500; padding: 3px 6px; border-bottom: 1px solid var(--line); }
+table.toklist td { padding: 2px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.toklist td.t { font-family: var(--mono); white-space: nowrap; }
+table.toklist td.n { font-variant-numeric: tabular-nums; text-align: right; }
+table.toklist tr { cursor: pointer; }
+table.toklist tr:hover td { background: var(--surface-2); }
+.tip { position: fixed; z-index: 10; pointer-events: none; background: var(--text); color: var(--bg); padding: 6px 8px; border-radius: 4px;
+  font-size: 12px; max-width: 320px; font-family: var(--sans); }
+.tip .t { font-family: var(--mono); }
+.sib { color: var(--muted); font-size: 13px; }
+.kbd { font-family: var(--mono); font-size: 11px; border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; }
+
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; }
+  .rail { display: none; }
+  .picker { display: block; }
+  .two { grid-template-columns: 1fr; }
+  .pane { padding: 12px 16px 40px; }
+}
+@media (prefers-reduced-motion: no-preference) { .item, .tab { transition: background .12s; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Nineteen Missed Lies</h1>
+  <p id="intro"></p>
+</header>
+<div class="picker"><select id="pick" aria-label="Choose a transcript"></select></div>
+<div class="app">
+  <nav class="rail" id="rail" aria-label="Transcripts"></nav>
+  <main class="pane" id="pane"></main>
+</div>
+<div class="tip" id="tip" hidden></div>
+<script>
+const DATA = /*__DATA__*/;
+</script>
+<script>
+(function () {
+  const D = DATA;
+  const EIGHT = new Set(D.eight);
+  const vocab = D.vocab;
+  const famOfId = {};
+  for (const [name, f] of Object.entries(D.families)) for (const id of f.ids) (famOfId[id] = famOfId[id] || []).push(name);
+  const POS_LABEL = {
+    resp_last: "last response token", postresp_slot0: "slot 0 <|im_end|>", postresp_slot1: "slot 1 newline",
+    postresp_slot2: "slot 2 <|im_start|>", postresp_slot3: "slot 3 user", postresp_slot4: "slot 4 newline",
+  };
+  const CAT_LABEL = {
+    eight: "one of the eight families", lie: "other lie-side family", truth: "truth-side family",
+    fam: "other family, or a situation word", echo: "copies a word of the conversation",
+    chat: "about the chat", none: "no meaning or unrelated", plain: "untagged",
+  };
+  const state = { t: 0, pos: "postresp_slot1", all: false, hl: null };
+
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function show(tok) { return tok.replace(/\n/g, "⏎").replace(/^ /, "␣").replace(/ /g, "␣"); }
+  function tagOf(id, tr) {
+    const fams = famOfId[id] || [];
+    const kind = D.kinds[id];
+    const echo = tr.echoSet.has(id);
+    let cat;
+    if (fams.some(n => EIGHT.has(n))) cat = "eight";
+    else if (fams.some(n => D.families[n].side === "lie")) cat = "lie";
+    else if (fams.some(n => D.families[n].side === "truth")) cat = "truth";
+    else if (fams.length || kind === "deception_situation") cat = "fam";
+    else if (echo) cat = "echo";
+    else if (kind) {
+      const lv = D.kind_level[kind];
+      cat = lv === "about the chat" ? "chat" : (lv === "no meaning" || lv === "unrelated") ? "none" : "plain";
+    } else cat = "plain";
+    const parts = [];
+    if (fams.length) parts.push("family " + fams.map(n => n + " (" + D.families[n].side + ")").join(", "));
+    if (kind) parts.push("kind: " + kind.replace(/_/g, " "));
+    if (echo) parts.push("copies a word of the conversation");
+    return { cat, label: parts.join(" · ") || CAT_LABEL.plain };
+  }
+  function ranges(layers) {
+    const out = []; let a = null, b = null;
+    for (const l of layers) {
+      if (a === null) { a = b = l; } else if (l === b + 1) { b = l; } else { out.push(a === b ? "" + a : a + "–" + b); a = b = l; }
+    }
+    if (a !== null) out.push(a === b ? "" + a : a + "–" + b);
+    return out.join(", ");
+  }
+
+  // ---------- intro and rail
+  const c8 = D.counts["eight"], c9 = D.counts["eight + conceal"];
+  document.getElementById("intro").innerHTML =
+    `Qwen3.6-27B, J-lens, build split. A lie is <i>missed</i> when none of the eight families (${D.eight.join(", ")}) is in the ` +
+    `top-16 readout at any layer ${D.band[0]}–${D.band[1]} at the newline after the response. ` +
+    `<span class="counts">Missed: ${c8.lies_missed[0]} of ${c8.lies_missed[1]} lies (truths flagged ${c8.truths_flagged[0]} of ${c8.truths_flagged[1]}); ` +
+    `with conceal added, ${c9.lies_missed[0]} of ${c9.lies_missed[1]} (truths flagged ${c9.truths_flagged[0]} of ${c9.truths_flagged[1]}).</span> ` +
+    `The 19 misses are listed first, then ${D.split.caught} caught lies drawn at random for comparison, then the ${D.split.one_token} other one-token responses. ` +
+    `The self-report question is appended after this readout is computed, so the answers shown below cannot affect it. ` +
+    `Keys: <span class="kbd">↑</span> <span class="kbd">↓</span> change transcript.`;
+
+  const trs = D.transcripts;
+  for (const tr of trs) tr.echoSet = new Set(tr.echo);
+  const groups = [
+    { title: "No lie-side word at the newline", note: "none of the 58 draft families on the lie side is present at slot 1", list: trs.filter(t => t.group === "miss" && !t.other_lie_side.length) },
+    { title: "A lie-side word outside the eight", note: "evade, conceal, vague or bluff is present at slot 1", list: trs.filter(t => t.group === "miss" && t.other_lie_side.length) },
+    { title: "Caught lies, for comparison", note: `${D.split.caught} of the ${D.n_caught_all} lies with one or more of the eight at slot 1, drawn at random (seed ${D.seed})`, list: trs.filter(t => t.group === "caught") },
+    { title: "Other one-token responses", note: `every other response of one token: lies ${D.n_one_token.lie}, truths ${D.n_one_token.truth}, no-pressure truths ${D.n_one_token.np_truth}, unrelated ${D.n_one_token.unrelated} (two of the misses above are one token too)`, list: trs.filter(t => t.group === "one_token") },
+  ];
+  const CLS_LABEL = { lie: "lie", truth: "truth", np_truth: "no-pressure truth", np_lie: "no-pressure lie", unrelated: "unrelated chat" };
+  function kindOf(tr) {
+    if (tr.cls === "lie") return tr.eight_present.length ? "caught lie" : "missed lie";
+    if (tr.cls === "truth" || tr.cls === "np_truth") return CLS_LABEL[tr.cls] + (tr.eight_present.length ? ", flagged" : ", quiet");
+    return CLS_LABEL[tr.cls] || tr.cls;
+  }
+  const rail = document.getElementById("rail"), pick = document.getElementById("pick");
+  for (const g of groups) {
+    rail.insertAdjacentHTML("beforeend", `<h3>${esc(g.title)} (${g.list.length})</h3><p class="note">${esc(g.note)}</p>`);
+    const og = document.createElement("optgroup"); og.label = `${g.title} (${g.list.length})`; pick.appendChild(og);
+    for (const tr of g.list) {
+      const ans = tr.answers.map(a => `<span class="${a.label === "admit" ? "a" : a.label === "deny" ? "d" : "o"}" title="${esc(a.wording)}: ${esc(a.label || "?")}">${(a.label || "?")[0]}</span>`).join("");
+      const chips = (tr.eight_present.length ? `<span class="chip eight">${tr.eight_present.length} of the eight</span>` : "") +
+        tr.other_lie_side.map(n => `<span class="chip lie">${esc(n)}</span>`).join("");
+      rail.insertAdjacentHTML("beforeend",
+        `<button class="item" type="button" data-n="${tr.n}" id="item-${tr.n}"><span class="num">${tr.n}</span>` +
+        `<span class="body"><span class="line1"><span class="scen">${esc(tr.scenario.slice(-6))} k${tr.k}</span>${tr.group === "one_token" ? `<span class="len">${esc(kindOf(tr))}</span>` : ""}<span class="len">${tr.response_tokens} tok</span></span>` +
+        `<span class="line2"><span class="badges">${ans}</span>${chips}</span></span></button>`);
+      const o = document.createElement("option"); o.value = tr.n; o.textContent = `${tr.n}. ${tr.scenario.slice(-6)} k${tr.k}, ${tr.response_tokens} tokens`; og.appendChild(o);
+    }
+  }
+  rail.addEventListener("click", e => { const b = e.target.closest(".item"); if (b) select(+b.dataset.n); });
+  pick.addEventListener("change", () => select(+pick.value));
+
+  // ---------- the pane
+  const pane = document.getElementById("pane");
+  function responseHtml(tr) {
+    const s = tr.quote_span;
+    if (!s || s[1] <= s[0] || s[1] > tr.response.length) return esc(tr.response);
+    return esc(tr.response.slice(0, s[0])) + "<mark>" + esc(tr.response.slice(s[0], s[1])) + "</mark>" + esc(tr.response.slice(s[1]));
+  }
+  function render() {
+    const tr = trs[state.t];
+    const sibs = tr.siblings.length
+      ? tr.siblings.map(s => `${({ np_truth: "no-pressure truth", np_lie: "no-pressure lie" })[s.label] || s.label} k${s.k}: ${s.label.endsWith("lie") ? (s.flagged ? "caught" : "missed") : (s.flagged ? "flagged" : "quiet")}`).join("; ")
+      : "none in the build split";
+    const famChips = tr.families_present.map(n => `<span class="chip ${EIGHT.has(n) ? "eight" : D.families[n].side}">${esc(n)}</span>`).join(" ") || "<span class='sib'>none</span>";
+    pane.innerHTML = `
+      <div class="block">
+        <h2>${tr.n} of ${trs.length} · ${esc(kindOf(tr))} · ${esc(tr.scenario.replace("mask_provided_facts_", ""))}</h2>
+        <div class="meta">
+          <span>${tr.cls === "unrelated" ? "unrelated chat (no judge)" : `judge: <b>${esc(tr.label)}</b>, stance <b>${esc(tr.stance || "–")}</b>`}</span>
+          <span>sample: <b>${tr.temperature === 0 ? "greedy" : "temperature " + tr.temperature}</b>, k${tr.k}</span>
+          <span>response: <b>${tr.response_tokens}</b> tokens</span>
+          <span>same scenario, other transcripts: <b>${esc(sibs)}</b></span>
+        </div>
+        <div class="sib">Draft families present at slot 1 (band): ${famChips}</div>
+      </div>
+      ${tr.true_statement ? `<div class="block">
+        <h3>The fact</h3>
+        <div class="fact"><span class="k">true</span><span>${esc(tr.true_statement)}</span><span class="k">false</span><span>${esc(tr.false_statement)}</span></div>
+      </div>` : ""}
+      ${tr.judge_reason || tr.quote ? `<div class="block">
+        <h3>Judge</h3>
+        <div class="prose small">${esc(tr.judge_reason)}</div>
+        <div class="sib">Quoted lie: ${tr.quote ? "<mark>" + esc(tr.quote) + "</mark>" : "none given"}${tr.quote && !tr.quote_span ? " (not located in the response)" : ""}</div>
+      </div>` : ""}
+      ${tr.system ? `<details><summary>System prompt</summary><div class="prose small">${esc(tr.system)}</div></details>` : ""}
+      <div class="block"><h3>User</h3><div class="prose">${esc(tr.user_prompt)}</div></div>
+      <div class="block"><h3>Response</h3><div class="prose">${responseHtml(tr)}</div></div>
+      <div class="block">
+        <h3>Self-report answers (asked after the readout below was computed)</h3>
+        <div class="answers">${tr.answers.map(a =>
+          `<div class="answer"><span class="w">${esc(a.wording)}</span><span class="l ${esc(a.label)}">${esc(a.label || "?")}</span>` +
+          `<span class="t">${esc(a.text.length > 220 ? a.text.slice(0, 220) + "…" : a.text)}${a.finished ? "" : " [cut off]"}</span>` +
+          `<span class="q">${esc(a.question)}</span></div>`).join("")}</div>
+      </div>
+      <div class="block">
+        <h3>Readout (J-lens, top 16 per layer)</h3>
+        <div class="ro-head">
+          <div class="tabs" role="tablist" id="tabs">${D.positions.map(p =>
+            `<button class="tab" role="tab" type="button" data-pos="${p}" aria-selected="${p === state.pos}">${esc(POS_LABEL[p])}</button>`).join("")}</div>
+          <label class="toggle"><input type="checkbox" id="all" ${state.all ? "checked" : ""}> all 64 layers (band ${D.band[0]}–${D.band[1]} is boxed)</label>
+        </div>
+        <div class="legend">${Object.entries(CAT_LABEL).map(([k, v]) => `<span style="--sw: var(--c-${k})">${esc(v)}</span>`).join("")}<span class="next">the token that actually comes next</span></div>
+        <div class="two">
+          <div class="gridwrap" id="gridwrap"></div>
+          <div class="tokwrap" id="tokwrap"></div>
+        </div>
+      </div>`;
+    pane.querySelector("#tabs").addEventListener("click", e => { const b = e.target.closest(".tab"); if (b) { state.pos = b.dataset.pos; state.hl = null; renderReadout(); } });
+    pane.querySelector("#all").addEventListener("change", e => { state.all = e.target.checked; renderReadout(); });
+    renderReadout();
+    for (const b of rail.querySelectorAll(".item")) b.setAttribute("aria-current", +b.dataset.n === tr.n ? "true" : "false");
+    pick.value = tr.n;
+    const cur = document.getElementById("item-" + tr.n); if (cur) cur.scrollIntoView({ block: "nearest" });
+  }
+
+  function renderReadout() {
+    const tr = trs[state.t], ro = tr.readouts[state.pos];
+    for (const b of pane.querySelectorAll(".tab")) b.setAttribute("aria-selected", b.dataset.pos === state.pos ? "true" : "false");
+    const [lo, hi] = D.band;
+    const layers = D.layers.filter(l => state.all || (l >= lo && l <= hi));
+    // the grid
+    let h = `<table class="grid"><thead><tr><th class="layer">layer</th>${Array.from({ length: 16 }, (_, i) => `<th>${i + 1}</th>`).join("")}</tr></thead><tbody>`;
+    for (const l of layers) {
+      const inBand = l >= lo && l <= hi;
+      const cls = [inBand ? "band" : "off", l === lo ? "band-start" : "", l === hi ? "band-end" : ""].join(" ");
+      h += `<tr class="${cls}"><td class="layer">${l}</td>`;
+      ro.ids[l].forEach((id, r) => {
+        const tag = tagOf(id, tr);
+        const nx = id === ro.next_id ? " next" : "";
+        const hl = state.hl === id ? " hl" : "";
+        h += `<td class="tok c-${tag.cat}${nx}${hl}" data-id="${id}" data-p="${ro.p[l][r]}" data-l="${l}">${esc(show(vocab[id]))}</td>`;
+      });
+      h += "</tr>";
+    }
+    h += "</tbody></table>";
+    const gw = document.getElementById("gridwrap"); gw.innerHTML = h;
+    // the distinct-token list, by layers in the band
+    const agg = new Map();
+    for (const l of D.layers) ro.ids[l].forEach((id, r) => {
+      const a = agg.get(id) || { id, layers: [], band: 0, maxp: 0 };
+      a.layers.push(l); if (l >= lo && l <= hi) a.band++; a.maxp = Math.max(a.maxp, ro.p[l][r]); agg.set(id, a);
+    });
+    const rows = [...agg.values()].filter(a => state.all || a.band > 0).sort((a, b) => b.band - a.band || b.maxp - a.maxp);
+    let t = `<table class="toklist"><thead><tr><th>token</th><th>tag</th><th title="layers of the band where the token is in the top 16">band layers</th><th>layers</th><th>max p</th></tr></thead><tbody>`;
+    for (const a of rows) {
+      const tag = tagOf(a.id, tr);
+      t += `<tr class="toklist${state.hl === a.id ? " hl" : ""}" data-id="${a.id}"><td class="t c-${tag.cat}">${esc(show(vocab[a.id]))}${a.id === ro.next_id ? " ◌" : ""}</td>` +
+        `<td>${esc(tag.label)}</td><td class="n">${a.band}</td><td>${ranges(a.layers)}</td><td class="n">${a.maxp.toFixed(3)}</td></tr>`;
+    }
+    t += "</tbody></table>";
+    const tw = document.getElementById("tokwrap");
+    tw.innerHTML = `<div class="sib" style="margin:0 0 6px">${rows.length} distinct tokens ${state.all ? "at any layer" : "in the band"}; the token at this position is <span class="t" style="font-family:var(--mono)">${esc(show(ro.token))}</span>. ◌ marks the token that actually comes next.</div>` + t;
+    tw.querySelector("table").addEventListener("click", e => { const r = e.target.closest("tr[data-id]"); if (r) { state.hl = state.hl === +r.dataset.id ? null : +r.dataset.id; renderReadout(); } });
+    gw.addEventListener("click", e => { const c = e.target.closest("td.tok"); if (c) { state.hl = state.hl === +c.dataset.id ? null : +c.dataset.id; renderReadout(); } });
+  }
+
+  // tooltip on the grid
+  const tip = document.getElementById("tip");
+  document.addEventListener("mousemove", e => {
+    const c = e.target.closest && e.target.closest("td.tok");
+    if (!c) { tip.hidden = true; return; }
+    const tr = trs[state.t], id = +c.dataset.id, tag = tagOf(id, tr);
+    tip.innerHTML = `<span class="t">${esc(show(vocab[id]))}</span> · layer ${c.dataset.l} · p ${(+c.dataset.p).toFixed(3)}<br>${esc(tag.label)}${id === tr.readouts[state.pos].next_id ? "<br>the token that actually comes next" : ""}`;
+    tip.hidden = false;
+    const x = Math.min(e.clientX + 14, window.innerWidth - 330), y = e.clientY + 16;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  });
+
+  function select(n) {
+    const i = trs.findIndex(t => t.n === n); if (i < 0) return;
+    state.t = i; state.hl = null;
+    try { history.replaceState(null, "", "#t" + n); } catch (err) { /* ignore */ }
+    render();
+    window.scrollTo({ top: 0 });
+  }
+  document.addEventListener("keydown", e => {
+    if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT") return;
+    if (e.key === "ArrowDown" || e.key === "j") { e.preventDefault(); select(trs[Math.min(trs.length - 1, state.t + 1)].n); }
+    if (e.key === "ArrowUp" || e.key === "k") { e.preventDefault(); select(trs[Math.max(0, state.t - 1)].n); }
+  });
+  const m = /^#t(\d+)$/.exec(location.hash);
+  const first = m ? +m[1] : trs[0].n;
+  state.t = Math.max(0, trs.findIndex(t => t.n === first));
+  render();
+})();
+</script>
+</body>
+</html>

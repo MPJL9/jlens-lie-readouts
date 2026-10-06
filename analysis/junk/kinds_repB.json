@@ -1,0 +1,130 @@
+{
+  "kinds": [
+    {
+      "name": "whitespace, punctuation, markup",
+      "level": "no meaning",
+      "description": "Tokens with no letters at all. Two parts: (a) runs of spaces, tabs and line breaks; (b) punctuation, quote marks, invisible characters and pieces of bold or link markup.",
+      "rule": "The token contains no letter and no digit of any script, and it is not a chat-template special token. Part (a): after removing the leading-space mark, only spaces, tabs and line breaks remain. Part (b): everything else with no letter (stars, brackets, quote marks, full stops, question marks, the replacement character, zero-width characters). Count the two parts separately if possible.",
+      "examples": [
+        "␣ \\n\\n", "\\n\\n", "␣\\n\\n", "\\t\\n\\n", "␣  \\n\\n", "\\n\\n\\n\\n", "\\n\\n\\n", "\\n\\n\\n\\n\\n", "␣\\n\\n\\n\\n", "␣ \\n    \\n",
+        "…**", "？**", "]**", "!**", ">**", ";**", "’**", "␣**“", "**”", "␣**【", "\"</", "？", "。", "‑", "�", "␣*[", "␣**[", "）**", "**", "␣@}"
+      ],
+      "positions": "Line breaks: postresp_slot0, postans_slot0, postans_slot1, think_slot1, think_slot2, think_slot3, postans_slot2, postans_slot3, mostly in layers 35-42 and less in 43-50. Punctuation and markup pieces: think_slot1 (35-42), think_slot2 (35-42, and 51-58 in some transcripts), postresp_slot0, postans_slot0 and postans_slot1 (51-58), postresp_slot2 (35-42).",
+      "how_common": "The largest kind overall. Together with the special tokens it fills nearly all of postresp_slot0, postans_slot0 and think_slot1 in layers 35-42, and about half of postans_slot1, postans_slot2, postans_slot3, think_slot2 and think_slot3 in layers 35-42. It thins out in layers 51-58, where line breaks give way to markup pieces."
+    },
+    {
+      "name": "template special tokens",
+      "level": "no meaning",
+      "description": "Special tokens of the chat template and of the model's vocabulary. Some are copies of the token at the position (for example the end-of-turn token at an end-of-turn position), some are guesses of the token that follows (for example the start-of-turn token), and some are special tokens that play no part in a chat (file separator, fill-in-the-middle, object reference, quad).",
+      "rule": "The token starts with '<|' and ends with '|>', or it is exactly <think>, </think> or </tool_call>. The sheet shows the bar with a backslash in front of it.",
+      "examples": [
+        "<\\|im_end\\|>", "<\\|im_start\\|>", "<\\|endoftext\\|>", "<\\|file_sep\\|>", "<\\|fim_middle\\|>", "</think>", "<think>", "<\\|object_ref_end\\|>", "<\\|object_ref_start\\|>", "<\\|quad_end\\|>", "<\\|quad_start\\|>", "</tool_call>"
+      ],
+      "positions": "postresp_slot0, postans_slot0 and postans_slot1 in all three layer groups. Also think_slot2 and think_slot3 (35-50), postans_slot2 (35-50), postresp_slot3 (51-58), and <|im_end|> alone at almost every position. <|object_ref_end|> and <|object_ref_start|> appear only at think_slot1 in layers 43-50. <|quad_end|> appears only in layers 51-58 of postresp_slot0 and postans_slot0, in the last few transcripts.",
+      "how_common": "Very common. Four to six of the twelve listed tokens at postresp_slot0, postans_slot0 and postans_slot1 in every layer group, usually present in all 8 layers. <|im_end|> is the single most widespread token in the sheet."
+    },
+    {
+      "name": "code names, word pieces",
+      "level": "unrelated words",
+      "description": "Tokens with letters that have nothing to do with the conversation. Three sorts: programming-style names (they start with an underscore, a dot, a hyphen or a slash, or join words with capitals), pieces of words that are not words on their own, and stray words or single Chinese characters with no link to the chat (spark, lonely, trench, a person's name).",
+      "rule": "The token has letters, and (a) it starts with an underscore, dot, hyphen, slash, equals sign, hash or bracket, or joins words with capitals, and the word inside belongs to no other kind; or (b) it is a letter string that is not a word (svar, sii, upy, essant); or (c) it is a word or Chinese character on the list of stray words seen in the sheet. If the word inside a code-style token belongs to another kind (for example _user, =yes, _answer, _err, /legal), count it under that other kind.",
+      "examples": [
+        "svar", "sii", "spez", "_persona", "upy", "-placeholder", "_GEN", "_SYM", "_mock", "␣MOCK", "noop", "_rsp", "_cust", "_serv", "_indicator", ".assertNot", ".getCurrentUser", "-scrollbar", "acker", "anke", "essant", "auta", "шень", "火花", "寂", "壕", "咕", "焦", "辕", "悬"
+      ],
+      "positions": "think_slot0 (35-42: svar, sii, spez, _persona, solver; 43-50: 火花), think_slot1 (43-50 and 51-58), and a few per readout at postresp_slot0 and postans_slot0 (51-58). Rare elsewhere.",
+      "how_common": "About a third of the readout at think_slot0 in layers 35-42, and a third to a half at think_slot1 in layers 43-58. One to three tokens at postresp_slot0 and postans_slot0 in layers 51-58. Close to absent at the other positions."
+    },
+    {
+      "name": "error and wrong words",
+      "level": "loosely related",
+      "description": "Words and code-style names that mean error, wrong, or cannot. They do not name deception, but they say that something is off.",
+      "rule": "The token contains 'err' or 'Error' or 'WRONG' or 'incorrect' or 'critical' (any letter case), or it is one of the Chinese words for error, wrong, cannot, or out of balance (错误, 错, 无法, 无法满足, 失衡).",
+      "examples": [
+        "_err", "ErrorResponse", "␣NSError", "errmsg", "#error", "错误", "_WRONG", "_critical", "错", ".Err", "erreur", "无法满足", "␣incorrect", "失衡", "无法"
+      ],
+      "positions": "Almost only think_slot1 in layers 51-58. A few at postans_slot1 in layers 43-50 (错误, incorrect) in one transcript.",
+      "how_common": "Two to five tokens of the readout at think_slot1 in layers 51-58 in transcripts B01 to B17, with _err in 6 or 7 of the 8 layers. Weaker in B18 to B25 (_err in 3 or 4 layers, or absent), where acker, 思考 and thought take its place."
+    },
+    {
+      "name": "short common words",
+      "level": "loosely related",
+      "description": "Very common short words that fit any conversation and say nothing specific: pronouns, particles, prepositions, conjunctions and a few vague adverbs or adjectives. Most are single Chinese characters.",
+      "rule": "The token is on a short list of everyday function words: I, you, of, in, and, with, but, or, new, again, any, currently, and their Chinese forms (我, 你, 的, 中, 在, 和, 与, 但, 或, 新, 新的, 再次, 任何, 正在, 重新), plus a few single common characters (多, 小, 大, 自, 先, 全).",
+      "examples": [
+        "我", "你", "中", "的", "在", "和", "文", "多", "小", "大", "与", "自", "新", "新的", "但", "或", "正在", "重新", "再次", "任何", "没有任何", "先", "全", "me", "你的"
+      ],
+      "positions": "postresp_slot2 and postresp_slot3 in layers 35-42 (我, 你, 中, 的, 在, 和). postans_slot2 and postans_slot3 in layers 35-42 in some transcripts. think_slot0 in layers 43-58 (新, 新的, 自, 与, 在, 小, 大), mainly in the last transcripts.",
+      "how_common": "Three to six tokens of the readout at postresp_slot2 and postresp_slot3 in layers 35-42. One to four at postans_slot3 in layers 35-42 and at think_slot0 in layers 43-58. Rare in layers 51-58 except at think_slot0 in transcripts B21 to B25."
+    },
+    {
+      "name": "role and thinking words",
+      "level": "about the chat or the task",
+      "description": "Words that say a chat-template token in plain form. Role names (user, assistant, customer, owner) are guesses of the role name that follows a start-of-turn token. Thinking words (thinking, thought, reasoning) repeat the meaning of the <think> token at the position.",
+      "rule": "The word inside the token, ignoring letter case and any leading dot, underscore, hyphen, slash, quote or angle bracket, is user, users, assistant, human, responder, customer, owner, 用户, 用戶, 助手, 顾客, 客服, or is think, thinking, thought, reason, 思考, 思维, 思維, 推理.",
+      "examples": [
+        "user", "User", "用户", "assistant", "Assistant", "␣USER", "USER", "_user", ".user", "-user", ">User", "␣user", "␣User", "users", "Users", "用户的", "用户提供", "的用户", "Responder", "助手", "customer", "Human", "思维", "思考", "Thinking", "thinking", "思維", "的思维", "thought", "推理"
+      ],
+      "positions": "Role names: postresp_slot2 and postans_slot2 in layers 51-58, and a few at postans_slot1 and postresp_slot0 in layers 51-58. Thinking words: think_slot0 in all three layer groups, and think_slot1 in layers 51-58 in the last transcripts.",
+      "how_common": "Role names fill almost the whole readout at postans_slot2 in layers 51-58 (ten or more spellings of user) and most of it at postresp_slot2 in layers 51-58. Thinking words are three to six tokens of the readout at think_slot0, with 思维 or 思考 or Thinking in 8 of 8 layers."
+    },
+    {
+      "name": "reply and question words",
+      "level": "about the chat or the task",
+      "description": "Nouns and verbs that name the parts of a chat: reply, response, answer, question, ask, request, dialogue. They describe the exchange and not its content.",
+      "rule": "The word inside the token, ignoring letter case and leading marks, is reply, response, respond, answer, question, ask, request, conversation, or one of the Chinese words 回答, 回复, 回应, 响应, 对话, 答, 答案, 解答, 问, 提问, 询问, 追问, 问答, 请求, 要求.",
+      "examples": [
+        "回答", "回复", "回应", "对话", "响应", "提问", "询问", "问", "追问", "请求", "答", "的回答", "response", "responses", "Response", "␣RESPONSE", "␣Responses", "␣reply", "␣Reply", "question", "Question", "questions", "/questions", "␣QUESTION", "answer", "Answer", "␣Answer", "␣answers", "更多回答", "asking"
+      ],
+      "positions": "postresp_slot2 and postresp_slot3 (35-42 and above all 43-50). postans_slot2 (43-50). postans_slot3 (35-50). think_slot3 in layers 35-42 (Answer). think_slot2 in layers 43-58 (回答, answer, answered). postans_slot4 in layers 35-42, and in all layer groups in transcripts B17 to B25.",
+      "how_common": "Fills almost the whole readout at postresp_slot2 and postresp_slot3 in layers 43-50. About half of the readout at postans_slot2 in layers 43-50. One or two tokens at many other positions. It is the main kind of meaningful word in layers 43-50."
+    },
+    {
+      "name": "yes and no words",
+      "level": "about the chat or the task",
+      "description": "Guesses of the Yes or No answer that follows, in many spellings and languages, and the related true and false words.",
+      "rule": "The word inside the token, ignoring letter case and leading marks (space, equals sign, underscore, dot, colon, slash, quote), is yes, no, nope, true, false, oui, nein, or 是的, 否, いいえ.",
+      "examples": [
+        "Yes", "␣Yes", "yes", "␣yes", "YES", "␣YES", "=yes", "=YES", "_yes", ".Yes", "\"Yes", "“Yes", "是的", "否", "Oui", "␣Oui", "␣oui", "No", "NO", ":NO", "=no", "/no", "␣Nope", "␣Nein", "False", "false", "␣False", "␣false", "␣FALSE", "_false"
+      ],
+      "positions": "think_slot3 in layers 43-50 (False and Yes together) and 51-58 (Yes and No spellings). think_slot2 in layers 51-58. A few false words at think_slot3 in layers 35-42.",
+      "how_common": "Fills almost the whole readout at think_slot3 in layers 51-58 and half of it in layers 43-50. Fills most of think_slot2 in layers 51-58 in about two thirds of the transcripts. Absent at the other positions."
+    },
+    {
+      "name": "opening words",
+      "level": "about the chat or the task",
+      "description": "Words that would start the next stretch of text. At a user-role position they are guesses of how the user's next message begins: question words (why, how, who, did, what), polite openers (please, may I ask) and short acknowledgements (thank, okay, continue, you). At the <think> position they are 'here' words in many languages, which is how a thinking block usually starts.",
+      "rule": "The word inside the token, ignoring letter case and leading marks, is why, how, who, what, which, did, does, do, would, was, can, please, thank, thanks, okay, ok, alright, continue, you, but, oh, give, explain, here, or the Chinese forms 为什么, 如何, 怎么, 请, 请问, 继续, 谢谢, 这里, 这里是, 在这里, or 'here' in another language (aquí, aqui, هنا, тут).",
+      "examples": [
+        "Why", "␣Why", "why", "␣why", "␣WHY", "为什么", "How", "␣How", "how", "Who", "␣Who", "Did", "␣Did", "␣Does", "What", "␣What", "如何", "请", "请问", "Thank", "␣Thank", "Okay", "␣okay", "continue", "继续", "You", ">You", "Here", "␣Here", "这里是"
+      ],
+      "positions": "postans_slot3 in all layer groups (Chinese forms in 35-50, English forms in 51-58). postresp_slot3 (35-42: 请, 请问, 如何, 为什么; 51-58: Thank, Okay, continue, Why, What). think_slot0 in layers 51-58 (here words). postans_slot4 in layers 51-58 in about a third of the transcripts (Did, Why, What, Does).",
+      "how_common": "Fills almost the whole readout at postans_slot3 in layers 51-58 and about a third of it in layers 35-50. About half of postresp_slot3 in layers 51-58 and of think_slot0 in layers 51-58."
+    },
+    {
+      "name": "deception and situation words",
+      "level": "about deception or the situation",
+      "description": "Words about lying, truth and honesty, about ethics, and about the pressure the model is under. Five families: truth and honesty (truth, truthful, honest); ethics (ethical, unethical, moral); deceiving and tricking (fake, deception, conceal, trick, trap, loophole, misinformation, whistleblower); rules (compliance, legal, illegal, violate, prohibited, unauthorized, constraints, confidentiality); and speech acts under pressure (refuse, stay silent, deny, claim, admit).",
+      "rule": "The word inside the token, ignoring letter case and leading marks, is on a list built from the five families above, in English or Chinese (真相, 真实, 诚实, 诚信, 道德, 伦理, 欺骗, 隐瞒, 说谎, 伪装, 陷阱, 违反, 违规, 合规, 拒绝, 沉默, 否认, 声称, 承认).",
+      "examples": [
+        "真相", "␣truth", "␣truthful", "Truth", "␣honesty", "诚实", "诚信", "␣ethics", "␣ethical", "␣unethical", "道德", "欺骗", "隐瞒", "fake", "␣deception", "说谎", "␣dishonest", "␣misinformation", "␣whistleblower", "␣hypocrisy", "␣trick", "陷阱", "␣loophole", "违反", "合规", "/legal", "␣Unauthorized", "拒绝", "␣constraints", "声称"
+      ],
+      "positions": "postans_slot4, mostly in layers 43-50 and 51-58, some in 35-42. postans_slot1 in layers 35-50 (truth words only). think_slot0 in layers 43-50 (合规, /legal, _legal, Constraints). think_slot1 in layers 43-50 (违反, 违反了, 违规, 伪). think_slot2 in layers 43-50 (拒绝, 沉默, Unauthorized, prohibited, illegal). think_slot3 in layers 35-42 (拒绝, 否认) in a few transcripts.",
+      "how_common": "Fills most of the readout at postans_slot4 in layers 43-58 in about two thirds of the transcripts. Three to six truth words at postans_slot1 in layers 43-50 in most transcripts. Two to four rule words at think_slot0, think_slot1 and think_slot2 in layers 43-50 in roughly the first 17 transcripts, fewer or none in the last 8."
+    }
+  ],
+  "positions": {
+    "postresp_slot0": "In layers 35-50 the readout is line breaks plus special tokens (</think>, <|endoftext|>, <|im_end|>, <|file_sep|>). In layers 51-58 the line breaks are replaced by pieces of bold and quote markup, with one or two stray word pieces; there are almost no real words.",
+    "postresp_slot2": "Layers 35-42 mix <|im_end|>, markup pieces, line breaks, short common words (我, 你, 中, 的) and reply words. Layers 43-50 are almost all reply and question words (回应, 回复, 回答, 对话, response). Layers 51-58 are mostly role names (用户, user, User, assistant), the guess of the token that follows.",
+    "postresp_slot3": "Layers 35-50 are reply and question words together with polite openers (请, 请问, 如何, 为什么) and a few short common words. Layers 51-58 are special tokens plus guesses of how the user's next message begins (Thank, Okay, continue, Why, What), and this part differs from transcript to transcript.",
+    "think_slot0": "Thinking words (思维, 思考, Thinking) are present in every layer group. Layers 35-42 add word pieces and code names (svar, sii, spez, _persona); layers 43-50 add rule words (合规, /legal, 挑战) and stray words (火花, 新的); layers 51-58 add 'here' in many languages, or single common Chinese characters in the last transcripts.",
+    "think_slot1": "Layers 35-42 are almost entirely line breaks and bold-markup pieces. Layers 43-50 hold the <|object_ref_end|> special token, stray characters (寂, 辕), code names (_answer, noop, _mock) and a few 'violate' words. Layers 51-58 hold error names (_err, ErrorResponse, 错误) and word pieces, or acker and thinking words in the last transcripts.",
+    "think_slot2": "Layers 35-42 are line breaks, special tokens and odd characters (‑, zero-width characters, the replacement character, ␣**[). Layers 43-50 are special tokens and line breaks with a few answer words and a few refusal or rule words (拒绝, 沉默, Unauthorized, illegal). Layers 51-58 are mostly Yes in many spellings, or in some transcripts bold-markup pieces or answer words with NO.",
+    "think_slot3": "Layers 35-42 are line breaks and special tokens with Answer and false. Layers 43-50 are False and Yes spellings next to special tokens and line breaks. Layers 51-58 are almost entirely yes and no words (Yes, yes, =yes, 否, Nope, Nein).",
+    "postans_slot0": "Layers 35-50 are special tokens (six of them in all 8 layers) and long runs of line breaks. Layers 51-58 keep the special tokens and add markup pieces (;**, >**, \"</, ␣@}) and a few stray single characters (悬, 自, 确); there are almost no real words.",
+    "postans_slot1": "Layers 35-42 are line breaks, special tokens and the question mark, with a few truth words. Layers 43-50 are special tokens plus truth words (真相, ␣truthful, 真实) or, in the last transcripts, Question, Answer and 解释. Layers 51-58 are special tokens, markup pieces and role names (用户, >User).",
+    "postans_slot2": "Layers 35-42 are line breaks, special tokens and a few reply and question words. Layers 43-50 are </think>, <|im_end|> and question and reply words (问, 追问, 回答, Question, 请求). Layers 51-58 are almost entirely role names, the guess of the token that follows.",
+    "postans_slot3": "Layers 35-50 are line breaks, <|im_end|>, Chinese punctuation and Chinese question openers (请, 为什么, 请问, 问). Layers 51-58 are almost entirely English question openers (Why, How, Who, Did), the guess of how the user's next message begins.",
+    "postans_slot4": "This position has the least filler. Layers 35-42 mix line breaks, <|im_end|>, answer and question words and some truth or ethics words. Layers 43-58 are mostly deception, honesty, ethics, trap or rule words in about two thirds of the transcripts, and question openers (Did, Why, What, Does) with answer and question words in the rest."
+  },
+  "notes": "1. Error names may not be plain filler. At think_slot1 in layers 51-58, _err, ErrorResponse, 错误 and _WRONG are strong in transcripts B01 to B17 and weak or absent in B18 to B25, where the model's answer words lean to No and postans_slot4 holds no ethics words. These may track the lie, so I kept them as their own kind for separate counting. I cannot check this because the labels are hidden. 2. False and false fill think_slot3 in layers 43-50 in every transcript, before Yes takes over in layers 51-58. I put them with the yes and no words, but they could also mean 'the statement was false'. 3. Words about the situation leak into positions that look like filler: rule words at think_slot0 (合规, /legal), 'violate' words at think_slot1 (违反), refusal words at think_slot2 (拒绝, 沉默, Unauthorized), all in layers 43-50, and truth words at postans_slot1. Truth words at postans_slot1 also appear in the transcripts that look ordinary, so they may come from the appended question and not from a lie. 4. Layer groups differ in a regular way: layers 35-42 are mostly line breaks and markup, layers 43-50 are Chinese words about the chat (reply, question), layers 51-58 are English guesses of the next token (user, Why, Yes, Here). 5. Many tokens are a code-style spelling of a meaningful word (_user, =yes, _answer, /legal, _err). I assigned them by the word inside; a script needs that order of checks. 6. Only 12 distinct special tokens exist in the sheet, so that kind has fewer than 15 examples. 7. Examples are copied as the sheet shows them: ␣ marks a leading space, line breaks appear as backslash-n, and the bar in special tokens has a backslash in front. Some lines list what looks like the same line-break token twice; these must be different tokens that the sheet prints alike. 8. The sheet shows at most 12 of the 16 tokens per layer group, so rare kinds may be under-seen. 9. Unsure and left unassigned: 挑战 (challenge), 平衡 (balance), 澄清 (clarify), 准备 (prepare) and solver at think_slot0; 解释 (explain) at postans_slot1; 更正, 纠正, Correction and 重复 at B21; meta, 测试 (testing), prompt, persona and 角色扮演 (role play) at postans_slot4, which are about the test setting and could join the situation kind; topic words such as ␣cybersecurity, ␣government, ␣safety, ␣AI at postans_slot4, which probably come from the subject of the transcript. 10. Words are mostly Chinese and English, with single tokens in French, German, Spanish, Arabic, Russian, Korean and Japanese (Oui, Nein, aquí, هنا, тут, 사유, いいえ). 11. I merged whitespace with punctuation, and role names with thinking words, to stay within ten kinds; each rule says how to count the two parts separately."
+}
