@@ -1,7 +1,8 @@
 # J-lens readouts and lies
 
-Code, results and a data pointer for the post *On Qwen, the J-lens readouts at the newline token reveal lies*
-(LessWrong, 2026). Four models (Qwen3.6-27B, Gemma-3-12B-it, Gemma-3-27B-it, gpt-oss-20b) answer MASK
+Code, results and a data pointer for the post
+[*On Qwen, the J-lens readouts at the newline token reveal lies*](https://mpjl9.github.io/blog/jlens-qwen-template-tokens.html).
+Four models (Qwen3.6-27B, Gemma-3-12B-it, Gemma-3-27B-it, gpt-oss-20b) answer MASK
 `provided_facts` prompts that give the model a role and a reason to lie; the residual stream is read as words with
 the Jacobian lens (J-lens) at the chat-template tokens; readout words are grouped by meaning into families and
 counted after lies and truths; a difference-of-means direction is fitted at the same tokens.
