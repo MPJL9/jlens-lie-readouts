@@ -1,4 +1,4 @@
-"""Figure for 5.1 (1): the difference-of-means direction's held-out AUROC at the five template tokens after the
+"""Figure for 5.1: the difference-of-means direction's held-out AUROC at the five template tokens after the
 response (layer 47, lies against truths, all transcripts), one dot with its 95% interval per token, in token order,
 with the AUROC printed above each dot. Same style as scripts/findings_2026_10_04/plot_postans_tokens.py (the 4.6
 figure). Numbers from analysis/probe/qwen3_6_27b/bands.json (scripts/probe/score_bands.py on the exp3_bands cut).
