@@ -52,6 +52,7 @@ on them: every number came out as in `analysis/`.
 | 4.6: the released probe | `scripts/analyze_dyl_probe.py`, `scripts/findings_2026_10_04/probe_answer_tracking.py` | `analysis/dyl_probe.md`, `analysis/findings_2026_10_04/probe_answer_tracking.md` |
 | 4.6: our directions under Q9 | `scripts/heldout/score_q9_directions.py`, `score_q9_rates.py`, `score_layer50.py`, `score_postans.py` | `analysis/heldout/DIRECTION_Q9*.md`, `LAYER50.md`, `POSTANS.md` |
 | 4.6, 3.4: figures | `scripts/findings_2026_10_04/plot_postans_tokens.py`, `plot_template_strip.py` | `blogpost_asset/` |
+| 5.1 (1): the probe at the five tokens after the response, and its figure | `scripts/probe/list_band_positions.py` (the cut list), `scripts/probe/score_bands.py`, `scripts/probe/plot_postresp_tokens.py` | `analysis/probe/qwen3_6_27b/BANDS.md`, `blogpost_asset/F_tokens_after_response.png` |
 | 5.1 (2): families after the self-report answer | `scripts/findings_2026_10_04/after_answer_families.py` | `analysis/findings_2026_10_04/after_answer_families.md` |
 | 5.2, Appendix C: Gemma | `scripts/findings_2026_10_04/gemma_families_by_slot.py` | `analysis/findings_2026_10_04/gemma_families_by_slot.md` |
 | 5.3: the lie-side set inside the response | `scripts/pilot/response_counts.py`, `scripts/pilot/where_words_sit.py` | `analysis/pilot/COUNTS.md` |
